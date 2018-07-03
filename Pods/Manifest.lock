@@ -1,0 +1,83 @@
+PODS:
+  - Aspects (1.4.1)
+  - BeeHive (1.6.0)
+  - Bugly (2.5.0)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
+  - Differentiator (3.0.2)
+  - EvernoteSDK (3.0.0)
+  - MJExtension (3.0.13)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.2):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - SDWebImage (4.4.0):
+    - SDWebImage/Core (= 4.4.0)
+  - SDWebImage/Core (4.4.0)
+  - SnapKit (4.0.0)
+  - SVGKit (2.0.1):
+    - CocoaLumberjack (~> 3.x)
+
+DEPENDENCIES:
+  - Aspects (~> 1.4.1)
+  - BeeHive (~> 1.6.0)
+  - Bugly
+  - EvernoteSDK (~> 3.0)
+  - MJExtension (~> 3.0.13)
+  - RxCocoa (~> 4.1.2)
+  - RxDataSources (~> 3.0.2)
+  - RxSwift (~> 4.1.2)
+  - SDWebImage (~> 4.4.0)
+  - SnapKit (~> 4.0.0)
+  - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Aspects
+    - BeeHive
+    - Bugly
+    - CocoaLumberjack
+    - Differentiator
+    - EvernoteSDK
+    - MJExtension
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - SDWebImage
+    - SnapKit
+
+EXTERNAL SOURCES:
+  SVGKit:
+    :branch: 2.x
+    :git: https://github.com/SVGKit/SVGKit.git
+
+CHECKOUT OPTIONS:
+  SVGKit:
+    :commit: d239c2b1b1476667e0470fc7d794649f70cff5a1
+    :git: https://github.com/SVGKit/SVGKit.git
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  BeeHive: 64c01ddec33b9ef8813701e075eeb732327d0f75
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
+  EvernoteSDK: 7e9de762a9c281e714f3e6d0ae10657db3046792
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
+
+PODFILE CHECKSUM: e5e6884e96c4450f1b769769a6a78857db007e59
+
+COCOAPODS: 1.5.2
