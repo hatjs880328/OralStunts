@@ -603,7 +603,7 @@ static BOOL aspect_isSelectorAllowedAndTrack(NSObject *self, SEL selector, Aspec
                         topmostEntry = topmostEntry.parentEntry;
                     }
                     NSString *errorDescription = [NSString stringWithFormat:@"Error: %@ already hooked in %@. A method can only be hooked once per class hierarchy.", selectorName, NSStringFromClass(topmostEntry.trackedClass)];
-                    AspectError(AspectErrorSelectorAlreadyHookedInClassHierarchy, errorDescription);
+                    //AspectError(AspectErrorSelectorAlreadyHookedInClassHierarchy, errorDescription);
                     return NO;
                 }else if (klass == currentClass) {
                     // Already modified and topmost!

@@ -12,7 +12,7 @@ class VoiceBtnVw: UIView {
     
     var warningLb: UILabel = UILabel()
     
-    let picWeight = APPDelStatic.aWeight / 10 * 6
+    let picWeight = APPDelStatic.aWeight / 2
     
     var vm: VoiceBtnVM!
     

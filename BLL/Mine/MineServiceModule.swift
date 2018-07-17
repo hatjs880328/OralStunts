@@ -21,8 +21,10 @@ class MineServiceModule: ModuleGodFather {
     }
     
     /// 对外暴露出appnotevw方法
-    @objc func getAlertVw(params: [AnyHashable: Any])->UIView {
+    @objc func getAlertVw(params: [AnyHashable: Any])->UIView? {
         let frame = params["frame"] as! CGRect
+        //判定说明-当fathervwframe & snp都为nil或者=0时，subview使用了snp就会报异常
+        if frame.size.width == 0 { return nil }
         let alertVw = APPNoteVw(frame: frame)
         return alertVw
     }

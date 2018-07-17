@@ -1098,8 +1098,6 @@
 				56FDB4AD20AEA3740020A9DE /* APPDelBLL */,
 				5685343C20AD9F6000BDB451 /* Login */,
 				5685343D20AD9F6000BDB451 /* Note */,
-				5685342920AD9E0D00BDB451 /* BaseTabbar */,
-				5685342820AD9E0D00BDB451 /* Export */,
 				5685342420AD9E0D00BDB451 /* Folder */,
 				5685342720AD9E0D00BDB451 /* Lasted */,
 				5685342520AD9E0D00BDB451 /* MianAdd */,
@@ -1360,20 +1358,6 @@
 				56BFC4E320CA25B500618DBC /* CloudMineModule.swift */,
 			);
 			path = Lasted;
-			sourceTree = "<group>";
-		};
-		5685342820AD9E0D00BDB451 /* Export */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Export;
-			sourceTree = "<group>";
-		};
-		5685342920AD9E0D00BDB451 /* BaseTabbar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BaseTabbar;
 			sourceTree = "<group>";
 		};
 		5685342A20AD9E1600BDB451 /* Mine */ = {
