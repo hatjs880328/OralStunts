@@ -24,6 +24,7 @@ PODS:
   - SnapKit (4.0.0)
   - SVGKit (2.0.1):
     - CocoaLumberjack (~> 3.x)
+  - WHDebugTool (1.1)
 
 DEPENDENCIES:
   - Aspects (~> 1.4.1)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.4.0)
   - SnapKit (~> 4.0.0)
   - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
+  - WHDebugTool (~> 1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -52,6 +54,7 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
     - SnapKit
+    - WHDebugTool
 
 EXTERNAL SOURCES:
   SVGKit:
@@ -77,7 +80,8 @@ SPEC CHECKSUMS:
   SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
+  WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
 
-PODFILE CHECKSUM: e5e6884e96c4450f1b769769a6a78857db007e59
+PODFILE CHECKSUM: 78da5ca95350f421510b10a61d175117c9eaf4eb
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

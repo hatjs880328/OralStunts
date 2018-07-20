@@ -27,9 +27,11 @@ class APPDelBLL: NSObject {
         initTheBUGLY()
         initEvernote()
         startNetworkObserver()
+        startCPURecognition()
     }
     
     func initTheFlyMSC() {
+        IFlySetting.showLogcat(false)
         IFlySpeechUtility.createUtility("appid=\(APPDelStatic.iflyKey)")
     }
     
@@ -55,6 +57,15 @@ class APPDelBLL: NSObject {
         var infos = info
         infos.append(MineBLL().getUserInfo().nickName)
         Bugly.reportException(withCategory: 3, name: "用户意见反馈上报", reason: "改进APP体验", callStack: infos, extraInfo: [:], terminateApp: false)
+    }
+    
+    /// 开启GPU & CPU & MEMORY & FPS 监听
+    func startCPURecognition() {
+        func start()->Bool {
+            WHDebugToolManager.sharedInstance().toggle(with: DebugToolType.all)
+            return true
+        }
+        assert(start(), "debug模式下才会开启")
     }
     
 }

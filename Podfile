@@ -26,6 +26,8 @@ target 'OralStunts' do
      pod 'EvernoteSDK', '~> 3.0'
      
      pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+
+     pod 'WHDebugTool', '~> 1.1'
     
 end
 
@@ -52,5 +54,7 @@ target 'OralStuntsTests' do
     pod 'EvernoteSDK', '~> 3.0'
 
     pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+  
+    pod 'WHDebugTool', '~> 1.1'
     
 end
