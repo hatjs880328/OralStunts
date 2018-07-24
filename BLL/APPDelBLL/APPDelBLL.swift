@@ -65,7 +65,7 @@ class APPDelBLL: NSObject {
             WHDebugToolManager.sharedInstance().toggle(with: DebugToolType.all)
             return true
         }
-        assert(start(), "debug模式下才会开启")
+        //assert(start(), "debug模式下才会开启")
     }
     
 }

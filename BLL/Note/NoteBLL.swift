@@ -47,6 +47,11 @@ class NoteBLL: NSObject,IFlySpeechRecognizerDelegate {
         self.flySpeechRec?.delegate = self
     }
     
+    /// 重新设置保存文件的文件名字
+    public func reSetFSRIns(contentName: String) {
+        self.flySpeechRec?.setParameter("\(contentName).pcm", forKey: IFlySpeechConstant.asr_AUDIO_PATH())
+    }
+    
     /// 启动服务
     func startService() {
         self.flySpeechRec?.startListening()
