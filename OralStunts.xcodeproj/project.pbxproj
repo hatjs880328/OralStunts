@@ -99,7 +99,6 @@
 		5685334220AD9AA600BDB451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5685334020AD9AA600BDB451 /* Main.storyboard */; };
 		5685334420AD9AA700BDB451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5685334320AD9AA700BDB451 /* Assets.xcassets */; };
 		5685334720AD9AA700BDB451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5685334520AD9AA700BDB451 /* LaunchScreen.storyboard */; };
-		5685335220AD9AA700BDB451 /* OralStuntsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685335120AD9AA700BDB451 /* OralStuntsTests.swift */; };
 		568533CD20AD9BB800BDB451 /* DingTalkCalendarTrupleVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685335F20AD9BB700BDB451 /* DingTalkCalendarTrupleVModel.swift */; };
 		568533CE20AD9BB800BDB451 /* DingTalkCalanderVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685336020AD9BB700BDB451 /* DingTalkCalanderVModel.swift */; };
 		568533CF20AD9BB800BDB451 /* DingtaskVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685336120AD9BB700BDB451 /* DingtaskVModel.swift */; };
@@ -407,7 +406,6 @@
 		5685334620AD9AA700BDB451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5685334820AD9AA700BDB451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5685334D20AD9AA700BDB451 /* OralStuntsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OralStuntsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5685335120AD9AA700BDB451 /* OralStuntsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OralStuntsTests.swift; sourceTree = "<group>"; };
 		5685335320AD9AA700BDB451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5685335F20AD9BB700BDB451 /* DingTalkCalendarTrupleVModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DingTalkCalendarTrupleVModel.swift; sourceTree = "<group>"; };
 		5685336020AD9BB700BDB451 /* DingTalkCalanderVModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DingTalkCalanderVModel.swift; sourceTree = "<group>"; };
@@ -967,7 +965,6 @@
 		5685335020AD9AA700BDB451 /* OralStuntsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5685335120AD9AA700BDB451 /* OralStuntsTests.swift */,
 				56577BC620C7CE3B00E2327A /* IIModuleTests.swift */,
 				5656808420CE167A0077A49E /* CloudMineTests.swift */,
 				5685335320AD9AA700BDB451 /* Info.plist */,
@@ -982,7 +979,6 @@
 				5685343720AD9F4400BDB451 /* Login */,
 				5685343620AD9F4400BDB451 /* Note */,
 				5685341920AD9DA800BDB451 /* BaseTabbar */,
-				5685341820AD9DA800BDB451 /* Export */,
 				5685341D20AD9DA800BDB451 /* Folder */,
 				5685341C20AD9DA800BDB451 /* Lasted */,
 				5685341A20AD9DA800BDB451 /* MianAdd */,
@@ -2323,7 +2319,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5685335220AD9AA700BDB451 /* OralStuntsTests.swift in Sources */,
 				56F80FE420DE200A0085D5E1 /* IIGCGTest.swift in Sources */,
 				56577BC720C7CE3B00E2327A /* IIModuleTests.swift in Sources */,
 				5656808520CE167A0077A49E /* CloudMineTests.swift in Sources */,

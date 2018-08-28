@@ -20,7 +20,7 @@ class TopHelloVw: UIView {
         self.snp.makeConstraints { (make) in
             make.top.equalTo(APPDelStatic.noNaviTopDistance)
             make.left.equalTo(18)
-            make.width.equalTo(250)
+            make.right.equalTo(-18)
             make.height.equalTo(80)
         }
         self.createVw()

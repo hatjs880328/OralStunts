@@ -53,7 +53,7 @@ class MinePersonalInfoVw: UIView {
         self.addSubview(nameLb)
         nameLb.snp.makeConstraints { (make) in
             make.left.equalTo(10 * APPDelStatic.sizeScale)
-            make.width.equalTo(100)
+            make.right.equalTo(-10)
             make.top.equalTo(10 * APPDelStatic.sizeScale)
             make.height.equalTo(22 * APPDelStatic.sizeScale)
         }
