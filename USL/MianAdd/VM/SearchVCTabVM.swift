@@ -62,6 +62,11 @@ class SearchVCTabVM: NSObject {
         return realmodel
     }
     
+    /// 移动之前处理方法-将bll中展示model赋值
+    func moveNoteProgressShowModel(index: IndexPath) {
+        NoteCreatingBLL.getInstance().showingNoteModel = self.dataSource[index.row]
+    }
+    
     /// 点击事件处理
     func didSelectActionReturnVC(indexPath:IndexPath)->IIBaseViewController {
         let model = self.getData(with: indexPath)
