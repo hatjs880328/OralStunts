@@ -26,6 +26,8 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var endScrollToTop:Bool = true
     
+    let distanceTop: CGFloat = 105 * APPDelStatic.sizeScale
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
@@ -34,12 +36,7 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
     func createVw(topView:UIView,fatherView:UIView) {
         self.topView = topView
         fatherView.addSubview(self)
-        self.snp.makeConstraints { (make) in
-            make.top.equalTo(topView.snp.bottom)
-            make.left.equalTo(0)
-            make.right.equalTo(0)
-            make.bottom.equalTo(-0)
-        }
+        self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - distanceTop - normalDayLineHeight)
         let lightView: UIView = UIView(frame: CGRect.zero)
         self.addSubview(lightView)
         lightView.snp.makeConstraints { (make) in
@@ -172,18 +169,13 @@ extension WorkBenchBotTbVw {
     /// swipe up
     func swipeUp(withAnimation: Bool = false) {
         self.tabVw.contentOffset = CGPoint(x: 0, y: 0)
-        self.snp.remakeConstraints { (make) in
-            make.top.equalTo(self.topView.snp.bottom).offset(normalDayLineHeight)
-            make.left.equalTo(0)
-            make.right.equalTo(0)
-            make.bottom.equalTo(0)
-        }
         if withAnimation {
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.8) {
                 (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.alpha = 1
-                self.layoutIfNeeded()
+                self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
             }
         }else{
+            self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
             (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.alpha = 1
         }
         couldScrollTab(isCould:true)
@@ -192,16 +184,12 @@ extension WorkBenchBotTbVw {
     /// swipe down
     func swipeDown(withAnimation: Bool = false) {
         self.tabVw.contentOffset = CGPoint(x: 0, y: 0)
-        self.snp.remakeConstraints { (make) in
-            make.top.equalTo(topView.snp.bottom).offset(normalDayLineHeight * 6)
-            make.left.equalTo(0)
-            make.right.equalTo(0)
-            make.bottom.equalTo(-0)
-        }
         if withAnimation {
-            UIView.animate(withDuration: 0.5) {
-                self.layoutIfNeeded()
+            UIView.animate(withDuration: 0.8) {
+                self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight * 6, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
             }
+        }else{
+            self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight * 6, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
         }
         couldScrollTab(isCould:false)
     }
