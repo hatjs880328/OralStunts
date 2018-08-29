@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import<AVFoundation/AVFoundation.h>
+//AudioToolbox
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface PcmPlayer : NSObject<AVAudioPlayerDelegate>
 

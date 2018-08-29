@@ -145,6 +145,7 @@ typedef struct Wavehead
     
     NSError *err = nil;
     self.player = [[AVAudioPlayer alloc]initWithData:self.pcmData error:&err];
+    
     if (err)
     {
         NSLog(@"%@",err.localizedDescription);
