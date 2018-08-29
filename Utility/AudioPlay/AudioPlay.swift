@@ -41,12 +41,12 @@ class AudioPlay: NSObject,AVAudioPlayerDelegate {
         do{
             if UIDevice.current.proximityState {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+                try AVAudioSession.sharedInstance().setActive(true)
             }else{
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                try AVAudioSession.sharedInstance().setActive(true)
             }
-        }catch{
-            
-        }
+        }catch{}
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
