@@ -18,7 +18,7 @@ class FilterVw: UIView {
     private var filterInfo: [String] = [] {
         didSet{
             self.titleLab.text = self.filterInfo[1]
-            let charWidth = APPDelStatic.textLength(text: self.titleLab.text!, font: APPDelStatic.uiFont(with: 11))
+            let charWidth = IITextExtension.textLength(text: self.titleLab.text!, font: APPDelStatic.uiFont(with: 11))
             self.titleLab.snp.remakeConstraints { (make) in
                 make.centerX.equalTo(self.snp.centerX)
                 make.width.equalTo(charWidth)

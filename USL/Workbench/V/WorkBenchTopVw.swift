@@ -83,7 +83,7 @@ class WorkBenchTopVw: UIView {
         }
         self.titleLb.text = titleTxt
         // re calculate str width 
-        let dateStrWidth = APPDelStatic.textLength(text: titleTxt, font: APPDelStatic.uiFont(with: 20))
+        let dateStrWidth = IITextExtension.textLength(text: titleTxt, font: APPDelStatic.uiFont(with: 20))
         titleLb.snp.remakeConstraints { (make) in
             make.left.equalTo(15 * APPDelStatic.sizeScale)
             make.bottom.equalTo(0)

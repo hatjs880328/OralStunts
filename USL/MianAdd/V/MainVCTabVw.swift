@@ -38,7 +38,7 @@ class MainVCTabVw: UIView {
             make.bottom.equalTo(0)
             make.top.equalTo(topVw.snp.bottom).offset(5 * APPDelStatic.sizeScale)
         }
-        self.setValues(value: ["未分配便签","创建"])
+        self.setValues(value: ["未分组便签","创建"])
         initVw()
         createVw()
     }

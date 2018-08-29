@@ -56,12 +56,14 @@ class NoteTimelineVModel: NSObject {
         self.createTime = modifyTime.dateToString("编辑时间: yyyy-MM-dd HH:mm")
         self.txt = txt
         let cellWidth = APPDelStatic.aWeight - 36 - 15 * APPDelStatic.sizeScale
-        let realWith = APPDelStatic.textLength(text: self.txt, font: APPDelStatic.uiFont(with: 11))
-        if realWith.truncatingRemainder(dividingBy: cellWidth)  == 0 {
-            self.cellHeight = (realWith / cellWidth * 15  + 90) * APPDelStatic.sizeScale
-        }else{
-            self.cellHeight = ((realWith / cellWidth + 1) * 15 + 90) * APPDelStatic.sizeScale
-        }
+        let realWith = IITextExtension.textLength(text: self.txt, font: APPDelStatic.uiFont(with: 11))
+        let realHeight = IITextExtension.textLength(text: self.txt, font: APPDelStatic.uiFont(with: 11), eachLineWeight: cellWidth)
+//        if realWith.truncatingRemainder(dividingBy: cellWidth)  == 0 {
+//            self.cellHeight = (realWith / cellWidth * 15  + 90) * APPDelStatic.sizeScale
+//        }else{
+//            self.cellHeight = ((realWith / cellWidth + 1) * 15 + 90) * APPDelStatic.sizeScale
+//        }
+        self.cellHeight = (realHeight + 90) * APPDelStatic.sizeScale
         self.contentVolumeArr = contentVolumeArr
     }
 }

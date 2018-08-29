@@ -198,6 +198,7 @@
 		56B4F5D720B6982100CF4A68 /* noteInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B4F5D620B6982000CF4A68 /* noteInfo.png */; };
 		56B4F5D920B698B900CF4A68 /* createNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B4F5D820B698B900CF4A68 /* createNote.png */; };
 		56B4F5DB20B69C5C00CF4A68 /* mianSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56B4F5DA20B69C5C00CF4A68 /* mianSelected@2x.png */; };
+		56B7B8922136350800E26218 /* IITextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B8912136350800E26218 /* IITextExtension.swift */; };
 		56B9163720B55CA2004F1A71 /* TTSBLL.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B9163520B55CA2004F1A71 /* TTSBLL.m */; };
 		56B9163C20B57BFE004F1A71 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9163B20B57BFE004F1A71 /* FolderViewController.swift */; };
 		56B9163E20B57C5B004F1A71 /* TopLeftTitleVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9163D20B57C5B004F1A71 /* TopLeftTitleVw.swift */; };
@@ -509,6 +510,7 @@
 		56B4F5D620B6982000CF4A68 /* noteInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noteInfo.png; sourceTree = "<group>"; };
 		56B4F5D820B698B900CF4A68 /* createNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createNote.png; sourceTree = "<group>"; };
 		56B4F5DA20B69C5C00CF4A68 /* mianSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mianSelected@2x.png"; sourceTree = "<group>"; };
+		56B7B8912136350800E26218 /* IITextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IITextExtension.swift; sourceTree = "<group>"; };
 		56B9163520B55CA2004F1A71 /* TTSBLL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSBLL.m; sourceTree = "<group>"; };
 		56B9163620B55CA2004F1A71 /* TTSBLL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSBLL.h; sourceTree = "<group>"; };
 		56B9163B20B57BFE004F1A71 /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
@@ -923,7 +925,6 @@
 			isa = PBXGroup;
 			children = (
 				56676D9120AE546100905CFD /* Source */,
-				5685344520ADA20D00BDB451 /* Component */,
 				568533BD20AD9BB800BDB451 /* IBLL */,
 				5685339D20AD9BB800BDB451 /* BLL */,
 				5685337820AD9BB800BDB451 /* DAL */,
@@ -1115,6 +1116,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5685344520ADA20D00BDB451 /* Component */,
 				56F80FE020DE153F0085D5E1 /* IIGCD */,
 				56D3E93820C9436A00C8CE46 /* IHTTPRequestSDK */,
 				5613914220C792DD00D4A38A /* ModuleFactory */,
@@ -1136,6 +1138,7 @@
 				568533B220AD9BB800BDB451 /* IIDateExtension.swift */,
 				568533B320AD9BB800BDB451 /* IIStringExtension.swift */,
 				56D6458A20B3EE8200C61AA6 /* IIRXUIKitExtension.swift */,
+				56B7B8912136350800E26218 /* IITextExtension.swift */,
 			);
 			path = CoreExtension;
 			sourceTree = "<group>";
@@ -2165,6 +2168,7 @@
 				56D6458F20B3F18800C61AA6 /* ContextInsertVw.swift in Sources */,
 				563225EC20C8C8610041C612 /* ModuleGodFatherRegister.swift in Sources */,
 				5685340D20AD9BB800BDB451 /* BeanFactory.swift in Sources */,
+				56B7B8922136350800E26218 /* IITextExtension.swift in Sources */,
 				568533E220AD9BB800BDB451 /* TaskContainerVw.swift in Sources */,
 				56676DCD20AE824400905CFD /* MineDAL.swift in Sources */,
 				568533D120AD9BB800BDB451 /* DingtalkTaskVM.swift in Sources */,

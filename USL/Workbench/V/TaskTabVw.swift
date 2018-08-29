@@ -137,7 +137,7 @@ class TaskTBCell: UITableViewCell {
         titleLab.numberOfLines = 0
         titleLab.font = APPDelStatic.uiFont(with: 14)
         // pic
-        let picWidth = APPDelStatic.textLength(text: "MM月dd日 x HH:mm xx", font: APPDelStatic.uiFont(with: 11))
+        let picWidth = IITextExtension.textLength(text: "MM月dd日 x HH:mm xx", font: APPDelStatic.uiFont(with: 11))
         self.addSubview(pic)
         pic.snp.makeConstraints { (make) in
             make.left.equalTo(titleLab.snp.left).offset(0)
@@ -159,7 +159,7 @@ class TaskTBCell: UITableViewCell {
         endTime.font = APPDelStatic.uiFont(with: 11)
         endTime.textColor = UIColor.gray
         // toPerson
-        let toPersonWidth = APPDelStatic.textLength(text: "给自己的", font: APPDelStatic.uiFont(with: 11))
+        let toPersonWidth = IITextExtension.textLength(text: "给自己的", font: APPDelStatic.uiFont(with: 11))
         self.addSubview(toPerson)
         toPerson.snp.makeConstraints { (make) in
             make.left.equalTo(titleLab.snp.left)
@@ -299,7 +299,7 @@ class MeetingTBCell: UITableViewCell {
         addressLb.font = APPDelStatic.uiFont(with: 11)
         addressLb.textColor = UIColor.gray
         // pic
-        let picWidth = APPDelStatic.textLength(text: "MM月dd日 x HH:mm xx", font: APPDelStatic.uiFont(with: 11))
+        let picWidth = IITextExtension.textLength(text: "MM月dd日 x HH:mm xx", font: APPDelStatic.uiFont(with: 11))
         self.addSubview(pic)
         pic.snp.makeConstraints { (make) in
             make.left.equalTo(titleLab.snp.left).offset(0)
@@ -312,7 +312,7 @@ class MeetingTBCell: UITableViewCell {
         pic.layer.borderWidth = 0.5
         
         // toPerson
-        let toPersonWidth = APPDelStatic.textLength(text: "给自己的", font: APPDelStatic.uiFont(with: 11))
+        let toPersonWidth = IITextExtension.textLength(text: "给自己的", font: APPDelStatic.uiFont(with: 11))
         self.addSubview(createPerson)
         createPerson.snp.makeConstraints { (make) in
             make.left.equalTo(titleLab.snp.left)
@@ -375,7 +375,7 @@ class MeetingTBCell: UITableViewCell {
         self.taskLb.text = with.taskCount
         self.addressLb.text = with.address
         
-        let createPersonWidth = APPDelStatic.textLength(text: with.createPerson, font: APPDelStatic.uiFont(with: 11))
+        let createPersonWidth = IITextExtension.textLength(text: with.createPerson, font: APPDelStatic.uiFont(with: 11))
         self.createPerson.snp.remakeConstraints { (make) in
             make.left.equalTo(titleLab.snp.left)
             make.width.equalTo(createPersonWidth)

@@ -30,7 +30,7 @@ class DingtaskVModel: NSObject {
         self.toPerson = "我分配的"
         self.completedInfo = "\(with.completeCount!)/\(with.completedCount!)人已完成"
         self.picUrl = with.picUrl
-        let picWidth = APPDelStatic.textLength(text: "MM月dd日 x HH:mm xx", font: APPDelStatic.uiFont(with: 11)) * 1.3
+        let picWidth = IITextExtension.textLength(text: "MM月dd日 x HH:mm xx", font: APPDelStatic.uiFont(with: 11)) * 1.3
         self.cellHeight = self.picUrl == "" ? 95 : picWidth + 110
         self.createTime = with.createTime.dateToString(formatStr)
     }
