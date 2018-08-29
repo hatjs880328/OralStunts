@@ -36,6 +36,8 @@
 		5659EB0620B797220075A142 /* OTNoteDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659EB0520B797220075A142 /* OTNoteDAL.swift */; };
 		5659EB0920B7AA5F0075A142 /* OTTablistVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659EB0820B7AA5F0075A142 /* OTTablistVw.swift */; };
 		5659EB0B20B7B0EC0075A142 /* MenuList.png in Resources */ = {isa = PBXBuildFile; fileRef = 5659EB0A20B7B0EC0075A142 /* MenuList.png */; };
+		565E6A2C21366BDB00CBD4C3 /* Agora_callU.wav in Resources */ = {isa = PBXBuildFile; fileRef = 565E6A2B21366BDA00CBD4C3 /* Agora_callU.wav */; };
+		565E6A2F21366BF000CBD4C3 /* AudioPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E6A2E21366BF000CBD4C3 /* AudioPlay.swift */; };
 		5665482F20E233B6004DC07C /* IIPitchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665482C20E233B6004DC07C /* IIPitchFilter.swift */; };
 		5665483020E233B6004DC07C /* IIPitchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665482D20E233B6004DC07C /* IIPitchUtility.swift */; };
 		5665483120E233B6004DC07C /* IIPitchCoreOBJC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5665482E20E233B6004DC07C /* IIPitchCoreOBJC.m */; };
@@ -327,6 +329,8 @@
 		5659EB0520B797220075A142 /* OTNoteDAL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTNoteDAL.swift; sourceTree = "<group>"; };
 		5659EB0820B7AA5F0075A142 /* OTTablistVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTablistVw.swift; sourceTree = "<group>"; };
 		5659EB0A20B7B0EC0075A142 /* MenuList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuList.png; sourceTree = "<group>"; };
+		565E6A2B21366BDA00CBD4C3 /* Agora_callU.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Agora_callU.wav; sourceTree = "<group>"; };
+		565E6A2E21366BF000CBD4C3 /* AudioPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlay.swift; sourceTree = "<group>"; };
 		5665482B20E233B6004DC07C /* IIPitchCoreOBJC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIPitchCoreOBJC.h; sourceTree = "<group>"; };
 		5665482C20E233B6004DC07C /* IIPitchFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIPitchFilter.swift; sourceTree = "<group>"; };
 		5665482D20E233B6004DC07C /* IIPitchUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIPitchUtility.swift; sourceTree = "<group>"; };
@@ -689,6 +693,14 @@
 				5659EB0820B7AA5F0075A142 /* OTTablistVw.swift */,
 			);
 			path = OTTablistVw;
+			sourceTree = "<group>";
+		};
+		565E6A2D21366BE400CBD4C3 /* AudioPlay */ = {
+			isa = PBXGroup;
+			children = (
+				565E6A2E21366BF000CBD4C3 /* AudioPlay.swift */,
+			);
+			path = AudioPlay;
 			sourceTree = "<group>";
 		};
 		5665482A20E233B6004DC07C /* IIPitching */ = {
@@ -1116,6 +1128,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				565E6A2D21366BE400CBD4C3 /* AudioPlay */,
 				5685344520ADA20D00BDB451 /* Component */,
 				56F80FE020DE153F0085D5E1 /* IIGCD */,
 				56D3E93820C9436A00C8CE46 /* IHTTPRequestSDK */,
@@ -1560,6 +1573,7 @@
 		56A4C4BE20B3ADB70094916E /* IIFlyMsc */ = {
 			isa = PBXGroup;
 			children = (
+				565E6A2B21366BDA00CBD4C3 /* Agora_callU.wav */,
 				5684C94320B4FB230021585D /* pcmPlayerCode */,
 				56A4C4BF20B3ADB70094916E /* iflyMSC.framework */,
 			);
@@ -1929,6 +1943,7 @@
 				569C38CD20C5118100332D12 /* tooth.png in Resources */,
 				56838DCD20B6BDDE0062C1FE /* Category@2x.png in Resources */,
 				56676DB720AE774400905CFD /* mindSelected@2x.png in Resources */,
+				565E6A2C21366BDB00CBD4C3 /* Agora_callU.wav in Resources */,
 				56B4F5D720B6982100CF4A68 /* noteInfo.png in Resources */,
 				56676DC320AE7C6900905CFD /* folderDeselected@2x.png in Resources */,
 				569912DD20B2BC4A008417B6 /* back@2x.png in Resources */,
@@ -2168,6 +2183,7 @@
 				56D6458F20B3F18800C61AA6 /* ContextInsertVw.swift in Sources */,
 				563225EC20C8C8610041C612 /* ModuleGodFatherRegister.swift in Sources */,
 				5685340D20AD9BB800BDB451 /* BeanFactory.swift in Sources */,
+				565E6A2F21366BF000CBD4C3 /* AudioPlay.swift in Sources */,
 				56B7B8922136350800E26218 /* IITextExtension.swift in Sources */,
 				568533E220AD9BB800BDB451 /* TaskContainerVw.swift in Sources */,
 				56676DCD20AE824400905CFD /* MineDAL.swift in Sources */,

@@ -14,6 +14,8 @@ class NoteVedioPlayBLL: NSObject {
     
     var audioPlayer: PcmPlayer!
     
+    var realPlayer: AudioPlay!
+    
     /// 播放完毕回调函数
     var playEndAction:(()->Void)!
     
@@ -25,7 +27,8 @@ class NoteVedioPlayBLL: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(self.onPlayCompleted(noti:)), name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil)
         let pathNew = try! FileManager.default.url(for: FileManager.SearchPathDirectory.cachesDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("\(pcmName).pcm")
         audioPlayer = PcmPlayer(filePath: pathNew.absoluteString.substringFromIndex(7), sampleRate: 16000)
-        audioPlayer!.play()
+        realPlayer = AudioPlay(with: audioPlayer.realpcmData)
+        realPlayer.play()
     }
     
     /// 播放完毕就移除通知，开始播放就添加监听

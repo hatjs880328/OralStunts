@@ -43,5 +43,6 @@
  whether or not it's playing
  ****/
 @property (nonatomic,assign) BOOL isPlaying;
+@property (nonatomic,assign) NSData *realpcmData;
 
 @end

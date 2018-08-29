@@ -77,7 +77,7 @@ typedef struct Wavehead
  *  write WAV head for audio data
  *
  */
-- (void)writeWaveHead:(NSData *)audioData sampleRate:(long)sampleRate{
+- (NSData *)writeWaveHead:(NSData *)audioData sampleRate:(long)sampleRate{
     Byte waveHead[44];
     waveHead[0] = 'R';
     waveHead[1] = 'I';
@@ -142,7 +142,6 @@ typedef struct Wavehead
     
     self.pcmData = [[NSMutableData alloc]initWithBytes:&waveHead length:sizeof(waveHead)];
     [self.pcmData appendData:audioData];
-    //[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     NSError *err = nil;
     self.player = [[AVAudioPlayer alloc]initWithData:self.pcmData error:&err];
     
@@ -152,6 +151,15 @@ typedef struct Wavehead
     }
     self.player.delegate = self;
     [self.player prepareToPlay];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    [audioSession setActive:YES error:nil];
+    
+    _realpcmData = self.pcmData;
+    return self.pcmData;
     
 }
 
