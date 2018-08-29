@@ -67,7 +67,7 @@ class OTNoteDAL: NSObject {
     
     /// 根据文件夹ID获取文件夹下面的数据
     func getFolderInfos(with folderID: String)->[OTNoteModel] {
-        let sql = "select * from \(tabName) where folderID = '\(folderID)';"
+        let sql = "select * from \(tabName) where folderID = '\(folderID)' order by createTime desc;"
         let arr = FMDatabaseQueuePublicUtils.getResultWithSql(sql: sql)
         
         return progressData(arr)
