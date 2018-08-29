@@ -32,7 +32,7 @@ class AudioPlay: NSObject,AVAudioPlayerDelegate {
             print(error)
         }
         if player!.data!.count <= 44 {
-            NotificationCenter.default.post(name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil, userInfo: nil)
+            postNotification()
         }
         self.player?.play()
     }
@@ -51,11 +51,17 @@ class AudioPlay: NSObject,AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         //播放结束的回调
-        NotificationCenter.default.post(name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil, userInfo: nil)
+        postNotification()
     }
     
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         //错误回调
+        postNotification()
+    }
+    
+    /// 发送结束通知 & 关闭红外感应
+    func postNotification() {
+        UIDevice.current.isProximityMonitoringEnabled = false
         NotificationCenter.default.post(name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil, userInfo: nil)
     }
     
