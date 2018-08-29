@@ -185,6 +185,7 @@
 		56A4C4DE20B3B0C40094916E /* NoteBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4C4DD20B3B0C40094916E /* NoteBLL.swift */; };
 		56A4C4E020B3B6980094916E /* VoiceBtnVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4C4DF20B3B6980094916E /* VoiceBtnVM.swift */; };
 		56A4C4E220B3C19E0094916E /* TtileInsertVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4C4E120B3C19E0094916E /* TtileInsertVM.swift */; };
+		56A58A4821367FF9000E2082 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A58A4721367FF9000E2082 /* Toast.swift */; };
 		56AC1E5020BC1880007D3A5F /* MainVCTabVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC1E4F20BC1880007D3A5F /* MainVCTabVw.swift */; };
 		56AC1E5220BC1F3D007D3A5F /* MianVCTabCreateVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC1E5120BC1F3D007D3A5F /* MianVCTabCreateVw.swift */; };
 		56B170BE20C555FE004C0ACB /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B170BD20C555FE004C0ACB /* HelpViewController.swift */; };
@@ -498,6 +499,7 @@
 		56A4C4DD20B3B0C40094916E /* NoteBLL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBLL.swift; sourceTree = "<group>"; };
 		56A4C4DF20B3B6980094916E /* VoiceBtnVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceBtnVM.swift; sourceTree = "<group>"; };
 		56A4C4E120B3C19E0094916E /* TtileInsertVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TtileInsertVM.swift; sourceTree = "<group>"; };
+		56A58A4721367FF9000E2082 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		56AC1E4F20BC1880007D3A5F /* MainVCTabVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTabVw.swift; sourceTree = "<group>"; };
 		56AC1E5120BC1F3D007D3A5F /* MianVCTabCreateVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MianVCTabCreateVw.swift; sourceTree = "<group>"; };
 		56B170BD20C555FE004C0ACB /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -1128,6 +1130,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				56A58A4621367FEC000E2082 /* Toast */,
 				565E6A2D21366BE400CBD4C3 /* AudioPlay */,
 				5685344520ADA20D00BDB451 /* Component */,
 				56F80FE020DE153F0085D5E1 /* IIGCD */,
@@ -1578,6 +1581,14 @@
 				56A4C4BF20B3ADB70094916E /* iflyMSC.framework */,
 			);
 			path = IIFlyMsc;
+			sourceTree = "<group>";
+		};
+		56A58A4621367FEC000E2082 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				56A58A4721367FF9000E2082 /* Toast.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		56B9163820B57BE8004F1A71 /* V */ = {
@@ -2196,6 +2207,7 @@
 				56B997BF20AFC6050017F478 /* MiddleBtnVw.swift in Sources */,
 				56D3E98520C9436B00C8CE46 /* TaskDelegate.swift in Sources */,
 				56737EDD20C947EC009CBA99 /* CloudMineTabUserInfoCell.swift in Sources */,
+				56A58A4821367FF9000E2082 /* Toast.swift in Sources */,
 				56FDB4BC20AEBA6D0020A9DE /* SearchViewController.swift in Sources */,
 				56676E3120AE8C4800905CFD /* AOP2LvlMemCache.swift in Sources */,
 				56676E7E20AE8DD200905CFD /* FMDatabaseQueuePublicUtils.swift in Sources */,

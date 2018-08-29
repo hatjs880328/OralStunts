@@ -148,6 +148,9 @@ class NoteTimeLineCell: UITableViewCell {
         vedioImg.tapActionsGesture {[weak self]() in
             //播放音频
             if self == nil { return }
+            //显示红外感应提醒vw
+            let vi = Toast(frame: CGRect.zero)
+            vi.show(inSome: self!.viewController()!.view)
             self?.vedioImg.isSelected = true
             self?.vm.playVedio(with: self!.index)
         }
