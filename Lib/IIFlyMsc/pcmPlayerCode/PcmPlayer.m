@@ -176,6 +176,7 @@ typedef struct Wavehead
     {
         self.isPlaying = NO;
         NSLog(@"empty audio data");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"oralTruntsPlayOverNotification" object:nil userInfo:nil];
     }
     
 }
@@ -199,5 +200,8 @@ typedef struct Wavehead
     [[NSNotificationCenter defaultCenter] postNotificationName:@"oralTruntsPlayOverNotification" object:nil userInfo:nil];
 }
 
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"oralTruntsPlayOverNotification" object:nil userInfo:nil];
+}
 
 @end

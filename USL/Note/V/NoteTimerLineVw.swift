@@ -85,11 +85,17 @@ class NoteTimeLineCell: UITableViewCell {
     
     var index:IndexPath!
     
+    /// 播放按钮
+    let vedioImg = UIButton()
+    
     init(style: UITableViewCellStyle, reuseIdentifier: String?,index:IndexPath) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         self.index = index
         initVw()
+        self.vm.setAction {[weak self] () in
+            self?.vedioImg.isSelected = false
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -129,7 +135,7 @@ class NoteTimeLineCell: UITableViewCell {
         circleLine.backgroundColor = APPDelStatic.themeColor
         circleLine.layer.cornerRadius = 3
         // pic
-        let vedioImg = UIImageView()
+        
         self.addSubview(vedioImg)
         vedioImg.snp.makeConstraints { (make) in
             make.left.equalTo(createTime.snp.left)
@@ -137,10 +143,12 @@ class NoteTimeLineCell: UITableViewCell {
             make.top.equalTo(createTime.snp.bottom).offset(10 * APPDelStatic.sizeScale)
             make.height.equalTo(35 * APPDelStatic.sizeScale)
         }
-        vedioImg.image = UIImage(named: "vedioPlay")
+        vedioImg.setImage(UIImage(named: "vedioPlay"), for: UIControlState.normal)
+        vedioImg.setImage(UIImage(named: "more"), for: UIControlState.selected)
         vedioImg.tapActionsGesture {[weak self]() in
             //播放音频
             if self == nil { return }
+            self?.vedioImg.isSelected = true
             self?.vm.playVedio(with: self!.index)
         }
         // volumeVw
