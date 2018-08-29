@@ -142,7 +142,7 @@ typedef struct Wavehead
     
     self.pcmData = [[NSMutableData alloc]initWithBytes:&waveHead length:sizeof(waveHead)];
     [self.pcmData appendData:audioData];
-    
+    //[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     NSError *err = nil;
     self.player = [[AVAudioPlayer alloc]initWithData:self.pcmData error:&err];
     
@@ -167,7 +167,7 @@ typedef struct Wavehead
     self.player.volume=0.8;
     if ([self.pcmData length] > 44)
     {
-        self.player.meteringEnabled = YES;
+        //self.player.meteringEnabled = YES;
         NSLog(@"Audio Duration:%f",self.player.duration);
         
         BOOL ret = [self.player play];
