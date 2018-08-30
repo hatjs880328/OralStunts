@@ -64,7 +64,7 @@ class OTPlayRectLine: CAShapeLayer {
     init(width: CGFloat) {
         super.init()
         self.rectWidth = width
-        self.lineWidth = 2
+        self.lineWidth = 1.5
         self.fillColor = UIColor.clear.cgColor
         self.strokeColor = APPDelStatic.themeColor.cgColor
         self.path = realPath.cgPath
@@ -127,7 +127,7 @@ class OTPlayLeftLine: CAShapeLayer {
     init(width: CGFloat) {
         super.init()
         self.realWidth = width
-        self.lineWidth = 3
+        self.lineWidth = 1.5
         self.fillColor = UIColor.clear.cgColor
         self.strokeColor = APPDelStatic.themeColor.cgColor
         self.path = initPath.cgPath
@@ -135,16 +135,16 @@ class OTPlayLeftLine: CAShapeLayer {
     
     var initPath: UIBezierPath {
         let path1 = UIBezierPath()
-        path1.move(to: CGPoint(x: realWidth / sepCount, y: disTop))
-        path1.addLine(to: CGPoint(x: realWidth / sepCount, y: disTop))
+        path1.move(to: CGPoint(x: 0, y: disTop))
+        path1.addLine(to: CGPoint(x: 0, y: disTop))
         path1.close()
         return path1
     }
     
     var realPath: UIBezierPath {
         let path1 = UIBezierPath()
-        path1.move(to: CGPoint(x: realWidth / sepCount, y: disTop))
-        path1.addLine(to: CGPoint(x: realWidth / sepCount, y: realWidth - disTop))
+        path1.move(to: CGPoint(x: 0, y: disTop))
+        path1.addLine(to: CGPoint(x: 0, y: realWidth - disTop))
         path1.close()
         return path1
     }
@@ -194,7 +194,7 @@ class OTPlayRightLine: CAShapeLayer,CAAnimationDelegate {
     init(width: CGFloat) {
         super.init()
         self.realWidth = width
-        self.lineWidth = 3
+        self.lineWidth = 1.5
         self.fillColor = UIColor.clear.cgColor
         self.strokeColor = APPDelStatic.themeColor.cgColor
         self.path = initPath.cgPath
@@ -202,16 +202,16 @@ class OTPlayRightLine: CAShapeLayer,CAAnimationDelegate {
     
     var realPath: UIBezierPath {
         let path1 = UIBezierPath()
-        path1.move(to: CGPoint(x: realWidth / sepCount * (sepCount - 1), y: realWidth - disTop))
-        path1.addLine(to: CGPoint(x: realWidth / sepCount * (sepCount - 1), y: disTop))
+        path1.move(to: CGPoint(x: realWidth / sepCount * (sepCount - 2), y: realWidth - disTop))
+        path1.addLine(to: CGPoint(x: realWidth / sepCount * (sepCount - 2), y: disTop))
         path1.close()
         return path1
     }
     
     var initPath: UIBezierPath {
         let path1 = UIBezierPath()
-        path1.move(to: CGPoint(x: realWidth / sepCount * (sepCount - 1), y: realWidth - disTop))
-        path1.addLine(to: CGPoint(x: realWidth / sepCount * (sepCount - 1), y: realWidth - disTop))
+        path1.move(to: CGPoint(x: realWidth / sepCount * (sepCount - 2), y: realWidth - disTop))
+        path1.addLine(to: CGPoint(x: realWidth / sepCount * (sepCount - 2), y: realWidth - disTop))
         path1.close()
         return path1
     }
