@@ -101,6 +101,8 @@ extension SmallDingTalkSingleLineChildVw {
         self.childsVwArr[self.selectedItemIndex].deSelectedItem()
         self.childsVwArr[index].beSelectedItem()
         self.selectedItemIndex = index
-        (self.viewController() as! WorkBenchViewControllerV2).botVw.tabVw.reloadData()
+        if isReloadData {
+            (self.viewController() as! WorkBenchViewControllerV2).botVw.tabVw.reloadData()
+        }
     }
 }
