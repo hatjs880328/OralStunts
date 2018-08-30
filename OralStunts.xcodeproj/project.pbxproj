@@ -153,7 +153,6 @@
 		5685344E20ADA49700BDB451 /* OTVoiceVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685344C20ADA49700BDB451 /* OTVoiceVw.swift */; };
 		568FEBAD20D64DF20053D0BE /* LaunchImageI6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */; };
 		569912DB20B2BB21008417B6 /* NoteCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569912DA20B2BB21008417B6 /* NoteCreateViewController.swift */; };
-		569912DD20B2BC4A008417B6 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 569912DC20B2BC4A008417B6 /* back@2x.png */; };
 		569912DF20B2C551008417B6 /* TitleInsertVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569912DE20B2C551008417B6 /* TitleInsertVw.swift */; };
 		569BFA8720BB8632000256B0 /* FolderContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569BFA8620BB8632000256B0 /* FolderContentsViewController.swift */; };
 		569C38CB20C5118100332D12 /* cry.png in Resources */ = {isa = PBXBuildFile; fileRef = 569C38C720C5118100332D12 /* cry.png */; };
@@ -215,6 +214,7 @@
 		56B997C120AFC8D30017F478 /* OTNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B997C020AFC8D30017F478 /* OTNoteModel.swift */; };
 		56BFC4E420CA25B500618DBC /* CloudMineModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC4E320CA25B500618DBC /* CloudMineModule.swift */; };
 		56C6AB2E2137DC8400F49274 /* OTPlayVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6AB2D2137DC8400F49274 /* OTPlayVw.swift */; };
+		56C6AB302138050E00F49274 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C6AB2F2138050E00F49274 /* back@2x.png */; };
 		56CEB70C20B6A45D0019D7FD /* voice.png in Resources */ = {isa = PBXBuildFile; fileRef = 56CEB70B20B6A45D0019D7FD /* voice.png */; };
 		56CEB70E20B6AEAB0019D7FD /* NoteTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */; };
 		56D3E97120C9436B00C8CE46 /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E93E20C9436A00C8CE46 /* PingFoundation.m */; };
@@ -468,7 +468,6 @@
 		5685344C20ADA49700BDB451 /* OTVoiceVw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTVoiceVw.swift; sourceTree = "<group>"; };
 		568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImageI6.jpg; sourceTree = "<group>"; };
 		569912DA20B2BB21008417B6 /* NoteCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreateViewController.swift; sourceTree = "<group>"; };
-		569912DC20B2BC4A008417B6 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		569912DE20B2C551008417B6 /* TitleInsertVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInsertVw.swift; sourceTree = "<group>"; };
 		569BFA8620BB8632000256B0 /* FolderContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderContentsViewController.swift; sourceTree = "<group>"; };
 		569C38C720C5118100332D12 /* cry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cry.png; sourceTree = "<group>"; };
@@ -532,6 +531,7 @@
 		56B997C020AFC8D30017F478 /* OTNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTNoteModel.swift; sourceTree = "<group>"; };
 		56BFC4E320CA25B500618DBC /* CloudMineModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMineModule.swift; sourceTree = "<group>"; };
 		56C6AB2D2137DC8400F49274 /* OTPlayVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPlayVw.swift; sourceTree = "<group>"; };
+		56C6AB2F2138050E00F49274 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		56CEB70B20B6A45D0019D7FD /* voice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice.png; sourceTree = "<group>"; };
 		56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimeLineViewController.swift; sourceTree = "<group>"; };
 		56D3E93A20C9436A00C8CE46 /* RealReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealReachability.h; sourceTree = "<group>"; };
@@ -747,8 +747,8 @@
 			children = (
 				569C38CF20C511EB00332D12 /* head */,
 				569C38C620C5118100332D12 /* shuoshuo */,
-				569912DC20B2BC4A008417B6 /* back@2x.png */,
 				56B4F5CC20B6970000CF4A68 /* FolderCell.png */,
+				56C6AB2F2138050E00F49274 /* back@2x.png */,
 				568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */,
 				56FDB4B920AEB7780020A9DE /* search.png */,
 				56D6F07A20C6615800A9EE06 /* setting.png */,
@@ -1954,6 +1954,7 @@
 				5685334420AD9AA700BDB451 /* Assets.xcassets in Resources */,
 				56B4F5DB20B69C5C00CF4A68 /* mianSelected@2x.png in Resources */,
 				569C38D220C511EB00332D12 /* girl.png in Resources */,
+				56C6AB302138050E00F49274 /* back@2x.png in Resources */,
 				56676DC420AE7C6900905CFD /* folderSelected@2x.png in Resources */,
 				56B4F5D220B697E500CF4A68 /* like.png in Resources */,
 				56D6F07D20C6615900A9EE06 /* useHelp.png in Resources */,
@@ -1968,7 +1969,6 @@
 				565E6A2C21366BDB00CBD4C3 /* Agora_callU.wav in Resources */,
 				56B4F5D720B6982100CF4A68 /* noteInfo.png in Resources */,
 				56676DC320AE7C6900905CFD /* folderDeselected@2x.png in Resources */,
-				569912DD20B2BC4A008417B6 /* back@2x.png in Resources */,
 				569C38CB20C5118100332D12 /* cry.png in Resources */,
 				5659EB0B20B7B0EC0075A142 /* MenuList.png in Resources */,
 				569C38CE20C5118100332D12 /* smile.png in Resources */,

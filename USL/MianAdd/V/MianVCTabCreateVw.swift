@@ -64,9 +64,8 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = self.vm.getData(with: indexPath)
         let con = NoteTimeLineViewController()
-        NoteCreatingBLL.getInstance().showingNoteModel = model.sourceModel
+        self.vm.moveNoteProgressShowModel(index: indexPath)
         con.hidesBottomBarWhenPushed = true
         self.viewController()?.navigationController?.pushViewController(con, animated: true)
     }
@@ -79,20 +78,21 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "移动"
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let moveAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "移动") { (action, index) in
             self.vm.moveNoteProgressShowModel(index: indexPath)
             let con = MoveNote2FolderViewController()
             con.presentedVcHasNavigation = true
             self.viewController()!.navigationController?.pushViewController(con, animated: true)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.delete
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "删除") { (action, index) in
+            let model = self.vm.getData(with: indexPath)
+            NoteLogicBLL().deleateOneNote(with: model.noteID)
+            self.vm.deleateOne(with: indexPath)
+            tableView.reloadData()
+        }
+        
+        return [deleteAction,moveAction]
     }
 }

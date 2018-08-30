@@ -35,6 +35,17 @@ class SearchVCTabVM: NSObject {
         super.init()
     }
     
+    func deleateOne(with index:IndexPath) {
+        var result = [OTNoteModel]()
+        for i in 0 ..< dataSource.count {
+            if index.row != i {
+                result.append(dataSource[i])
+                continue
+            }
+        }
+        self.dataSource = result
+    }
+    
     /// 分页获取数据
     func loadData(page: Int,orderby: String,sort:String) {
         self.dataSource = NoteLogicBLL().getNoteInfo(page: page, order: orderby, sortType: sort)
