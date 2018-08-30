@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // moduleSearchService register service
         IIModuleCore.getInstance().registerService(module: SearchServiceModule.self)
         IIModuleCore.getInstance().registerService(module: MineServiceModule.self)
-        BeeHive.shareInstance().registerService(CloudMineIBLL.self, service: CloudMineModule.self)
+        //BeeHive.shareInstance().registerService(CloudMineIBLL.self, service: CloudMineModule.self)
         //byteCode pile
         IIPitchUtility.getInstance().startService()
         // init vcs
