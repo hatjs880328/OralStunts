@@ -42,6 +42,10 @@ class SearchViewController: IIBaseViewController {
         tabVw = SearchVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: searchVw)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     deinit {
         print("搜索页面释放")
     }
