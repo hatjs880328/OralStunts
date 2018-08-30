@@ -115,10 +115,10 @@ extension WorkBenchViewControllerV2 {
     
     /// small calendar hor swipe - big calendar dates change
     func smallCalendarSwipeHor() {
-        self.calendarVw.setDates(with: self.vm.getDingVModel(with: .middle).trupleVM!.dayArr, which: self.calendarVw.middleChildVw)
+        self.calendarVw.setDates(with: self.vm.getDingVModel(with: .middle).trupleVM!.dayArr, which: self.calendarVw.logicMiddleVw)
         if self.calendarVw.leftChildVw == nil { return }
-        self.calendarVw.setDates(with: self.vm.getDingVModel(with: .left).trupleVM!.dayArr, which: self.calendarVw.leftChildVw)
-        self.calendarVw.setDates(with: self.vm.getDingVModel(with: .right).trupleVM!.dayArr, which: self.calendarVw.rightChildVw)
+        self.calendarVw.setDates(with: self.vm.getDingVModel(with: .left).trupleVM!.dayArr, which: self.calendarVw.logicLeftVw)
+        self.calendarVw.setDates(with: self.vm.getDingVModel(with: .right).trupleVM!.dayArr, which: self.calendarVw.logicRightVw)
     }
     
     func topTxtChange() {
