@@ -100,9 +100,9 @@ class SmallDingTalkSingleLineCollectionVw: UIView {
 extension SmallDingTalkSingleLineCollectionVw {
     
     func whenSwipeTapFistItem() {
-        self.smallMiddleLogicVw.tapAction(index: 0,isReloadData: false)
-        self.smallRightLogicVw.tapAction(index: 0,isReloadData: false)
-        self.smallLeftLogicVw.tapAction(index: 0,isReloadData: false)
+        self.smallMiddleLogicVw.tapAction(index: 0)
+        self.smallRightLogicVw.tapAction(index: 0)
+        self.smallLeftLogicVw.tapAction(index: 0)
     }
     
     /// swipe left - get new right dates

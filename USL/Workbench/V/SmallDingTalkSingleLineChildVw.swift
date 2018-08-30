@@ -97,12 +97,10 @@ class SmallDingTalkSingleLineChildVw: UIView {
 // MARK: - tap action
 extension SmallDingTalkSingleLineChildVw {
     
-    func tapAction(index:Int,isReloadData: Bool = true) {
+    func tapAction(index:Int) {
         self.childsVwArr[self.selectedItemIndex].deSelectedItem()
         self.childsVwArr[index].beSelectedItem()
         self.selectedItemIndex = index
-        if isReloadData {
-            (self.viewController() as! WorkBenchViewControllerV2).botVw.tabVw.reloadData()
-        }
+        (self.viewController() as! WorkBenchViewControllerV2).botVw.tabVw.reloadData()
     }
 }
