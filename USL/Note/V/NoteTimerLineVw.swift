@@ -94,7 +94,9 @@ class NoteTimeLineCell: UITableViewCell {
         self.index = index
         initVw()
         self.vm.setAction {[weak self] () in
-            self?.vedioImg.goAni()
+            GCDUtils.delayProgerssWithFloatSec(milliseconds: 500, yourFunc: {
+                self?.vedioImg.goAni()
+            })
         }
     }
     

@@ -184,7 +184,7 @@ class OTPlayLeftLine: CAShapeLayer {
     }
 }
 
-class OTPlayRightLine: CAShapeLayer {
+class OTPlayRightLine: CAShapeLayer,CAAnimationDelegate {
     var durationTime:CFTimeInterval = 0.3
     var realWidth: CGFloat = 0
     /// 竖线距离左右两边的百分比
@@ -243,10 +243,15 @@ class OTPlayRightLine: CAShapeLayer {
         aniGroup.isRemovedOnCompletion = false
         aniGroup.duration = durationTime
         aniGroup.fillMode = kCAFillModeForwards
+        aniGroup.delegate = self
         self.add(aniGroup, forKey: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
     }
 }
