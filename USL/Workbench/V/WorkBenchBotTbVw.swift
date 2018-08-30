@@ -26,7 +26,8 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var endScrollToTop:Bool = true
     
-    let distanceTop: CGFloat = 105 * APPDelStatic.sizeScale
+    /// 当前vw距离顶部距离： 状态栏 + 顶部topvw高度 + weekday高度
+    let distanceTop: CGFloat = (40 + APPDelStatic.noNaviTopDistance + 45) * APPDelStatic.sizeScale
     
     override init(frame: CGRect) {
         super.init(frame: frame)
