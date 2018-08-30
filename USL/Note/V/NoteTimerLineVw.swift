@@ -86,8 +86,7 @@ class NoteTimeLineCell: UITableViewCell {
     var index:IndexPath!
     
     /// 播放按钮
-    
-    private let vedioImg = iQiYiPlayButton(frame: CGRect(x: 0, y: 0, width: 20 * APPDelStatic.sizeScale, height: 20 * APPDelStatic.sizeScale), state: iQiYiPlayButtonState.play)!
+    private let vedioImg = OTPlayVw(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
     
     init(style: UITableViewCellStyle, reuseIdentifier: String?,index:IndexPath) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -95,8 +94,7 @@ class NoteTimeLineCell: UITableViewCell {
         self.index = index
         initVw()
         self.vm.setAction {[weak self] () in
-            //self?.vedioImg.isSelected = false
-            self?.vedioImg.buttonState = iQiYiPlayButtonState.play
+            self?.vedioImg.goAni()
         }
     }
     
@@ -141,6 +139,8 @@ class NoteTimeLineCell: UITableViewCell {
         vedioImg.snp.updateConstraints { (make) in
             make.left.equalTo(createTime.snp.left)
             make.top.equalTo(createTime.snp.bottom).offset(20 * APPDelStatic.sizeScale)
+            make.height.equalTo(25)
+            make.width.equalTo(25)
         }
         vedioImg.tapActionsGesture {[weak self]() in
             //播放音频
@@ -148,7 +148,7 @@ class NoteTimeLineCell: UITableViewCell {
             //显示红外感应提醒vw
             let vi = Toast(frame: CGRect.zero)
             vi.show(inSome: self!.viewController()!.view)
-            self?.vedioImg.buttonState = iQiYiPlayButtonState.pause
+            self?.vedioImg.goAni()
             self?.vm.playVedio(with: self!.index)
         }
         // volumeVw
@@ -157,7 +157,7 @@ class NoteTimeLineCell: UITableViewCell {
         volumeVw.snp.remakeConstraints { (make) in
             make.left.equalTo(vedioImg.snp.right).offset(3 * APPDelStatic.sizeScale)
             make.right.equalTo(0)
-            make.centerY.equalTo(vedioImg.snp.centerY).offset(-7 * APPDelStatic.sizeScale)
+            make.centerY.equalTo(vedioImg.snp.centerY)
             make.height.equalTo(25 * APPDelStatic.sizeScale)
         }
         // txt lab

@@ -49,5 +49,3 @@
 #import "IIPitchCoreOBJC.h"
 
 #import "WHDebugTool/WHDebugToolManager.h"
-
-#import "iQiYiPlayButton.h"
