@@ -209,7 +209,7 @@ extension WorkBenchViewControllerV2 {
 extension WorkBenchViewControllerV2 {
     
     func swipeUpSelectedSamllCalendarItem(with index:Int) {
-        self.smallCalendarVw.smallMiddleLogicVw.tapAction(index: index)
+        self.smallCalendarVw.smallMiddleLogicVw.tapAction(index: index,isReloadData: false)
     }
     
     func swipeDownSelectedBigCalendarItem(with date: Date) {

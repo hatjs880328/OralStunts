@@ -97,7 +97,7 @@ class SmallDingTalkSingleLineChildVw: UIView {
 // MARK: - tap action
 extension SmallDingTalkSingleLineChildVw {
     
-    func tapAction(index:Int) {
+    func tapAction(index:Int,isReloadData: Bool = true) {
         self.childsVwArr[self.selectedItemIndex].deSelectedItem()
         self.childsVwArr[index].beSelectedItem()
         self.selectedItemIndex = index
