@@ -8,6 +8,16 @@
 
 import UIKit
 
+/*
+ 细节BUG说明
+ 1.向上滑动时，动画不流畅bug:
+ a.tabview的frame动画需要使用frame，设置bottab的布局使用frame即可
+ b.滑动上去时数据加载闪烁问题：
+ b1.小日历左右滑动whenSwipeTapFistItem不需要让raloaddata
+ b2.向上滑动第二步：swipeUpSelectedSamllCalendarItem 方法无需reloaddata
+ 
+ */
+
 class WorkBenchViewControllerV2: IIBaseViewController {
 
     let topVw: WorkBenchTopVw = WorkBenchTopVw(frame: CGRect.zero)
@@ -199,7 +209,7 @@ extension WorkBenchViewControllerV2 {
 extension WorkBenchViewControllerV2 {
     
     func swipeUpSelectedSamllCalendarItem(with index:Int) {
-        self.smallCalendarVw.smallMiddleLogicVw.tapAction(index: index)
+        self.smallCalendarVw.smallMiddleLogicVw.tapAction(index: index,isReloadData: false)
     }
     
     func swipeDownSelectedBigCalendarItem(with date: Date) {
