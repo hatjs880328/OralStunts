@@ -71,6 +71,25 @@ class SearchVCTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         self.viewController()?.navigationController?.pushViewController(con, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let moveAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "移动") { (action, index) in
+            self.vm.moveNoteProgressShowModel(index: indexPath)
+            let con = MoveNote2FolderViewController()
+            con.presentedVcHasNavigation = true
+            self.viewController()!.navigationController?.pushViewController(con, animated: true)
+        }
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "删除") { (action, index) in
+            let model = self.vm.getData(with: indexPath)
+            NoteLogicBLL().deleateOneNote(with: model.noteID)
+            self.vm.deleateOne(with: indexPath)
+            tableView.reloadData()
+        }
+        
+        return [deleteAction,moveAction]
+    }
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

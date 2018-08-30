@@ -998,7 +998,7 @@
 				5685341920AD9DA800BDB451 /* BaseTabbar */,
 				5685341D20AD9DA800BDB451 /* Folder */,
 				5685341C20AD9DA800BDB451 /* Lasted */,
-				5685341A20AD9DA800BDB451 /* MianAdd */,
+				5685341A20AD9DA800BDB451 /* MainPage */,
 				5685341B20AD9DA800BDB451 /* Mine */,
 				5685335D20AD9BB700BDB451 /* Workbench */,
 			);
@@ -1252,14 +1252,14 @@
 			path = BaseTabbar;
 			sourceTree = "<group>";
 		};
-		5685341A20AD9DA800BDB451 /* MianAdd */ = {
+		5685341A20AD9DA800BDB451 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
 				56676DC620AE7ECC00905CFD /* C */,
 				56676DC720AE7ECC00905CFD /* V */,
 				56676DC520AE7ECC00905CFD /* VM */,
 			);
-			path = MianAdd;
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		5685341B20AD9DA800BDB451 /* Mine */ = {
