@@ -214,6 +214,7 @@
 		56B997BF20AFC6050017F478 /* MiddleBtnVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B997BE20AFC6050017F478 /* MiddleBtnVw.swift */; };
 		56B997C120AFC8D30017F478 /* OTNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B997C020AFC8D30017F478 /* OTNoteModel.swift */; };
 		56BFC4E420CA25B500618DBC /* CloudMineModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC4E320CA25B500618DBC /* CloudMineModule.swift */; };
+		56C6AB2C2137D79300F49274 /* iQiYiPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6AB2A2137D79300F49274 /* iQiYiPlayButton.m */; };
 		56CEB70C20B6A45D0019D7FD /* voice.png in Resources */ = {isa = PBXBuildFile; fileRef = 56CEB70B20B6A45D0019D7FD /* voice.png */; };
 		56CEB70E20B6AEAB0019D7FD /* NoteTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */; };
 		56D3E97120C9436B00C8CE46 /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E93E20C9436A00C8CE46 /* PingFoundation.m */; };
@@ -530,6 +531,8 @@
 		56B997BE20AFC6050017F478 /* MiddleBtnVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleBtnVw.swift; sourceTree = "<group>"; };
 		56B997C020AFC8D30017F478 /* OTNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTNoteModel.swift; sourceTree = "<group>"; };
 		56BFC4E320CA25B500618DBC /* CloudMineModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMineModule.swift; sourceTree = "<group>"; };
+		56C6AB2A2137D79300F49274 /* iQiYiPlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iQiYiPlayButton.m; sourceTree = "<group>"; };
+		56C6AB2B2137D79300F49274 /* iQiYiPlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iQiYiPlayButton.h; sourceTree = "<group>"; };
 		56CEB70B20B6A45D0019D7FD /* voice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice.png; sourceTree = "<group>"; };
 		56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimeLineViewController.swift; sourceTree = "<group>"; };
 		56D3E93A20C9436A00C8CE46 /* RealReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealReachability.h; sourceTree = "<group>"; };
@@ -1498,6 +1501,7 @@
 		5685344520ADA20D00BDB451 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				56C6AB292137D77200F49274 /* AQYVideoAni */,
 				5659EB0720B7AA560075A142 /* OTTablistVw */,
 				56FDB4B620AEB5C20020A9DE /* OTSearchVw */,
 				56676D9620AE576B00905CFD /* OTAlertVw */,
@@ -1618,6 +1622,15 @@
 				569BFA8620BB8632000256B0 /* FolderContentsViewController.swift */,
 			);
 			path = C;
+			sourceTree = "<group>";
+		};
+		56C6AB292137D77200F49274 /* AQYVideoAni */ = {
+			isa = PBXGroup;
+			children = (
+				56C6AB2B2137D79300F49274 /* iQiYiPlayButton.h */,
+				56C6AB2A2137D79300F49274 /* iQiYiPlayButton.m */,
+			);
+			path = AQYVideoAni;
 			sourceTree = "<group>";
 		};
 		56D3E93820C9436A00C8CE46 /* IHTTPRequestSDK */ = {
@@ -2273,6 +2286,7 @@
 				56D3E98C20C9436B00C8CE46 /* AFError.swift in Sources */,
 				56D3E97C20C9436B00C8CE46 /* RealReachability.m in Sources */,
 				56676E8720AE8DD200905CFD /* FMResultSet.m in Sources */,
+				56C6AB2C2137D79300F49274 /* iQiYiPlayButton.m in Sources */,
 				569BFA8720BB8632000256B0 /* FolderContentsViewController.swift in Sources */,
 				56676DC920AE7EDA00905CFD /* MianaddViewController.swift in Sources */,
 				56005B9220B2AE41004390A1 /* SearchVCTabCell.swift in Sources */,

@@ -86,7 +86,8 @@ class NoteTimeLineCell: UITableViewCell {
     var index:IndexPath!
     
     /// 播放按钮
-    let vedioImg = UIButton()
+    
+    private let vedioImg = iQiYiPlayButton(frame: CGRect(x: 0, y: 0, width: 20 * APPDelStatic.sizeScale, height: 20 * APPDelStatic.sizeScale), state: iQiYiPlayButtonState.play)!
     
     init(style: UITableViewCellStyle, reuseIdentifier: String?,index:IndexPath) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -94,7 +95,8 @@ class NoteTimeLineCell: UITableViewCell {
         self.index = index
         initVw()
         self.vm.setAction {[weak self] () in
-            self?.vedioImg.isSelected = false
+            //self?.vedioImg.isSelected = false
+            self?.vedioImg.buttonState = iQiYiPlayButtonState.play
         }
     }
     
@@ -135,23 +137,18 @@ class NoteTimeLineCell: UITableViewCell {
         circleLine.backgroundColor = APPDelStatic.themeColor
         circleLine.layer.cornerRadius = 3
         // pic
-        
         self.addSubview(vedioImg)
-        vedioImg.snp.makeConstraints { (make) in
+        vedioImg.snp.updateConstraints { (make) in
             make.left.equalTo(createTime.snp.left)
-            make.width.equalTo(35 * APPDelStatic.sizeScale)
-            make.top.equalTo(createTime.snp.bottom).offset(10 * APPDelStatic.sizeScale)
-            make.height.equalTo(35 * APPDelStatic.sizeScale)
+            make.top.equalTo(createTime.snp.bottom).offset(20 * APPDelStatic.sizeScale)
         }
-        vedioImg.setImage(UIImage(named: "vedioPlay"), for: UIControlState.normal)
-        vedioImg.setImage(UIImage(named: "more"), for: UIControlState.selected)
         vedioImg.tapActionsGesture {[weak self]() in
             //播放音频
             if self == nil { return }
             //显示红外感应提醒vw
             let vi = Toast(frame: CGRect.zero)
             vi.show(inSome: self!.viewController()!.view)
-            self?.vedioImg.isSelected = true
+            self?.vedioImg.buttonState = iQiYiPlayButtonState.pause
             self?.vm.playVedio(with: self!.index)
         }
         // volumeVw
@@ -160,7 +157,7 @@ class NoteTimeLineCell: UITableViewCell {
         volumeVw.snp.remakeConstraints { (make) in
             make.left.equalTo(vedioImg.snp.right).offset(3 * APPDelStatic.sizeScale)
             make.right.equalTo(0)
-            make.centerY.equalTo(vedioImg.snp.centerY)
+            make.centerY.equalTo(vedioImg.snp.centerY).offset(-7 * APPDelStatic.sizeScale)
             make.height.equalTo(25 * APPDelStatic.sizeScale)
         }
         // txt lab
