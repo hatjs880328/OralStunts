@@ -41,7 +41,7 @@ class BaseTabbar: UITabBarController,UITabBarControllerDelegate {
         newest.navigationBar.setBackgroundImage(UIColor.white.toImage(), for: UIBarMetrics.default)
         // 文件夹
         folder.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        folder.tabBarItem.title = "便签"
+        folder.tabBarItem.title = "文件夹"
         folder.navigationBar.barTintColor = UIColor.white
         folder.edgesForExtendedLayout = .top
         folder.navigationBar.tintColor = APPDelStatic.themeColor
