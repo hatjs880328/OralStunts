@@ -63,5 +63,11 @@ class APPDelStatic {
     
     /// 沙盒：https://sandbox.evernote.com/
     /// 生产：https://app.yinxiang.com/
-    static let evernoteAPIHost: String = "https://sandbox.evernote.com/"
+    static var evernoteAPIHost: String {
+        #if DEBUG
+            return "https://sandbox.evernote.com/"
+        #else
+            return "https://app.yinxiang.com/"
+        #endif
+    }
 }

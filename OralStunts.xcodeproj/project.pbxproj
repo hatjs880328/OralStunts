@@ -31,6 +31,8 @@
 		5645A14120BBABB100EE7638 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A14020BBABB100EE7638 /* FeedBackViewController.swift */; };
 		5645A14320BBABF200EE7638 /* FeedBackVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A14220BBABF200EE7638 /* FeedBackVw.swift */; };
 		565281B82138C30300A9F226 /* circleUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 565281B72138C30300A9F226 /* circleUnselected.png */; };
+		565281BB2138C8A400A9F226 /* Evernote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281BA2138C8A400A9F226 /* Evernote.swift */; };
+		565281C12138CAFE00A9F226 /* EvernoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281C02138CAFE00A9F226 /* EvernoteViewController.swift */; };
 		5656808520CE167A0077A49E /* CloudMineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656808420CE167A0077A49E /* CloudMineTests.swift */; };
 		56577BC720C7CE3B00E2327A /* IIModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56577BC620C7CE3B00E2327A /* IIModuleTests.swift */; };
 		5659EB0420B794690075A142 /* NoteLogicBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659EB0320B794690075A142 /* NoteLogicBLL.swift */; };
@@ -317,6 +319,8 @@
 		5645A14020BBABB100EE7638 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		5645A14220BBABF200EE7638 /* FeedBackVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackVw.swift; sourceTree = "<group>"; };
 		565281B72138C30300A9F226 /* circleUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circleUnselected.png; sourceTree = "<group>"; };
+		565281BA2138C8A400A9F226 /* Evernote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evernote.swift; sourceTree = "<group>"; };
+		565281C02138CAFE00A9F226 /* EvernoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvernoteViewController.swift; sourceTree = "<group>"; };
 		5656808420CE167A0077A49E /* CloudMineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMineTests.swift; sourceTree = "<group>"; };
 		56577BC620C7CE3B00E2327A /* IIModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIModuleTests.swift; sourceTree = "<group>"; };
 		5659EB0320B794690075A142 /* NoteLogicBLL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteLogicBLL.swift; sourceTree = "<group>"; };
@@ -676,8 +680,41 @@
 		565281B92138C73B00A9F226 /* EvarNote */ = {
 			isa = PBXGroup;
 			children = (
+				565281BA2138C8A400A9F226 /* Evernote.swift */,
 			);
 			path = EvarNote;
+			sourceTree = "<group>";
+		};
+		565281BC2138CAE100A9F226 /* Evernote */ = {
+			isa = PBXGroup;
+			children = (
+				565281BD2138CAE100A9F226 /* VM */,
+				565281BE2138CAE100A9F226 /* C */,
+				565281BF2138CAE100A9F226 /* V */,
+			);
+			path = Evernote;
+			sourceTree = "<group>";
+		};
+		565281BD2138CAE100A9F226 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		565281BE2138CAE100A9F226 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				565281C02138CAFE00A9F226 /* EvernoteViewController.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		565281BF2138CAE100A9F226 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
 			sourceTree = "<group>";
 		};
 		5659EB0720B7AA560075A142 /* OTTablistVw */ = {
@@ -983,6 +1020,7 @@
 		5685335C20AD9BB700BDB451 /* USL */ = {
 			isa = PBXGroup;
 			children = (
+				565281BC2138CAE100A9F226 /* Evernote */,
 				5685343720AD9F4400BDB451 /* Login */,
 				5685343620AD9F4400BDB451 /* Note */,
 				5685341920AD9DA800BDB451 /* BaseTabbar */,
@@ -2096,6 +2134,7 @@
 				56D3E97420C9436B00C8CE46 /* ReachState.m in Sources */,
 				5685344D20ADA49700BDB451 /* OTVoiceBLayer.swift in Sources */,
 				56D56BAA20C0196C0003D5F7 /* TimeLineTabCellVM.swift in Sources */,
+				565281C12138CAFE00A9F226 /* EvernoteViewController.swift in Sources */,
 				5613914120C7869100D4A38A /* IWorkBench.swift in Sources */,
 				5685340B20AD9BB800BDB451 /* BeanDicCenter.swift in Sources */,
 				56676E3B20AE8C4800905CFD /* AOPEventsUploadCenter.swift in Sources */,
@@ -2132,6 +2171,7 @@
 				565E6A2F21366BF000CBD4C3 /* AudioPlay.swift in Sources */,
 				56B7B8922136350800E26218 /* IITextExtension.swift in Sources */,
 				568533E220AD9BB800BDB451 /* TaskContainerVw.swift in Sources */,
+				565281BB2138C8A400A9F226 /* Evernote.swift in Sources */,
 				56676DCD20AE824400905CFD /* MineDAL.swift in Sources */,
 				568533D120AD9BB800BDB451 /* DingtalkTaskVM.swift in Sources */,
 				563225E820C8C1E50041C612 /* IIModuleCore.swift in Sources */,
