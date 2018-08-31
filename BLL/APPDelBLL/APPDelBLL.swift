@@ -32,19 +32,19 @@ class APPDelBLL: NSObject {
     
     func initTheFlyMSC() {
         IFlySetting.showLogcat(false)
-        IFlySpeechUtility.createUtility("appid=\(APPDelStatic.iflyKey)")
+        IFlySpeechUtility.createUtility("appid=\(IIBizConfig.iflyKey)")
     }
     
     func initTheBUGLY() {
         let config = BuglyConfig()
         config.reportLogLevel = .warn
-        Bugly.start(withAppId: APPDelStatic.buglyKey, config: config)
+        Bugly.start(withAppId: IIBizConfig.buglyKey, config: config)
     }
     
     /// 注册印象笔记
     /// https://dev.yinxiang.com/doc/articles/authentication.php
     func initEvernote() {
-        ENSession.setSharedSessionConsumerKey(APPDelStatic.evernoteKey, consumerSecret: APPDelStatic.evernoteSecret, optionalHost: ENSessionHostSandbox)
+        ENSession.setSharedSessionConsumerKey(IIBizConfig.evernoteKey, consumerSecret: IIBizConfig.evernoteSecret, optionalHost: ENSessionHostSandbox)
     }
     
     /// 网络监听服务启动

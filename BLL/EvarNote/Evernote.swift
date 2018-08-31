@@ -22,7 +22,7 @@ class Evernote: NSObject {
     
     /// 注册服务
     func setupKey() {
-        ENSession.setSharedSessionConsumerKey(APPDelStatic.evernoteKey, consumerSecret: APPDelStatic.evernoteSecret, optionalHost: ENSessionHostSandbox)
+        ENSession.setSharedSessionConsumerKey(IIBizConfig.evernoteKey, consumerSecret: IIBizConfig.evernoteSecret, optionalHost: ENSessionHostSandbox)
     }
     
     /// 身份认证
