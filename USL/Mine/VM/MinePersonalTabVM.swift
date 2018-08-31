@@ -41,10 +41,6 @@ class MinePersonalTabVM: IIBaseVM {
             let con = MineFavViewController()
             con.hidesBottomBarWhenPushed = true
             return con
-        }else if index.row == 0{
-            let con = FeedBackViewController()
-            con.hidesBottomBarWhenPushed = true
-            return con
         }else {
             let con = SettingViewController()
             con.hidesBottomBarWhenPushed = true

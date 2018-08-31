@@ -33,7 +33,7 @@ def useFrameworks
     # ui kit
     pod 'FlatUIKit'
     
-    #pod 'AlicloudFeedback'
+    pod 'AlicloudFeedback'
     
 end
 

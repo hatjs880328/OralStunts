@@ -13,6 +13,8 @@ class MinePersionalTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var tab = UITableView()
     
+    let aliFBIns = ALIFB()
+    
     let minePersonalTabCellReuseid = "minePersonalTabCellReuseid"
     
     let vm = MinePersonalTabVM()
@@ -61,8 +63,13 @@ class MinePersionalTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let con = self.vm.jump(index: indexPath)
-        self.viewController()?.navigationController?.pushViewController(con, animated: true)
+        if indexPath.row == 0 {
+            aliFBIns.setUserNickName(username: MineBLL().getUserInfo().nickName)
+            aliFBIns.openFbVc(nowVw: self.viewController()!)
+        }else{
+            let con = self.vm.jump(index: indexPath)
+            self.viewController()?.navigationController?.pushViewController(con, animated: true)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

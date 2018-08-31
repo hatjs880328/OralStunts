@@ -10,9 +10,9 @@ import Foundation
 
 class IIBizConfig: NSObject {
     
-    let aliFbKEY:String = "25051021"
+    static let aliFbKEY:String = "25051021"
     
-    let aliFbSecret:String = "daf54c4783924b6b5146d35245ba595b"
+    static let aliFbSecret:String = "daf54c4783924b6b5146d35245ba595b"
     
     
 }

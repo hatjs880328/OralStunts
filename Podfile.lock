@@ -1,4 +1,12 @@
 PODS:
+  - AlicloudFeedback (3.3.5):
+    - AlicloudUT
+    - AlicloudUtils
+  - AlicloudUT (5.2.0.5):
+    - AlicloudUTDID
+  - AlicloudUTDID (1.1.0.19)
+  - AlicloudUtils (1.3.5):
+    - AlicloudUTDID
   - Aspects (1.4.1)
   - BeeHive (1.6.0)
   - Bugly (2.5.0)
@@ -28,6 +36,7 @@ PODS:
   - WHDebugTool (1.1)
 
 DEPENDENCIES:
+  - AlicloudFeedback
   - Aspects (~> 1.4.1)
   - BeeHive (~> 1.6.0)
   - Bugly
@@ -43,6 +52,11 @@ DEPENDENCIES:
   - WHDebugTool (~> 1.1)
 
 SPEC REPOS:
+  https://github.com/aliyun/aliyun-specs.git:
+    - AlicloudFeedback
+    - AlicloudUT
+    - AlicloudUTDID
+    - AlicloudUtils
   https://github.com/cocoapods/specs.git:
     - Aspects
     - BeeHive
@@ -70,6 +84,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SVGKit/SVGKit.git
 
 SPEC CHECKSUMS:
+  AlicloudFeedback: d6ac3cf54d2a1d0161a2955f19ec1d94ee4c449b
+  AlicloudUT: 1b52965b97c5fc0b630901ce184391fbe1ef8479
+  AlicloudUTDID: 14b582e41b39bc66e5a3420b61dafd0567ef4603
+  AlicloudUtils: 36bd836fdd5c040ee0c9c06b0e1e1096a8c59c44
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   BeeHive: 64c01ddec33b9ef8813701e075eeb732327d0f75
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
@@ -86,6 +104,6 @@ SPEC CHECKSUMS:
   SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
 
-PODFILE CHECKSUM: 62f907f9a4d8fcd2b8110b11a5d7b0e768f31f37
+PODFILE CHECKSUM: 52718e2cbabf999efa977ac93e0c7e724847ca50
 
 COCOAPODS: 1.5.3

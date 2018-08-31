@@ -50,4 +50,8 @@
 
 #import "WHDebugTool/WHDebugToolManager.h"
 
+#import "FlatUIKit/FlatUIKit.h"
 
+#import "YWFeedbackFMWK/YWFeedbackKit.h"
+
+#import "YWFeedbackFMWK/YWFeedbackViewController.h"
