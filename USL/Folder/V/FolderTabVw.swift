@@ -133,7 +133,7 @@ class FolderTabCell: UITableViewCell {
     
     let count = UILabel()
     
-    let checkImage = UIImageView()
+    let checkImage = UIButton()
     
     var folderNoteModel: OTFolderModel!
     
@@ -177,7 +177,7 @@ class FolderTabCell: UITableViewCell {
         title.font = APPDelStatic.uiFont(with: 14)
         // check box
         self.addSubview(checkImage)
-        checkImage.backgroundColor = APPDelStatic.lightGray
+        //checkImage.backgroundColor = APPDelStatic.lightGray
         checkImage.alpha = 0
         checkImage.snp.makeConstraints { (make) in
             make.right.equalTo(-18)
@@ -186,6 +186,8 @@ class FolderTabCell: UITableViewCell {
             make.centerY.equalTo(img.snp.centerY)
         }
         checkImage.layer.cornerRadius = 25 * APPDelStatic.sizeScale / 2
+        checkImage.setImage(UIImage(named: "circleUnselected.png"), for: UIControlState.normal)
+        checkImage.setImage(UIImage(named: "selected.png"), for: UIControlState.selected)
         checkImage.tapActionsGesture {[weak self] () in
             self?.checkAction()
         }
@@ -246,7 +248,7 @@ class FolderTabCell: UITableViewCell {
     
     /// 发送信号
     func checkAction() {
-        if checkImage.backgroundColor == APPDelStatic.lightGray {
+        if !checkImage.isSelected {
             self.selectPush.onNext((noteid: self.folderNoteModel.id, isAdd: true,index:self.index))
         }else{
             self.selectPush.onNext((noteid: self.folderNoteModel.id, isAdd: false,index:self.index))
@@ -258,20 +260,16 @@ class FolderTabCell: UITableViewCell {
         if index == self.index {
             if isAdd {
                 checkImage.backgroundColor = UIColor.white
-                checkImage.image = UIImage(named: "selected.png")
+                checkImage.isSelected = true
             }else{
-                checkImage.backgroundColor = APPDelStatic.lightGray
-                checkImage.image = nil
+                checkImage.isSelected = false
             }
         }else{
             if isAdd {
-                checkImage.backgroundColor = APPDelStatic.lightGray
-                checkImage.image = nil
+                checkImage.isSelected = false
             }else{
-                checkImage.backgroundColor = APPDelStatic.lightGray
-                checkImage.image = nil
+                checkImage.isSelected = false
             }
         }
     }
-    
 }

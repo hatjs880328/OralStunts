@@ -30,6 +30,7 @@
 		5645A13E20BBA12200EE7638 /* MineFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A13D20BBA12200EE7638 /* MineFavViewController.swift */; };
 		5645A14120BBABB100EE7638 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A14020BBABB100EE7638 /* FeedBackViewController.swift */; };
 		5645A14320BBABF200EE7638 /* FeedBackVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A14220BBABF200EE7638 /* FeedBackVw.swift */; };
+		565281B82138C30300A9F226 /* circleUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 565281B72138C30300A9F226 /* circleUnselected.png */; };
 		5656808520CE167A0077A49E /* CloudMineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656808420CE167A0077A49E /* CloudMineTests.swift */; };
 		56577BC720C7CE3B00E2327A /* IIModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56577BC620C7CE3B00E2327A /* IIModuleTests.swift */; };
 		5659EB0420B794690075A142 /* NoteLogicBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659EB0320B794690075A142 /* NoteLogicBLL.swift */; };
@@ -315,6 +316,7 @@
 		5645A13D20BBA12200EE7638 /* MineFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineFavViewController.swift; sourceTree = "<group>"; };
 		5645A14020BBABB100EE7638 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		5645A14220BBABF200EE7638 /* FeedBackVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackVw.swift; sourceTree = "<group>"; };
+		565281B72138C30300A9F226 /* circleUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circleUnselected.png; sourceTree = "<group>"; };
 		5656808420CE167A0077A49E /* CloudMineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMineTests.swift; sourceTree = "<group>"; };
 		56577BC620C7CE3B00E2327A /* IIModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIModuleTests.swift; sourceTree = "<group>"; };
 		5659EB0320B794690075A142 /* NoteLogicBLL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteLogicBLL.swift; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 				568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */,
 				56FDB4B920AEB7780020A9DE /* search.png */,
 				56D6F07A20C6615800A9EE06 /* setting.png */,
+				565281B72138C30300A9F226 /* circleUnselected.png */,
 				56D6F07B20C6615800A9EE06 /* useHelp.png */,
 				56838DD020B6D7110062C1FE /* vedioPlay.png */,
 				5659EB0A20B7B0EC0075A142 /* MenuList.png */,
@@ -1871,6 +1874,7 @@
 				56C6AB302138050E00F49274 /* back@2x.png in Resources */,
 				56676DC420AE7C6900905CFD /* folderSelected@2x.png in Resources */,
 				56B4F5D220B697E500CF4A68 /* like.png in Resources */,
+				565281B82138C30300A9F226 /* circleUnselected.png in Resources */,
 				56D6F07D20C6615900A9EE06 /* useHelp.png in Resources */,
 				56676DC020AE7C5A00905CFD /* newSelected@2x.png in Resources */,
 				56B4F5D520B697E500CF4A68 /* editInfo.png in Resources */,
