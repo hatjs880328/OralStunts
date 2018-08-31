@@ -70,5 +70,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>为了意见反馈功能，我们需要获取您的相机权限</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>为了意见反馈功能，我们需要获取您的相册权限</string>
 </dict>
 </plist>

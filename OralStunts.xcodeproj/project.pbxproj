@@ -33,6 +33,8 @@
 		565281B82138C30300A9F226 /* circleUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 565281B72138C30300A9F226 /* circleUnselected.png */; };
 		565281BB2138C8A400A9F226 /* Evernote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281BA2138C8A400A9F226 /* Evernote.swift */; };
 		565281C12138CAFE00A9F226 /* EvernoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281C02138CAFE00A9F226 /* EvernoteViewController.swift */; };
+		565281C42138DFDF00A9F226 /* IIBizConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281C32138DFDF00A9F226 /* IIBizConfig.swift */; };
+		565281C62138E1EB00A9F226 /* AliyunEmasServices-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 565281C52138E1EB00A9F226 /* AliyunEmasServices-Info.plist */; };
 		5656808520CE167A0077A49E /* CloudMineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5656808420CE167A0077A49E /* CloudMineTests.swift */; };
 		56577BC720C7CE3B00E2327A /* IIModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56577BC620C7CE3B00E2327A /* IIModuleTests.swift */; };
 		5659EB0420B794690075A142 /* NoteLogicBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659EB0320B794690075A142 /* NoteLogicBLL.swift */; };
@@ -321,6 +323,8 @@
 		565281B72138C30300A9F226 /* circleUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circleUnselected.png; sourceTree = "<group>"; };
 		565281BA2138C8A400A9F226 /* Evernote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evernote.swift; sourceTree = "<group>"; };
 		565281C02138CAFE00A9F226 /* EvernoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvernoteViewController.swift; sourceTree = "<group>"; };
+		565281C32138DFDF00A9F226 /* IIBizConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIBizConfig.swift; sourceTree = "<group>"; };
+		565281C52138E1EB00A9F226 /* AliyunEmasServices-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AliyunEmasServices-Info.plist"; sourceTree = "<group>"; };
 		5656808420CE167A0077A49E /* CloudMineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMineTests.swift; sourceTree = "<group>"; };
 		56577BC620C7CE3B00E2327A /* IIModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIModuleTests.swift; sourceTree = "<group>"; };
 		5659EB0320B794690075A142 /* NoteLogicBLL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteLogicBLL.swift; sourceTree = "<group>"; };
@@ -717,6 +721,15 @@
 			path = V;
 			sourceTree = "<group>";
 		};
+		565281C22138DFB300A9F226 /* APPConfig */ = {
+			isa = PBXGroup;
+			children = (
+				568533B020AD9BB800BDB451 /* IICoreExtension.swift */,
+				565281C32138DFDF00A9F226 /* IIBizConfig.swift */,
+			);
+			path = APPConfig;
+			sourceTree = "<group>";
+		};
 		5659EB0720B7AA560075A142 /* OTTablistVw */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,6 +1010,7 @@
 			children = (
 				5685333C20AD9AA600BDB451 /* AppDelegate.swift */,
 				5685333E20AD9AA600BDB451 /* ViewController.swift */,
+				565281C52138E1EB00A9F226 /* AliyunEmasServices-Info.plist */,
 				5685334020AD9AA600BDB451 /* Main.storyboard */,
 				5685334320AD9AA700BDB451 /* Assets.xcassets */,
 				5685334520AD9AA700BDB451 /* LaunchScreen.storyboard */,
@@ -1158,6 +1172,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				565281C22138DFB300A9F226 /* APPConfig */,
 				56A58A4621367FEC000E2082 /* Toast */,
 				565E6A2D21366BE400CBD4C3 /* AudioPlay */,
 				5685344520ADA20D00BDB451 /* Component */,
@@ -1177,7 +1192,6 @@
 			isa = PBXGroup;
 			children = (
 				56676DA120AE70AA00905CFD /* IIColorExtension.swift */,
-				568533B020AD9BB800BDB451 /* IICoreExtension.swift */,
 				568533B120AD9BB800BDB451 /* IIViewExtension.swift */,
 				568533B220AD9BB800BDB451 /* IIDateExtension.swift */,
 				568533B320AD9BB800BDB451 /* IIStringExtension.swift */,
@@ -1925,6 +1939,7 @@
 				56676DC020AE7C5A00905CFD /* newSelected@2x.png in Resources */,
 				56B4F5D520B697E500CF4A68 /* editInfo.png in Resources */,
 				5685334220AD9AA600BDB451 /* Main.storyboard in Resources */,
+				565281C62138E1EB00A9F226 /* AliyunEmasServices-Info.plist in Resources */,
 				568FEBAD20D64DF20053D0BE /* LaunchImageI6.jpg in Resources */,
 				56403FA520D34F8C00638E46 /* selected.png in Resources */,
 				569C38CD20C5118100332D12 /* tooth.png in Resources */,
@@ -1969,6 +1984,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/EvernoteSDK/EvernoteSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -1985,6 +2001,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EvernoteSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -2042,6 +2059,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/EvernoteSDK/EvernoteSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -2058,6 +2076,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EvernoteSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -2170,6 +2189,7 @@
 				5685340D20AD9BB800BDB451 /* BeanFactory.swift in Sources */,
 				565E6A2F21366BF000CBD4C3 /* AudioPlay.swift in Sources */,
 				56B7B8922136350800E26218 /* IITextExtension.swift in Sources */,
+				565281C42138DFDF00A9F226 /* IIBizConfig.swift in Sources */,
 				568533E220AD9BB800BDB451 /* TaskContainerVw.swift in Sources */,
 				565281BB2138C8A400A9F226 /* Evernote.swift in Sources */,
 				56676DCD20AE824400905CFD /* MineDAL.swift in Sources */,
@@ -2484,16 +2504,14 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OralStunts/OralStunts-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -2512,16 +2530,14 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OralStunts/OralStunts-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -2534,11 +2550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2556,11 +2568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

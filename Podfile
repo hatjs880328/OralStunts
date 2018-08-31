@@ -1,4 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
 platform :ios, '8.0'
 use_frameworks!
 #第三方库导入需要谨慎---防止单元测试框架编译失败---
@@ -28,6 +29,11 @@ def useFrameworks
     pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
     
     pod 'WHDebugTool', '~> 1.1'
+    
+    # ui kit
+    pod 'FlatUIKit'
+    
+    #pod 'AlicloudFeedback'
     
 end
 
