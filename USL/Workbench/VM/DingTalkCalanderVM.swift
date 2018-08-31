@@ -428,7 +428,7 @@ extension DingTalkCalanderVM {
             return "———————— 上午好，努力奋斗吧 ————————"
         }
         if dateHours > 12 && dateHours < 18 {
-            return "———————— 下午了，抖擞精神哈 ————————"
+            return "———————— 下午了，抖擞精神吧 ————————"
         }else{
             return "———————— 晚上好，休息休息吧 ————————"
         }
