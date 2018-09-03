@@ -54,7 +54,7 @@ class NoteTimeLineViewController: IIBaseViewController {
         }
         let actionDel = { [weak self]() in
             if self == nil { return }
-            OTAlertVw().alertShowConfirm(title: "提醒", message: "确认要删除当前便签吗？", from: self!, confirmStr: "删除", confirmAction: { () in
+            OTAlertVw().alertShowConfirm(title: "提醒", message: "确认要删除当前便签吗？",confirmStr: "删除", confirmAction: { () in
                 NoteLogicBLL().deleateOneNote(with: NoteCreatingBLL.getInstance().showingNoteModel.id)
                 self?.navigationController?.popToRootViewController(animated: true)
             })

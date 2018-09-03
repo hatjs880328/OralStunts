@@ -37,4 +37,8 @@ class FolderBLL: NSObject {
         //delete note from notetab where inclode by this folder
         OTNoteDAL().deleteAllNote(inclodes: folderId)
     }
+    
+    func deleteAllInfo() {
+        dal.deleteAllInfo()
+    }
 }

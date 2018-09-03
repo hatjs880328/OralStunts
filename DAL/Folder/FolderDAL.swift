@@ -42,4 +42,10 @@ class FolderDAL: NSObject {
         let sql = "delete from \(tabName) where id = '\(id)';"
         FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
     }
+    
+    /// 清空表信息
+    func deleteAllInfo() {
+        let sql = "delete from \(tabName);"
+        FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
+    }
 }

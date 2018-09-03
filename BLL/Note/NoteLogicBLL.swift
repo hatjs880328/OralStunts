@@ -106,4 +106,8 @@ class NoteLogicBLL: NSObject  {
         dal.deleteOneNote(with: id)
         NoteCreatingBLL.getInstance().showingNoteModel = OTNoteModel()
     }
+    
+    func deleteAllInfo() {
+        dal.deleteAllInfo()
+    }
 }

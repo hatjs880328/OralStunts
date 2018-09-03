@@ -24,7 +24,7 @@ class OTAlertVw: NSObject {
         toast?.show()
     }
     /// 两个按钮的提示
-    func alertShowConfirm(title:String,message: String,from: UIViewController,confirmStr:String,confirmAction:@escaping ()->Void) {
+    func alertShowConfirm(title:String,message: String,confirmStr:String,confirmAction:@escaping ()->Void) {
         
         let alertVw = SCLAlertView()
         alertVw.addButton(confirmStr) {

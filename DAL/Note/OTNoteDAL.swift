@@ -101,6 +101,12 @@ class OTNoteDAL: NSObject {
         FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
     }
     
+    /// 清空表信息
+    func deleteAllInfo() {
+        let sql = "delete from \(tabName);"
+        FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
+    }
+    
     
     /// 根据便签生成ekevent数组
     func getDataFollowDate(startDate: Date,endDate: Date)->[EKEvent] {

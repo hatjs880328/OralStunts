@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableViewDataSource {
 
-    let dataSource = [("关闭帮助提示","setting.png")]
+    let dataSource = [("关闭帮助提示","helpSwitch.png"),("清除所有缓存","removeDisk.png")]
     
     let reuseID = "SETTINGVCCELLREUSEID"
     
@@ -46,7 +46,8 @@ class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = SettingCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseID)
+        let showSwt = indexPath.row == 0 ? true : false
+        let cell = SettingCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseID,showSwt:showSwt)
         let cellModel = self.dataSource[indexPath.row]
         cell.setData(tupleInfo: cellModel)
         return cell
@@ -55,6 +56,18 @@ class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 51 * APPDelStatic.sizeScale
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            //清除缓存
+            OTAlertVw().alertShowConfirm(title: "提示", message: "确定要删除所有缓存信息吗？",confirmStr: "删除") {
+                NoteLogicBLL().deleteAllInfo()
+                FolderBLL().deleteAllInfo()
+            }
+        }
+    }
+    
+    
 }
 
 
@@ -64,10 +77,18 @@ class SettingCell: UITableViewCell {
     
     let titleLb = UILabel()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    var showSwt: Bool = true
+    
+    var img = UIImageView()
+    
+    init(style: UITableViewCellStyle, reuseIdentifier: String?,showSwt:Bool = true) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.showSwt = showSwt
         self.selectionStyle = .none
         createVw()
+        if !showSwt {
+            self.accessoryType = .disclosureIndicator
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,9 +96,16 @@ class SettingCell: UITableViewCell {
     }
     
     func createVw() {
+        self.addSubview(img)
         self.addSubview(titleLb)
+        img.snp.makeConstraints { (mk) in
+            mk.left.equalTo(18)
+            mk.centerY.equalTo(self.snp.centerY)
+            mk.width.equalTo(20)
+            mk.height.equalTo(20)
+        }
         titleLb.snp.makeConstraints { (make) in
-            make.left.equalTo(18)
+            make.left.equalTo(img.snp.right).offset(10)
             make.centerY.equalTo(self.snp.centerY)
             make.bottom.equalTo(-10 * APPDelStatic.sizeScale)
             make.width.equalTo(100 * APPDelStatic.sizeScale)
@@ -86,7 +114,7 @@ class SettingCell: UITableViewCell {
         //开关
         self.addSubview(closeSwit)
         closeSwit.snp.makeConstraints { (make) in
-            make.right.equalTo(-18)
+            make.right.equalTo(-16)
             make.top.equalTo(10 * APPDelStatic.sizeScale)
             make.bottom.equalTo(10 * APPDelStatic.sizeScale)
             make.width.equalTo(51 * APPDelStatic.sizeScale)
@@ -94,6 +122,11 @@ class SettingCell: UITableViewCell {
         closeSwit.setOn(true, animated: false)
         closeSwit.onTintColor = APPDelStatic.themeColor
         closeSwit.addTarget(self, action: #selector(self.setOn), for: UIControlEvents.touchUpInside)
+        if showSwt {
+            closeSwit.alpha = 1
+        }else{
+            closeSwit.alpha = 0
+        }
         // bot line
         let line = UIView()
         self.addSubview(line)
@@ -110,6 +143,8 @@ class SettingCell: UITableViewCell {
         self.titleLb.text = tupleInfo.0
         let onOrOff = MineBLL().getUserInfo().alertHelpInfo == "true" ? true : false
         self.closeSwit.setOn(onOrOff, animated: false)
+        img.image = UIImage(name: tupleInfo.1)
+        print(tupleInfo.1)
     }
     
     @objc func setOn() {
