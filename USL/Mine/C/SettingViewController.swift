@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableViewDataSource {
 
-    let dataSource = [("关闭帮助提示","helpSwitch.png"),("清除所有缓存","removeDisk.png")]
+    let dataSource = [("关闭帮助提示",UIImage(named: "helpswitch")),("清除所有缓存",UIImage(named: "removedisk"))]
     
     let reuseID = "SETTINGVCCELLREUSEID"
     
@@ -79,7 +79,7 @@ class SettingCell: UITableViewCell {
     
     var showSwt: Bool = true
     
-    var img = UIImageView()
+    var headImg = UIImageView()
     
     init(style: UITableViewCellStyle, reuseIdentifier: String?,showSwt:Bool = true) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -96,16 +96,16 @@ class SettingCell: UITableViewCell {
     }
     
     func createVw() {
-        self.addSubview(img)
+        self.addSubview(headImg)
         self.addSubview(titleLb)
-        img.snp.makeConstraints { (mk) in
+        headImg.snp.makeConstraints { (mk) in
             mk.left.equalTo(18)
             mk.centerY.equalTo(self.snp.centerY)
             mk.width.equalTo(20)
             mk.height.equalTo(20)
         }
         titleLb.snp.makeConstraints { (make) in
-            make.left.equalTo(img.snp.right).offset(10)
+            make.left.equalTo(headImg.snp.right).offset(10)
             make.centerY.equalTo(self.snp.centerY)
             make.bottom.equalTo(-10 * APPDelStatic.sizeScale)
             make.width.equalTo(100 * APPDelStatic.sizeScale)
@@ -139,12 +139,11 @@ class SettingCell: UITableViewCell {
         line.backgroundColor = UIColor.gray
     }
     
-    func setData(tupleInfo:(String,String)) {
+    func setData(tupleInfo:(String,UIImage?)) {
         self.titleLb.text = tupleInfo.0
         let onOrOff = MineBLL().getUserInfo().alertHelpInfo == "true" ? true : false
         self.closeSwit.setOn(onOrOff, animated: false)
-        img.image = UIImage(name: tupleInfo.1)
-        print(tupleInfo.1)
+        self.headImg.image = tupleInfo.1
     }
     
     @objc func setOn() {
