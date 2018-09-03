@@ -23,14 +23,20 @@ class APPDelBLL: NSObject {
         insertPreNote()
     }
     
-    /// 预制一条数据；id相同不会重复插入
+    /// 预制一条数据，写入过一次不会再次写入
     func insertPreNote() {
+        if IICacheManager.getInstance().isContains(key: IICacheStorage().preNoteInsert) {
+            return
+        }
+        IICacheManager.getInstance().saveObj(key: IICacheStorage().preNoteInsert, someThing: NSString(string: "fdsa"))
         let note = OTNoteModel()
-        note.id = "9a6669c2-d07b-440c-b274-55a18fd5b9ec"
-        note.setTitle("😄开始使用OralStunts", [])
+        note.id = NSUUID().uuidString
+        note.setTitle("👏🏻👏🏻👏🏻开始使用OralStunts", [])
         note.setContexts(createTime: Date(), content: "详情请查看个人中心得帮助", volumnList: [])
         note.videoUrl.append("")
         NoteLogicBLL().insertNoteInfo(with: note)
+        
+        
     }
     
     func thridLibInit() {

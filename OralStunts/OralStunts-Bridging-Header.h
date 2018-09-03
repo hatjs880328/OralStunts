@@ -57,3 +57,5 @@
 #import "YWFeedbackFMWK/YWFeedbackViewController.h"
 
 #import "FFToast/FFToast.h"
+
+#import "YYCache.h"

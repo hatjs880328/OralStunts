@@ -30,6 +30,12 @@
 		563F1A3B213CBA79000F9DE3 /* iflyVoiceStart.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */; };
 		563F1A3E213CD1AD000F9DE3 /* unlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A3C213CD1AC000F9DE3 /* unlike.png */; };
 		563F1A41213CD685000F9DE3 /* notelike.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A40213CD685000F9DE3 /* notelike.png */; };
+		563F1A49213D2CF1000F9DE3 /* IICacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F1A47213D2CF1000F9DE3 /* IICacheStorage.swift */; };
+		563F1A4A213D2CF1000F9DE3 /* IICacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F1A48213D2CF1000F9DE3 /* IICacheManager.swift */; };
+		563F1A54213D2D34000F9DE3 /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 563F1A4C213D2D34000F9DE3 /* YYDiskCache.m */; };
+		563F1A55213D2D34000F9DE3 /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 563F1A4E213D2D34000F9DE3 /* YYCache.m */; };
+		563F1A56213D2D34000F9DE3 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 563F1A52213D2D34000F9DE3 /* YYKVStorage.m */; };
+		563F1A57213D2D34000F9DE3 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 563F1A53213D2D34000F9DE3 /* YYMemoryCache.m */; };
 		563F84E421391C8D0077466E /* ALIFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F84E321391C8D0077466E /* ALIFB.swift */; };
 		56403FA520D34F8C00638E46 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 56403FA420D34F8B00638E46 /* selected.png */; };
 		5645A13E20BBA12200EE7638 /* MineFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A13D20BBA12200EE7638 /* MineFavViewController.swift */; };
@@ -325,6 +331,16 @@
 		563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iflyVoiceStart.png; sourceTree = "<group>"; };
 		563F1A3C213CD1AC000F9DE3 /* unlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlike.png; sourceTree = "<group>"; };
 		563F1A40213CD685000F9DE3 /* notelike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notelike.png; sourceTree = "<group>"; };
+		563F1A47213D2CF1000F9DE3 /* IICacheStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IICacheStorage.swift; sourceTree = "<group>"; };
+		563F1A48213D2CF1000F9DE3 /* IICacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IICacheManager.swift; sourceTree = "<group>"; };
+		563F1A4C213D2D34000F9DE3 /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
+		563F1A4D213D2D34000F9DE3 /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
+		563F1A4E213D2D34000F9DE3 /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
+		563F1A4F213D2D34000F9DE3 /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
+		563F1A50213D2D34000F9DE3 /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
+		563F1A51213D2D34000F9DE3 /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
+		563F1A52213D2D34000F9DE3 /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
+		563F1A53213D2D34000F9DE3 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
 		563F84E321391C8D0077466E /* ALIFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALIFB.swift; sourceTree = "<group>"; };
 		56403FA420D34F8B00638E46 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		5645A13D20BBA12200EE7638 /* MineFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineFavViewController.swift; sourceTree = "<group>"; };
@@ -689,6 +705,30 @@
 				56B1C6D520CA62D700DA6E69 /* IIModuleInvocation.h */,
 			);
 			path = ModuleFactory;
+			sourceTree = "<group>";
+		};
+		563F1A46213D2CF1000F9DE3 /* IICacheStorage */ = {
+			isa = PBXGroup;
+			children = (
+				563F1A47213D2CF1000F9DE3 /* IICacheStorage.swift */,
+				563F1A48213D2CF1000F9DE3 /* IICacheManager.swift */,
+			);
+			path = IICacheStorage;
+			sourceTree = "<group>";
+		};
+		563F1A4B213D2D34000F9DE3 /* YYCache */ = {
+			isa = PBXGroup;
+			children = (
+				563F1A4C213D2D34000F9DE3 /* YYDiskCache.m */,
+				563F1A4D213D2D34000F9DE3 /* YYKVStorage.h */,
+				563F1A4E213D2D34000F9DE3 /* YYCache.m */,
+				563F1A4F213D2D34000F9DE3 /* YYMemoryCache.h */,
+				563F1A50213D2D34000F9DE3 /* YYDiskCache.h */,
+				563F1A51213D2D34000F9DE3 /* YYCache.h */,
+				563F1A52213D2D34000F9DE3 /* YYKVStorage.m */,
+				563F1A53213D2D34000F9DE3 /* YYMemoryCache.m */,
+			);
+			path = YYCache;
 			sourceTree = "<group>";
 		};
 		563F84E221391C820077466E /* ALIFB */ = {
@@ -1151,6 +1191,7 @@
 		5685337D20AD9BB800BDB451 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				563F1A4B213D2D34000F9DE3 /* YYCache */,
 				56A4C4BE20B3ADB70094916E /* IIFlyMsc */,
 				56676E6220AE8DD200905CFD /* IISQLite3.2SourceCode */,
 				5685339A20AD9BB800BDB451 /* IIXML */,
@@ -1195,6 +1236,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				563F1A46213D2CF1000F9DE3 /* IICacheStorage */,
 				565281C22138DFB300A9F226 /* APPConfig */,
 				56A58A4621367FEC000E2082 /* Toast */,
 				565E6A2D21366BE400CBD4C3 /* AudioPlay */,
@@ -2243,6 +2285,7 @@
 				568533CD20AD9BB800BDB451 /* DingTalkCalendarTrupleVModel.swift in Sources */,
 				568533D020AD9BB800BDB451 /* DingMeetingVModel.swift in Sources */,
 				56676E8120AE8DD200905CFD /* FMDatabase+FTS3.m in Sources */,
+				563F1A49213D2CF1000F9DE3 /* IICacheStorage.swift in Sources */,
 				5685340020AD9BB800BDB451 /* IICoreExtension.swift in Sources */,
 				56676E2D20AE8C4800905CFD /* AOPEvents.swift in Sources */,
 				56676E3320AE8C4800905CFD /* AOPMmapOCUtility.m in Sources */,
@@ -2284,11 +2327,13 @@
 				5685341020AD9BB800BDB451 /* DingtalkMeetingModel.swift in Sources */,
 				56676E3520AE8C4800905CFD /* AOPNotificationCenter.swift in Sources */,
 				5684C94720B4FB230021585D /* PcmPlayer.m in Sources */,
+				563F1A55213D2D34000F9DE3 /* YYCache.m in Sources */,
 				56D3E98420C9436B00C8CE46 /* IIHTTPNetWork.swift in Sources */,
 				56A4C4DE20B3B0C40094916E /* NoteBLL.swift in Sources */,
 				56A4C4E020B3B6980094916E /* VoiceBtnVM.swift in Sources */,
 				56B9163C20B57BFE004F1A71 /* FolderViewController.swift in Sources */,
 				56D5D3EE20B664260076E69E /* MineViewController.swift in Sources */,
+				563F1A56213D2D34000F9DE3 /* YYKVStorage.m in Sources */,
 				568533CF20AD9BB800BDB451 /* DingtaskVModel.swift in Sources */,
 				56D3E99020C9436B00C8CE46 /* Alamofire.swift in Sources */,
 				568533E520AD9BB800BDB451 /* DingtalkGetTask.swift in Sources */,
@@ -2321,6 +2366,7 @@
 				560930A320D88C0C00FC7F58 /* ThirdLoginDAL.swift in Sources */,
 				568533D220AD9BB800BDB451 /* DingTalkCalanderVM.swift in Sources */,
 				56D3E99220C9436B00C8CE46 /* SessionManager.swift in Sources */,
+				563F1A4A213D2CF1000F9DE3 /* IICacheManager.swift in Sources */,
 				5665482F20E233B6004DC07C /* IIPitchFilter.swift in Sources */,
 				568533DD20AD9BB800BDB451 /* FilterVw.swift in Sources */,
 				56B9163720B55CA2004F1A71 /* TTSBLL.m in Sources */,
@@ -2342,6 +2388,7 @@
 				56676DC920AE7EDA00905CFD /* MianaddViewController.swift in Sources */,
 				56005B9220B2AE41004390A1 /* SearchVCTabCell.swift in Sources */,
 				5685333D20AD9AA600BDB451 /* AppDelegate.swift in Sources */,
+				563F1A57213D2D34000F9DE3 /* YYMemoryCache.m in Sources */,
 				568533DA20AD9BB800BDB451 /* MeetingContainerVw.swift in Sources */,
 				56676E8020AE8DD200905CFD /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				56676E8520AE8DD200905CFD /* FMDatabase.m in Sources */,
@@ -2364,6 +2411,7 @@
 				56F80FE220DE154C0085D5E1 /* IIGCDUtility.swift in Sources */,
 				56D3E98920C9436B00C8CE46 /* DispatchQueue+Alamofire.swift in Sources */,
 				56D3E99120C9436B00C8CE46 /* Request.swift in Sources */,
+				563F1A54213D2D34000F9DE3 /* YYDiskCache.m in Sources */,
 				568533F320AD9BB800BDB451 /* WorkBench.swift in Sources */,
 				56EC598120B7D7F8004B5F5B /* NoteContextReCreateViewController.swift in Sources */,
 				56D3E97720C9436B00C8CE46 /* ReachStateWWAN.m in Sources */,
@@ -2578,7 +2626,10 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2604,7 +2655,10 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2624,7 +2678,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2642,7 +2700,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
