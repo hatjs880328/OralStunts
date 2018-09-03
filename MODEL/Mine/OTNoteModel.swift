@@ -56,6 +56,7 @@ class OTNoteModel: NSObject,Codable {
 
 class CreateTabSql:NSObject,Codable {
     var id: String = ""
+    var title:String = ""
     var txtstrInfo: String = ""
     var createTime: Date = Date()
     var modifyTime: Date = Date()

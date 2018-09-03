@@ -17,6 +17,7 @@ class NoteLogicBLL: NSObject  {
     func progressSQLModel(with model : OTNoteModel)->CreateTabSql {
         let realModel = CreateTabSql()
         realModel.id = model.id
+        realModel.title = model.title
         realModel.folderID = model.folderID
         realModel.txtstrInfo = String(data: try! JSONEncoder().encode(model), encoding: String.Encoding.utf8)!
         realModel.createTime = model.createTime
