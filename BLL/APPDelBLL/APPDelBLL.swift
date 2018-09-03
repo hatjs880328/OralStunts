@@ -20,6 +20,17 @@ class APPDelBLL: NSObject {
         MineDAL().createTabWithModel()
         OTNoteDAL().createTab()
         FolderDAL().createTab()
+        insertPreNote()
+    }
+    
+    /// 预制一条数据；id相同不会重复插入
+    func insertPreNote() {
+        let note = OTNoteModel()
+        note.id = "9a6669c2-d07b-440c-b274-55a18fd5b9ec"
+        note.setTitle("开始使用OralStunts", [])
+        note.setContexts(createTime: Date(), content: "详情请查看个人中心得帮助", volumnList: [])
+        note.videoUrl.append("")
+        NoteLogicBLL().insertNoteInfo(with: note)
     }
     
     func thridLibInit() {

@@ -66,7 +66,7 @@ class LoginInVw: UIView,UITextFieldDelegate {
             make.width.equalTo(APPDelStatic.aWeight / 4 * 3)
             make.height.equalTo(45 * APPDelStatic.sizeScale)
         }
-        nickName.placeholder = "设置昵称(最少四位)"
+        nickName.placeholder = "设置昵称(最少2位)"
         nickName.layer.cornerRadius = 6 * APPDelStatic.sizeScale
         nickName.layer.borderColor = UIColor.black.cgColor
         nickName.layer.borderWidth = 1
