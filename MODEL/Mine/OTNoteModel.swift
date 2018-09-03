@@ -32,6 +32,8 @@ class OTNoteModel: NSObject,Codable {
     var titleVideoUrl = ""
     /// folderid-文件夹id
     var folderID = ""
+    /// 收藏属性-默认不收藏
+    var isLike: Bool?
     
     func setTitle(_ str: String, _ volumeList: [Int32]) {
         self.title = str

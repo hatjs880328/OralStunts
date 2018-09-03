@@ -9,27 +9,43 @@
 import UIKit
 
 class MineFavViewController: IIBaseViewController {
-
+    
+    var tab: SearchVCTabVw!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "我喜欢的"
         self.navigationController?.isNavigationBarHidden = false
-        let noDoVw = UILabel()
-        self.view.addSubview(noDoVw)
-        noDoVw.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.view.snp.centerX)
-            make.centerY.equalTo(self.view.snp.centerY)
-            make.width.equalTo(200)
-            make.height.equalTo(30)
-        }
-        noDoVw.text = "敬请期待!"
-        noDoVw.textAlignment = .center
-        noDoVw.font = APPDelStatic.uiFont(with: 28)
-        noDoVw.textColor = APPDelStatic.themeColor
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        initVw()
+        self.getData()
+    }
+    
+    func initVw() {
+        if tab != nil { return }
+        let emptyVw = UIView()
+        self.view.addSubview(emptyVw)
+        emptyVw.snp.makeConstraints { (make) in
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.top.equalTo(0)
+            make.height.equalTo(0)
+        }
+        tab = SearchVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: emptyVw)
+    }
+    
+    func getData() {
+        self.tab.vm.loadFavData()
+    }
+    
+    @objc func selectAllItem() {
+        let showStr = self.tab.vm.selectAllOrNot()
+        self.navigationItem.rightBarButtonItem?.title = showStr
+    }
+    
 }

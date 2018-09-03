@@ -53,6 +53,7 @@ class NoteLogicBLL: NSObject  {
         return dal.getFolderInfos(with:folderID)
     }
     
+    /// 根据id获取某一个model
     func getNoteModelWithID(id: String)->OTNoteModel {
         return dal.getInfoByid(id: id).first!
     }
@@ -63,6 +64,25 @@ class NoteLogicBLL: NSObject  {
         newOTModel.setNewContents(modifyTime: Date(), content: content, volumnList: volumeList)
         newOTModel.videoUrl.append("\(newOTModel.id)~content\(newOTModel.videoUrl.count)")
         self.insertNoteInfo(with: newOTModel)
+    }
+    
+    /// 收藏与不收藏
+    func likeOneModel(isLike:Bool) {
+        let newOTModel = NoteCreatingBLL.getInstance().showingNoteModel
+        newOTModel.isLike = isLike
+        self.insertNoteInfo(with: newOTModel)
+    }
+    
+    /// 获取收藏的数据信息
+    func getFavData()->[OTNoteModel] {
+        let models = dal.getInfos(with: 0, order: "", sort: "")
+        var result = [OTNoteModel]()
+        for eachItem in models {
+            if eachItem.isLike == true {
+                result.append(eachItem)
+            }
+        }
+        return result
     }
     
     /// 将便签移动到某个文件夹下

@@ -13,6 +13,12 @@ class SearchVCTabCell: UITableViewCell {
     var titleLB:UILabel = UILabel()
     var abstractLB: UILabel = UILabel()
     var modifyTimeLb:UILabel = UILabel()
+    /// 是否喜欢此记录
+    var isLike: UIButton = UIButton()
+    // refreshAction
+    var refreshAction: (()->Void)?
+    // note id
+    var realNoteId:String = ""
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,6 +34,7 @@ class SearchVCTabCell: UITableViewCell {
         self.addSubview(titleLB)
         self.addSubview(abstractLB)
         self.addSubview(modifyTimeLb)
+        self.addSubview(isLike)
         // title
         titleLB.snp.makeConstraints { (make) in
             make.left.equalTo(18)
@@ -55,6 +62,18 @@ class SearchVCTabCell: UITableViewCell {
         }
         modifyTimeLb.font = APPDelStatic.uiFont(with: 11)
         modifyTimeLb.textColor = UIColor.gray
+        // isLike
+        isLike.snp.makeConstraints { (make) in
+            make.right.equalTo(-10)
+            make.centerY.equalTo(self.titleLB.snp.centerY)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
+        isLike.setImage(UIImage(named: "unlike"), for: UIControlState.normal)
+        isLike.setImage(UIImage(named: "notelike"), for: UIControlState.selected)
+        isLike.tapActionsGesture {[weak self] () in
+            self?.isLikeFunc()
+        }
         // line
         let botLine = UIView()
         self.addSubview(botLine)
@@ -73,5 +92,21 @@ class SearchVCTabCell: UITableViewCell {
         }else {
             self.titleLB.textColor = UIColor.black
         }
+        self.isLike.isSelected = model.isLike
+        realNoteId = model.noteID
+    }
+    
+    @objc func isLikeFunc() {
+        NoteCreatingBLL.getInstance().setShowingModel(with: self.realNoteId)
+        if self.isLike.isSelected {
+            //取消收藏
+            self.isLike.isSelected = false
+            NoteLogicBLL().likeOneModel(isLike: false)
+        }else{
+            //收藏
+            self.isLike.isSelected = true
+            NoteLogicBLL().likeOneModel(isLike: true)
+        }
+        self.refreshAction?()
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: IIBaseViewController {
 
     var tabVw: SearchVCTabVw!
+    var searchVw: OTSearchVw!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "搜搜"
@@ -22,7 +23,8 @@ class SearchViewController: IIBaseViewController {
     }
     
     func createVw() {
-        let searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: nil,jumpOrUse:false)
+        searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: nil,jumpOrUse:false)
+        searchVw.searFd.becomeFirstResponder()
         searchVw.remakeCon(right: 45 * APPDelStatic.sizeScale)
         let cancelBtn = UIButton()
         self.view.addSubview(cancelBtn)

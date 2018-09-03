@@ -28,6 +28,8 @@
 		563225F020C8DF720041C612 /* MineServiceModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563225EF20C8DF720041C612 /* MineServiceModule.swift */; };
 		563F1A3A213CBA79000F9DE3 /* iflyVoiceEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A38213CBA78000F9DE3 /* iflyVoiceEnd.png */; };
 		563F1A3B213CBA79000F9DE3 /* iflyVoiceStart.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */; };
+		563F1A3E213CD1AD000F9DE3 /* unlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A3C213CD1AC000F9DE3 /* unlike.png */; };
+		563F1A41213CD685000F9DE3 /* notelike.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A40213CD685000F9DE3 /* notelike.png */; };
 		563F84E421391C8D0077466E /* ALIFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F84E321391C8D0077466E /* ALIFB.swift */; };
 		56403FA520D34F8C00638E46 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 56403FA420D34F8B00638E46 /* selected.png */; };
 		5645A13E20BBA12200EE7638 /* MineFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A13D20BBA12200EE7638 /* MineFavViewController.swift */; };
@@ -321,6 +323,8 @@
 		563225EF20C8DF720041C612 /* MineServiceModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineServiceModule.swift; sourceTree = "<group>"; };
 		563F1A38213CBA78000F9DE3 /* iflyVoiceEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iflyVoiceEnd.png; sourceTree = "<group>"; };
 		563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iflyVoiceStart.png; sourceTree = "<group>"; };
+		563F1A3C213CD1AC000F9DE3 /* unlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlike.png; sourceTree = "<group>"; };
+		563F1A40213CD685000F9DE3 /* notelike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notelike.png; sourceTree = "<group>"; };
 		563F84E321391C8D0077466E /* ALIFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALIFB.swift; sourceTree = "<group>"; };
 		56403FA420D34F8B00638E46 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected.png; sourceTree = "<group>"; };
 		5645A13D20BBA12200EE7638 /* MineFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineFavViewController.swift; sourceTree = "<group>"; };
@@ -806,6 +810,8 @@
 				56C6AB2F2138050E00F49274 /* back@2x.png */,
 				568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */,
 				56FDB4B920AEB7780020A9DE /* search.png */,
+				563F1A40213CD685000F9DE3 /* notelike.png */,
+				563F1A3C213CD1AC000F9DE3 /* unlike.png */,
 				56D6F07A20C6615800A9EE06 /* setting.png */,
 				565281B72138C30300A9F226 /* circleUnselected.png */,
 				56D6F07B20C6615800A9EE06 /* useHelp.png */,
@@ -1944,6 +1950,7 @@
 				5685340C20AD9BB800BDB451 /* SourceBean.xml in Resources */,
 				569C38D320C511EB00332D12 /* boy.png in Resources */,
 				56D6F07C20C6615900A9EE06 /* setting.png in Resources */,
+				563F1A41213CD685000F9DE3 /* notelike.png in Resources */,
 				5685334720AD9AA700BDB451 /* LaunchScreen.storyboard in Resources */,
 				56B4F5D920B698B900CF4A68 /* createNote.png in Resources */,
 				56FDB4BA20AEB7780020A9DE /* search.png in Resources */,
@@ -1954,6 +1961,7 @@
 				56C6AB302138050E00F49274 /* back@2x.png in Resources */,
 				56676DC420AE7C6900905CFD /* folderSelected@2x.png in Resources */,
 				56B4F5D220B697E500CF4A68 /* like.png in Resources */,
+				563F1A3E213CD1AD000F9DE3 /* unlike.png in Resources */,
 				565281B82138C30300A9F226 /* circleUnselected.png in Resources */,
 				56D6F07D20C6615900A9EE06 /* useHelp.png in Resources */,
 				56676DC020AE7C5A00905CFD /* newSelected@2x.png in Resources */,

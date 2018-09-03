@@ -53,6 +53,17 @@ class SearchVCTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         let model = self.vm.getData(with: indexPath)
         cell?.setData(model: model,isSelectAll: self.vm.isSelectAll)
+        cell?.refreshAction = {
+            if let folderVc = self.viewController() as? FolderContentsViewController {
+                folderVc.getData()
+            }
+            if let searchVc = self.viewController() as? SearchViewController {
+                searchVc.searchVw.searFd.text! = searchVc.searchVw.searFd.text!
+            }
+            if let favVc = self.viewController() as? MineFavViewController {
+                favVc.getData()
+            }
+        }
         return cell!
     }
     

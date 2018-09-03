@@ -61,6 +61,11 @@ class SearchVCTabVM: NSObject {
         self.dataSource = NoteLogicBLL().loadData(with: folderID)
     }
     
+    /// 获取所有收藏的数据
+    func loadFavData() {
+        self.dataSource = NoteLogicBLL().getFavData()
+    }
+    
     /// 根据查询条件获取数据
     func requestDataByWhereSql(sql: String) {
         self.dataSource = NoteLogicBLL().getNoteByWhereSQL(sqlStr: sql)
@@ -107,6 +112,7 @@ class SearchvcVmodel: NSObject {
     var abstract = ""
     var modifyTime = ""
     var noteID = ""
+    var isLike = false
     var sourceModel: OTNoteModel!
     override init() {
         super.init()
@@ -119,6 +125,11 @@ class SearchvcVmodel: NSObject {
         let lastIndex = model.contentTxt.last!.length >= 20 ? 20 : model.contentTxt.last!.length
         self.abstract = "摘要: " + model.contentTxt.last!.substringToIndex(lastIndex)
         self.modifyTime = model.modifyTime.last!.dateToString("修改时间：yyyy-MM-dd")
+        if model.isLike == nil || model.isLike! == false {
+            self.isLike = false
+        }else{
+            self.isLike = true
+        }
     }
     
 }

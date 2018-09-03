@@ -101,6 +101,7 @@ class OTNoteDAL: NSObject {
         FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
     }
     
+    
     /// 根据便签生成ekevent数组
     func getDataFollowDate(startDate: Date,endDate: Date)->[EKEvent] {
         let startTime = startDate.timeIntervalSince1970

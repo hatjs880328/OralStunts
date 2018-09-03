@@ -25,6 +25,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
                 queueDB = FMDatabaseQueue(url: pathNew)
                 dbIns = FMDatabase(url: pathNew)
                 dbIns.open()
+                print(pathNew)
                 return true
             }catch{
                 return false

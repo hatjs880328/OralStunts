@@ -57,4 +57,8 @@ class NoteCreatingBLL: NSObject {
         self.creatingNoteModel.setTitle(title,volumeList)
         self.creatingNoteModel.titleVideoUrl = self.creatingNoteModel.id + "~title"
     }
+    
+    func setShowingModel(with id:String) {
+        self.showingNoteModel = NoteLogicBLL().getNoteModelWithID(id: id)
+    }
 }

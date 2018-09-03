@@ -56,6 +56,9 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         let model = self.vm.getData(with: indexPath)
         cell!.setData(model: model)
+        cell?.refreshAction = {
+            self.vm.loadNonFolderData()
+        }
         return cell!
     }
     
