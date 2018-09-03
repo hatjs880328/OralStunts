@@ -181,6 +181,9 @@ extension BigDingTalkSingleLineCollectionVw {
                 }
             }
         }) {
+            for i in middleLogic.childsVwArr {
+                i.setNoEventDay()
+            }
             for eachItem in resultArr {
                 middleLogic.childsVwArr[eachItem.key].setEventDay()
             }

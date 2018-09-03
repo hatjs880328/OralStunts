@@ -148,4 +148,9 @@ class DingTalkCalenderRectLabelView: UIView {
         self.circlePointVw.alpha = 1
     }
     
+    /// if the day have no story [kcevent] set alpha = 0
+    func setNoEventDay() {
+        self.circlePointVw.alpha = 0
+    }
+    
 }

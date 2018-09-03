@@ -142,36 +142,53 @@ extension DingTalkCalanderVM {
         if self.uistate == .single {
             // 9 days
             trupleInfo = (self.smallMiddleDate.first!.dateInfo.beforeDate(1),self.smallMiddleDate.last!.dateInfo.nextDate(1))
+            deleateAllOldEvents(is7Days: true)
         }else{
             // 42 + 2 days
             trupleInfo = (self.middleVMDate.trupleVM.dayArr.first!.dateInfo.beforeDate(1),middleVMDate.trupleVM.dayArr.last!.dateInfo.nextDate(1))
+            deleateAllOldEvents(is7Days: false)
         }
         GCDUtils.asyncProgress(dispatchLevel: 1, asyncDispathchFunc: {
             self.eventCalendarIns.getEventsInGlobalQueue(from: trupleInfo.startDate, to: trupleInfo.endDate) { (events) in
                 for eachItem in events {
-                let dingTalkEvent = DingTalkCEvent(with: eachItem)
-                if self.uistate == .single {
-                    eventsLoop:for eachItemVM in self.smallMiddleDate {
-                        if eachItem.startDate.days == eachItemVM.dateInfo.days && eachItem.startDate.month == eachItemVM.dateInfo.month {
-                            eachItemVM.setEventDay(with: dingTalkEvent)
-                            break eventsLoop
+                    let dingTalkEvent = DingTalkCEvent(with: eachItem)
+                    if self.uistate == .single {
+                        eventsLoop:for eachItemVM in self.smallMiddleDate {
+                            if eachItem.startDate.days == eachItemVM.dateInfo.days && eachItem.startDate.month == eachItemVM.dateInfo.month {
+                                eachItemVM.setEventDay(with: dingTalkEvent)
+                                break eventsLoop
+                            }
+                        }
+                    }else{
+                        eventsLoop:for eachItemVM in self.middleVMDate.trupleVM.dayArr {
+                            if eachItem.startDate.days == eachItemVM.dateInfo.days && eachItem.startDate.month == eachItemVM.dateInfo.month {
+                                eachItemVM.setEventDay(with: dingTalkEvent)
+                                break eventsLoop
+                            }
                         }
                     }
-                }else{
-                    eventsLoop:for eachItemVM in self.middleVMDate.trupleVM.dayArr {
-                        if eachItem.startDate.days == eachItemVM.dateInfo.days && eachItem.startDate.month == eachItemVM.dateInfo.month {
-                            eachItemVM.setEventDay(with: dingTalkEvent)
-                            break eventsLoop
-                        }
-                    }
-                }
                 }
                 DispatchQueue.main.async {
                     action()
                 }
             }
         }, endMainDispatchFunc: {})
+    }
+    
+    /// before get new day's events - first deleate old day's events
+    func deleateAllOldEvents(is7Days:Bool) {
+        if is7Days {
+            for eachItem in smallMiddleDate {
+                eachItem.fireDayInfo.removeAll()
+                eachItem.isFireDay = false
+            }
+        }else{
+            for eachItem in middleVMDate.trupleVM.dayArr {
+                eachItem.fireDayInfo.removeAll()
+                eachItem.isFireDay = false
+            }
         }
+    }
 }
 
 // MARK: - swipe left right & up down BIG VW
@@ -377,7 +394,7 @@ extension DingTalkCalanderVM {
         // logic dates change
         self.smallRightDate = self.smallMiddleDate
         self.smallMiddleDate = self.smallLeftDate
-       
+        
         
         let lastDay = self.smallLeftDate[0].dateInfo!
         let models =  workBench.get7Days(with: lastDay, is: false)
