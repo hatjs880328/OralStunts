@@ -41,7 +41,7 @@ class APPDelStatic {
         return false
     }
     
-    /// themecolor 0,101,105
+    /// themecolor 0,101,105 [0x006569]
     static let themeColor:UIColor = UIColor(red: 0/255, green: 101/255, blue: 105/255, alpha: 1)
     
     /// voice inside color 0,226,143
