@@ -22,6 +22,10 @@ class TitleInsertVw: UIView {
     
     var voiceAniVw: OTVolumeVw!
     
+    var aniVw = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
+    var iflyVoiceAniPreVw: UIButton = UIButton()
+    
     init(frame: CGRect,fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
@@ -52,6 +56,20 @@ class TitleInsertVw: UIView {
         contentVw.layer.cornerRadius = 4
         contentVw.layer.borderColor = UIColor.gray.cgColor
         contentVw.layer.borderWidth = 0.5
+        //动画开始之前的图片
+        contentVw.addSubview(iflyVoiceAniPreVw)
+        iflyVoiceAniPreVw.snp.makeConstraints { (make) in
+            make.left.equalTo(5)
+            make.top.equalTo(5)
+            make.height.equalTo(20)
+            make.width.equalTo(20)
+        }
+        iflyVoiceAniPreVw.setImage(UIImage(named: "iflyVoiceStart"), for: UIControlState.normal)
+        iflyVoiceAniPreVw.setImage(UIImage(named: "iflyVoiceEnd"), for: UIControlState.selected)
+        //小菊花
+        contentVw.addSubview(aniVw)
+        aniVw.frame.origin = CGPoint(x: 5, y: 5)
+        aniVw.frame.size = CGSize(width: 20, height: 20)
         // 语音动画view
         voiceAniVw = OTVolumeVw(frame: CGRect.zero, fatherVw: contentVw)
         //标题 field
@@ -106,6 +124,8 @@ class TitleInsertVw: UIView {
         let _ = self.vm.titlePublisher.subscribe { [weak self](strValue) in
             if strValue.element == nil { return }
             self?.titleTF.text = strValue.element!
+            self?.progressIflyAniPreVw(aniStart: false)
+            self?.aniVw.stopAnimating()
         }
         
         let _ = self.jumpPub.bind(to: self.vm.jumpInput)
@@ -115,9 +135,11 @@ class TitleInsertVw: UIView {
             self?.jumpNextVC(boolValue.element!)
         }
         
-        let _ = self.vm.volumePublisher.subscribe { (intvalue) in
-            if intvalue.element == nil { return }
-            self.voiceAniVw.setValue(value: intvalue.element!)
+        let _ = self.vm.volumePublisher.subscribe { [weak self](intvalue) in
+            if intvalue.element == nil || self == nil { return }
+            self?.aniVw.startAnimating()
+            self?.progressIflyAniPreVw(aniStart: true)
+            self?.voiceAniVw.setValue(value: intvalue.element!)
         }
         
     }
@@ -130,5 +152,17 @@ class TitleInsertVw: UIView {
         let con = NoteContextCreateViewController()
         con.presentedVcHasNavigation = true
         self.viewController()?.navigationController?.pushViewController(con, animated: true)
+    }
+    
+    /// 菊花上面的预制图片变换规则
+    func progressIflyAniPreVw(aniStart:Bool) {
+        //菊花动画开始
+        if aniStart {
+            self.iflyVoiceAniPreVw.alpha = 0
+            self.iflyVoiceAniPreVw.isSelected = true
+        }else{
+            //菊花动画结束
+            self.iflyVoiceAniPreVw.alpha = 1
+        }
     }
 }

@@ -33,7 +33,7 @@ class OTVolumeVw: UIView {
     
     func createVw() {
         self.snp.makeConstraints { (make) in
-            make.left.equalTo(5)
+            make.left.equalTo(35)
             make.right.equalTo(-5)
             make.top.equalTo(5)
             make.height.equalTo(20 * APPDelStatic.sizeScale)
