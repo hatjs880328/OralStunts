@@ -41,7 +41,7 @@ class MoveNote2FolderViewController: IIBaseViewController {
         
         NoteLogicBLL().moveNote2Folder(folderID: self.tabVw.vm.selectedCellIDS.keys.first){ [weak self] (isFail) in
             if isFail {
-                OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "请选择一个目标文件夹！", from: self!)
+                OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "请选择一个目标文件夹！")
             }else{
                 self?.goBack()
             }

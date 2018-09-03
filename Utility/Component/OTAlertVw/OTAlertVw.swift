@@ -16,10 +16,10 @@ class OTAlertVw: NSObject {
     }
     
     /// 单行文档提示
-    func alertShowSingleTitle(titleInfo:String,message:String,from:UIViewController) {
+    func alertShowSingleTitle(titleInfo:String,message:String) {
         let toast = FFToast(toastWithTitle: titleInfo, message: message, iconImage: UIImage(name: "fftoast_info"))
         toast?.toastPosition = .belowStatusBarWithFillet
-        toast?.duration = 2.5
+        toast?.duration = 1.8
         toast?.toastBackgroundColor = APPDelStatic.themeColor
         toast?.show()
     }

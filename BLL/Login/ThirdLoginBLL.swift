@@ -12,7 +12,7 @@ class ThirdLoginBLL: NSObject {
     func invokingNoteAuth(vc: UIViewController){
         ENSession.shared.authenticate(with: vc, preferRegistration: false) { (errorInfo) in
             if errorInfo == nil { return }
-            OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: errorInfo!.localizedDescription, from: vc)
+            OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: errorInfo!.localizedDescription)
         }
     }
     

@@ -146,7 +146,7 @@ class TitleInsertVw: UIView {
     
     func jumpNextVC(_ boolValue:Bool) {
         if !boolValue {
-            OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "标题不能为空！", from: self.viewController()!)
+            OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "标题不能为空！")
             return
         }
         let con = NoteContextCreateViewController()

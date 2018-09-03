@@ -60,13 +60,17 @@ class FolderCreateViewController: IIBaseViewController {
     }
     
     func initRx() {
-        self.confirmBtn.tapActionsGesture {
+        self.confirmBtn.tapActionsGesture { [weak self] () in
+            if self?.nameLb.text == nil || self?.nameLb.text == "" || self == nil  {
+                OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "文件夹名称不可为空。")
+                return
+            }
             let folderIns = OTFolderModel()
-            folderIns.title = self.nameLb.text!
+            folderIns.title = self!.nameLb.text!
             folderIns.createTime = Date()
             folderIns.contentCount = 0
             FolderBLL().insert(with: folderIns)
-            self.goBack()
+            self!.goBack()
         }
     }
 

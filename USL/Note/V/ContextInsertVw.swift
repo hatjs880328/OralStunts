@@ -167,7 +167,7 @@ class ContextInsertVw: UIView {
     }
     
     func showAlert() {
-        OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "内容不可为空！", from: self.viewController()!)
+        OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "内容不可为空！")
     }
     
     func postDoneSignal() {
