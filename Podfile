@@ -35,6 +35,10 @@ def useFrameworks
     
     pod 'AlicloudFeedback'
     
+    pod 'SCLAlertView', '~> 0.8'
+    
+    pod 'FFToast'
+    
 end
 
 target 'OralStunts' do

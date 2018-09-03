@@ -18,6 +18,7 @@ PODS:
     - CocoaLumberjack/Default
   - Differentiator (3.0.2)
   - EvernoteSDK (3.0.0)
+  - FFToast (1.2.0)
   - FlatUIKit (1.6.2)
   - MJExtension (3.0.13)
   - RxCocoa (4.1.2):
@@ -27,6 +28,7 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - SCLAlertView (0.8)
   - SDWebImage (4.4.0):
     - SDWebImage/Core (= 4.4.0)
   - SDWebImage/Core (4.4.0)
@@ -41,11 +43,13 @@ DEPENDENCIES:
   - BeeHive (~> 1.6.0)
   - Bugly
   - EvernoteSDK (~> 3.0)
+  - FFToast
   - FlatUIKit
   - MJExtension (~> 3.0.13)
   - RxCocoa (~> 4.1.2)
   - RxDataSources (~> 3.0.2)
   - RxSwift (~> 4.1.2)
+  - SCLAlertView (~> 0.8)
   - SDWebImage (~> 4.4.0)
   - SnapKit (~> 4.0.0)
   - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
@@ -64,11 +68,13 @@ SPEC REPOS:
     - CocoaLumberjack
     - Differentiator
     - EvernoteSDK
+    - FFToast
     - FlatUIKit
     - MJExtension
     - RxCocoa
     - RxDataSources
     - RxSwift
+    - SCLAlertView
     - SDWebImage
     - SnapKit
     - WHDebugTool
@@ -94,16 +100,18 @@ SPEC CHECKSUMS:
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   EvernoteSDK: 7e9de762a9c281e714f3e6d0ae10657db3046792
+  FFToast: 60e0f3c9fd8fc473205015055ee39cd200404e01
   FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
 
-PODFILE CHECKSUM: 52718e2cbabf999efa977ac93e0c7e724847ca50
+PODFILE CHECKSUM: c25003b1536cc1228c732158558b88ab8531a39a
 
 COCOAPODS: 1.5.3

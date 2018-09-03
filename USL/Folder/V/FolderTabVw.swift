@@ -112,7 +112,7 @@ class FolderTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            OTAlertVw().alertShowConfirm(title: "提醒", message: "此操作会将文件夹下的所有便签删除，确定继续吗？", from: self.viewController()!, confirmStr: "删除") { [weak self](action) in
+            OTAlertVw().alertShowConfirm(title: "提醒", message: "此操作会将文件夹下的所有便签删除，确定继续吗？", from: self.viewController()!, confirmStr: "删除") { [weak self]() in
                 self?.vm.deleateOneFolder(with: indexPath)
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
                 tableView.reloadData()

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SCLAlertView
 
 class OTAlertVw: NSObject {
     
@@ -16,18 +17,20 @@ class OTAlertVw: NSObject {
     
     /// 单行文档提示
     func alertShowSingleTitle(titleInfo:String,message:String,from:UIViewController) {
-        let alert = UIAlertController(title: titleInfo, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil)
-        alert.addAction(cancelAction)
-        from.present(alert, animated: true, completion: nil)
+        let toast = FFToast(toastWithTitle: titleInfo, message: message, iconImage: UIImage(name: "fftoast_info"))
+        toast?.toastPosition = .belowStatusBarWithFillet
+        toast?.duration = 2.5
+        toast?.toastBackgroundColor = APPDelStatic.themeColor
+        toast?.show()
     }
     /// 两个按钮的提示
-    func alertShowConfirm(title:String,message: String,from: UIViewController,confirmStr:String,confirmAction:@escaping (UIAlertAction)->Void) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.default, handler: nil)
-        alert.addAction(cancelAction)
-        let confirmAction = UIAlertAction(title: confirmStr, style: UIAlertActionStyle.destructive, handler: confirmAction)
-        alert.addAction(confirmAction)
-        from.present(alert, animated: true, completion: nil)
+    func alertShowConfirm(title:String,message: String,from: UIViewController,confirmStr:String,confirmAction:@escaping ()->Void) {
+        
+        let alertVw = SCLAlertView()
+        alertVw.addButton(confirmStr) {
+            confirmAction()
+        }
+        alertVw.showWarning(title, subTitle: message, closeButtonTitle: "取消", timeout: nil, colorStyle: 0xFFD110, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
+        
     }
 }
