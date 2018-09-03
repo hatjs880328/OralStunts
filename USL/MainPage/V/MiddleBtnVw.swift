@@ -18,7 +18,7 @@ class MiddleBtnVw: UIView {
             make.left.equalTo(18)
             make.right.equalTo(-18)
             make.bottom.equalTo(0)
-            make.top.equalTo(topVw.snp.bottom).offset(10 * APPDelStatic.sizeScale)
+            make.top.equalTo(topVw.snp.bottom).offset(25 * APPDelStatic.sizeScale)
         }
         createVw()
     }
