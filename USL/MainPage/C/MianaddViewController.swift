@@ -31,8 +31,8 @@ class MianaddViewController: IIBaseViewController {
     
     func createVw() {
         let topVw = TopHelloVw(frame: CGRect.zero, fatherVw: self.view)
-        let searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: topVw)
-        tabVw = MainVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: searchVw)
+        //let searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: topVw)
+        tabVw = MainVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: topVw)
     }
 
 }

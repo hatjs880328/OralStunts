@@ -27,7 +27,7 @@ class APPDelBLL: NSObject {
     func insertPreNote() {
         let note = OTNoteModel()
         note.id = "9a6669c2-d07b-440c-b274-55a18fd5b9ec"
-        note.setTitle("开始使用OralStunts", [])
+        note.setTitle("😄开始使用OralStunts", [])
         note.setContexts(createTime: Date(), content: "详情请查看个人中心得帮助", volumnList: [])
         note.videoUrl.append("")
         NoteLogicBLL().insertNoteInfo(with: note)

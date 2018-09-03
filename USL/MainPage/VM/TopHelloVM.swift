@@ -16,7 +16,7 @@ class TopHelloVM: NSObject {
     override init() {
         super.init()
         self.outPut = Observable.create({ (observer) -> Disposable in
-            observer.onNext("你好，\(MineBLL().getUserInfo().nickName)")
+            observer.onNext("你好,\(MineBLL().getUserInfo().nickName)")
             return Disposables.create()
         })
     }

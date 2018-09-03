@@ -14,6 +14,8 @@ class TopHelloVw: UIView {
     
     let vm = TopHelloVM()
     
+    let searchBtn = UIButton()
+    
     init(frame: CGRect,fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
@@ -32,10 +34,23 @@ class TopHelloVw: UIView {
     }
     
     func createVw() {
-        
+        self.addSubview(searchBtn)
+        searchBtn.snp.makeConstraints { (make) in
+            make.right.equalTo(-16)
+            make.centerY.equalTo(self.snp.centerY)
+            make.width.equalTo(25)
+            make.height.equalTo(25)
+        }
+        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
+        searchBtn.tapActionsGesture {[weak self] () in
+            IIModuleCore.getInstance().invokingSomeFunciton(url: "SearchServiceModule/jumpToSearchVCWithParams:", params: ["fromVC":self!.viewController()!], action: nil)
+        }
         self.addSubview(helloLb)
         helloLb.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+            make.right.equalTo(searchBtn.snp.left).offset(-5)
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
         }
         helloLb.text = MineBLL().getUserInfo().nickName
         helloLb.font = APPDelStatic.uiFont(with: 30)
