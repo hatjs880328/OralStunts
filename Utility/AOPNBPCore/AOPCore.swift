@@ -52,25 +52,28 @@ class TABLESwizzing: GodfatherSwizzing {
         if !tab.tableReloadNumber {
             return
         }
-        for eachItem in tab.subviews {
-            if eachItem.isKind(of: IIBaseWaitAniVw.self) {
-                eachItem.removeFromSuperview()
-                break
+        GCDUtils.delayProgerssWithFloatSec(milliseconds: 200, yourFunc: {
+            for eachItem in tab.subviews {
+                if eachItem.isKind(of: IIBaseWaitAniVw.self) {
+                    eachItem.removeFromSuperview()
+                    break
+                }
             }
-        }
-        let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
-        if boolStr == nil { return }
-        if (boolStr as! String) == "true" {
-            if tab.numberOfRows(inSection:0) != 0 {
+            let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
+            if boolStr == nil { return }
+            if (boolStr as! String) == "true" {
+                if tab.numberOfRows(inSection:0) != 0 {
+                    tab.backgroundView = nil
+                }else{
+                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                    tab.backgroundView = resultVw as? UIView
+                }
+            }else {
                 tab.backgroundView = nil
-            }else{
-                let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
-                tab.backgroundView = resultVw as? UIView
+                return
             }
-        }else {
-            tab.backgroundView = nil
-            return
-        }
+        })
+        
     }
     
     /// tb-init[add anivw]
