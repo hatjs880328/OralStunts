@@ -42,7 +42,10 @@ class SearchVCTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
     func createVM() {
         self.vm = SearchVCTabVM()
         self.vm.reloadAction = { [weak self] () in
-            self?.tabVw.reloadData()
+            GCDUtils.delayProgress(delayTime: 4, yourFuncton: {
+               self?.tabVw.reloadData()
+            })
+            
         }
     }
     

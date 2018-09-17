@@ -30,6 +30,8 @@ def useFrameworks
     
     pod 'WHDebugTool', '~> 1.1'
     
+    pod 'MONActivityIndicatorView'
+    
     # ui kit
     pod 'FlatUIKit'
     

@@ -46,8 +46,8 @@ class TABLESwizzing: GodfatherSwizzing {
         GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().tbDidSelectedAction, userInfo: [AOPEventType.tbselectedAction:event])
     }
     
+    /// tb-reload[first remove anivw & addHelp note info]
     let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
-        
         let tab = (aspectInfo.instance() as! UITableView)
         let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
         if boolStr == nil { return }
@@ -64,9 +64,27 @@ class TABLESwizzing: GodfatherSwizzing {
         }
     }
     
-    let tbRemoveBGBlock: @convention(block) (_ id : AspectInfo)->Void = {aspectInfo in
+    /// tb-init[add anivw]
+    let tbInitBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
         let tab = aspectInfo.instance() as! UITableView
-        tab.backgroundView = nil
+        let aniVw = IIBaseWaitAniVw(frame: CGRect.zero)
+        tab.addSubview(aniVw)
+        aniVw.snp.makeConstraints({ (make) in
+            make.centerY.equalTo(tab.snp.centerY)
+            make.centerX.equalTo(tab.snp.centerX)
+        })
+    }
+    
+    /// tb-cellforrow[remove anivw]
+    let tbCellforRowBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
+        let tab = (aspectInfo.instance() as! UITableViewCell).next as? UITableView
+        if tab == nil { return }
+        for eachItem in tab!.subviews {
+            if let aniVw = eachItem as? IIBaseWaitAniVw {
+                aniVw.stopAni()
+                break
+            }
+        }
     }
     
     /// tab-celldeselected
@@ -78,6 +96,12 @@ class TABLESwizzing: GodfatherSwizzing {
             try UITableView.aspect_hook(#selector(UITableView.reloadData),
                                         with: .init(rawValue:0),
                                         usingBlock: tbBGBlock)
+            try UITableView.aspect_hook(#selector(UITableView.init(frame:)),
+                                        with: .init(rawValue:0),
+                                        usingBlock: tbInitBlock)
+            try UITableViewCell.aspect_hook(#selector(UITableViewCell.init(style:reuseIdentifier:)),
+                                            with: AspectOptions.init(rawValue: 0),
+                                            usingBlock: tbCellforRowBlock)
         }catch {}
     }
 }

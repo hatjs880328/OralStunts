@@ -41,6 +41,8 @@
 		5645A13E20BBA12200EE7638 /* MineFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A13D20BBA12200EE7638 /* MineFavViewController.swift */; };
 		5645A14120BBABB100EE7638 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A14020BBABB100EE7638 /* FeedBackViewController.swift */; };
 		5645A14320BBABF200EE7638 /* FeedBackVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A14220BBABF200EE7638 /* FeedBackVw.swift */; };
+		564D4FA3214F521100B47718 /* APPListEmptyVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D4FA2214F521100B47718 /* APPListEmptyVw.swift */; };
+		564D4FB2214F777200B47718 /* IIBaseWaitAniVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D4FB1214F777200B47718 /* IIBaseWaitAniVw.swift */; };
 		565281B82138C30300A9F226 /* circleUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 565281B72138C30300A9F226 /* circleUnselected.png */; };
 		565281BB2138C8A400A9F226 /* Evernote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281BA2138C8A400A9F226 /* Evernote.swift */; };
 		565281C12138CAFE00A9F226 /* EvernoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565281C02138CAFE00A9F226 /* EvernoteViewController.swift */; };
@@ -346,6 +348,8 @@
 		5645A13D20BBA12200EE7638 /* MineFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineFavViewController.swift; sourceTree = "<group>"; };
 		5645A14020BBABB100EE7638 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		5645A14220BBABF200EE7638 /* FeedBackVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackVw.swift; sourceTree = "<group>"; };
+		564D4FA2214F521100B47718 /* APPListEmptyVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPListEmptyVw.swift; sourceTree = "<group>"; };
+		564D4FB1214F777200B47718 /* IIBaseWaitAniVw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIBaseWaitAniVw.swift; sourceTree = "<group>"; };
 		565281B72138C30300A9F226 /* circleUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circleUnselected.png; sourceTree = "<group>"; };
 		565281BA2138C8A400A9F226 /* Evernote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evernote.swift; sourceTree = "<group>"; };
 		565281C02138CAFE00A9F226 /* EvernoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvernoteViewController.swift; sourceTree = "<group>"; };
@@ -737,6 +741,14 @@
 				563F84E321391C8D0077466E /* ALIFB.swift */,
 			);
 			path = ALIFB;
+			sourceTree = "<group>";
+		};
+		564D4FB0214F777200B47718 /* OTAnivw */ = {
+			isa = PBXGroup;
+			children = (
+				564D4FB1214F777200B47718 /* IIBaseWaitAniVw.swift */,
+			);
+			path = OTAnivw;
 			sourceTree = "<group>";
 		};
 		565281B92138C73B00A9F226 /* EvarNote */ = {
@@ -1569,6 +1581,7 @@
 		5685344520ADA20D00BDB451 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				564D4FB0214F777200B47718 /* OTAnivw */,
 				56C6AB292137D77200F49274 /* AQYVideoAni */,
 				5659EB0720B7AA560075A142 /* OTTablistVw */,
 				56FDB4B620AEB5C20020A9DE /* OTSearchVw */,
@@ -1835,6 +1848,7 @@
 				56B4F5BA20B6859A00CF4A68 /* MinePersionalTabVw.swift */,
 				5645A14220BBABF200EE7638 /* FeedBackVw.swift */,
 				569C38E220C51F2F00332D12 /* APPNoteVw.swift */,
+				564D4FA2214F521100B47718 /* APPListEmptyVw.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2058,6 +2072,7 @@
 				"${BUILT_PRODUCTS_DIR}/FFToast/FFToast.framework",
 				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2077,6 +2092,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -2173,6 +2189,7 @@
 				"${BUILT_PRODUCTS_DIR}/FFToast/FFToast.framework",
 				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2192,6 +2209,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -2293,6 +2311,7 @@
 				56676D9520AE54C900905CFD /* LoginInVw.swift in Sources */,
 				56AC1E5220BC1F3D007D3A5F /* MianVCTabCreateVw.swift in Sources */,
 				568533D520AD9BB800BDB451 /* WorkBenchViewControllerV2.swift in Sources */,
+				564D4FB2214F777200B47718 /* IIBaseWaitAniVw.swift in Sources */,
 				568533DC20AD9BB800BDB451 /* TaskTabVw.swift in Sources */,
 				56B9163E20B57C5B004F1A71 /* TopLeftTitleVw.swift in Sources */,
 				563225EA20C8C7BC0041C612 /* ModuleGodFatherPostBack.swift in Sources */,
@@ -2367,6 +2386,7 @@
 				568533D220AD9BB800BDB451 /* DingTalkCalanderVM.swift in Sources */,
 				56D3E99220C9436B00C8CE46 /* SessionManager.swift in Sources */,
 				563F1A4A213D2CF1000F9DE3 /* IICacheManager.swift in Sources */,
+				564D4FA3214F521100B47718 /* APPListEmptyVw.swift in Sources */,
 				5665482F20E233B6004DC07C /* IIPitchFilter.swift in Sources */,
 				568533DD20AD9BB800BDB451 /* FilterVw.swift in Sources */,
 				56B9163720B55CA2004F1A71 /* TTSBLL.m in Sources */,
