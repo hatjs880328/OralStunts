@@ -18,6 +18,8 @@ class APPListEmptyVw: UIView {
     
     var img:SVGKFastImageView!
     
+    let createTxt = "创建便签"
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         createVw()
@@ -51,6 +53,27 @@ class APPListEmptyVw: UIView {
             make.height.equalTo(55)
             make.width.equalTo(55)
         }
+        
+        let createBtn = UIButton()
+        self.addSubview(createBtn)
+        createBtn.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.snp.centerX)
+            make.top.equalTo(note.snp.bottom).offset(8)
+            make.height.equalTo(30)
+            make.width.equalTo(IITextExtension.textLength(text: createTxt, font: APPDelStatic.uiFont(with: 13)))
+        }
+        createBtn.setTitle(self.createTxt, for: UIControlState.normal)
+        createBtn.tapActionsGesture {
+            let con = NoteCreateViewController()
+            con.hidesBottomBarWhenPushed = true
+            con.presentedVcHasNavigation = false
+            self.viewController()?.navigationController?.pushViewController(con, animated: true)
+        }
+        createBtn.borderWidth = 0.5
+        createBtn.borderColor = APPDelStatic.themeColor
+        createBtn.setTitleColor(APPDelStatic.themeColor, for: UIControlState.normal)
+        createBtn.titleLabel?.font = APPDelStatic.uiFont(with: 13)
+        createBtn.cornerRadiu = 3
     }
     
     func createTimer() {
