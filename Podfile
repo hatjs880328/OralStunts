@@ -39,7 +39,16 @@ def useFrameworks
     
     pod 'SCLAlertView', '~> 0.8'
     
-    pod 'FFToast'
+    pod 'FFToast
+    # sharesdk
+    pod 'mob_sharesdk'
+    pod 'mob_sharesdk/ShareSDKUI'
+    pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
+    pod 'mob_sharesdk/ShareSDKPlatforms/SinaWeibo'
+    pod 'mob_sharesdk/ShareSDKPlatforms/WeChat'
+    pod 'mob_sharesdk/ShareSDKPlatforms/SMS'
+    pod 'mob_sharesdk/ShareSDKConfigFile'
+    pod 'mob_sharesdk/ShareSDKExtension'
     
 end
 

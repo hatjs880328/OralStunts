@@ -12,6 +12,10 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>zh_CN</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -30,17 +34,64 @@
 				<string>en-451145552</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>WXShare</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx4868b35061f87885</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>WeiBoShare</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb568898243</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>QQshare</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ05FB8B52</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>en</string>
+		<string>wechat</string>
+		<string>weixin</string>
+		<string>sinaweibo</string>
+		<string>mqq</string>
+		<string>mqqapi</string>
+		<string>mqzone</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppKey</key>
+	<string>27e9df21d601c</string>
+	<key>MOBAppSecret</key>
+	<string>f6c08f7d16f02f276be0ec20b6096a28</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>We need access to your calendar in order to help you track events.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>为了意见反馈功能，我们需要获取您的相机权限</string>
 	<key>NSContactsUsageDescription</key>
 	<string>我们需要接入你的联系人信息，为了能更好的识别在你语音中是否需要处理联系人信息</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -49,6 +100,8 @@
 	<string>我们需要接入地理位置信息，为了能更好的理解你所在地区的方言信息</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need access the MicroPhone to understand your talks to mechine</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>为了意见反馈功能，我们需要获取您的相册权限</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>We need access to your calendar in order to help you track events.</string>
 	<key>UILaunchStoryboardName</key>
@@ -70,9 +123,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSCameraUsageDescription</key>
-    <string>为了意见反馈功能，我们需要获取您的相机权限</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>为了意见反馈功能，我们需要获取您的相册权限</string>
+	<key>trans</key>
+	<string></string>
 </dict>
 </plist>

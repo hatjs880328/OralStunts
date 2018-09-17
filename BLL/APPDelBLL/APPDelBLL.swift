@@ -45,6 +45,7 @@ class APPDelBLL: NSObject {
         initEvernote()
         startNetworkObserver()
         startCPURecognition()
+        OTShare.registerShare()
     }
     
     func initTheFlyMSC() {

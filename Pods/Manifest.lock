@@ -21,6 +21,33 @@ PODS:
   - FFToast (1.2.0)
   - FlatUIKit (1.6.2)
   - MJExtension (3.0.13)
+  - mob_sharesdk (4.1.4):
+    - mob_sharesdk/ShareSDK (= 4.1.4)
+    - MOBFoundation
+  - mob_sharesdk/ShareSDK (4.1.4):
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKConfigFile (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKExtension (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/QQ (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/SinaWeibo (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/SMS (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/WeChat (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKUI (4.1.4):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - MOBFoundation (3.1.8)
   - MONActivityIndicatorView (0.0.3)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
@@ -47,6 +74,14 @@ DEPENDENCIES:
   - FFToast
   - FlatUIKit
   - MJExtension (~> 3.0.13)
+  - mob_sharesdk
+  - mob_sharesdk/ShareSDKConfigFile
+  - mob_sharesdk/ShareSDKExtension
+  - mob_sharesdk/ShareSDKPlatforms/QQ
+  - mob_sharesdk/ShareSDKPlatforms/SinaWeibo
+  - mob_sharesdk/ShareSDKPlatforms/SMS
+  - mob_sharesdk/ShareSDKPlatforms/WeChat
+  - mob_sharesdk/ShareSDKUI
   - MONActivityIndicatorView
   - RxCocoa (~> 4.1.2)
   - RxDataSources (~> 3.0.2)
@@ -73,6 +108,8 @@ SPEC REPOS:
     - FFToast
     - FlatUIKit
     - MJExtension
+    - mob_sharesdk
+    - MOBFoundation
     - MONActivityIndicatorView
     - RxCocoa
     - RxDataSources
@@ -106,6 +143,8 @@ SPEC CHECKSUMS:
   FFToast: 60e0f3c9fd8fc473205015055ee39cd200404e01
   FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  mob_sharesdk: 765cc2fd2fac0a6fd7c3e6c2b10d729ad006c608
+  MOBFoundation: 7f1e157be332576e4d45809a03bc733292c6ad8d
   MONActivityIndicatorView: a00611695de16d956b17d03be25ee49a8effc5f2
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
@@ -116,6 +155,6 @@ SPEC CHECKSUMS:
   SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
 
-PODFILE CHECKSUM: 9a5a9d1127c9db748a130493d5752ee881af8cba
+PODFILE CHECKSUM: b70f01c1d379dd4315eb54fd1b3c10aa1e8f5ba6
 
 COCOAPODS: 1.5.3

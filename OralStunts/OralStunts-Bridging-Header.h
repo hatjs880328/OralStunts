@@ -62,6 +62,15 @@
 
 #import "MONActivityIndicatorView/MONActivityIndicatorView.h"
 
+// share-sdk
+#import "ShareSDK/ShareSDK.h"
+#import "ShareSDKConnector/ShareSDKConnector.h"
+#import "TencentOpenAPI/TencentOAuth.h"
+#import "TencentOpenAPI/QQApiInterface.h"
+#import "WXApi.h"
+#import "WeiboSDK.h"
+#import "ShareSDKUI/ShareSDK+SSUI.h"
+
 //aop加载table-reload动画
 //#import "UITableView+DZ.h"
 //#import "UIScrollView+EmptyDataSet.h"

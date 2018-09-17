@@ -103,6 +103,11 @@
 		56676E8520AE8DD200905CFD /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 56676E7720AE8DD200905CFD /* FMDatabase.m */; };
 		56676E8620AE8DD200905CFD /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 56676E7B20AE8DD200905CFD /* FMDatabasePool.m */; };
 		56676E8720AE8DD200905CFD /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 56676E7C20AE8DD200905CFD /* FMResultSet.m */; };
+		5679157E214FAD0C000881FA /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5679157D214FAD0C000881FA /* JavaScriptCore.framework */; };
+		56791580214FAD16000881FA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5679157F214FAD16000881FA /* ImageIO.framework */; };
+		56791582214FAD23000881FA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 56791581214FAD23000881FA /* libsqlite3.tbd */; };
+		56791584214FAD2B000881FA /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56791583214FAD2B000881FA /* Photos.framework */; };
+		56791587214FAEB2000881FA /* OTShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56791586214FAEB2000881FA /* OTShare.swift */; };
 		56838DCD20B6BDDE0062C1FE /* Category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56838DCC20B6BDDE0062C1FE /* Category@2x.png */; };
 		56838DCF20B6C3AA0062C1FE /* NoteTimerLineVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838DCE20B6C3AA0062C1FE /* NoteTimerLineVw.swift */; };
 		56838DD120B6D7110062C1FE /* vedioPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 56838DD020B6D7110062C1FE /* vedioPlay.png */; };
@@ -422,6 +427,11 @@
 		56676E7A20AE8DD200905CFD /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		56676E7B20AE8DD200905CFD /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		56676E7C20AE8DD200905CFD /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5679157D214FAD0C000881FA /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		5679157F214FAD16000881FA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		56791581214FAD23000881FA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		56791583214FAD2B000881FA /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		56791586214FAEB2000881FA /* OTShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTShare.swift; sourceTree = "<group>"; };
 		56838DCC20B6BDDE0062C1FE /* Category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Category@2x.png"; sourceTree = "<group>"; };
 		56838DCE20B6C3AA0062C1FE /* NoteTimerLineVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimerLineVw.swift; sourceTree = "<group>"; };
 		56838DD020B6D7110062C1FE /* vedioPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vedioPlay.png; sourceTree = "<group>"; };
@@ -648,8 +658,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56A4C4DC20B3AE6C0094916E /* libicucore.tbd in Frameworks */,
+				56791584214FAD2B000881FA /* Photos.framework in Frameworks */,
+				56791582214FAD23000881FA /* libsqlite3.tbd in Frameworks */,
+				56791580214FAD16000881FA /* ImageIO.framework in Frameworks */,
+				5679157E214FAD0C000881FA /* JavaScriptCore.framework in Frameworks */,
 				56A4C4DA20B3AE640094916E /* libc++.tbd in Frameworks */,
+				56A4C4C220B3AE040094916E /* libz.tbd in Frameworks */,
+				56A4C4DC20B3AE6C0094916E /* libicucore.tbd in Frameworks */,
 				56A4C4D820B3AE5A0094916E /* CoreGraphics.framework in Frameworks */,
 				56A4C4D620B3AE530094916E /* QuartzCore.framework in Frameworks */,
 				56A4C4D420B3AE4C0094916E /* AddressBook.framework in Frameworks */,
@@ -661,7 +676,6 @@
 				56A4C4C820B3AE1D0094916E /* Foundation.framework in Frameworks */,
 				56A4C4C620B3AE140094916E /* SystemConfiguration.framework in Frameworks */,
 				56A4C4C420B3AE0B0094916E /* AVFoundation.framework in Frameworks */,
-				56A4C4C220B3AE040094916E /* libz.tbd in Frameworks */,
 				56A4C4C020B3ADB70094916E /* iflyMSC.framework in Frameworks */,
 				A857FDFF90C6FD78F4B44836 /* Pods_OralStunts.framework in Frameworks */,
 			);
@@ -1039,6 +1053,14 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		56791585214FAEA7000881FA /* OTShare */ = {
+			isa = PBXGroup;
+			children = (
+				56791586214FAEB2000881FA /* OTShare.swift */,
+			);
+			path = OTShare;
+			sourceTree = "<group>";
+		};
 		5684C94320B4FB230021585D /* pcmPlayerCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1248,6 +1270,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				56791585214FAEA7000881FA /* OTShare */,
 				563F1A46213D2CF1000F9DE3 /* IICacheStorage */,
 				565281C22138DFB300A9F226 /* APPConfig */,
 				56A58A4621367FEC000E2082 /* Toast */,
@@ -1892,6 +1915,10 @@
 		FD3070A46195053ED8BC0081 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56791583214FAD2B000881FA /* Photos.framework */,
+				56791581214FAD23000881FA /* libsqlite3.tbd */,
+				5679157F214FAD16000881FA /* ImageIO.framework */,
+				5679157D214FAD0C000881FA /* JavaScriptCore.framework */,
 				56A4C4DB20B3AE6C0094916E /* libicucore.tbd */,
 				56A4C4D920B3AE640094916E /* libc++.tbd */,
 				56A4C4D720B3AE5A0094916E /* CoreGraphics.framework */,
@@ -2133,10 +2160,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OralStuntsTests/Pods-OralStuntsTests-resources.sh",
 				"${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YWFeedbackBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKConfigFile.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2164,10 +2199,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OralStunts/Pods-OralStunts-resources.sh",
 				"${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YWFeedbackBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKConfigFile.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2431,6 +2474,7 @@
 				56F80FE220DE154C0085D5E1 /* IIGCDUtility.swift in Sources */,
 				56D3E98920C9436B00C8CE46 /* DispatchQueue+Alamofire.swift in Sources */,
 				56D3E99120C9436B00C8CE46 /* Request.swift in Sources */,
+				56791587214FAEB2000881FA /* OTShare.swift in Sources */,
 				563F1A54213D2D34000F9DE3 /* YYDiskCache.m in Sources */,
 				568533F320AD9BB800BDB451 /* WorkBench.swift in Sources */,
 				56EC598120B7D7F8004B5F5B /* NoteContextReCreateViewController.swift in Sources */,
@@ -2643,12 +2687,33 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib/IIFlyMsc",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/Required",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/Required",
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2672,12 +2737,33 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib/IIFlyMsc",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/Required",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/Required",
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,7 +11,7 @@ import Foundation
 
 class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
-    var cellInfos = ["编辑","移动","删除"]
+    var cellInfos = ["编辑","移动","删除","分享"]
     
     var tab = UITableView()
     
