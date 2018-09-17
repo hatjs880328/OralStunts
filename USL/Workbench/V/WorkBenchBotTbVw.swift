@@ -57,6 +57,7 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
         tabVw.backgroundColor = APPDelStatic.lightGray
         tabVw.delegate = self
         tabVw.dataSource = self
+        tabVw.progressNodataAndLoadingBeforeReloaddata()
         tabVw.separatorStyle = .none
         tabVw.isScrollEnabled = true
         self.addGesture(fatherVw: tabVw)

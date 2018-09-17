@@ -72,6 +72,7 @@ class FolderTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         tab.delegate = self
         tab.dataSource = self
+        tab.progressNodataAndLoadingBeforeReloaddata()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

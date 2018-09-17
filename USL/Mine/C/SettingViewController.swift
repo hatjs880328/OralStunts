@@ -38,6 +38,7 @@ class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableVie
         }
         tab.delegate = self
         tab.dataSource = self
+        tab.progressNodataAndLoadingBeforeReloaddata()
         tab.separatorStyle = .none
     }
     

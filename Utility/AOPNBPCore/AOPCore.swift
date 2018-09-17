@@ -49,6 +49,15 @@ class TABLESwizzing: GodfatherSwizzing {
     /// tb-reload[first remove anivw & addHelp note info]
     let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
         let tab = (aspectInfo.instance() as! UITableView)
+        if !tab.tableReloadNumber {
+            return
+        }
+        for eachItem in tab.subviews {
+            if eachItem.isKind(of: IIBaseWaitAniVw.self) {
+                eachItem.removeFromSuperview()
+                break
+            }
+        }
         let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
         if boolStr == nil { return }
         if (boolStr as! String) == "true" {
@@ -75,18 +84,6 @@ class TABLESwizzing: GodfatherSwizzing {
         })
     }
     
-    /// tb-cellforrow[remove anivw]
-    let tbCellforRowBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
-        let tab = (aspectInfo.instance() as! UITableViewCell).next as? UITableView
-        if tab == nil { return }
-        for eachItem in tab!.subviews {
-            if let aniVw = eachItem as? IIBaseWaitAniVw {
-                aniVw.stopAni()
-                break
-            }
-        }
-    }
-    
     /// tab-celldeselected
     override func aopFunction() {
         do {
@@ -99,9 +96,6 @@ class TABLESwizzing: GodfatherSwizzing {
             try UITableView.aspect_hook(#selector(UITableView.init(frame:)),
                                         with: .init(rawValue:0),
                                         usingBlock: tbInitBlock)
-            try UITableViewCell.aspect_hook(#selector(UITableViewCell.init(style:reuseIdentifier:)),
-                                            with: AspectOptions.init(rawValue: 0),
-                                            usingBlock: tbCellforRowBlock)
         }catch {}
     }
 }

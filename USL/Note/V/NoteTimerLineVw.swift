@@ -46,6 +46,7 @@ class NoteTimerLineVw: UIView,UITableViewDataSource,UITableViewDelegate {
     
     func initVM() {
         self.vm.reloadAction = {[weak self]() in
+            self?.tab.progressNodataAndLoadingBeforeReloaddata()
             self?.tab.reloadData()
         }
         self.vm.getData()

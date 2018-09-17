@@ -48,6 +48,42 @@ extension UIResponder {
             return self.next!.viewController()
         }
     }
+    
+    func tableviews()->UITableView? {
+        if self.isKind(of: UITableView.self) { return self as? UITableView }
+        if self.next == nil { return nil }
+        if (self.next?.isKind(of: UITableView.self))! {
+            return self.next as? UITableView
+        }else{
+            return self.next!.tableviews()
+        }
+    }
+}
+
+private var  tableReloadDataKey = "tableReloadData"
+/// tableview first reload - ignore
+extension UITableView {
+    public var tableReloadNumber:Bool {
+        get{
+            if(objc_getAssociatedObject(self, &tableReloadDataKey) == nil){
+                objc_setAssociatedObject(self, &tableReloadDataKey, 0,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                
+                return false
+            }else{
+                
+                return (objc_getAssociatedObject(self,&tableReloadDataKey) as AnyObject).boolValue!
+            }
+        }
+        set{
+            objc_setAssociatedObject(self, &tableReloadDataKey, newValue,.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    /// progress nodata page & loading animation before reload-tab manual
+    /// invoke the method before reload-tab manual
+    func progressNodataAndLoadingBeforeReloaddata() {
+        self.tableReloadNumber = true
+    }
 }
 
 extension NSString {

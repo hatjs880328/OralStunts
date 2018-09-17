@@ -44,6 +44,7 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
     func initVm() {
         self.vm.reloadAction = {[weak self]() in
+            self?.tab.progressNodataAndLoadingBeforeReloaddata()
             self?.tab.reloadData()
         }
         self.vm.loadNonFolderData()

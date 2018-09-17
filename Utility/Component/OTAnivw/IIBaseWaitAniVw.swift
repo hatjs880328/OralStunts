@@ -19,7 +19,7 @@ class IIBaseWaitAniVw: UIView,MONActivityIndicatorViewDelegate {
         indic.internalSpacing = 3
         indic.numberOfCircles = 5
         indic.duration = 1
-        indic.delay = 0.4
+        //indic.delay = 0.4
         indic.delegate = self
         self.addSubview(indic)
         indic.snp.makeConstraints { (make) in

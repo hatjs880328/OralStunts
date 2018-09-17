@@ -48,6 +48,7 @@ class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         tab.delegate = self
         tab.dataSource = self
+        tab.progressNodataAndLoadingBeforeReloaddata()
         tab.layer.borderColor = UIColor.gray.cgColor
         tab.layer.borderWidth = 0.5
         tab.layer.cornerRadius = 3

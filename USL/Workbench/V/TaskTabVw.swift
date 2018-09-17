@@ -39,6 +39,7 @@ class TaskTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         tabVw.delegate = self
         tabVw.dataSource = self
+        tabVw.progressNodataAndLoadingBeforeReloaddata()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

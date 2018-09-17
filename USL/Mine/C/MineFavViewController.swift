@@ -40,7 +40,9 @@ class MineFavViewController: IIBaseViewController {
     }
     
     func getData() {
-        self.tab.vm.loadFavData()
+        GCDUtils.delayProgress(delayTime: 1) {
+            self.tab.vm.loadFavData()
+        }
     }
     
     @objc func selectAllItem() {

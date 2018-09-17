@@ -45,6 +45,7 @@ class MinePersionalTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         tab.separatorStyle = .none
         tab.delegate = self
         tab.dataSource = self
+        tab.progressNodataAndLoadingBeforeReloaddata()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
