@@ -60,7 +60,7 @@ class APPListEmptyVw: UIView {
             make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(note.snp.bottom).offset(8)
             make.height.equalTo(30)
-            make.width.equalTo(IITextExtension.textLength(text: createTxt, font: APPDelStatic.uiFont(with: 11)))
+            make.width.equalTo(IITextExtension.textLength(text: createTxt, font: APPDelStatic.uiFont(with: 13)))
         }
         createBtn.setTitle(self.createTxt, for: UIControlState.normal)
         createBtn.tapActionsGesture {
@@ -72,7 +72,7 @@ class APPListEmptyVw: UIView {
         createBtn.borderWidth = 0.5
         createBtn.borderColor = APPDelStatic.themeColor
         createBtn.setTitleColor(APPDelStatic.themeColor, for: UIControlState.normal)
-        createBtn.titleLabel?.font = APPDelStatic.uiFont(with: 11)
+        createBtn.titleLabel?.font = APPDelStatic.uiFont(with: 13)
         createBtn.cornerRadiu = 3
     }
     
