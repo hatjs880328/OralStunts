@@ -25,6 +25,15 @@
     UINavigationController *folderVC = [[UINavigationController alloc] initWithRootViewController:[[FolderViewController alloc] init]];
     UINavigationController *workbenchVC = [[UINavigationController alloc] initWithRootViewController:[[WorkBenchViewControllerV2 alloc] init]];
     UINavigationController *addVC = [[UINavigationController alloc] initWithRootViewController:[[MianaddViewController alloc] init]];
+    //newest.navigationBar.isTranslucent = false
+    [mineVC.navigationBar setTranslucent:NO];
+    [folderVC.navigationBar setTranslucent:NO];
+    [workbenchVC.navigationBar setTranslucent:NO];
+    [addVC.navigationBar setTranslucent:NO];
+    [mineVC.navigationBar setTintColor:APPDelStatic.themeColor];
+    [folderVC.navigationBar setTintColor:APPDelStatic.themeColor];
+    [workbenchVC.navigationBar setTintColor:APPDelStatic.themeColor];
+    [addVC.navigationBar setTintColor:APPDelStatic.themeColor];
     // 创建选项卡的数据 想怎么写看自己，这块我就写笨点了
     NSArray <NSDictionary *>*VCArray =
     @[@{@"vc":addVC,@"normalImg":@"main_page_icon_de",@"selectImg":@"main_page_icon_se",@"itemTitle":@"首页"},
@@ -121,15 +130,8 @@ static NSInteger lastIdx = 0;
         lastIdx = index;
     }else{ // 点击了中间的
         
-        [self.axcTabBar setSelectIndex:lastIdx WithAnimation:NO]; // 换回上一个选中状态
-        // 或者
-//        self.axcTabBar.selectIndex = lastIdx; // 不去切换TabBar的选中状态
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"点击了中间的,不切换视图"
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:([UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"好的！！！！");
-        }])];
-        [self presentViewController:alertController animated:YES completion:nil];
+        [self.axcTabBar setSelectIndex:lastIdx WithAnimation:NO];
+        [[[OTAlertVw alloc] init] alertShowCreateNoteAndFolderVw];
     }
 }
 - (void)setSelectedIndex:(NSUInteger)selectedIndex{
