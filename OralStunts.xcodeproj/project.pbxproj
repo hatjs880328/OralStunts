@@ -103,6 +103,10 @@
 		56676E8520AE8DD200905CFD /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 56676E7720AE8DD200905CFD /* FMDatabase.m */; };
 		56676E8620AE8DD200905CFD /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 56676E7B20AE8DD200905CFD /* FMDatabasePool.m */; };
 		56676E8720AE8DD200905CFD /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 56676E7C20AE8DD200905CFD /* FMResultSet.m */; };
+		5671918E2150F0760019C3DA /* AxcAE_TabBarBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 567191842150F0760019C3DA /* AxcAE_TabBarBadge.m */; };
+		5671918F2150F0760019C3DA /* AxcAE_TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 567191862150F0760019C3DA /* AxcAE_TabBar.m */; };
+		567191902150F0760019C3DA /* AxcAE_TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 567191892150F0760019C3DA /* AxcAE_TabBarItem.m */; };
+		567191912150F0760019C3DA /* SaltedFishTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5671918C2150F0760019C3DA /* SaltedFishTabBarVC.m */; };
 		5679157E214FAD0C000881FA /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5679157D214FAD0C000881FA /* JavaScriptCore.framework */; };
 		56791580214FAD16000881FA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5679157F214FAD16000881FA /* ImageIO.framework */; };
 		56791582214FAD23000881FA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 56791581214FAD23000881FA /* libsqlite3.tbd */; };
@@ -112,6 +116,8 @@
 		56838DCF20B6C3AA0062C1FE /* NoteTimerLineVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838DCE20B6C3AA0062C1FE /* NoteTimerLineVw.swift */; };
 		56838DD120B6D7110062C1FE /* vedioPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 56838DD020B6D7110062C1FE /* vedioPlay.png */; };
 		56838DD320B6D7B90062C1FE /* NoteTimeLineVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838DD220B6D7B90062C1FE /* NoteTimeLineVM.swift */; };
+		56845BA62150F22100D96A75 /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56845BA52150F22100D96A75 /* BaseTabBar.m */; };
+		56845BA92150F2AC00D96A75 /* TestTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56845BA82150F2AC00D96A75 /* TestTabBar.m */; };
 		5684C94720B4FB230021585D /* PcmPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5684C94620B4FB230021585D /* PcmPlayer.m */; };
 		5685333D20AD9AA600BDB451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685333C20AD9AA600BDB451 /* AppDelegate.swift */; };
 		5685333F20AD9AA600BDB451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685333E20AD9AA600BDB451 /* ViewController.swift */; };
@@ -427,6 +433,15 @@
 		56676E7A20AE8DD200905CFD /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		56676E7B20AE8DD200905CFD /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		56676E7C20AE8DD200905CFD /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		567191842150F0760019C3DA /* AxcAE_TabBarBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxcAE_TabBarBadge.m; sourceTree = "<group>"; };
+		567191852150F0760019C3DA /* AxcAE_TabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxcAE_TabBarItem.h; sourceTree = "<group>"; };
+		567191862150F0760019C3DA /* AxcAE_TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxcAE_TabBar.m; sourceTree = "<group>"; };
+		567191872150F0760019C3DA /* AxcAE_TabBarDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxcAE_TabBarDefine.h; sourceTree = "<group>"; };
+		567191882150F0760019C3DA /* AxcAE_TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxcAE_TabBar.h; sourceTree = "<group>"; };
+		567191892150F0760019C3DA /* AxcAE_TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxcAE_TabBarItem.m; sourceTree = "<group>"; };
+		5671918A2150F0760019C3DA /* AxcAE_TabBarBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxcAE_TabBarBadge.h; sourceTree = "<group>"; };
+		5671918C2150F0760019C3DA /* SaltedFishTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaltedFishTabBarVC.m; sourceTree = "<group>"; };
+		5671918D2150F0760019C3DA /* SaltedFishTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaltedFishTabBarVC.h; sourceTree = "<group>"; };
 		5679157D214FAD0C000881FA /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		5679157F214FAD16000881FA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		56791581214FAD23000881FA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -436,6 +451,10 @@
 		56838DCE20B6C3AA0062C1FE /* NoteTimerLineVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimerLineVw.swift; sourceTree = "<group>"; };
 		56838DD020B6D7110062C1FE /* vedioPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vedioPlay.png; sourceTree = "<group>"; };
 		56838DD220B6D7B90062C1FE /* NoteTimeLineVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimeLineVM.swift; sourceTree = "<group>"; };
+		56845BA42150F22100D96A75 /* BaseTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
+		56845BA52150F22100D96A75 /* BaseTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
+		56845BA72150F2AC00D96A75 /* TestTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTabBar.h; sourceTree = "<group>"; };
+		56845BA82150F2AC00D96A75 /* TestTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTabBar.m; sourceTree = "<group>"; };
 		5684C94420B4FB230021585D /* PcmPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayer.h; sourceTree = "<group>"; };
 		5684C94520B4FB230021585D /* PcmPlayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PcmPlayerDelegate.h; sourceTree = "<group>"; };
 		5684C94620B4FB230021585D /* PcmPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PcmPlayer.m; sourceTree = "<group>"; };
@@ -1053,12 +1072,56 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		567191822150F0760019C3DA /* IITabbar */ = {
+			isa = PBXGroup;
+			children = (
+				56845BA32150F22100D96A75 /* BaseTabBar */,
+				567191832150F0760019C3DA /* AxcAE_TabBar */,
+				5671918B2150F0760019C3DA /* 咸鱼TabBar */,
+			);
+			path = IITabbar;
+			sourceTree = "<group>";
+		};
+		567191832150F0760019C3DA /* AxcAE_TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				567191842150F0760019C3DA /* AxcAE_TabBarBadge.m */,
+				567191852150F0760019C3DA /* AxcAE_TabBarItem.h */,
+				567191862150F0760019C3DA /* AxcAE_TabBar.m */,
+				567191872150F0760019C3DA /* AxcAE_TabBarDefine.h */,
+				567191882150F0760019C3DA /* AxcAE_TabBar.h */,
+				567191892150F0760019C3DA /* AxcAE_TabBarItem.m */,
+				5671918A2150F0760019C3DA /* AxcAE_TabBarBadge.h */,
+			);
+			path = AxcAE_TabBar;
+			sourceTree = "<group>";
+		};
+		5671918B2150F0760019C3DA /* 咸鱼TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5671918C2150F0760019C3DA /* SaltedFishTabBarVC.m */,
+				5671918D2150F0760019C3DA /* SaltedFishTabBarVC.h */,
+			);
+			path = "咸鱼TabBar";
+			sourceTree = "<group>";
+		};
 		56791585214FAEA7000881FA /* OTShare */ = {
 			isa = PBXGroup;
 			children = (
 				56791586214FAEB2000881FA /* OTShare.swift */,
 			);
 			path = OTShare;
+			sourceTree = "<group>";
+		};
+		56845BA32150F22100D96A75 /* BaseTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				56845BA72150F2AC00D96A75 /* TestTabBar.h */,
+				56845BA82150F2AC00D96A75 /* TestTabBar.m */,
+				56845BA42150F22100D96A75 /* BaseTabBar.h */,
+				56845BA52150F22100D96A75 /* BaseTabBar.m */,
+			);
+			path = BaseTabBar;
 			sourceTree = "<group>";
 		};
 		5684C94320B4FB230021585D /* pcmPlayerCode */ = {
@@ -1225,6 +1288,7 @@
 		5685337D20AD9BB800BDB451 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				567191822150F0760019C3DA /* IITabbar */,
 				563F1A4B213D2D34000F9DE3 /* YYCache */,
 				56A4C4BE20B3ADB70094916E /* IIFlyMsc */,
 				56676E6220AE8DD200905CFD /* IISQLite3.2SourceCode */,
@@ -2100,7 +2164,6 @@
 				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2121,7 +2184,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -2235,7 +2297,6 @@
 				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2256,7 +2317,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -2323,9 +2383,11 @@
 				5685344320ADA10F00BDB451 /* OTUserInfo.swift in Sources */,
 				561CB86720BBCF9800A1E55F /* FeedBackVM.swift in Sources */,
 				568533D920AD9BB800BDB451 /* WorkBenchBannerVw.swift in Sources */,
+				56845BA92150F2AC00D96A75 /* TestTabBar.m in Sources */,
 				568533DF20AD9BB800BDB451 /* WorkBenchTopVw.swift in Sources */,
 				5645A14320BBABF200EE7638 /* FeedBackVw.swift in Sources */,
 				56D3E99320C9436B00C8CE46 /* ResponseSerialization.swift in Sources */,
+				56845BA62150F22100D96A75 /* BaseTabBar.m in Sources */,
 				56FDB4B120AEA5B50020A9DE /* MineBLL.swift in Sources */,
 				56EC598320B7DF88004B5F5B /* ShelterVw.swift in Sources */,
 				5613914020C7869100D4A38A /* IWorkBenchEventCalendar.swift in Sources */,
@@ -2391,10 +2453,12 @@
 				56A4C4E220B3C19E0094916E /* TtileInsertVM.swift in Sources */,
 				568533D620AD9BB800BDB451 /* SmallDingTalkSingleLineCollectionVw.swift in Sources */,
 				5685341020AD9BB800BDB451 /* DingtalkMeetingModel.swift in Sources */,
+				5671918E2150F0760019C3DA /* AxcAE_TabBarBadge.m in Sources */,
 				56676E3520AE8C4800905CFD /* AOPNotificationCenter.swift in Sources */,
 				5684C94720B4FB230021585D /* PcmPlayer.m in Sources */,
 				563F1A55213D2D34000F9DE3 /* YYCache.m in Sources */,
 				56D3E98420C9436B00C8CE46 /* IIHTTPNetWork.swift in Sources */,
+				567191902150F0760019C3DA /* AxcAE_TabBarItem.m in Sources */,
 				56A4C4DE20B3B0C40094916E /* NoteBLL.swift in Sources */,
 				56A4C4E020B3B6980094916E /* VoiceBtnVM.swift in Sources */,
 				56B9163C20B57BFE004F1A71 /* FolderViewController.swift in Sources */,
@@ -2423,6 +2487,7 @@
 				56838DCF20B6C3AA0062C1FE /* NoteTimerLineVw.swift in Sources */,
 				569912DB20B2BB21008417B6 /* NoteCreateViewController.swift in Sources */,
 				56676E2F20AE8C4800905CFD /* AOPEventFilter.swift in Sources */,
+				567191912150F0760019C3DA /* SaltedFishTabBarVC.m in Sources */,
 				56D3E97D20C9436B00C8CE46 /* IIHTTPRequestErrorProgress.swift in Sources */,
 				5685340620AD9BB800BDB451 /* IIMergeSort.swift in Sources */,
 				560930A620D88C4400FC7F58 /* IIAPIStruct.swift in Sources */,
@@ -2465,6 +2530,7 @@
 				56D5D3E920B643BC0076E69E /* FolderCreateViewController.swift in Sources */,
 				56676E8220AE8DD200905CFD /* FMTokenizers.m in Sources */,
 				5659EB0420B794690075A142 /* NoteLogicBLL.swift in Sources */,
+				5671918F2150F0760019C3DA /* AxcAE_TabBar.m in Sources */,
 				5665483020E233B6004DC07C /* IIPitchUtility.swift in Sources */,
 				5685340820AD9BB800BDB451 /* IIBaseVM.swift in Sources */,
 				56B9164820B58185004F1A71 /* FolderTabVM.swift in Sources */,
@@ -2706,7 +2772,10 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -2753,7 +2822,10 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -2782,7 +2854,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2800,7 +2876,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

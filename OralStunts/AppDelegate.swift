@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IIPitchUtility.getInstance().startService()
         // init vcs
         let loginVC = LoginInViewController()
-        let tabbarVC = BaseTabbar()
+        let tabbarVC = SaltedFishTabBarVC()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         if LoginBll().analyzeUseAppCount() == .noLogin {
             self.window?.rootViewController = loginVC

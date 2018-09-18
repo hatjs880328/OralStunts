@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 #第三方库导入需要谨慎---防止单元测试框架编译失败---
 
@@ -48,7 +48,7 @@ def useFrameworks
     pod 'mob_sharesdk/ShareSDKConfigFile'
     pod 'mob_sharesdk/ShareSDKExtension'
     
-    pod 'RAMAnimatedTabBarController'
+    #pod 'AxcAE_TabBar'
     
 end
 

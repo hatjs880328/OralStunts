@@ -129,8 +129,7 @@ class LoginInVw: UIView,UITextFieldDelegate {
         .throttle(0.8, scheduler: MainScheduler.instance)
         .bind(to: self.vm.didInput)
         let _ = self.vm.didOutput.subscribe { (event) in
-            
-            let tabbar = BaseTabbar()
+            let tabbar = SaltedFishTabBarVC()
             self.viewController()?.present(tabbar, animated: true, completion: nil)
         }
     }

@@ -49,7 +49,6 @@ PODS:
     - MOBFoundation
   - MOBFoundation (3.1.8)
   - MONActivityIndicatorView (0.0.3)
-  - RAMAnimatedTabBarController (1.5.3)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxDataSources (3.0.2):
@@ -84,7 +83,6 @@ DEPENDENCIES:
   - mob_sharesdk/ShareSDKPlatforms/WeChat
   - mob_sharesdk/ShareSDKUI
   - MONActivityIndicatorView
-  - RAMAnimatedTabBarController
   - RxCocoa (~> 4.1.2)
   - RxDataSources (~> 3.0.2)
   - RxSwift (~> 4.1.2)
@@ -113,7 +111,6 @@ SPEC REPOS:
     - mob_sharesdk
     - MOBFoundation
     - MONActivityIndicatorView
-    - RAMAnimatedTabBarController
     - RxCocoa
     - RxDataSources
     - RxSwift
@@ -149,7 +146,6 @@ SPEC CHECKSUMS:
   mob_sharesdk: 765cc2fd2fac0a6fd7c3e6c2b10d729ad006c608
   MOBFoundation: 7f1e157be332576e4d45809a03bc733292c6ad8d
   MONActivityIndicatorView: a00611695de16d956b17d03be25ee49a8effc5f2
-  RAMAnimatedTabBarController: 04b624cf8958a0032bf7fa9c0f2c515f59d30b9c
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: e49536837d9901277638493ea537394d4b55f570
@@ -159,6 +155,6 @@ SPEC CHECKSUMS:
   SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
 
-PODFILE CHECKSUM: 4a9edad004c8f7efb3b3b8dcd629e9aa31170ac8
+PODFILE CHECKSUM: a71e8e84184bd5eadbaa9dcb5cc36076764d11a9
 
 COCOAPODS: 1.5.3

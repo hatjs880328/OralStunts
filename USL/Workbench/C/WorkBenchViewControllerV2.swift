@@ -68,7 +68,7 @@ class WorkBenchViewControllerV2: IIBaseViewController {
 extension WorkBenchViewControllerV2 {
     /// top vw
     func createTopView() {
-        self.topVw.createView(fatherView: self.view)
+        self.topVw.createView(fatherView: self.view!)
     }
     
     /// weak day vw

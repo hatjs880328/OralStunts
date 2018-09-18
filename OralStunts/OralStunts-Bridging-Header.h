@@ -71,6 +71,8 @@
 #import "WeiboSDK.h"
 #import "ShareSDKUI/ShareSDK+SSUI.h"
 
+#import "SaltedFishTabBarVC.h"
+
 //aop加载table-reload动画
 //#import "UITableView+DZ.h"
 //#import "UIScrollView+EmptyDataSet.h"
