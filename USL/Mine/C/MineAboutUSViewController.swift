@@ -31,6 +31,8 @@ class MineAboutUSViewController: IIBaseViewController {
     func initVw() {
         self.title = "关于我们"
         self.navigationController?.isNavigationBarHidden = false
+        //分享
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分享", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.share))
         img = SVGKFastImageView(svgkImage: sourceImg)!
         self.view.addSubview(img)
         img.snp.makeConstraints { (make) in
@@ -90,6 +92,10 @@ class MineAboutUSViewController: IIBaseViewController {
             eachItem.fillColor = color
         }
         self.img.setNeedsDisplay()
+    }
+    
+    @objc func share() {
+        OTShare.share(with: self.view, title: "OralTrunts", subTitle: "生活琐事随地、随时记录。", img: "voice.png", shareUrl: URL(string: "http://baidu.com")!)
     }
 
 }
