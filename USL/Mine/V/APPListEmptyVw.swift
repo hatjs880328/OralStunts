@@ -31,13 +31,21 @@ class APPListEmptyVw: UIView {
     }
     
     func createVw() {
+        img = SVGKFastImageView(svgkImage: sourceImg)!
+        self.addSubview(img)
+        img.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.snp.centerX)
+            make.bottom.equalTo(self.snp.centerY).offset(-45)
+            make.height.equalTo(55)
+            make.width.equalTo(55)
+        }
         let note = UILabel()
         note.numberOfLines = 0
         self.addSubview(note)
         note.snp.makeConstraints { (make) in
             make.left.equalTo(10 * APPDelStatic.sizeScale)
             make.right.equalTo(-10 * APPDelStatic.sizeScale)
-            make.centerY.equalTo(self.snp.centerY).offset(12)
+            make.top.equalTo(img.snp.bottom).offset(10)
             make.height.equalTo(12)
         }
         note.layer.cornerRadius = 4
@@ -45,20 +53,11 @@ class APPListEmptyVw: UIView {
         note.textColor = UIColor.gray
         note.font = APPDelStatic.uiFont(with: 10)
         note.text = "没什么内容,非常遗憾"
-        img = SVGKFastImageView(svgkImage: sourceImg)!
-        self.addSubview(img)
-        img.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self.snp.centerX)
-            make.bottom.equalTo(self.snp.centerY).offset(-4)
-            make.height.equalTo(55)
-            make.width.equalTo(55)
-        }
-        
         let createBtn = UIButton()
         self.addSubview(createBtn)
         createBtn.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.snp.centerX)
-            make.top.equalTo(note.snp.bottom).offset(8)
+            make.top.equalTo(note.snp.bottom).offset(10)
             make.height.equalTo(30)
             make.width.equalTo(IITextExtension.textLength(text: createTxt, font: APPDelStatic.uiFont(with: 13)))
         }

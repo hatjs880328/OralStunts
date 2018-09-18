@@ -30,18 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //byteCode pile
         IIPitchUtility.getInstance().startService()
         // init vcs
-        let loginVC = LoginInViewController()
-        let tabbarVC = SaltedFishTabBarVC()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         if LoginBll().analyzeUseAppCount() == .noLogin {
-            self.window?.rootViewController = loginVC
+            self.window?.rootViewController = LoginInViewController()
         }else{
-            self.window?.rootViewController = tabbarVC
+            self.window?.rootViewController = SaltedFishTabBarVC()
         }
-        // test svgKit
-//        let con = ViewController()
-//        self.window?.rootViewController = con
-        
         self.window?.makeKeyAndVisible()
         
         return true
