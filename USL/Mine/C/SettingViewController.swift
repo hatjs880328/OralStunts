@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableViewDataSource {
 
-    let dataSource = [("关闭帮助提示",UIImage(named: "helpswitch")),("清除所有缓存",UIImage(named: "removedisk"))]
+    let dataSource = [("关闭空白提示",UIImage(named: "helpswitch")),("清除所有缓存",UIImage(named: "removedisk"))]
     
     let reuseID = "SETTINGVCCELLREUSEID"
     
