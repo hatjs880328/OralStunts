@@ -69,7 +69,7 @@ class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
         title.text = self.cellInfos[indexPath.row]
         title.font = APPDelStatic.uiFont(with: 12)
         // line
-        if indexPath.row != 2 {
+        if indexPath.row != 3 {
         let line = UIView()
             cell.addSubview(line)
             line.snp.makeConstraints { (mk) in

@@ -15,9 +15,7 @@ class NoteTimeLineViewController: IIBaseViewController {
     var timeVw: NoteTimerLineVw!
     
     var shelterVw: ShelterVw!
-    
-    var shareIns: OTShare = OTShare()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = NoteCreatingBLL.getInstance().showingNoteModel.title
@@ -63,7 +61,8 @@ class NoteTimeLineViewController: IIBaseViewController {
         }
         let shareAction = { [weak self]() in
             if self == nil { return }
-            self?.shareIns.share(title: "分享内容", subTitle: "OralTrunts集成库分享一波", img: "voice.png", shareUrl: URL(string: "http://www.baidu.com")!)
+            OTShare.share(with: self!.view, title: "分享内容", subTitle: "OralTrunts集成库分享一波", img: "voice.png", shareUrl: URL(string: "http://www.baidu.com")!)
+            self?.showOrHiddenMenu()
         }
         self.menuListVw.didSelectAction.append(actionEdit)
         self.menuListVw.didSelectAction.append(actionMove)
