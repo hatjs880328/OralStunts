@@ -64,43 +64,43 @@ class OTShare: NSObject {
         let actionEnd = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
         actionSheet.addAction(actionEnd)
         GCDUtils.asyncProgress(dispatchLevel: 2, asyncDispathchFunc: {
-            //wx
-            let actionWX = UIAlertAction(title: "微信", style: UIAlertActionStyle.destructive) { (action) in
-                ShareSDK.share(SSDKPlatformType.typeWechat, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
-                    OTShare.progressState(state: state)
-                })
-            }
-            actionSheet.addAction(actionWX)
-            //短信
-            let actionSMS = UIAlertAction(title: "短信", style: UIAlertActionStyle.destructive) { (action) in
-                ShareSDK.share(SSDKPlatformType.typeSMS, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
-                    OTShare.progressState(state: state)
-                })
-            }
-            actionSheet.addAction(actionSMS)
-            //wx time line
-            let actionWXTl = UIAlertAction(title: "朋友圈", style: UIAlertActionStyle.destructive) { (action) in
-                ShareSDK.share(SSDKPlatformType.subTypeWechatTimeline, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
-                    OTShare.progressState(state: state)
-                })
-            }
-            actionSheet.addAction(actionWXTl)
             //qq
-            let actionqq = UIAlertAction(title: "QQ好友", style: UIAlertActionStyle.destructive) { (action) in
+            let actionqq = UIAlertAction(title: "QQ好友", style: UIAlertActionStyle.default) { (action) in
                 ShareSDK.share(SSDKPlatformType.typeQQ, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
                     OTShare.progressState(state: state)
                 })
             }
             actionSheet.addAction(actionqq)
             //qq zone
-            let actionQQZone = UIAlertAction(title: "QQ空间", style: UIAlertActionStyle.destructive) { (action) in
+            let actionQQZone = UIAlertAction(title: "QQ空间", style: UIAlertActionStyle.default) { (action) in
                 ShareSDK.share(SSDKPlatformType.subTypeQZone, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
                     OTShare.progressState(state: state)
                 })
             }
             actionSheet.addAction(actionQQZone)
+            //wx
+            let actionWX = UIAlertAction(title: "微信好友", style: UIAlertActionStyle.default) { (action) in
+                ShareSDK.share(SSDKPlatformType.typeWechat, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
+                    OTShare.progressState(state: state)
+                })
+            }
+            actionSheet.addAction(actionWX)
+            //短信
+            let actionSMS = UIAlertAction(title: "短信", style: UIAlertActionStyle.default) { (action) in
+                ShareSDK.share(SSDKPlatformType.typeSMS, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
+                    OTShare.progressState(state: state)
+                })
+            }
+            //actionSheet.addAction(actionSMS)
+            //wx time line
+            let actionWXTl = UIAlertAction(title: "微信圈子", style: UIAlertActionStyle.default) { (action) in
+                ShareSDK.share(SSDKPlatformType.subTypeWechatTimeline, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
+                    OTShare.progressState(state: state)
+                })
+            }
+            actionSheet.addAction(actionWXTl)
             //weibo
-            let actionwb = UIAlertAction(title: "新浪微博", style: UIAlertActionStyle.destructive) { (action) in
+            let actionwb = UIAlertAction(title: "新浪微博", style: UIAlertActionStyle.default) { (action) in
                 ShareSDK.share(SSDKPlatformType.typeSinaWeibo, parameters: shareParams, onStateChanged: { (state, userData, content, error) in
                     OTShare.progressState(state: state)
                 })
