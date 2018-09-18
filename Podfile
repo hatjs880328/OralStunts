@@ -32,15 +32,13 @@ def useFrameworks
     
     pod 'MONActivityIndicatorView'
     
-    # ui kit
     pod 'FlatUIKit'
     
     pod 'AlicloudFeedback'
     
     pod 'SCLAlertView', '~> 0.8'
     
-    pod 'FFToast
-    # sharesdk
+    pod 'FFToast'
     pod 'mob_sharesdk'
     pod 'mob_sharesdk/ShareSDKUI'
     pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
@@ -50,16 +48,14 @@ def useFrameworks
     pod 'mob_sharesdk/ShareSDKConfigFile'
     pod 'mob_sharesdk/ShareSDKExtension'
     
+    pod 'RAMAnimatedTabBarController'
+    
 end
 
 target 'OralStunts' do
-    
     useFrameworks
-    
 end
 
 target 'OralStuntsTests' do
-    
     useFrameworks
-    
 end
