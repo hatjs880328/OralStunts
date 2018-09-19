@@ -21,7 +21,7 @@ class SearchVCTabVM: NSObject {
     
     var reloadAction: (()->Void)!
     
-    var cellHeight:CGFloat = 100 * APPDelStatic.sizeScale
+    var cellHeight:CGFloat = 70 * APPDelStatic.sizeScale
     
     /// 是否全选
     var isSelectAll: Bool = false {

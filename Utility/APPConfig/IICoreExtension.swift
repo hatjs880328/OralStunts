@@ -12,6 +12,8 @@ import Foundation
     
     @objc static let lightGray = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
     
+    @objc static let lineGray = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+    
     /// rgb(0,150,246) 
     @objc static let dingtalkBlue = UIColor(red: 0/255, green: 101/255, blue: 105/255, alpha: 1)
     

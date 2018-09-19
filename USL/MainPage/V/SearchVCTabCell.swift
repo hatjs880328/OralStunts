@@ -40,15 +40,15 @@ class SearchVCTabCell: UITableViewCell {
             make.left.equalTo(18)
             make.right.equalTo(-18)
             make.top.equalTo(10 * APPDelStatic.sizeScale)
-            make.height.equalTo(18 * APPDelStatic.sizeScale)
+            make.height.equalTo(15 * APPDelStatic.sizeScale)
         }
-        titleLB.font = APPDelStatic.uiFont(with: 15)
+        titleLB.font = APPDelStatic.uiFont(with: 13)
         // abstract lb
         abstractLB.snp.makeConstraints { (make) in
             make.left.equalTo(18)
             make.right.equalTo(-18)
-            make.top.equalTo(titleLB.snp.bottom).offset(10 * APPDelStatic.sizeScale)
-            make.height.equalTo(30 * APPDelStatic.sizeScale)
+            make.top.equalTo(titleLB.snp.bottom).offset(5 * APPDelStatic.sizeScale)
+            make.height.equalTo(13 * APPDelStatic.sizeScale)
         }
         abstractLB.numberOfLines = 0
         abstractLB.font = APPDelStatic.uiFont(with: 11)
@@ -57,8 +57,8 @@ class SearchVCTabCell: UITableViewCell {
         modifyTimeLb.snp.makeConstraints { (make) in
             make.left.equalTo(18)
             make.right.equalTo(-18)
-            make.top.equalTo(abstractLB.snp.bottom).offset(10 * APPDelStatic.sizeScale)
-            make.height.equalTo(12 * APPDelStatic.sizeScale)
+            make.top.equalTo(abstractLB.snp.bottom).offset(5 * APPDelStatic.sizeScale)
+            make.height.equalTo(13 * APPDelStatic.sizeScale)
         }
         modifyTimeLb.font = APPDelStatic.uiFont(with: 11)
         modifyTimeLb.textColor = UIColor.gray
@@ -78,9 +78,12 @@ class SearchVCTabCell: UITableViewCell {
         let botLine = UIView()
         self.addSubview(botLine)
         botLine.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(99.5 * APPDelStatic.sizeScale, 18, 0, 0))
+            make.right.equalTo(0)
+            make.left.equalTo(18)
+            make.bottom.equalTo(self.snp.bottom).offset(-0.5)
+            make.height.equalTo(0.5)
         }
-        botLine.backgroundColor = UIColor.gray
+        botLine.backgroundColor = APPDelStatic.lineGray
     }
     
     func setData(model: SearchvcVmodel,isSelectAll: Bool = false) {
