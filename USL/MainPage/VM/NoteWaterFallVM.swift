@@ -34,13 +34,14 @@ class NoteWaterFallVM: SearchVCTabVM {
     /// 每一次获取10个ITEM-vm记录pagenum
     func getWaterFallData() {
         let dataArr = NoteLogicBLL().getNonFolderData(limit: pageLimit, page: pageNo)
-        self.pageNo += 1
+        //self.pageNo += 1
         var result = [SearchvcVmodel]()
         for eachItem in dataArr {
             let model = SearchvcVmodel()
             model.setData(model: eachItem)
             result.append(model)
         }
-        self.waterFallDatasource.append(contentsOf: result)
+        //self.waterFallDatasource.append(contentsOf: result)
+        self.waterFallDatasource = result
     }
 }

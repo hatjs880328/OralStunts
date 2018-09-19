@@ -126,13 +126,13 @@ class SearchvcVmodel: NSObject {
         self.title = model.title
         let lastIndex = model.contentTxt.last!.length >= 20 ? 20 : model.contentTxt.last!.length
         self.abstract = "摘要: " + model.contentTxt.last!.substringToIndex(lastIndex)
-        self.modifyTime = model.modifyTime.last!.dateToString("修改时间：yyyy-MM-dd")
+        self.modifyTime = model.modifyTime.last!.dateToString("最后修改时间：yyyy-MM-dd")
         if model.isLike == nil || model.isLike! == false {
             self.isLike = false
         }else{
             self.isLike = true
         }
-        self.waterFallHeight = 40.0 + CGFloat(model.contentTxt.count * 25)
+        self.waterFallHeight = 60.0 + CGFloat(model.contentTxt.count * 25)
     }
     
 }

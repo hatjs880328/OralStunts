@@ -241,6 +241,7 @@
 		56CEB70E20B6AEAB0019D7FD /* NoteTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */; };
 		56D0980F215237EE00BFEC13 /* NoteWaterFallFlowVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */; };
 		56D0981121523ECB00BFEC13 /* NoteWaterFallVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0981021523ECB00BFEC13 /* NoteWaterFallVM.swift */; };
+		56D0981321524E8600BFEC13 /* NoteWaterFallFlowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0981221524E8600BFEC13 /* NoteWaterFallFlowCell.swift */; };
 		56D3E97120C9436B00C8CE46 /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E93E20C9436A00C8CE46 /* PingFoundation.m */; };
 		56D3E97220C9436B00C8CE46 /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E93F20C9436A00C8CE46 /* PingHelper.m */; };
 		56D3E97320C9436B00C8CE46 /* LocalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E94220C9436A00C8CE46 /* LocalConnection.m */; };
@@ -590,6 +591,7 @@
 		56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimeLineViewController.swift; sourceTree = "<group>"; };
 		56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWaterFallFlowVw.swift; sourceTree = "<group>"; };
 		56D0981021523ECB00BFEC13 /* NoteWaterFallVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWaterFallVM.swift; sourceTree = "<group>"; };
+		56D0981221524E8600BFEC13 /* NoteWaterFallFlowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWaterFallFlowCell.swift; sourceTree = "<group>"; };
 		56D3E93A20C9436A00C8CE46 /* RealReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealReachability.h; sourceTree = "<group>"; };
 		56D3E93C20C9436A00C8CE46 /* PingFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingFoundation.h; sourceTree = "<group>"; };
 		56D3E93D20C9436A00C8CE46 /* PingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingHelper.h; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 				56AC1E4F20BC1880007D3A5F /* MainVCTabVw.swift */,
 				56AC1E5120BC1F3D007D3A5F /* MianVCTabCreateVw.swift */,
 				56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */,
+				56D0981221524E8600BFEC13 /* NoteWaterFallFlowCell.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2478,6 +2481,7 @@
 				568533CF20AD9BB800BDB451 /* DingtaskVModel.swift in Sources */,
 				56D3E99020C9436B00C8CE46 /* Alamofire.swift in Sources */,
 				568533E520AD9BB800BDB451 /* DingtalkGetTask.swift in Sources */,
+				56D0981321524E8600BFEC13 /* NoteWaterFallFlowCell.swift in Sources */,
 				56D3E98120C9436B00C8CE46 /* IIHTTPRequestStatusCodeProgress.swift in Sources */,
 				56005B8E20B2ABD1004390A1 /* SearchVCTabVw.swift in Sources */,
 				563F84E421391C8D0077466E /* ALIFB.swift in Sources */,
@@ -2784,7 +2788,10 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -2831,7 +2838,10 @@
 				);
 				INFOPLIST_FILE = OralStunts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib/share/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -2860,7 +2870,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2878,7 +2892,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P466F9M6G6;
 				INFOPLIST_FILE = OralStuntsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStuntsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

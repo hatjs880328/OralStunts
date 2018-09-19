@@ -72,6 +72,7 @@ class MainVCTabVw: UIView {
     
     func leftVwloadData() {
         self.leftVw.vm.loadNonFolderData()
+        self.rightVw.vm?.getWaterFallData()
     }
     
     @objc func changeUI(noti: Notification) {

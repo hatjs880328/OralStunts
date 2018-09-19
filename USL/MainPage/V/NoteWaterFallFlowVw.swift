@@ -63,7 +63,7 @@ class NoteWaterFallFlowVw: UIView {
         //tab
         self.tabVw = UICollectionView(frame: CGRect.zero, collectionViewLayout: waterFallLO!)
         self.tabVw?.backgroundColor = UIColor.white
-        self.tabVw?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "reuseWaterFallCell")
+        self.tabVw?.register(NoteWaterFallFlowCell.self, forCellWithReuseIdentifier: "reuseWaterFallCell")
         self.addSubview(tabVw!)
         self.tabVw?.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
@@ -81,9 +81,14 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseWaterFallCell", for: indexPath)
-        cell.backgroundColor = UIColor.red
-        return cell
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseWaterFallCell", for: indexPath) as? NoteWaterFallFlowCell
+        if cell == nil {
+            cell = NoteWaterFallFlowCell(frame: CGRect.zero)
+        }else{
+            cell!.removeSubTitle()
+        }
+        cell?.setData(note: self.vm!.waterFallDatasource[indexPath.row])
+        return cell!
     }
     
     func waterfallLayout(_ waterfallLayout: XRWaterfallLayout!, itemHeightForWidth itemWidth: CGFloat, at indexPath: IndexPath!) -> CGFloat {
