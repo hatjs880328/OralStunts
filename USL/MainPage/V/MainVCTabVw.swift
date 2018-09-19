@@ -87,6 +87,9 @@ class MainVCTabVw: UIView {
     
     func createVw() {
         searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self, topVw: self.topVw!,jumpOrUse:true)
+        searchVw.snp.updateConstraints { (make) in
+            make.top.equalTo(topVw!.snp.bottom)
+        }
         self.leftVw = MianVCTabCreateVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
         self.rightVw = MiddleBtnVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
         self.rightVw.alpha = 0

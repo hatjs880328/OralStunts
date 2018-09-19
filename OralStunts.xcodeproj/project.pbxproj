@@ -239,6 +239,8 @@
 		56C6AB302138050E00F49274 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C6AB2F2138050E00F49274 /* back@2x.png */; };
 		56CEB70C20B6A45D0019D7FD /* voice.png in Resources */ = {isa = PBXBuildFile; fileRef = 56CEB70B20B6A45D0019D7FD /* voice.png */; };
 		56CEB70E20B6AEAB0019D7FD /* NoteTimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */; };
+		56D0980F215237EE00BFEC13 /* NoteWaterFallFlowVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */; };
+		56D0981121523ECB00BFEC13 /* NoteWaterFallVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0981021523ECB00BFEC13 /* NoteWaterFallVM.swift */; };
 		56D3E97120C9436B00C8CE46 /* PingFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E93E20C9436A00C8CE46 /* PingFoundation.m */; };
 		56D3E97220C9436B00C8CE46 /* PingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E93F20C9436A00C8CE46 /* PingHelper.m */; };
 		56D3E97320C9436B00C8CE46 /* LocalConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D3E94220C9436A00C8CE46 /* LocalConnection.m */; };
@@ -586,6 +588,8 @@
 		56C6AB2F2138050E00F49274 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		56CEB70B20B6A45D0019D7FD /* voice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voice.png; sourceTree = "<group>"; };
 		56CEB70D20B6AEAB0019D7FD /* NoteTimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTimeLineViewController.swift; sourceTree = "<group>"; };
+		56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWaterFallFlowVw.swift; sourceTree = "<group>"; };
+		56D0981021523ECB00BFEC13 /* NoteWaterFallVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWaterFallVM.swift; sourceTree = "<group>"; };
 		56D3E93A20C9436A00C8CE46 /* RealReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealReachability.h; sourceTree = "<group>"; };
 		56D3E93C20C9436A00C8CE46 /* PingFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingFoundation.h; sourceTree = "<group>"; };
 		56D3E93D20C9436A00C8CE46 /* PingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingHelper.h; sourceTree = "<group>"; };
@@ -937,6 +941,7 @@
 			children = (
 				56FDB4B220AEA6810020A9DE /* TopHelloVM.swift */,
 				56005B8F20B2AD5E004390A1 /* SearchVCTabVM.swift */,
+				56D0981021523ECB00BFEC13 /* NoteWaterFallVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -959,6 +964,7 @@
 				56005B9120B2AE41004390A1 /* SearchVCTabCell.swift */,
 				56AC1E4F20BC1880007D3A5F /* MainVCTabVw.swift */,
 				56AC1E5120BC1F3D007D3A5F /* MianVCTabCreateVw.swift */,
+				56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2423,6 +2429,7 @@
 				564D4FB2214F777200B47718 /* IIBaseWaitAniVw.swift in Sources */,
 				568533DC20AD9BB800BDB451 /* TaskTabVw.swift in Sources */,
 				56B9163E20B57C5B004F1A71 /* TopLeftTitleVw.swift in Sources */,
+				56D0981121523ECB00BFEC13 /* NoteWaterFallVM.swift in Sources */,
 				563225EA20C8C7BC0041C612 /* ModuleGodFatherPostBack.swift in Sources */,
 				568533CE20AD9BB800BDB451 /* DingTalkCalanderVModel.swift in Sources */,
 				56676DA020AE6F7F00905CFD /* BaseTabbar.swift in Sources */,
@@ -2583,6 +2590,7 @@
 				56B9164020B57D47004F1A71 /* AddRightVw.swift in Sources */,
 				5685341320AD9BB800BDB451 /* DingTalkCalendarEventModel.swift in Sources */,
 				5685341120AD9BB800BDB451 /* DingTalkCalanderModel.swift in Sources */,
+				56D0980F215237EE00BFEC13 /* NoteWaterFallFlowVw.swift in Sources */,
 				56B9164E20B58A8C004F1A71 /* FolderBLL.swift in Sources */,
 				56676E3720AE8C4800905CFD /* AOPGCDExtension.swift in Sources */,
 				56B997C120AFC8D30017F478 /* OTNoteModel.swift in Sources */,

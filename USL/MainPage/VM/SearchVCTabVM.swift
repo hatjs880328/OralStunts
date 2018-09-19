@@ -113,6 +113,8 @@ class SearchvcVmodel: NSObject {
     var modifyTime = ""
     var noteID = ""
     var isLike = false
+    /// 瀑布流单个ITEM高度
+    var waterFallHeight:CGFloat = 0.0
     var sourceModel: OTNoteModel!
     override init() {
         super.init()
@@ -130,6 +132,7 @@ class SearchvcVmodel: NSObject {
         }else{
             self.isLike = true
         }
+        self.waterFallHeight = 40.0 + CGFloat(model.contentTxt.count * 25)
     }
     
 }

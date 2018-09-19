@@ -65,6 +65,14 @@ class OTNoteDAL: NSObject {
         return progressData(arr)
     }
     
+    /// 分页获取没有添加到文件夹的数据-按照时间排序
+    func getNonFolderData(page:Int,limit:Int)->[OTNoteModel] {
+        let sql = "select * from \(tabName) where folderID = '' order by modifyTime desc Limit \(limit) Offset \(page)"
+        let arr = FMDatabaseQueuePublicUtils.getResultWithSql(sql: sql)
+        
+        return progressData(arr)
+    }
+    
     /// 根据文件夹ID获取文件夹下面的数据
     func getFolderInfos(with folderID: String)->[OTNoteModel] {
         let sql = "select * from \(tabName) where folderID = '\(folderID)' order by createTime desc;"

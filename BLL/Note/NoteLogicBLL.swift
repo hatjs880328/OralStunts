@@ -40,6 +40,11 @@ class NoteLogicBLL: NSObject  {
         return dal.getNonFolderData()
     }
     
+    /// 分页获取没有分配文件夹的数据
+    func getNonFolderData(limit:Int,page:Int)->[OTNoteModel] {
+        return dal.getNonFolderData(page: page, limit: limit)
+    }
+    
     func getNoteByWhereSQL(sqlStr: String) ->[OTNoteModel] {
         if sqlStr == "" {
             return []
