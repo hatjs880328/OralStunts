@@ -41,9 +41,10 @@ class TopHelloVw: UIView {
             make.width.equalTo(25)
             make.height.equalTo(25)
         }
-        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
+        searchBtn.setImage(UIImage(named: "main_page_righttop_icon"), for: UIControlState.normal)
+        searchBtn.setImage(UIImage(named: "main_page_righttop_list_icon"), for: UIControlState.selected)
         searchBtn.tapActionsGesture {[weak self] () in
-            IIModuleCore.getInstance().invokingSomeFunciton(url: "SearchServiceModule/jumpToSearchVCWithParams:", params: ["fromVC":self!.viewController()!], action: nil)
+            self?.searchBtnDidSelectAction()
         }
         self.addSubview(helloLb)
         helloLb.snp.makeConstraints { (make) in
@@ -62,5 +63,9 @@ class TopHelloVw: UIView {
             if event.element == nil { return }
             self?.helloLb.text = event.element!
         }
+    }
+    
+    func searchBtnDidSelectAction() {
+        self.searchBtn.isSelected = !self.searchBtn.isSelected
     }
 }

@@ -25,13 +25,18 @@ class MainVCTabVw: UIView {
     
     var vws: [UILabel] = []
     
+    var searchVw: OTSearchVw!
+    
     var leftVw: MianVCTabCreateVw!
     
     var rightVw: MiddleBtnVw!
     
+    var topVw: UIView?
+    
     init(frame: CGRect,fatherVw: UIView,topVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
+        self.topVw = topVw
         self.snp.makeConstraints { (make) in
             make.left.equalTo(0)
             make.right.equalTo(0)
@@ -52,37 +57,38 @@ class MainVCTabVw: UIView {
     }
     
     func initVw() {
-        for eachItem in 0 ..< self.infos.count {
-            let txt = UILabel()
-            txt.text = self.infos[eachItem]
-            self.addSubview(txt)
-            txt.snp.makeConstraints { (make) in
-                make.width.equalTo(eachWeight)
-                make.left.equalTo(CGFloat(eachItem) * self.eachWeight)
-                make.top.equalTo(0)
-                make.height.equalTo(45 * APPDelStatic.sizeScale)
-            }
-            txt.textAlignment = .center
-            txt.font = APPDelStatic.uiFont(with: 13)
-            txt.textColor = APPDelStatic.themeColor
-            self.vws.append(txt)
-            txt.tapActionsGesture {[weak self]() in
-                self?.tapActions(index:eachItem)
-            }
-        }
-        self.addSubview(scrollLine)
-        scrollLine.snp.makeConstraints { (make) in
-            make.width.equalTo(scrollLineWeight)
-            make.centerX.equalTo(self.vws.first!.snp.centerX)
-            make.height.equalTo(1)
-            make.top.equalTo(self.vws.first!.snp.bottom).offset(-1)
-        }
-        scrollLine.backgroundColor = APPDelStatic.themeColor
+//        for eachItem in 0 ..< self.infos.count {
+//            let txt = UILabel()
+//            txt.text = self.infos[eachItem]
+//            self.addSubview(txt)
+//            txt.snp.makeConstraints { (make) in
+//                make.width.equalTo(eachWeight)
+//                make.left.equalTo(CGFloat(eachItem) * self.eachWeight)
+//                make.top.equalTo(0)
+//                make.height.equalTo(45 * APPDelStatic.sizeScale)
+//            }
+//            txt.textAlignment = .center
+//            txt.font = APPDelStatic.uiFont(with: 13)
+//            txt.textColor = APPDelStatic.themeColor
+//            self.vws.append(txt)
+//            txt.tapActionsGesture {[weak self]() in
+//                self?.tapActions(index:eachItem)
+//            }
+//        }
+//        self.addSubview(scrollLine)
+//        scrollLine.snp.makeConstraints { (make) in
+//            make.width.equalTo(scrollLineWeight)
+//            make.centerX.equalTo(self.vws.first!.snp.centerX)
+//            make.height.equalTo(1)
+//            make.top.equalTo(self.vws.first!.snp.bottom).offset(-1)
+//        }
+//        scrollLine.backgroundColor = APPDelStatic.themeColor
     }
     
     func createVw() {
-        self.leftVw = MianVCTabCreateVw(frame: CGRect.zero, fatherVw: self, topVw: self.scrollLine)
-        self.rightVw = MiddleBtnVw(frame: CGRect.zero, fatherVw: self, topVw: self.scrollLine)
+        searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self, topVw: self.topVw!,jumpOrUse:true)
+        self.leftVw = MianVCTabCreateVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
+        self.rightVw = MiddleBtnVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
         self.rightVw.alpha = 0
     }
     
