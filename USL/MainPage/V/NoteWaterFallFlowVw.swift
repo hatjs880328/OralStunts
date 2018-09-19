@@ -15,9 +15,11 @@ class NoteWaterFallFlowVw: UIView {
     
     var fatherVw: UIView?
     
-    var tabVw: UIScrollView?
+    var tabVw: UICollectionView?
     
     var vm: NoteWaterFallVM?
+    
+    var waterFallLO: XRWaterfallLayout?
     
     init(frame: CGRect,topVw: UIView,fatherVw: UIView) {
         super.init(frame:frame)
@@ -25,22 +27,28 @@ class NoteWaterFallFlowVw: UIView {
         self.fatherVw = fatherVw
         createVw()
         createVM()
+        getData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func getData() {
+        self.vm?.getWaterFallData()
+    }
+    
     func createVM() {
         self.vm = NoteWaterFallVM()
         self.vm?.addNewDataAction = {[weak self] () in
             if self == nil { return }
-            
+            self?.tabVw?.reloadData()
         }
     }
     
     func createVw() {
         //self
+        self.backgroundColor = UIColor.white
         self.fatherVw?.addSubview(self)
         self.snp.makeConstraints { (make) in
             make.left.equalTo(0)
@@ -48,19 +56,38 @@ class NoteWaterFallFlowVw: UIView {
             make.bottom.equalTo(0)
             make.top.equalTo(self.topVw!.snp.bottom).offset(10 * APPDelStatic.sizeScale)
         }
+        //water-layout
+        self.waterFallLO = XRWaterfallLayout(columnCount: 2)
+        self.waterFallLO?.setColumnSpacing(10, rowSpacing: 10, sectionInset: UIEdgeInsetsMake(10, 10, 10, 10))
+        self.waterFallLO?.delegate = self
         //tab
-        self.tabVw = UICollectionView()
+        self.tabVw = UICollectionView(frame: CGRect.zero, collectionViewLayout: waterFallLO!)
+        self.tabVw?.backgroundColor = UIColor.white
+        self.tabVw?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "reuseWaterFallCell")
+        self.addSubview(tabVw!)
         self.tabVw?.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
         })
         self.tabVw?.delegate = self
+        self.tabVw?.dataSource = self
     }
 
 }
 
-extension NoteWaterFallFlowVw:UIScrollViewDelegate {
+extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegate,XRWaterfallLayoutDelegate {
     
-    func add10Items() {
-        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.vm!.waterFallDatasource.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseWaterFallCell", for: indexPath)
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
+    
+    func waterfallLayout(_ waterfallLayout: XRWaterfallLayout!, itemHeightForWidth itemWidth: CGFloat, at indexPath: IndexPath!) -> CGFloat {
+        return self.vm!.waterFallDatasource[indexPath.row].waterFallHeight
+    }
+    
 }

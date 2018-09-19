@@ -29,7 +29,7 @@ class MainVCTabVw: UIView {
     
     var leftVw: MianVCTabCreateVw!
     
-    var rightVw: MiddleBtnVw!
+    var rightVw: NoteWaterFallFlowVw!
     
     var topVw: UIView?
     
@@ -44,8 +44,12 @@ class MainVCTabVw: UIView {
             make.top.equalTo(topVw.snp.bottom).offset(5 * APPDelStatic.sizeScale)
         }
         self.setValues(value: ["最新","新建"])
-        initVw()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeUI(noti:)), name: NSNotification.Name.init("main_page_change_listAndWaterfall"), object: nil)
         createVw()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setValues(value:[String]) {
@@ -56,60 +60,22 @@ class MainVCTabVw: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initVw() {
-//        for eachItem in 0 ..< self.infos.count {
-//            let txt = UILabel()
-//            txt.text = self.infos[eachItem]
-//            self.addSubview(txt)
-//            txt.snp.makeConstraints { (make) in
-//                make.width.equalTo(eachWeight)
-//                make.left.equalTo(CGFloat(eachItem) * self.eachWeight)
-//                make.top.equalTo(0)
-//                make.height.equalTo(45 * APPDelStatic.sizeScale)
-//            }
-//            txt.textAlignment = .center
-//            txt.font = APPDelStatic.uiFont(with: 13)
-//            txt.textColor = APPDelStatic.themeColor
-//            self.vws.append(txt)
-//            txt.tapActionsGesture {[weak self]() in
-//                self?.tapActions(index:eachItem)
-//            }
-//        }
-//        self.addSubview(scrollLine)
-//        scrollLine.snp.makeConstraints { (make) in
-//            make.width.equalTo(scrollLineWeight)
-//            make.centerX.equalTo(self.vws.first!.snp.centerX)
-//            make.height.equalTo(1)
-//            make.top.equalTo(self.vws.first!.snp.bottom).offset(-1)
-//        }
-//        scrollLine.backgroundColor = APPDelStatic.themeColor
-    }
-    
     func createVw() {
         searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self, topVw: self.topVw!,jumpOrUse:true)
         searchVw.snp.updateConstraints { (make) in
             make.top.equalTo(topVw!.snp.bottom)
         }
         self.leftVw = MianVCTabCreateVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
-        self.rightVw = MiddleBtnVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
-        self.rightVw.alpha = 0
+        self.rightVw = NoteWaterFallFlowVw(frame: CGRect.zero, topVw: self.searchVw, fatherVw: self)
+        self.leftVw.alpha = 0
     }
     
-    @objc dynamic func tapActions(index: Int) {
-        let distance = index == 0 ? self.vws.first!.snp.centerX : self.vws.last!.snp.centerX
-        scrollLine.snp.remakeConstraints { (make) in
-            make.width.equalTo(scrollLineWeight)
-            make.centerX.equalTo(distance)
-            make.height.equalTo(1)
-            make.top.equalTo(self.vws.first!.snp.bottom).offset(-1)
-        }
-        
-        UIView.animate(withDuration: 0.5) {
-            self.layoutIfNeeded()
-        }
-        
-        if index == 0 {
-            leftVwloadData()
+    func leftVwloadData() {
+        self.leftVw.vm.loadNonFolderData()
+    }
+    
+    @objc func changeUI(noti: Notification) {
+        if leftVw.alpha == 0.0 {
             self.leftVw.alpha = 1
             self.rightVw.alpha = 0
         }else{
@@ -117,10 +83,5 @@ class MainVCTabVw: UIView {
             self.rightVw.alpha = 1
         }
     }
-    
-    func leftVwloadData() {
-        self.leftVw.vm.loadNonFolderData()
-    }
-    
     
 }

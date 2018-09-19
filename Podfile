@@ -49,6 +49,7 @@ def useFrameworks
     pod 'mob_sharesdk/ShareSDKExtension'
     
     #pod 'AxcAE_TabBar'
+    pod 'XRWaterfallLayout'
     
 end
 

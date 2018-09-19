@@ -67,5 +67,7 @@ class TopHelloVw: UIView {
     
     func searchBtnDidSelectAction() {
         self.searchBtn.isSelected = !self.searchBtn.isSelected
+        //发送通知
+        NotificationCenter.default.post(name: NSNotification.Name.init("main_page_change_listAndWaterfall"), object: nil, userInfo: nil)
     }
 }

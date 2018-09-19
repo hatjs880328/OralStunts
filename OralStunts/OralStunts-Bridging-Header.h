@@ -77,3 +77,5 @@
 //#import "UITableView+DZ.h"
 //#import "UIScrollView+EmptyDataSet.h"
 //#import "UITableView+DZExtension.h"
+
+#import "XRWaterfallLayout/XRWaterfallLayout.h"

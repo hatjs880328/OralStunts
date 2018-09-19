@@ -64,6 +64,7 @@ PODS:
   - SVGKit (2.0.1):
     - CocoaLumberjack (~> 3.x)
   - WHDebugTool (1.1)
+  - XRWaterfallLayout (0.1.2)
 
 DEPENDENCIES:
   - AlicloudFeedback
@@ -91,6 +92,7 @@ DEPENDENCIES:
   - SnapKit (~> 4.0.0)
   - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
   - WHDebugTool (~> 1.1)
+  - XRWaterfallLayout
 
 SPEC REPOS:
   https://github.com/aliyun/aliyun-specs.git:
@@ -118,6 +120,7 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - WHDebugTool
+    - XRWaterfallLayout
 
 EXTERNAL SOURCES:
   SVGKit:
@@ -154,7 +157,8 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
+  XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
 
-PODFILE CHECKSUM: a71e8e84184bd5eadbaa9dcb5cc36076764d11a9
+PODFILE CHECKSUM: b78c7602ccc817302f84a403303176f48a7f149b
 
 COCOAPODS: 1.5.3
