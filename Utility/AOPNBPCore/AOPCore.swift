@@ -48,16 +48,9 @@ class TABLESwizzing: GodfatherSwizzing {
     
     /// tb-reload[first remove anivw & addHelp note info]
     let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
-        var tab = (aspectInfo.instance() as! UIScrollView)
+        var tab = (aspectInfo.instance() as! UITableView)
         if !tab.tableReloadNumber {
             return
-        }
-        var tabIns: UITableView!
-        var collectionIns: UICollectionView!
-        if tab.isKind(of: UICollectionView.self) {
-            collectionIns = aspectInfo.instance() as? UICollectionView
-        }else{
-            tabIns = aspectInfo.instance() as? UITableView
         }
         GCDUtils.delayProgerssWithFloatSec(milliseconds: 200, yourFunc: {
             for eachItem in tab.subviews {
@@ -68,31 +61,16 @@ class TABLESwizzing: GodfatherSwizzing {
             }
             let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
             if boolStr == nil { return }
-            
-            if tabIns == nil {
-                if (boolStr as! String) == "true" {
-                    if collectionIns.numberOfItems(inSection: 0) != 0 {
-                        collectionIns.backgroundView = nil
-                    }else{
-                        let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
-                        collectionIns.backgroundView = resultVw as? UIView
-                    }
-                }else {
-                    collectionIns.backgroundView = nil
-                    return
+            if (boolStr as! String) == "true" {
+                if tab.numberOfRows(inSection: 0) != 0 {
+                    tab.backgroundView = nil
+                }else{
+                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                    tab.backgroundView = resultVw as? UIView
                 }
-            }else{
-                if (boolStr as! String) == "true" {
-                    if tabIns.numberOfRows(inSection:0) != 0 {
-                        tabIns.backgroundView = nil
-                    }else{
-                        let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
-                        tabIns.backgroundView = resultVw as? UIView
-                    }
-                }else {
-                    tabIns.backgroundView = nil
-                    return
-                }
+            }else {
+                tab.backgroundView = nil
+                return
             }
         })
         
@@ -100,6 +78,9 @@ class TABLESwizzing: GodfatherSwizzing {
     
     /// tb-init[add anivw]
     let tbInitBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
+        if (aspectInfo.instance() as? UITableView) == nil && (aspectInfo.instance() as? UICollectionView) == nil {
+            return
+        }
         let tab = aspectInfo.instance() as! UIScrollView
         let aniVw = IIBaseWaitAniVw(frame: CGRect.zero)
         tab.addSubview(aniVw)
@@ -118,15 +99,49 @@ class TABLESwizzing: GodfatherSwizzing {
             try UITableView.aspect_hook(#selector(UITableView.reloadData),
                                         with: .init(rawValue:0),
                                         usingBlock: tbBGBlock)
-            try UICollectionView.aspect_hook(#selector(UICollectionView.reloadData),
+            try UIScrollView.aspect_hook(#selector(UIScrollView.init(frame:)),
+                                        with: .init(rawValue:0),
+                                        usingBlock: tbInitBlock)
+        }catch {}
+    }
+}
+
+class CollectionVWSwizzing: GodfatherSwizzing {
+    /// tb-reload[first remove anivw & addHelp note info]
+    let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
+        var tab = (aspectInfo.instance() as! UICollectionView)
+        if !tab.tableReloadNumber {
+            return
+        }
+        GCDUtils.delayProgerssWithFloatSec(milliseconds: 200, yourFunc: {
+            for eachItem in tab.subviews {
+                if eachItem.isKind(of: IIBaseWaitAniVw.self) {
+                    eachItem.removeFromSuperview()
+                    break
+                }
+            }
+            let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
+            if boolStr == nil { return }
+            if (boolStr as! String) == "true" {
+                if tab.numberOfItems(inSection: 0) != 0 {
+                    tab.backgroundView = nil
+                }else{
+                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                    tab.backgroundView = resultVw as? UIView
+                }
+            }else {
+                tab.backgroundView = nil
+                return
+            }
+        })
+    }
+    
+    /// vc-viewdidappear & diddisappear
+    override func aopFunction() {
+        do {
+            try UICollectionView.aspect_hook(#selector(UICollectionView.reloadSections(_:)),
                                         with: .init(rawValue:0),
                                         usingBlock: tbBGBlock)
-            try UITableView.aspect_hook(#selector(UITableView.init(frame:)),
-                                        with: .init(rawValue:0),
-                                        usingBlock: tbInitBlock)
-            try UICollectionView.aspect_hook(#selector(UICollectionView.init(frame:)),
-                                        with: .init(rawValue:0),
-                                        usingBlock: tbInitBlock)
         }catch {}
     }
 }
@@ -207,6 +222,7 @@ class AOPNBPCoreManagerCenter: NSObject {
         ApplicitonSwizzing().aopFunction()
         TABLESwizzing().aopFunction()
         VCSwizzing().aopFunction()
+        CollectionVWSwizzing().aopFunction()
     }
     
     /// before start service - create AOPNBP Folder - for mmap open file function

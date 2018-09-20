@@ -37,7 +37,8 @@ class NoteWaterFallFlowVw: UIView {
         self.vm = (self.superview as! MainVCTabVw).vm
         self.vm?.addNewDataAction = {[weak self] () in
             if self == nil { return }
-            self?.tabVw?.reloadData()
+            self?.tabVw?.progressNodataAndLoadingBeforeReloaddata()
+            self?.tabVw?.reloadSections(NSIndexSet(index: 0) as IndexSet)
         }
     }
     
