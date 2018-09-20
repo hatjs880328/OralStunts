@@ -19,6 +19,15 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     
     var subTitleLb: [UILabel] = []
     
+    var isLikeBtn: UIButton = UIButton()
+    
+    var moveBtn: UIButton = UIButton()
+    
+    var deleteBtn: UIButton = UIButton()
+    
+    // note id
+    var realNoteId:String = ""
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
@@ -35,6 +44,9 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         self.addSubview(titleLb)
         self.addSubview(createTimeLb)
         self.addSubview(contentRealTxtLb)
+        self.addSubview(isLikeBtn)
+        self.addSubview(moveBtn)
+        self.addSubview(deleteBtn)
         //title
         titleLb.snp.makeConstraints { (make) in
             make.left.equalTo(5)
@@ -63,6 +75,34 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         contentRealTxtLb.font = APPDelStatic.uiFont(with: 10)
         contentRealTxtLb.textColor = UIColor.gray
         contentRealTxtLb.text = "内容:"
+//        //like
+//        self.isLikeBtn.snp.makeConstraints { (make) in
+//            make.left.equalTo(10)
+//            make.bottom.equalTo(-5)
+//            make.height.equalTo(25)
+//            make.width.equalTo(25)
+//        }
+//        self.isLikeBtn.setImage(UIImage(named: "unlike"), for: UIControlState.normal)
+//        self.isLikeBtn.setImage(UIImage(named: "notelike"), for: UIControlState.selected)
+//        self.isLikeBtn.tapActionsGesture {[weak self] () in
+//            self?.isLikeFunc()
+//        }
+//        //move
+//        self.moveBtn.snp.makeConstraints { (make) in
+//            make.centerX.equalTo(self.snp.centerX)
+//            make.bottom.equalTo(-5)
+//            make.height.equalTo(25)
+//            make.width.equalTo(25)
+//        }
+//        self.moveBtn.setImage(UIImage(named: "water_fall_move_icon"), for: UIControlState.normal)
+//        //delete
+//        self.deleteBtn.snp.makeConstraints { (make) in
+//            make.right.equalTo(-10)
+//            make.bottom.equalTo(-5)
+//            make.height.equalTo(25)
+//            make.width.equalTo(25)
+//        }
+//        self.deleteBtn.setImage(UIImage(named: "water_fall_delte_icon"), for: UIControlState.normal)
         //config
         self.layer.borderColor = APPDelStatic.lineGray.cgColor
         self.layer.borderWidth = 0.5
@@ -73,6 +113,8 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     func setData(note: SearchvcVmodel) {
         self.titleLb.text = note.title
         self.createTimeLb.text = note.modifyTime
+        self.realNoteId = note.noteID
+        self.isLikeBtn.isSelected = note.isLike
         for eachItem in 0 ..< note.sourceModel.contentTxt.count {
             let contentTxtLb = UILabel()
             self.addSubview(contentTxtLb)
@@ -94,5 +136,27 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
             eachItem.removeFromSuperview()
         }
         self.subTitleLb.removeAll()
+    }
+    
+    @objc func isLikeFunc() {
+        NoteCreatingBLL.getInstance().setShowingModel(with: self.realNoteId)
+        if self.isLikeBtn.isSelected {
+            //取消收藏
+            self.isLikeBtn.isSelected = false
+            NoteLogicBLL().likeOneModel(isLike: false)
+        }else{
+            //收藏
+            self.isLikeBtn.isSelected = true
+            NoteLogicBLL().likeOneModel(isLike: true)
+        }
+        //self.refreshAction?()
+    }
+    
+    func move() {
+        
+    }
+    
+    func delete() {
+        
     }
 }

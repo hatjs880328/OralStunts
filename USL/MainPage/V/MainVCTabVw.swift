@@ -33,6 +33,8 @@ class MainVCTabVw: UIView {
     
     var topVw: UIView?
     
+    var vm: SearchVCTabVM?
+    
     init(frame: CGRect,fatherVw: UIView,topVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
@@ -45,6 +47,7 @@ class MainVCTabVw: UIView {
         }
         self.setValues(value: ["最新","新建"])
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeUI(noti:)), name: NSNotification.Name.init("main_page_change_listAndWaterfall"), object: nil)
+        createVm()
         createVw()
     }
     
@@ -70,9 +73,12 @@ class MainVCTabVw: UIView {
         self.rightVw.alpha = 0
     }
     
+    func createVm() {
+        self.vm = SearchVCTabVM()
+    }
+    
     func leftVwloadData() {
-        self.leftVw.vm.loadNonFolderData()
-        self.rightVw.vm?.getWaterFallData()
+        self.vm?.loadNonFolderData()
     }
     
     @objc func changeUI(noti: Notification) {

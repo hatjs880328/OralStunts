@@ -16,10 +16,16 @@ class SearchVCTabVM: NSObject {
         didSet {
             if self.reloadAction == nil { return }
             self.reloadAction()
+            if self.addNewDataAction == nil { return }
+            self.addNewDataAction!()
         }
     }
     
+    /// left数据源变更UI
     var reloadAction: (()->Void)!
+    
+    /// right数据变更UI
+    var addNewDataAction: (()->Void)?
     
     var cellHeight:CGFloat = 70 * APPDelStatic.sizeScale
     

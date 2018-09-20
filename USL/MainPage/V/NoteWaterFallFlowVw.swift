@@ -17,7 +17,7 @@ class NoteWaterFallFlowVw: UIView {
     
     var tabVw: UICollectionView?
     
-    var vm: NoteWaterFallVM?
+    var vm: SearchVCTabVM?
     
     var waterFallLO: XRWaterfallLayout?
     
@@ -27,19 +27,14 @@ class NoteWaterFallFlowVw: UIView {
         self.fatherVw = fatherVw
         createVw()
         createVM()
-        getData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getData() {
-        self.vm?.getWaterFallData()
-    }
-    
     func createVM() {
-        self.vm = NoteWaterFallVM()
+        self.vm = (self.superview as! MainVCTabVw).vm
         self.vm?.addNewDataAction = {[weak self] () in
             if self == nil { return }
             self?.tabVw?.reloadData()
@@ -77,7 +72,7 @@ class NoteWaterFallFlowVw: UIView {
 extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegate,XRWaterfallLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.vm!.waterFallDatasource.count
+        return self.vm!.dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,12 +82,12 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
         }else{
             cell!.removeSubTitle()
         }
-        cell?.setData(note: self.vm!.waterFallDatasource[indexPath.row])
+        cell?.setData(note: self.vm!.getData(with: indexPath))
         return cell!
     }
     
     func waterfallLayout(_ waterfallLayout: XRWaterfallLayout!, itemHeightForWidth itemWidth: CGFloat, at indexPath: IndexPath!) -> CGFloat {
-        return self.vm!.waterFallDatasource[indexPath.row].waterFallHeight
+        return self.vm!.getData(with: indexPath).waterFallHeight
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

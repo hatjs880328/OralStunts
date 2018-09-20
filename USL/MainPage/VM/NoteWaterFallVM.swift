@@ -24,8 +24,7 @@ class NoteWaterFallVM: SearchVCTabVM {
         }
     }
     
-    /// 数据变更action
-    var addNewDataAction: (()->Void)?
+    
     
     override init() {
         super.init()

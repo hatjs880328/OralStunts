@@ -11,7 +11,7 @@ import Foundation
 class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
     var tab: UITableView = UITableView()
     let reuseID = "MianVCTabCreateVwReuseID"
-    var vm = SearchVCTabVM()
+    var vm:SearchVCTabVM!
     init(frame: CGRect,fatherVw: UIView,topVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
@@ -43,6 +43,7 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func initVm() {
+        self.vm = (self.superview as! MainVCTabVw).vm
         self.vm.reloadAction = {[weak self]() in
             self?.tab.progressNodataAndLoadingBeforeReloaddata()
             self?.tab.reloadData()
