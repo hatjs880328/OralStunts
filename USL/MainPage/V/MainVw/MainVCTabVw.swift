@@ -31,6 +31,8 @@ class MainVCTabVw: UIView {
     
     var rightVw: NoteWaterFallFlowVw!
     
+    var progressToolVw: LongPressShowVw!
+    
     var topVw: UIView?
     
     var vm: SearchVCTabVM?
@@ -71,6 +73,7 @@ class MainVCTabVw: UIView {
         self.leftVw = MianVCTabCreateVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
         self.rightVw = NoteWaterFallFlowVw(frame: CGRect.zero, topVw: self.searchVw, fatherVw: self)
         self.rightVw.alpha = 0
+        self.progressToolVw = LongPressShowVw(frame: CGRect.zero, topVw: self.topVw!, fatherVw: self)
     }
     
     func createVm() {

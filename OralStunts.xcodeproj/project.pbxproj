@@ -14,6 +14,9 @@
 		5604993020B800EE001DCD27 /* LstaedEditedInfoVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5604992F20B800EE001DCD27 /* LstaedEditedInfoVw.swift */; };
 		560930A320D88C0C00FC7F58 /* ThirdLoginDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560930A220D88C0C00FC7F58 /* ThirdLoginDAL.swift */; };
 		560930A620D88C4400FC7F58 /* IIAPIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560930A520D88C4400FC7F58 /* IIAPIStruct.swift */; };
+		561120DC21533A8600E94D6A /* LongPressShowVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561120DB21533A8600E94D6A /* LongPressShowVw.swift */; };
+		561120DF21533B3D00E94D6A /* OTBaseVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561120DE21533B3D00E94D6A /* OTBaseVw.swift */; };
+		561120E12153458D00E94D6A /* IIBtnExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561120E02153458D00E94D6A /* IIBtnExtension.swift */; };
 		5613914020C7869100D4A38A /* IWorkBenchEventCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613913E20C7869100D4A38A /* IWorkBenchEventCalendar.swift */; };
 		5613914120C7869100D4A38A /* IWorkBench.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613913F20C7869100D4A38A /* IWorkBench.swift */; };
 		5613914620C792DD00D4A38A /* ModuleGodFather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613914320C792DD00D4A38A /* ModuleGodFather.swift */; };
@@ -233,7 +236,6 @@
 		56B9164A20B5835D004F1A71 /* OTFolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9164920B5835D004F1A71 /* OTFolderModel.swift */; };
 		56B9164C20B5894F004F1A71 /* FolderDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9164B20B5894F004F1A71 /* FolderDAL.swift */; };
 		56B9164E20B58A8C004F1A71 /* FolderBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B9164D20B58A8C004F1A71 /* FolderBLL.swift */; };
-		56B997BF20AFC6050017F478 /* MiddleBtnVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B997BE20AFC6050017F478 /* MiddleBtnVw.swift */; };
 		56B997C120AFC8D30017F478 /* OTNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B997C020AFC8D30017F478 /* OTNoteModel.swift */; };
 		56C6AB2E2137DC8400F49274 /* OTPlayVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6AB2D2137DC8400F49274 /* OTPlayVw.swift */; };
 		56C6AB302138050E00F49274 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C6AB2F2138050E00F49274 /* back@2x.png */; };
@@ -330,6 +332,9 @@
 		5604992F20B800EE001DCD27 /* LstaedEditedInfoVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LstaedEditedInfoVw.swift; sourceTree = "<group>"; };
 		560930A220D88C0C00FC7F58 /* ThirdLoginDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdLoginDAL.swift; sourceTree = "<group>"; };
 		560930A520D88C4400FC7F58 /* IIAPIStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIAPIStruct.swift; sourceTree = "<group>"; };
+		561120DB21533A8600E94D6A /* LongPressShowVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressShowVw.swift; sourceTree = "<group>"; };
+		561120DE21533B3D00E94D6A /* OTBaseVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTBaseVw.swift; sourceTree = "<group>"; };
+		561120E02153458D00E94D6A /* IIBtnExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IIBtnExtension.swift; sourceTree = "<group>"; };
 		5613913E20C7869100D4A38A /* IWorkBenchEventCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWorkBenchEventCalendar.swift; sourceTree = "<group>"; };
 		5613913F20C7869100D4A38A /* IWorkBench.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWorkBench.swift; sourceTree = "<group>"; };
 		5613914320C792DD00D4A38A /* ModuleGodFather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleGodFather.swift; sourceTree = "<group>"; };
@@ -582,7 +587,6 @@
 		56B9164920B5835D004F1A71 /* OTFolderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTFolderModel.swift; sourceTree = "<group>"; };
 		56B9164B20B5894F004F1A71 /* FolderDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDAL.swift; sourceTree = "<group>"; };
 		56B9164D20B58A8C004F1A71 /* FolderBLL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderBLL.swift; sourceTree = "<group>"; };
-		56B997BE20AFC6050017F478 /* MiddleBtnVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleBtnVw.swift; sourceTree = "<group>"; };
 		56B997C020AFC8D30017F478 /* OTNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTNoteModel.swift; sourceTree = "<group>"; };
 		56C6AB2D2137DC8400F49274 /* OTPlayVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPlayVw.swift; sourceTree = "<group>"; };
 		56C6AB2F2138050E00F49274 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
@@ -721,6 +725,50 @@
 				560930A520D88C4400FC7F58 /* IIAPIStruct.swift */,
 			);
 			path = IIAPIStruct;
+			sourceTree = "<group>";
+		};
+		561120DD21533B2D00E94D6A /* OTBaseVw */ = {
+			isa = PBXGroup;
+			children = (
+				561120DE21533B3D00E94D6A /* OTBaseVw.swift */,
+			);
+			path = OTBaseVw;
+			sourceTree = "<group>";
+		};
+		561120E221534ADE00E94D6A /* LeftTab */ = {
+			isa = PBXGroup;
+			children = (
+				56AC1E5120BC1F3D007D3A5F /* MianVCTabCreateVw.swift */,
+				56005B9120B2AE41004390A1 /* SearchVCTabCell.swift */,
+			);
+			path = LeftTab;
+			sourceTree = "<group>";
+		};
+		561120E321534AE700E94D6A /* RightWaterFall */ = {
+			isa = PBXGroup;
+			children = (
+				56D0981221524E8600BFEC13 /* NoteWaterFallFlowCell.swift */,
+				56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */,
+			);
+			path = RightWaterFall;
+			sourceTree = "<group>";
+		};
+		561120E421534AF600E94D6A /* TopHelloAndTool */ = {
+			isa = PBXGroup;
+			children = (
+				56005B8D20B2ABD1004390A1 /* SearchVCTabVw.swift */,
+				561120DB21533A8600E94D6A /* LongPressShowVw.swift */,
+				56676DCA20AE811F00905CFD /* TopHelloVw.swift */,
+			);
+			path = TopHelloAndTool;
+			sourceTree = "<group>";
+		};
+		561120E521534BB200E94D6A /* MainVw */ = {
+			isa = PBXGroup;
+			children = (
+				56AC1E4F20BC1880007D3A5F /* MainVCTabVw.swift */,
+			);
+			path = MainVw;
 			sourceTree = "<group>";
 		};
 		5613913D20C7869100D4A38A /* WorkBench */ = {
@@ -957,14 +1005,10 @@
 		56676DC720AE7ECC00905CFD /* V */ = {
 			isa = PBXGroup;
 			children = (
-				56676DCA20AE811F00905CFD /* TopHelloVw.swift */,
-				56B997BE20AFC6050017F478 /* MiddleBtnVw.swift */,
-				56005B8D20B2ABD1004390A1 /* SearchVCTabVw.swift */,
-				56005B9120B2AE41004390A1 /* SearchVCTabCell.swift */,
-				56AC1E4F20BC1880007D3A5F /* MainVCTabVw.swift */,
-				56AC1E5120BC1F3D007D3A5F /* MianVCTabCreateVw.swift */,
-				56D0980E215237EE00BFEC13 /* NoteWaterFallFlowVw.swift */,
-				56D0981221524E8600BFEC13 /* NoteWaterFallFlowCell.swift */,
+				561120E521534BB200E94D6A /* MainVw */,
+				561120E421534AF600E94D6A /* TopHelloAndTool */,
+				561120E321534AE700E94D6A /* RightWaterFall */,
+				561120E221534ADE00E94D6A /* LeftTab */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1367,6 +1411,7 @@
 				568533B320AD9BB800BDB451 /* IIStringExtension.swift */,
 				56D6458A20B3EE8200C61AA6 /* IIRXUIKitExtension.swift */,
 				56B7B8912136350800E26218 /* IITextExtension.swift */,
+				561120E02153458D00E94D6A /* IIBtnExtension.swift */,
 			);
 			path = CoreExtension;
 			sourceTree = "<group>";
@@ -1674,6 +1719,7 @@
 		5685344520ADA20D00BDB451 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				561120DD21533B2D00E94D6A /* OTBaseVw */,
 				564D4FB0214F777200B47718 /* OTAnivw */,
 				56C6AB292137D77200F49274 /* AQYVideoAni */,
 				5659EB0720B7AA560075A142 /* OTTablistVw */,
@@ -2414,6 +2460,7 @@
 				568533E120AD9BB800BDB451 /* FilterDetailVw.swift in Sources */,
 				5685344E20ADA49700BDB451 /* OTVoiceVw.swift in Sources */,
 				5685333F20AD9AA600BDB451 /* ViewController.swift in Sources */,
+				561120E12153458D00E94D6A /* IIBtnExtension.swift in Sources */,
 				5604993020B800EE001DCD27 /* LstaedEditedInfoVw.swift in Sources */,
 				56C6AB2E2137DC8400F49274 /* OTPlayVw.swift in Sources */,
 				56D3E97620C9436B00C8CE46 /* ReachStateUnReachable.m in Sources */,
@@ -2453,7 +2500,6 @@
 				563225E620C8BF260041C612 /* ModuleGodFatherInvoke.swift in Sources */,
 				56D3E98E20C9436B00C8CE46 /* Notifications.swift in Sources */,
 				56D6459120B3F3C400C61AA6 /* ContextInsertVM.swift in Sources */,
-				56B997BF20AFC6050017F478 /* MiddleBtnVw.swift in Sources */,
 				56D3E98520C9436B00C8CE46 /* TaskDelegate.swift in Sources */,
 				56A58A4821367FF9000E2082 /* Toast.swift in Sources */,
 				56FDB4BC20AEBA6D0020A9DE /* SearchViewController.swift in Sources */,
@@ -2477,6 +2523,7 @@
 				568533CF20AD9BB800BDB451 /* DingtaskVModel.swift in Sources */,
 				56D3E99020C9436B00C8CE46 /* Alamofire.swift in Sources */,
 				568533E520AD9BB800BDB451 /* DingtalkGetTask.swift in Sources */,
+				561120DC21533A8600E94D6A /* LongPressShowVw.swift in Sources */,
 				56D0981321524E8600BFEC13 /* NoteWaterFallFlowCell.swift in Sources */,
 				56D3E98120C9436B00C8CE46 /* IIHTTPRequestStatusCodeProgress.swift in Sources */,
 				56005B8E20B2ABD1004390A1 /* SearchVCTabVw.swift in Sources */,
@@ -2597,6 +2644,7 @@
 				56D0980F215237EE00BFEC13 /* NoteWaterFallFlowVw.swift in Sources */,
 				56B9164E20B58A8C004F1A71 /* FolderBLL.swift in Sources */,
 				56676E3720AE8C4800905CFD /* AOPGCDExtension.swift in Sources */,
+				561120DF21533B3D00E94D6A /* OTBaseVw.swift in Sources */,
 				56B997C120AFC8D30017F478 /* OTNoteModel.swift in Sources */,
 				56676E8320AE8DD200905CFD /* FMDatabaseQueue.m in Sources */,
 				F992CF8D6ACC19CC27B76541 /* ThirdLoginBLL.swift in Sources */,
