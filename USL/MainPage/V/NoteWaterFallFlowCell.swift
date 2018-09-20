@@ -30,6 +30,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 5 16 8 13 8 13 8 18 * each
     func createVw() {
         self.addSubview(titleLb)
         self.addSubview(createTimeLb)
@@ -38,7 +39,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         titleLb.snp.makeConstraints { (make) in
             make.left.equalTo(5)
             make.top.equalTo(5)
-            make.height.equalTo(15)
+            make.height.equalTo(16)
             make.right.equalTo(-5)
         }
         titleLb.font = APPDelStatic.uiFont(with: 13)
@@ -50,7 +51,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
             make.height.equalTo(13)
             make.right.equalTo(-5)
         }
-        createTimeLb.font = APPDelStatic.uiFont(with: 11)
+        createTimeLb.font = APPDelStatic.uiFont(with: 10)
         createTimeLb.textColor = UIColor.gray
         //contentLb
         contentRealTxtLb.snp.makeConstraints { (make) in
@@ -59,7 +60,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
             make.height.equalTo(13)
             make.right.equalTo(-5)
         }
-        contentRealTxtLb.font = APPDelStatic.uiFont(with: 11)
+        contentRealTxtLb.font = APPDelStatic.uiFont(with: 10)
         contentRealTxtLb.textColor = UIColor.gray
         contentRealTxtLb.text = "内容:"
         //config
@@ -81,7 +82,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
                 make.height.equalTo(13)
                 make.right.equalTo(-5)
             }
-            contentTxtLb.font = APPDelStatic.uiFont(with: 11)
+            contentTxtLb.font = APPDelStatic.uiFont(with: 10)
             contentTxtLb.textColor = UIColor.gray
             contentTxtLb.text = note.sourceModel.contentTxt[eachItem]
             self.subTitleLb.append(contentTxtLb)

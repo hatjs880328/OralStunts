@@ -21,8 +21,8 @@ class TopHelloVw: UIView {
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
             make.top.equalTo(APPDelStatic.noNaviTopDistance)
-            make.left.equalTo(18)
-            make.right.equalTo(-18)
+            make.left.equalTo(16)
+            make.right.equalTo(-16)
             make.height.equalTo(80)
         }
         self.createVw()
@@ -36,7 +36,7 @@ class TopHelloVw: UIView {
     func createVw() {
         self.addSubview(searchBtn)
         searchBtn.snp.makeConstraints { (make) in
-            make.right.equalTo(-16)
+            make.right.equalTo(0)
             make.centerY.equalTo(self.snp.centerY)
             make.width.equalTo(25)
             make.height.equalTo(25)

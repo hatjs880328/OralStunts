@@ -144,7 +144,7 @@ class SearchvcVmodel: NSObject {
         }else{
             self.isLike = true
         }
-        self.waterFallHeight = 60.0 + CGFloat(model.contentTxt.count * 25)
+        self.waterFallHeight = 72.0 + CGFloat(model.contentTxt.count * 18)
     }
     
 }

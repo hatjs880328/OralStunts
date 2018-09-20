@@ -64,7 +64,7 @@ class SearchVCTabCell: UITableViewCell {
         modifyTimeLb.textColor = UIColor.gray
         // isLike
         isLike.snp.makeConstraints { (make) in
-            make.right.equalTo(-10)
+            make.right.equalTo(-16)
             make.centerY.equalTo(self.titleLB.snp.centerY)
             make.width.equalTo(20)
             make.height.equalTo(20)
