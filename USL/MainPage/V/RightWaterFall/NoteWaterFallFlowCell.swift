@@ -22,10 +22,13 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     // note id
     var realNoteId:String = ""
     
+    var longpressAction:(()->Void)!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         createVw()
+        addLongPressGes()
     }
     
     
@@ -99,6 +102,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     }
     
     func removeSubTitle() {
+        self.layer.borderColor = APPDelStatic.lineGray.cgColor
         for eachItem in self.subTitleLb {
             eachItem.removeFromSuperview()
         }
@@ -106,7 +110,9 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     }
     
     @objc func longPress() {
-        //if let father(self.superview as? MainVCTabVw)
+        if self.longpressAction == nil { return }
+        self.layer.borderColor = APPDelStatic.themeColor.cgColor
+        self.longpressAction!()
     }
     
     func isLikeFunc() {

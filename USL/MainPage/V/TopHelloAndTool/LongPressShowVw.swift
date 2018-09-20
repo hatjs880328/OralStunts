@@ -69,6 +69,9 @@ class LongPressShowVw: OTBaseVw {
                 make.height.equalTo(tupleInfo.eachWeight + 15)
                 make.top.equalTo(3)
             }
+            iconBtn.tapActionsGesture {[weak self] () in
+                self?.innerTapActions(index: item)
+            }
         }
     }
     
@@ -90,7 +93,6 @@ class LongPressShowVw: OTBaseVw {
             make.left.equalTo(-APPDelStatic.aWeight)
         })
         UIView.animate(withDuration: 0.5) {
-            self.alpha = 0
             self.layoutIfNeeded()
         }
     }
@@ -99,9 +101,29 @@ class LongPressShowVw: OTBaseVw {
         self.snp.updateConstraints({ (make) in
             make.left.equalTo(16)
         })
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.alpha = 1
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.layoutIfNeeded()
         }, completion: nil)
+    }
+}
+
+
+// MARK: - 按钮的事件
+extension LongPressShowVw {
+    
+    func innerTapActions(index:Int) {
+        switch index {
+        case 0:
+            break;
+        case 4:
+            self.cancel()
+        default:
+            break;
+        }
+    }
+    
+    /// 取消事件
+    func cancel() {
+        self.hideSelf()
     }
 }

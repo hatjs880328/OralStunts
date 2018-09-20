@@ -66,6 +66,13 @@ class NoteWaterFallFlowVw: UIView {
         self.tabVw?.delegate = self
         self.tabVw?.dataSource = self
     }
+    
+    /// 长按事件
+    func longPressAction() {
+        if let superVw = self.superview as? MainVCTabVw {
+            superVw.progressToolVw.showSelf()
+        }
+    }
 
 }
 
@@ -81,6 +88,9 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
             cell = NoteWaterFallFlowCell(frame: CGRect.zero)
         }else{
             cell!.removeSubTitle()
+        }
+        cell?.longpressAction = { [weak self] () in
+            self?.longPressAction()
         }
         cell?.setData(note: self.vm!.getData(with: indexPath))
         return cell!
