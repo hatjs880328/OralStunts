@@ -62,3 +62,38 @@ class CreateTabSql:NSObject,Codable {
     var modifyTime: Date = Date()
     var folderID:String = ""
 }
+
+class SearchvcVmodel: NSObject {
+    
+    var title = ""
+    var abstract = ""
+    var modifyTime = ""
+    var noteID = ""
+    var isLike = false
+    /// 瀑布流单个ITEM高度
+    var waterFallHeight:CGFloat = 0.0
+    /// realmodel
+    var sourceModel: OTNoteModel!
+    /// 是否被选中
+    var isSelected:Bool = false
+    
+    override init() {
+        super.init()
+    }
+    
+    func setData(model: OTNoteModel) {
+        self.sourceModel = model
+        self.noteID = model.id
+        self.title = model.title
+        let lastIndex = model.contentTxt.last!.length >= 20 ? 20 : model.contentTxt.last!.length
+        self.abstract = "摘要: " + model.contentTxt.last!.substringToIndex(lastIndex)
+        self.modifyTime = model.modifyTime.last!.dateToString("最后修改时间：yyyy-MM-dd")
+        if model.isLike == nil || model.isLike! == false {
+            self.isLike = false
+        }else{
+            self.isLike = true
+        }
+        self.waterFallHeight = 72.0 + CGFloat(model.contentTxt.count * 18)
+    }
+    
+}

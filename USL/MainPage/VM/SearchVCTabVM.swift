@@ -12,7 +12,7 @@ import Foundation
 
 class SearchVCTabVM: NSObject {
     
-    var dataSource: [OTNoteModel] = [] {
+    var dataSource: [SearchvcVmodel] = [] {
         didSet {
             if self.reloadAction == nil { return }
             self.reloadAction()
@@ -42,7 +42,7 @@ class SearchVCTabVM: NSObject {
     }
     
     func deleateOne(with index:IndexPath) {
-        var result = [OTNoteModel]()
+        var result = [SearchvcVmodel]()
         for i in 0 ..< dataSource.count {
             if index.row != i {
                 result.append(dataSource[i])
@@ -54,39 +54,48 @@ class SearchVCTabVM: NSObject {
     
     /// 分页获取数据
     func loadData(page: Int,orderby: String,sort:String) {
-        self.dataSource = NoteLogicBLL().getNoteInfo(page: page, order: orderby, sortType: sort)
+        self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getNoteInfo(page: page, order: orderby, sortType: sort))
     }
     
     /// 获取没有分配文件夹的数据
     func loadNonFolderData() {
-        self.dataSource = NoteLogicBLL().getNonFolderData()
+        self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getNonFolderData())
     }
     
     /// 获取文件夹下面数据
     func loadData(with folderID: String) {
-        self.dataSource = NoteLogicBLL().loadData(with: folderID)
+        self.dataSource = loopProgressModel2VModel(NoteLogicBLL().loadData(with: folderID))
     }
     
     /// 获取所有收藏的数据
     func loadFavData() {
-        self.dataSource = NoteLogicBLL().getFavData()
+        self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getFavData())
     }
     
     /// 根据查询条件获取数据
     func requestDataByWhereSql(sql: String) {
-        self.dataSource = NoteLogicBLL().getNoteByWhereSQL(sqlStr: sql)
+        self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getNoteByWhereSQL(sqlStr: sql))
     }
     
     func getData(with index:IndexPath)->SearchvcVmodel {
         let model = self.dataSource[index.row]
-        let realmodel = SearchvcVmodel()
-        realmodel.setData(model: model)
-        return realmodel
+        return model
+    }
+    
+    /// 批量转换
+    func loopProgressModel2VModel(_ models: [OTNoteModel])->[SearchvcVmodel] {
+        var result = [SearchvcVmodel]()
+        for eachItem in models {
+            let model = SearchvcVmodel()
+            model.setData(model: eachItem)
+            result.append(model)
+        }
+        return result
     }
     
     /// 移动之前处理方法-将bll中展示model赋值
     func moveNoteProgressShowModel(index: IndexPath) {
-        NoteCreatingBLL.getInstance().showingNoteModel = self.dataSource[index.row]
+        NoteCreatingBLL.getInstance().showingNoteModel = self.dataSource[index.row].sourceModel
     }
     
     /// 点击事件处理
@@ -107,6 +116,17 @@ class SearchVCTabVM: NSObject {
         return con
     }
     
+    /// 选中某一个item[这一个选中其他的都取消选中 & 刷新瀑布流]
+    func selectOneItem(with indexpath: IndexPath) {
+        for eachItem in 0 ..< self.dataSource.count {
+            if indexpath.row == eachItem {
+                self.dataSource[eachItem].isSelected = true
+            }else{
+                self.dataSource[eachItem].isSelected = false
+            }
+        }
+    }
+    
     /// 全选与取消
     func selectAllOrNot()->String {
         if self.isSelectAll  {
@@ -116,37 +136,6 @@ class SearchVCTabVM: NSObject {
             self.isSelectAll = true
             return "取消全选"
         }
-    }
-    
-}
-
-class SearchvcVmodel: NSObject {
-    
-    var title = ""
-    var abstract = ""
-    var modifyTime = ""
-    var noteID = ""
-    var isLike = false
-    /// 瀑布流单个ITEM高度
-    var waterFallHeight:CGFloat = 0.0
-    var sourceModel: OTNoteModel!
-    override init() {
-        super.init()
-    }
-    
-    func setData(model: OTNoteModel) {
-        self.sourceModel = model
-        self.noteID = model.id
-        self.title = model.title
-        let lastIndex = model.contentTxt.last!.length >= 20 ? 20 : model.contentTxt.last!.length
-        self.abstract = "摘要: " + model.contentTxt.last!.substringToIndex(lastIndex)
-        self.modifyTime = model.modifyTime.last!.dateToString("最后修改时间：yyyy-MM-dd")
-        if model.isLike == nil || model.isLike! == false {
-            self.isLike = false
-        }else{
-            self.isLike = true
-        }
-        self.waterFallHeight = 72.0 + CGFloat(model.contentTxt.count * 18)
     }
     
 }

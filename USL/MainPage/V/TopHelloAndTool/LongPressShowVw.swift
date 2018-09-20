@@ -26,7 +26,7 @@ class LongPressShowVw: OTBaseVw {
         self.topVw = topVw
         createVw()
         loopCreateIcon()
-        hideSelf()
+        self.alpha = 0
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,19 +89,15 @@ class LongPressShowVw: OTBaseVw {
     }
     
     func hideSelf() {
-        self.snp.updateConstraints({ (make) in
-            make.left.equalTo(-APPDelStatic.aWeight)
-        })
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 1) {
+            self.alpha = 0
             self.layoutIfNeeded()
         }
     }
     
     func showSelf() {
-        self.snp.updateConstraints({ (make) in
-            make.left.equalTo(16)
-        })
         UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.alpha = 1
             self.layoutIfNeeded()
         }, completion: nil)
     }
