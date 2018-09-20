@@ -38,6 +38,8 @@ class NoteWaterFallFlowVw: UIView {
         self.vm?.addNewDataAction = {[weak self] () in
             if self == nil { return }
             self?.tabVw?.progressNodataAndLoadingBeforeReloaddata()
+            //关闭layer隐式动画，防止刷新动画怪异
+            CATransaction.setDisableActions(true)
             self?.tabVw?.reloadSections(NSIndexSet(index: 0) as IndexSet)
         }
     }
