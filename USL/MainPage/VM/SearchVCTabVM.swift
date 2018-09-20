@@ -80,7 +80,11 @@ class SearchVCTabVM: NSObject {
     
     /// 移动之前处理方法-将bll中展示model赋值
     func moveNoteProgressShowModel(index: IndexPath) {
-        NoteCreatingBLL.getInstance().showingNoteModel = self.dataSource[index.row]
+        if self.isKind(of: NoteWaterFallVM.self) {
+            NoteCreatingBLL.getInstance().showingNoteModel = (self as! NoteWaterFallVM).waterFallDatasource[index.row].sourceModel
+        }else{
+            NoteCreatingBLL.getInstance().showingNoteModel = self.dataSource[index.row]
+        }
     }
     
     /// 点击事件处理
@@ -90,6 +94,14 @@ class SearchVCTabVM: NSObject {
         NoteCreatingBLL.getInstance().showingNoteModel = model.sourceModel
         con.hidesBottomBarWhenPushed = true
         con.presentedVcHasNavigation = true
+        return con
+    }
+    
+    /// 点击单个项目跳转到timeline页面
+    func didSelectedOneItemAction(indexPath: IndexPath)->UIViewController {
+        let con = NoteTimeLineViewController()
+        self.moveNoteProgressShowModel(index: indexPath)
+        con.hidesBottomBarWhenPushed = true
         return con
     }
     

@@ -95,4 +95,9 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
         return self.vm!.waterFallDatasource[indexPath.row].waterFallHeight
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let con = self.vm!.didSelectedOneItemAction(indexPath: indexPath)
+        self.viewController()?.navigationController?.pushViewController(con, animated: true)
+    }
+    
 }

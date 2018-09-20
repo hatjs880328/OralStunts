@@ -67,7 +67,7 @@ class MainVCTabVw: UIView {
         }
         self.leftVw = MianVCTabCreateVw(frame: CGRect.zero, fatherVw: self, topVw: self.searchVw)
         self.rightVw = NoteWaterFallFlowVw(frame: CGRect.zero, topVw: self.searchVw, fatherVw: self)
-        self.leftVw.alpha = 0
+        self.rightVw.alpha = 0
     }
     
     func leftVwloadData() {

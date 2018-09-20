@@ -68,9 +68,7 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let con = NoteTimeLineViewController()
-        self.vm.moveNoteProgressShowModel(index: indexPath)
-        con.hidesBottomBarWhenPushed = true
+        let con = self.vm.didSelectedOneItemAction(indexPath: indexPath)
         self.viewController()?.navigationController?.pushViewController(con, animated: true)
     }
     
