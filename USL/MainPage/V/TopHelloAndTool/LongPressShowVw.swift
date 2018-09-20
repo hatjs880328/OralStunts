@@ -17,8 +17,10 @@ class LongPressShowVw: OTBaseVw {
         ("收藏","water_fall_unlike_icon","water_fall_like_icon"),
         ("移动","water_fall_move_icon",""),
         ("删除","water_fall_delte_icon",""),
-        ("全选","water_fall_selectall_icon","water_fall_selectall_de_icon"),
+        ("全选","water_fall_selectall_de_icon","water_fall_selectall_icon"),
         ("取消","water_fall_cancel_icon","")]
+    
+    var btnArr: [UIButton] = []
     
     init(frame: CGRect,topVw: UIView,fatherVw: UIView) {
         super.init(frame: frame)
@@ -72,6 +74,7 @@ class LongPressShowVw: OTBaseVw {
             iconBtn.tapActionsGesture {[weak self] () in
                 self?.innerTapActions(index: item)
             }
+            btnArr.append(iconBtn)
         }
     }
     
@@ -111,6 +114,10 @@ extension LongPressShowVw {
         switch index {
         case 0:
             break;
+        case 2:
+            self.delete()
+        case 3:
+            selectAll()
         case 4:
             self.cancel()
         default:
@@ -121,5 +128,29 @@ extension LongPressShowVw {
     /// 取消事件
     func cancel() {
         self.hideSelf()
+        if let vw = (self.superview as? MainVCTabVw) {
+           vw.vm?.selectAllItems(selectOrDeselect: false)
+        }
+    }
+    
+    /// 全选
+    func selectAll() {
+        if let vw = (self.superview as? MainVCTabVw) {
+            if btnArr[3].isSelected {
+                vw.vm?.selectAllItems(selectOrDeselect: false)
+                btnArr[3].isSelected = false
+            }else{
+                vw.vm?.selectAllItems(selectOrDeselect: true)
+                btnArr[3].isSelected = true
+            }
+        }
+    }
+    
+    /// 删除
+    func delete() {
+        self.hideSelf()
+        if let vw = (self.superview as? MainVCTabVw) {
+            vw.vm?.deleteNotesBySelectedFlag()
+        }
     }
 }

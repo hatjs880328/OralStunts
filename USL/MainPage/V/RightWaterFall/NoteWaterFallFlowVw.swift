@@ -68,7 +68,8 @@ class NoteWaterFallFlowVw: UIView {
     }
     
     /// 长按事件
-    func longPressAction() {
+    func longPressAction(index:IndexPath) {
+        self.vm?.selectOneItem(with: index)
         if let superVw = self.superview as? MainVCTabVw {
             superVw.progressToolVw.showSelf()
         }
@@ -90,9 +91,9 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
             cell!.removeSubTitle()
         }
         cell?.longpressAction = { [weak self] () in
-            self?.longPressAction()
+            self?.longPressAction(index:indexPath)
         }
-        cell?.setData(note: self.vm!.getData(with: indexPath))
+        cell?.setData(note: self.vm!.getData(with: indexPath), indexPath: indexPath)
         return cell!
     }
     
@@ -102,7 +103,8 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let con = self.vm!.didSelectedOneItemAction(indexPath: indexPath)
-        self.viewController()?.navigationController?.pushViewController(con, animated: true)
+        if con == nil { return }
+        self.viewController()?.navigationController?.pushViewController(con!, animated: true)
     }
     
 }

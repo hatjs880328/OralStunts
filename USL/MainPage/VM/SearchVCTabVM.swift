@@ -14,10 +14,7 @@ class SearchVCTabVM: NSObject {
     
     var dataSource: [SearchvcVmodel] = [] {
         didSet {
-            if self.reloadAction == nil { return }
-            self.reloadAction()
-            if self.addNewDataAction == nil { return }
-            self.addNewDataAction!()
+            reloadTabAndWaterFall()
         }
     }
     
@@ -109,7 +106,11 @@ class SearchVCTabVM: NSObject {
     }
     
     /// 点击单个项目跳转到timeline页面
-    func didSelectedOneItemAction(indexPath: IndexPath)->UIViewController {
+    func didSelectedOneItemAction(indexPath: IndexPath)->UIViewController? {
+        if longpressIsActive() {
+            self.selectOneItem(with: indexPath)
+            return nil
+        }
         let con = NoteTimeLineViewController()
         self.moveNoteProgressShowModel(index: indexPath)
         con.hidesBottomBarWhenPushed = true
@@ -122,9 +123,51 @@ class SearchVCTabVM: NSObject {
             if indexpath.row == eachItem {
                 self.dataSource[eachItem].isSelected = true
             }else{
-                self.dataSource[eachItem].isSelected = false
+                //self.dataSource[eachItem].isSelected = false
             }
         }
+        reloadTabAndWaterFall()
+    }
+    
+    /// 选中所有的ITEM[刷新tableview][true: 全选，false:全部取消]
+    func selectAllItems(selectOrDeselect:Bool) {
+        for eachItem in 0 ..< self.dataSource.count {
+            self.dataSource[eachItem].isSelected = selectOrDeselect
+        }
+        reloadTabAndWaterFall()
+    }
+    
+    /// 判定是否激活了长按选中
+    func longpressIsActive()->Bool {
+        var flag = false
+        for eachItem in self.dataSource {
+            if eachItem.isSelected {
+                flag = true
+                break
+            }
+        }
+        return flag
+    }
+    
+    /// 根据选中的标识，删除items并刷新tab
+    func deleteNotesBySelectedFlag() {
+        var index = self.dataSource.count - 1
+        while index >= 0 {
+            if self.dataSource[index].isSelected {
+                NoteLogicBLL().deleateOneNote(with: self.dataSource[index].noteID)
+                self.dataSource.remove(at: index)
+            }
+            index -= 1
+        }
+        self.reloadTabAndWaterFall()
+    }
+    
+    /// 刷新tableview & waterfall
+    func reloadTabAndWaterFall() {
+        if self.reloadAction == nil { return }
+        self.reloadAction()
+        if self.addNewDataAction == nil { return }
+        self.addNewDataAction!()
     }
     
     /// 全选与取消

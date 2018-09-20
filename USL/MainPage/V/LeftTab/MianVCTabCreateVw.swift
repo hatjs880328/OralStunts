@@ -70,7 +70,8 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let con = self.vm.didSelectedOneItemAction(indexPath: indexPath)
-        self.viewController()?.navigationController?.pushViewController(con, animated: true)
+        if con == nil { return }
+        self.viewController()?.navigationController?.pushViewController(con!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

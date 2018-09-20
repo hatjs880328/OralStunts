@@ -24,6 +24,8 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     
     var longpressAction:(()->Void)!
     
+    var index: IndexPath?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
@@ -76,7 +78,8 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         self.layer.masksToBounds = true
     }
     
-    func setData(note: SearchvcVmodel) {
+    func setData(note: SearchvcVmodel,indexPath: IndexPath) {
+        self.index = indexPath
         self.titleLb.text = note.title
         self.createTimeLb.text = note.modifyTime
         self.realNoteId = note.noteID
@@ -94,10 +97,16 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
             contentTxtLb.text = note.sourceModel.contentTxt[eachItem]
             self.subTitleLb.append(contentTxtLb)
         }
+        if note.isSelected {
+            self.borderColor = APPDelStatic.themeColor
+        }else{
+            self.borderColor = APPDelStatic.lineGray
+        }
     }
     
     func addLongPressGes() {
-        let long = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
+        let long = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(sender:)))
+        long.minimumPressDuration = 1
         self.addGestureRecognizer(long)
     }
     
@@ -109,10 +118,11 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         self.subTitleLb.removeAll()
     }
     
-    @objc func longPress() {
-        if self.longpressAction == nil { return }
-        self.layer.borderColor = APPDelStatic.themeColor.cgColor
-        self.longpressAction!()
+    @objc func longPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began{
+            if self.longpressAction == nil { return }
+            self.longpressAction!()
+        }
     }
     
     func isLikeFunc() {

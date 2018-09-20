@@ -48,9 +48,16 @@ class TABLESwizzing: GodfatherSwizzing {
     
     /// tb-reload[first remove anivw & addHelp note info]
     let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
-        let tab = (aspectInfo.instance() as! UITableView)
+        var tab = (aspectInfo.instance() as! UIScrollView)
         if !tab.tableReloadNumber {
             return
+        }
+        var tabIns: UITableView!
+        var collectionIns: UICollectionView!
+        if tab.isKind(of: UICollectionView.self) {
+            collectionIns = aspectInfo.instance() as? UICollectionView
+        }else{
+            tabIns = aspectInfo.instance() as? UITableView
         }
         GCDUtils.delayProgerssWithFloatSec(milliseconds: 200, yourFunc: {
             for eachItem in tab.subviews {
@@ -61,16 +68,31 @@ class TABLESwizzing: GodfatherSwizzing {
             }
             let boolStr = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/isShowAlertInfo", params: nil, action: nil)
             if boolStr == nil { return }
-            if (boolStr as! String) == "true" {
-                if tab.numberOfRows(inSection:0) != 0 {
-                    tab.backgroundView = nil
-                }else{
-                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
-                    tab.backgroundView = resultVw as? UIView
+            
+            if tabIns == nil {
+                if (boolStr as! String) == "true" {
+                    if collectionIns.numberOfItems(inSection: 0) != 0 {
+                        collectionIns.backgroundView = nil
+                    }else{
+                        let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                        collectionIns.backgroundView = resultVw as? UIView
+                    }
+                }else {
+                    collectionIns.backgroundView = nil
+                    return
                 }
-            }else {
-                tab.backgroundView = nil
-                return
+            }else{
+                if (boolStr as! String) == "true" {
+                    if tabIns.numberOfRows(inSection:0) != 0 {
+                        tabIns.backgroundView = nil
+                    }else{
+                        let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                        tabIns.backgroundView = resultVw as? UIView
+                    }
+                }else {
+                    tabIns.backgroundView = nil
+                    return
+                }
             }
         })
         
@@ -78,7 +100,7 @@ class TABLESwizzing: GodfatherSwizzing {
     
     /// tb-init[add anivw]
     let tbInitBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
-        let tab = aspectInfo.instance() as! UITableView
+        let tab = aspectInfo.instance() as! UIScrollView
         let aniVw = IIBaseWaitAniVw(frame: CGRect.zero)
         tab.addSubview(aniVw)
         aniVw.snp.makeConstraints({ (make) in
@@ -96,7 +118,13 @@ class TABLESwizzing: GodfatherSwizzing {
             try UITableView.aspect_hook(#selector(UITableView.reloadData),
                                         with: .init(rawValue:0),
                                         usingBlock: tbBGBlock)
+            try UICollectionView.aspect_hook(#selector(UICollectionView.reloadData),
+                                        with: .init(rawValue:0),
+                                        usingBlock: tbBGBlock)
             try UITableView.aspect_hook(#selector(UITableView.init(frame:)),
+                                        with: .init(rawValue:0),
+                                        usingBlock: tbInitBlock)
+            try UICollectionView.aspect_hook(#selector(UICollectionView.init(frame:)),
                                         with: .init(rawValue:0),
                                         usingBlock: tbInitBlock)
         }catch {}

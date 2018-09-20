@@ -62,7 +62,7 @@ extension UIResponder {
 
 private var  tableReloadDataKey = "tableReloadData"
 /// tableview first reload - ignore
-extension UITableView {
+extension UIScrollView {
     public var tableReloadNumber:Bool {
         get{
             if(objc_getAssociatedObject(self, &tableReloadDataKey) == nil){
