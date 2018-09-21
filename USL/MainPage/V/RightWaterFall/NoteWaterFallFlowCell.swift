@@ -124,16 +124,4 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
             self.longpressAction!()
         }
     }
-    
-    func isLikeFunc() {
-        
-    }
-    
-    func move() {
-        
-    }
-    
-    func delete() {
-        
-    }
 }

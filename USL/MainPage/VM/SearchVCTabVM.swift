@@ -121,7 +121,7 @@ class SearchVCTabVM: NSObject {
     func selectOneItem(with indexpath: IndexPath) {
         for eachItem in 0 ..< self.dataSource.count {
             if indexpath.row == eachItem {
-                self.dataSource[eachItem].isSelected = true
+                self.dataSource[eachItem].isSelected = !self.dataSource[eachItem].isSelected
             }else{
                 //self.dataSource[eachItem].isSelected = false
             }
