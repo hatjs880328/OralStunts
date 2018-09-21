@@ -162,6 +162,21 @@ class SearchVCTabVM: NSObject {
         self.reloadTabAndWaterFall()
     }
     
+    /// 根据选中的标识，移动item并刷新tab[返回自动刷新]
+    func moveNoteBySelectedFlag()->UIViewController{
+        var ids: [String] = []
+        for item in self.dataSource {
+            if item.isSelected {
+                ids.append(item.noteID)
+            }
+        }
+        let con = MoveNote2FolderViewController()
+        con.hidesBottomBarWhenPushed = true
+        con.shouldMoveID = ids
+        
+        return con
+    }
+    
     /// 刷新tableview & waterfall
     func reloadTabAndWaterFall() {
         if self.reloadAction == nil { return }

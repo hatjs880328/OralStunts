@@ -114,6 +114,8 @@ extension LongPressShowVw {
         switch index {
         case 0:
             break;
+        case 1:
+            move()
         case 2:
             self.delete()
         case 3:
@@ -151,6 +153,16 @@ extension LongPressShowVw {
         self.hideSelf()
         if let vw = (self.superview as? MainVCTabVw) {
             vw.vm?.deleteNotesBySelectedFlag()
+        }
+    }
+    
+    /// 移动
+    func move() {
+        self.hideSelf()
+        if let vw = (self.superview as? MainVCTabVw) {
+            let con = vw.vm?.moveNoteBySelectedFlag()
+            if con == nil { return }
+            (self.viewController()?.navigationController)?.pushViewController(con!, animated: true)
         }
     }
 }
