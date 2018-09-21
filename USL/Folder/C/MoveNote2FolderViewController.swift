@@ -13,6 +13,9 @@ class MoveNote2FolderViewController: IIBaseViewController {
 
     var tabVw: FolderTabVw!
     
+    /// 必须参数
+    public var shouldMoveID:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "选择文件夹"
@@ -39,7 +42,7 @@ class MoveNote2FolderViewController: IIBaseViewController {
     
     @objc func progressOver() {
         
-        NoteLogicBLL().moveNote2Folder(folderID: self.tabVw.vm.selectedCellIDS.keys.first){ [weak self] (isFail) in
+        NoteLogicBLL().moveNote2Folder(ids: shouldMoveID, folderID: self.tabVw.vm.selectedCellIDS.keys.first){ [weak self] (isFail) in
             if isFail {
                 OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "请选择一个目标文件夹！")
             }else{

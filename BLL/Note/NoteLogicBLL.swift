@@ -92,17 +92,14 @@ class NoteLogicBLL: NSObject  {
     }
     
     /// 将便签移动到某个文件夹下
-    func moveNote2Folder(folderID:String?,errorAction: (_ isFail: Bool)->Void) {
+    func moveNote2Folder(ids: [String], folderID:String?,errorAction: (_ isFail: Bool)->Void) {
         if folderID == nil || folderID! == "" {
             errorAction(true)
             return
         }
-        NoteCreatingBLL.getInstance().showingNoteModel.folderID = folderID!
-        let newotmodel = self.progressSQLModel(with: NoteCreatingBLL.getInstance().showingNoteModel)
-        newotmodel.folderID = folderID!
-        dal.insert(with: newotmodel)
+        dal.updateFolderDate(ids: ids, folderId: folderID!)
         // 修改folder表的modifytime
-        FolderDAL().changeModifyTime(with: newotmodel.folderID)
+        FolderDAL().changeModifyTime(with: folderID!)
         errorAction(false)
     }
     

@@ -48,6 +48,7 @@ class NoteTimeLineViewController: IIBaseViewController {
         }
         let actionMove = { [weak self]() in
             let con = MoveNote2FolderViewController()
+            con.shouldMoveID = [NoteCreatingBLL.getInstance().showingNoteModel.id]
             con.presentedVcHasNavigation = true
             self?.navigationController?.pushViewController(con, animated: true)
             self?.showOrHiddenMenu()

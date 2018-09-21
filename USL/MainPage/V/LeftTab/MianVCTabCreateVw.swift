@@ -86,6 +86,7 @@ class MianVCTabCreateVw: UIView,UITableViewDelegate,UITableViewDataSource {
         let moveAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal, title: "移动") { (action, index) in
             self.vm.moveNoteProgressShowModel(index: indexPath)
             let con = MoveNote2FolderViewController()
+            con.shouldMoveID = [NoteCreatingBLL.getInstance().showingNoteModel.id]
             con.presentedVcHasNavigation = true
             self.viewController()!.navigationController?.pushViewController(con, animated: true)
         }

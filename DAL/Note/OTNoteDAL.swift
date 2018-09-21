@@ -65,6 +65,20 @@ class OTNoteDAL: NSObject {
         return progressData(arr)
     }
     
+    /// 更新数据-批量处理文件夹
+    func updateFolderDate(ids: [String],folderId: String) {
+        var inIDStr = ""
+        for eachItem in 0 ..< ids.count {
+            if eachItem == ids.count - 1 {
+                inIDStr += "'\(ids[eachItem])'"
+            }else{
+                inIDStr += "'\(ids[eachItem])',"
+            }
+        }
+        let sql = "update \(tabName) set folderID = '\(folderId)' where id in (\(inIDStr));"
+        FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
+    }
+    
     /// 分页获取没有添加到文件夹的数据-按照时间排序
     func getNonFolderData(page:Int,limit:Int)->[OTNoteModel] {
         let sql = "select * from \(tabName) where folderID = '' order by modifyTime desc Limit \(limit) Offset \(page)"
