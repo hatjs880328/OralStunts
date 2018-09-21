@@ -135,6 +135,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         if sender.state == .began{
             if self.longpressAction == nil { return }
             self.longpressAction!()
+            AudioServicesPlaySystemSound(1520)
         }
     }
 }
