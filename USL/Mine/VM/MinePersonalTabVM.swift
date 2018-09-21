@@ -11,7 +11,7 @@ import Foundation
 
 class MinePersonalTabVM: IIBaseVM {
     
-    var cellInfos = [("意见反馈","editInfo.png"),("使用帮助","useHelp.png"),("我喜欢的","like.png"),("关于我们","aboutUs.png"),("设置","setting.png")] {
+    var cellInfos = [("意见反馈","editInfo.png"),("我喜欢的","like.png"),("关于我们","aboutUs.png"),("设置","setting.png")] {
         didSet{
             if self.reloadAction == nil { return }
             self.reloadAction()
@@ -29,15 +29,15 @@ class MinePersonalTabVM: IIBaseVM {
     }
     
     func jump(index:IndexPath)->UIViewController {
-        if index.row == 3 {
+        if index.row == 2 {
             let con = MineAboutUSViewController()
             con.hidesBottomBarWhenPushed = true
             return con
-        }else if index.row == 1 {
+        }else if index.row == 0 {
             let con = HelpViewController()
             con.hidesBottomBarWhenPushed = true
             return con
-        }else if index.row == 2 {
+        }else if index.row == 1 {
             let con = MineFavViewController()
             con.hidesBottomBarWhenPushed = true
             return con
