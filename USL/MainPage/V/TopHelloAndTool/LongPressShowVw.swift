@@ -159,20 +159,20 @@ extension LongPressShowVw {
     
     /// 删除
     func delete() {
-        self.hideSelf()
         if let vw = (self.superview as? MainVCTabVw) {
             vw.vm?.deleteNotesBySelectedFlag()
         }
+        self.hideSelf()
     }
     
     /// 移动
     func move() {
-        self.hideSelf()
         if let vw = (self.superview as? MainVCTabVw) {
             let con = vw.vm?.moveNoteBySelectedFlag()
             if con == nil { return }
             (self.viewController()?.navigationController)?.pushViewController(con!, animated: true)
         }
+        self.hideSelf()
     }
     
     /// 收藏与否[有一个必须换，图标就边暗]
@@ -187,10 +187,17 @@ extension LongPressShowVw {
     @objc func changeLikeOrNotBySelectedItems() {
         if let vw = (self.superview as? MainVCTabVw) {
             let num = vw.vm?.calculateLikeCountInSelectedItems()
+            // 处理收藏按钮
             if num?.s == num?.sAndl && num?.sAndl != 0{
                 self.btnArr.first!.isSelected = true
             }else{
                 self.btnArr.first!.isSelected = false
+            }
+            // 处理全选按钮
+            if num?.s == num?.dataCount {
+                self.btnArr[3].isSelected = true
+            }else{
+                self.btnArr[3].isSelected = false
             }
         }
     }

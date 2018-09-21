@@ -182,8 +182,8 @@ class SearchVCTabVM: NSObject {
         return con
     }
     
-    /// 返回 (选中项目中已经收藏个数 : 选中项目数）
-    func calculateLikeCountInSelectedItems()->(sAndl:Int,s:Int) {
+    /// 返回 (选中项目中已经收藏个数 : 选中项目数 : 数据源总个数）
+    func calculateLikeCountInSelectedItems()->(sAndl:Int,s:Int,dataCount: Int) {
         var likeAndSelectedNum:Int = 0
         var selectedNum:Int = 0
         for eachItem in self.dataSource {
@@ -194,7 +194,7 @@ class SearchVCTabVM: NSObject {
                 selectedNum += 1
             }
         }
-        return (likeAndSelectedNum,selectedNum)
+        return (likeAndSelectedNum,selectedNum,self.dataSource.count)
     }
     
     /// 批量处理选中的项目-收藏与否
