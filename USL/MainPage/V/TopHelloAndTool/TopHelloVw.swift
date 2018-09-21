@@ -66,8 +66,14 @@ class TopHelloVw: UIView {
     }
     
     func searchBtnDidSelectAction() {
+        //之前被选中-右边的瀑布流显示-这一次要返回列表-隐藏toolbar&取消所有选中
+        if self.searchBtn.isSelected {
+            (self.viewController() as? MianaddViewController)?.tabVw.progressToolVw.hideSelf()
+            (self.viewController() as? MianaddViewController)?.tabVw.vm?.selectAllItems(selectOrDeselect: false)
+        }
         self.searchBtn.isSelected = !self.searchBtn.isSelected
         //发送通知
         NotificationCenter.default.post(name: NSNotification.Name.init("main_page_change_listAndWaterfall"), object: nil, userInfo: nil)
+        
     }
 }
