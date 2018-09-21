@@ -13,6 +13,8 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     
     var titleLb: UILabel = UILabel()
     
+    var likeOrNotBtn = UIButton()
+    
     var createTimeLb: UILabel = UILabel()
     
     var contentRealTxtLb: UILabel = UILabel()
@@ -41,14 +43,24 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     /// 5 16 8 13 8 13 8 18 * each
     func createVw() {
         self.addSubview(titleLb)
+        self.addSubview(likeOrNotBtn)
         self.addSubview(createTimeLb)
         self.addSubview(contentRealTxtLb)
+        //like or note
+        likeOrNotBtn.snp.makeConstraints { (make) in
+            make.right.equalTo(-2)
+            make.top.equalTo(5)
+            make.height.equalTo(15)
+            make.width.equalTo(15)
+        }
+        likeOrNotBtn.setImage(UIImage(named: "unlike"), for: UIControlState.normal)
+        likeOrNotBtn.setImage(UIImage(named: "notelike"), for: UIControlState.selected)
         //title
         titleLb.snp.makeConstraints { (make) in
             make.left.equalTo(5)
             make.top.equalTo(5)
             make.height.equalTo(16)
-            make.right.equalTo(-5)
+            make.right.equalTo(likeOrNotBtn.snp.left).offset(-2)
         }
         titleLb.font = APPDelStatic.uiFont(with: 13)
         titleLb.textColor = UIColor.black
@@ -83,6 +95,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         self.titleLb.text = note.title
         self.createTimeLb.text = note.modifyTime
         self.realNoteId = note.noteID
+        self.likeOrNotBtn.isSelected = note.isLike
         for eachItem in 0 ..< note.sourceModel.contentTxt.count {
             let contentTxtLb = UILabel()
             self.addSubview(contentTxtLb)
