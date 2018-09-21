@@ -93,9 +93,8 @@ class LongPressShowVw: OTBaseVw {
     }
     
     func hideSelf() {
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.2) {
             self.alpha = 0
-            self.layoutIfNeeded()
         }
     }
     
@@ -103,9 +102,8 @@ class LongPressShowVw: OTBaseVw {
         if like {
             self.btnArr.first!.isSelected = true
         }
-        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 1
-            self.layoutIfNeeded()
         }, completion: nil)
     }
 }

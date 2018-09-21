@@ -119,7 +119,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
     
     func addLongPressGes() {
         let long = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(sender:)))
-        long.minimumPressDuration = 1
+        long.minimumPressDuration = 0.6
         self.addGestureRecognizer(long)
     }
     
