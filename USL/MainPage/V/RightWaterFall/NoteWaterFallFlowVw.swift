@@ -71,10 +71,10 @@ class NoteWaterFallFlowVw: UIView {
     }
     
     /// 长按事件
-    func longPressAction(index:IndexPath) {
+    func longPressAction(index:IndexPath,likeOrNot:Bool) {
         self.vm?.selectOneItem(with: index)
         if let superVw = self.superview as? MainVCTabVw {
-            superVw.progressToolVw.showSelf()
+            superVw.progressToolVw.showSelf(like: likeOrNot)
         }
     }
 
@@ -93,10 +93,11 @@ extension NoteWaterFallFlowVw:UICollectionViewDataSource,UICollectionViewDelegat
         }else{
             cell!.removeSubTitle()
         }
+        let dataModel = self.vm!.getData(with: indexPath)
+        cell?.setData(note: dataModel, indexPath: indexPath)
         cell?.longpressAction = { [weak self] () in
-            self?.longPressAction(index:indexPath)
+            self?.longPressAction(index:indexPath,likeOrNot: dataModel.isLike)
         }
-        cell?.setData(note: self.vm!.getData(with: indexPath), indexPath: indexPath)
         return cell!
     }
     

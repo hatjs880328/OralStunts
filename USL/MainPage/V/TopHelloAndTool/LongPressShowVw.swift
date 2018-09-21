@@ -29,6 +29,7 @@ class LongPressShowVw: OTBaseVw {
         createVw()
         loopCreateIcon()
         self.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeLikeOrNotBySelectedItems), name: NSNotification.Name.init("Progress_tool_changeBySelectoneItem"), object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -98,7 +99,10 @@ class LongPressShowVw: OTBaseVw {
         }
     }
     
-    func showSelf() {
+    func showSelf(like:Bool = false) {
+        if like {
+            self.btnArr.first!.isSelected = true
+        }
         UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 1
             self.layoutIfNeeded()
@@ -166,8 +170,23 @@ extension LongPressShowVw {
         }
     }
     
-    /// 收藏与否
+    /// 收藏与否[有一个必须换，图标就边暗]
     func likeOrNot() {
-        //NoteLogicBLL().likeOneModel(isLike: false, noteID: [self.realNoteId])
+        if let vw = (self.superview as? MainVCTabVw) {
+            vw.vm?.progressLikeOrNot(likeOrNot: !self.btnArr.first!.isSelected)
+            self.btnArr.first!.isSelected = !self.btnArr.first!.isSelected
+        }
+    }
+    
+    /// 处理  收藏按钮 的选中与否-通知处理
+    @objc func changeLikeOrNotBySelectedItems() {
+        if let vw = (self.superview as? MainVCTabVw) {
+            let num = vw.vm?.calculateLikeCountInSelectedItems()
+            if num?.s == num?.sAndl {
+                self.btnArr.first!.isSelected = true
+            }else{
+                self.btnArr.first!.isSelected = false
+            }
+        }
     }
 }

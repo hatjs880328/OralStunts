@@ -127,6 +127,7 @@ class SearchVCTabVM: NSObject {
             }
         }
         reloadTabAndWaterFall()
+        selectItemPostNoti()
     }
     
     /// 选中所有的ITEM[刷新tableview][true: 全选，false:全部取消]
@@ -175,6 +176,37 @@ class SearchVCTabVM: NSObject {
         con.shouldMoveID = ids
         
         return con
+    }
+    
+    /// 返回 (选中项目中已经收藏个数 : 选中项目数）
+    func calculateLikeCountInSelectedItems()->(sAndl:Int,s:Int) {
+        var likeAndSelectedNum:Int = 0
+        var selectedNum:Int = 0
+        for eachItem in self.dataSource {
+            if eachItem.isSelected && eachItem.isLike {
+                likeAndSelectedNum += 1
+            }
+            if (eachItem.isSelected) {
+                selectedNum += 1
+            }
+        }
+        return (likeAndSelectedNum,selectedNum)
+    }
+    
+    /// 批量处理选中的项目-收藏与否
+    func progressLikeOrNot(likeOrNot:Bool) {
+        for eachItem in self.dataSource {
+            if eachItem.isSelected {
+                eachItem.isLike = likeOrNot
+                NoteLogicBLL().likeOneModel(isLike: likeOrNot, noteID: [eachItem.noteID])
+            }
+        }
+        reloadTabAndWaterFall()
+    }
+    
+    /// 选中一个项目时，发送推送信息
+    func selectItemPostNoti() {
+        NotificationCenter.default.post(name: NSNotification.Name.init("Progress_tool_changeBySelectoneItem"), object: nil, userInfo: nil)
     }
     
     /// 刷新tableview & waterfall
