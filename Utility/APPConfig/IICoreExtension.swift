@@ -27,6 +27,11 @@ import Foundation
         return dis
     }
     
+    /// 底部ztabbar高度
+    @objc static var tabbarHeight: CGFloat {
+        return UITabBar().frame.height
+    }
+    
     @objc static var naviTopDistance: CGFloat {
         var dis: CGFloat = 0
         dis = UINavigationBar().frame.size.height

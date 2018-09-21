@@ -223,6 +223,7 @@ class AOPNBPCoreManagerCenter: NSObject {
         TABLESwizzing().aopFunction()
         VCSwizzing().aopFunction()
         CollectionVWSwizzing().aopFunction()
+        UICollectionView.initializeMethod()
     }
     
     /// before start service - create AOPNBP Folder - for mmap open file function

@@ -29,6 +29,7 @@
 		563225EC20C8C8610041C612 /* ModuleGodFatherRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563225EB20C8C8610041C612 /* ModuleGodFatherRegister.swift */; };
 		563225EE20C8C93B0041C612 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563225ED20C8C93B0041C612 /* RegisterModel.swift */; };
 		563225F020C8DF720041C612 /* MineServiceModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563225EF20C8DF720041C612 /* MineServiceModule.swift */; };
+		563510BB2154740F00D51636 /* IICollectionVwExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563510BA2154740F00D51636 /* IICollectionVwExtension.swift */; };
 		563F1A3A213CBA79000F9DE3 /* iflyVoiceEnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A38213CBA78000F9DE3 /* iflyVoiceEnd.png */; };
 		563F1A3B213CBA79000F9DE3 /* iflyVoiceStart.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */; };
 		563F1A3E213CD1AD000F9DE3 /* unlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 563F1A3C213CD1AC000F9DE3 /* unlike.png */; };
@@ -347,6 +348,7 @@
 		563225EB20C8C8610041C612 /* ModuleGodFatherRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGodFatherRegister.swift; sourceTree = "<group>"; };
 		563225ED20C8C93B0041C612 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		563225EF20C8DF720041C612 /* MineServiceModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineServiceModule.swift; sourceTree = "<group>"; };
+		563510BA2154740F00D51636 /* IICollectionVwExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IICollectionVwExtension.swift; sourceTree = "<group>"; };
 		563F1A38213CBA78000F9DE3 /* iflyVoiceEnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iflyVoiceEnd.png; sourceTree = "<group>"; };
 		563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iflyVoiceStart.png; sourceTree = "<group>"; };
 		563F1A3C213CD1AC000F9DE3 /* unlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlike.png; sourceTree = "<group>"; };
@@ -1412,6 +1414,7 @@
 				56D6458A20B3EE8200C61AA6 /* IIRXUIKitExtension.swift */,
 				56B7B8912136350800E26218 /* IITextExtension.swift */,
 				561120E02153458D00E94D6A /* IIBtnExtension.swift */,
+				563510BA2154740F00D51636 /* IICollectionVwExtension.swift */,
 			);
 			path = CoreExtension;
 			sourceTree = "<group>";
@@ -2603,6 +2606,7 @@
 				56D3E98920C9436B00C8CE46 /* DispatchQueue+Alamofire.swift in Sources */,
 				56D3E99120C9436B00C8CE46 /* Request.swift in Sources */,
 				56791587214FAEB2000881FA /* OTShare.swift in Sources */,
+				563510BB2154740F00D51636 /* IICollectionVwExtension.swift in Sources */,
 				563F1A54213D2D34000F9DE3 /* YYDiskCache.m in Sources */,
 				568533F320AD9BB800BDB451 /* WorkBench.swift in Sources */,
 				56EC598120B7D7F8004B5F5B /* NoteContextReCreateViewController.swift in Sources */,
