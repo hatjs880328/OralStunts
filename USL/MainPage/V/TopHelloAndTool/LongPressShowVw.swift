@@ -93,12 +93,18 @@ class LongPressShowVw: OTBaseVw {
     }
     
     func hideSelf() {
+        if let vw = (self.superview as? MainVCTabVw) {
+            vw.vm?.toolBarShowOrNot = false
+        }
         UIView.animate(withDuration: 0.2) {
             self.alpha = 0
         }
     }
     
     func showSelf(like:Bool = false) {
+        if let vw = (self.superview as? MainVCTabVw) {
+            vw.vm?.toolBarShowOrNot = true
+        }
         if like {
             self.btnArr.first!.isSelected = true
         }
@@ -180,7 +186,7 @@ extension LongPressShowVw {
     @objc func changeLikeOrNotBySelectedItems() {
         if let vw = (self.superview as? MainVCTabVw) {
             let num = vw.vm?.calculateLikeCountInSelectedItems()
-            if num?.s == num?.sAndl {
+            if num?.s == num?.sAndl && num?.sAndl != 0{
                 self.btnArr.first!.isSelected = true
             }else{
                 self.btnArr.first!.isSelected = false

@@ -26,6 +26,9 @@ class SearchVCTabVM: NSObject {
     
     var cellHeight:CGFloat = 70 * APPDelStatic.sizeScale
     
+    /// toolbar是否显示
+    var toolBarShowOrNot:Bool = false
+    
     /// 是否全选
     var isSelectAll: Bool = false {
         didSet {
@@ -140,6 +143,7 @@ class SearchVCTabVM: NSObject {
     
     /// 判定是否激活了长按选中
     func longpressIsActive()->Bool {
+        return toolBarShowOrNot
         var flag = false
         for eachItem in self.dataSource {
             if eachItem.isSelected {
