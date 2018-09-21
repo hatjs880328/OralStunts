@@ -95,6 +95,7 @@ class LongPressShowVw: OTBaseVw {
     func hideSelf() {
         if let vw = (self.superview as? MainVCTabVw) {
             vw.vm?.toolBarShowOrNot = false
+            vw.vm?.selectAllItems(selectOrDeselect: false)
         }
         UIView.animate(withDuration: 0.2) {
             self.alpha = 0
