@@ -143,6 +143,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BeeHive/BeeHive.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
@@ -163,6 +164,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/XRWaterfallLayout/XRWaterfallLayout.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BeeHive/BeeHive.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"

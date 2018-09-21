@@ -7,6 +7,7 @@ PODS:
   - AlicloudUTDID (1.1.0.19)
   - AlicloudUtils (1.3.5):
     - AlicloudUTDID
+  - AliyunOSSiOS (2.10.7)
   - Aspects (1.4.1)
   - BeeHive (1.6.0)
   - Bugly (2.5.0)
@@ -68,6 +69,7 @@ PODS:
 
 DEPENDENCIES:
   - AlicloudFeedback
+  - AliyunOSSiOS (~> 2.10.7)
   - Aspects (~> 1.4.1)
   - BeeHive (~> 1.6.0)
   - Bugly
@@ -101,6 +103,7 @@ SPEC REPOS:
     - AlicloudUTDID
     - AlicloudUtils
   https://github.com/cocoapods/specs.git:
+    - AliyunOSSiOS
     - Aspects
     - BeeHive
     - Bugly
@@ -137,6 +140,7 @@ SPEC CHECKSUMS:
   AlicloudUT: 1b52965b97c5fc0b630901ce184391fbe1ef8479
   AlicloudUTDID: 14b582e41b39bc66e5a3420b61dafd0567ef4603
   AlicloudUtils: 36bd836fdd5c040ee0c9c06b0e1e1096a8c59c44
+  AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   BeeHive: 64c01ddec33b9ef8813701e075eeb732327d0f75
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
@@ -159,6 +163,6 @@ SPEC CHECKSUMS:
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
   XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
 
-PODFILE CHECKSUM: b78c7602ccc817302f84a403303176f48a7f149b
+PODFILE CHECKSUM: 6e916f2854cc5bf3bb70eae1a5cda2e49ef9083b
 
 COCOAPODS: 1.5.3
