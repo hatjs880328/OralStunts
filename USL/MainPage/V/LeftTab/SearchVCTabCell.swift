@@ -80,7 +80,7 @@ class SearchVCTabCell: UITableViewCell {
         botLine.snp.makeConstraints { (make) in
             make.right.equalTo(0)
             make.left.equalTo(18)
-            make.bottom.equalTo(self.snp.bottom).offset(-0.5)
+            make.bottom.equalTo(self.snp.bottom).offset(0)
             make.height.equalTo(0.5)
         }
         botLine.backgroundColor = APPDelStatic.lineGray

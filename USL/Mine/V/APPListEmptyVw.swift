@@ -18,7 +18,7 @@ class APPListEmptyVw: UIView {
     
     var img:SVGKFastImageView!
     
-    let createTxt = "创建便签"
+    let createTxt = "在此新建"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,10 +63,11 @@ class APPListEmptyVw: UIView {
         }
         createBtn.setTitle(self.createTxt, for: UIControlState.normal)
         createBtn.tapActionsGesture {
-            let con = NoteCreateViewController()
-            con.hidesBottomBarWhenPushed = true
-            con.presentedVcHasNavigation = false
-            self.viewController()?.navigationController?.pushViewController(con, animated: true)
+//            let con = NoteCreateViewController()
+//            con.hidesBottomBarWhenPushed = true
+//            con.presentedVcHasNavigation = false
+//            self.viewController()?.navigationController?.pushViewController(con, animated: true)
+            OTAlertVw().alertShowCreateNoteAndFolderVw()
         }
         createBtn.borderWidth = 0.5
         createBtn.borderColor = APPDelStatic.themeColor
