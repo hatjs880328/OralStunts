@@ -73,10 +73,12 @@ class NoteLogicBLL: NSObject  {
     }
     
     /// 收藏与不收藏
-    func likeOneModel(isLike:Bool) {
-        let newOTModel = NoteCreatingBLL.getInstance().showingNoteModel
-        newOTModel.isLike = isLike
-        self.insertNoteInfo(with: newOTModel)
+    func likeOneModel(isLike:Bool,noteID:[String]) {
+        for eachItem in noteID {
+            let smallModel = self.getNoteModelWithID(id: eachItem)
+            smallModel.isLike = isLike
+            self.insertNoteInfo(with: smallModel)
+        }
     }
     
     /// 获取收藏的数据信息

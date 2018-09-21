@@ -100,15 +100,15 @@ class SearchVCTabCell: UITableViewCell {
     }
     
     @objc func isLikeFunc() {
-        NoteCreatingBLL.getInstance().setShowingModel(with: self.realNoteId)
+        //NoteCreatingBLL.getInstance().setShowingModel(with: self.realNoteId)
         if self.isLike.isSelected {
             //取消收藏
             self.isLike.isSelected = false
-            NoteLogicBLL().likeOneModel(isLike: false)
+            NoteLogicBLL().likeOneModel(isLike: false, noteID: [self.realNoteId])
         }else{
             //收藏
             self.isLike.isSelected = true
-            NoteLogicBLL().likeOneModel(isLike: true)
+            NoteLogicBLL().likeOneModel(isLike: true, noteID: [self.realNoteId])
         }
         self.refreshAction?()
     }

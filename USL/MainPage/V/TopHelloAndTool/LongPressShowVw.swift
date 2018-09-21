@@ -113,7 +113,7 @@ extension LongPressShowVw {
     func innerTapActions(index:Int) {
         switch index {
         case 0:
-            break;
+            likeOrNot()
         case 1:
             move()
         case 2:
@@ -121,7 +121,7 @@ extension LongPressShowVw {
         case 3:
             selectAll()
         case 4:
-            self.cancel()
+            cancel()
         default:
             break;
         }
@@ -164,5 +164,10 @@ extension LongPressShowVw {
             if con == nil { return }
             (self.viewController()?.navigationController)?.pushViewController(con!, animated: true)
         }
+    }
+    
+    /// 收藏与否
+    func likeOrNot() {
+        //NoteLogicBLL().likeOneModel(isLike: false, noteID: [self.realNoteId])
     }
 }
