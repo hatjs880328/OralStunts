@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "USL/MainPage/VM/SearchVCTabVM.swift"
-            timestampString = "559277954.259832"
+            timestampString = "559278210.7372971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "loopProgressModel2VModel(_:)"
             landmarkType = "7">
          </BreakpointContent>
