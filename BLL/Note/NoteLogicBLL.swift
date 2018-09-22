@@ -99,7 +99,13 @@ class NoteLogicBLL: NSObject  {
             errorAction(true)
             return
         }
-        dal.updateFolderDate(ids: ids, folderId: folderID!)
+        for eachItem in ids {
+            let model = dal.getInfoByid(id: eachItem)
+            model.first!.folderID = folderID!
+            let sqlModel = progressSQLModel(with: model.first!)
+            dal.insert(with: sqlModel)
+        }
+        //dal.updateFolderDate(ids: ids, folderId: folderID!)
         // 修改folder表的modifytime
         FolderDAL().changeModifyTime(with: folderID!)
         errorAction(false)
