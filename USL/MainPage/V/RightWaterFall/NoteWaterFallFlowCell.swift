@@ -85,7 +85,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         contentRealTxtLb.text = "内容:"
         //config
         self.layer.borderColor = APPDelStatic.lineGray.cgColor
-        self.layer.borderWidth = 0.5
+        self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
     }
