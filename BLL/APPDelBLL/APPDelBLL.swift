@@ -86,4 +86,13 @@ class APPDelBLL: NSObject {
         //assert(start(), "debug模式下才会开启")
     }
     
+    /// siri-useractivity-jumptovc
+    func userActivityJumpToNoteCreateVC() {
+        let con = NoteCreateViewController()
+        con.hidesBottomBarWhenPushed = true
+        con.presentedVcHasNavigation = false
+        ((UIApplication.shared.keyWindow?.rootViewController as! SaltedFishTabBarVC).selectedViewController as? UINavigationController)?.pushViewController(con, animated: true)
+        //OTAlertVw().alertShowSingleTitle(titleInfo: "\()", message: <#T##String#>)
+    }
+    
 }

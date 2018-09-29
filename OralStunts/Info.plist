@@ -104,6 +104,10 @@
 	<string>为了意见反馈功能，我们需要获取您的相册权限</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>We need access to your calendar in order to help you track events.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.oralstunts.videoDing</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
