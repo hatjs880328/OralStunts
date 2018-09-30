@@ -181,7 +181,6 @@
 		5685344320ADA10F00BDB451 /* OTUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685344220ADA10F00BDB451 /* OTUserInfo.swift */; };
 		5685344D20ADA49700BDB451 /* OTVoiceBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685344B20ADA49700BDB451 /* OTVoiceBLayer.swift */; };
 		5685344E20ADA49700BDB451 /* OTVoiceVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685344C20ADA49700BDB451 /* OTVoiceVw.swift */; };
-		568FEBAD20D64DF20053D0BE /* LaunchImageI6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */; };
 		569912DB20B2BB21008417B6 /* NoteCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569912DA20B2BB21008417B6 /* NoteCreateViewController.swift */; };
 		569912DF20B2C551008417B6 /* TitleInsertVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569912DE20B2C551008417B6 /* TitleInsertVw.swift */; };
 		569BFA8720BB8632000256B0 /* FolderContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569BFA8620BB8632000256B0 /* FolderContentsViewController.swift */; };
@@ -313,6 +312,7 @@
 		56FDB4BA20AEB7780020A9DE /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FDB4B920AEB7780020A9DE /* search.png */; };
 		56FDB4BC20AEBA6D0020A9DE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB4BB20AEBA6D0020A9DE /* SearchViewController.swift */; };
 		56FDB4BE20AEBA9A0020A9DE /* OTSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB4BD20AEBA9A0020A9DE /* OTSearchVM.swift */; };
+		56FF7DA2216056A4007920FC /* LaunchImageI6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 56FF7DA1216056A4007920FC /* LaunchImageI6.jpg */; };
 		A857FDFF90C6FD78F4B44836 /* Pods_OralStunts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9F4E7E77B92CEFE1C55268 /* Pods_OralStunts.framework */; };
 		F992CF8D6ACC19CC27B76541 /* ThirdLoginBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F992CE8FBAE45188EF0060BE /* ThirdLoginBLL.swift */; };
 /* End PBXBuildFile section */
@@ -535,7 +535,6 @@
 		5685344220ADA10F00BDB451 /* OTUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTUserInfo.swift; sourceTree = "<group>"; };
 		5685344B20ADA49700BDB451 /* OTVoiceBLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTVoiceBLayer.swift; sourceTree = "<group>"; };
 		5685344C20ADA49700BDB451 /* OTVoiceVw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTVoiceVw.swift; sourceTree = "<group>"; };
-		568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImageI6.jpg; sourceTree = "<group>"; };
 		569912DA20B2BB21008417B6 /* NoteCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreateViewController.swift; sourceTree = "<group>"; };
 		569912DE20B2C551008417B6 /* TitleInsertVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInsertVw.swift; sourceTree = "<group>"; };
 		569BFA8620BB8632000256B0 /* FolderContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderContentsViewController.swift; sourceTree = "<group>"; };
@@ -682,6 +681,7 @@
 		56FDB4B920AEB7780020A9DE /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		56FDB4BB20AEBA6D0020A9DE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		56FDB4BD20AEBA9A0020A9DE /* OTSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTSearchVM.swift; sourceTree = "<group>"; };
+		56FF7DA1216056A4007920FC /* LaunchImageI6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImageI6.jpg; sourceTree = "<group>"; };
 		62CD4F3A0EEE75CC33306E09 /* Pods_OralStuntsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OralStuntsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		808D63275C4BF10071F4018B /* Pods-OralStuntsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OralStuntsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OralStuntsTests/Pods-OralStuntsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD9F4E7E77B92CEFE1C55268 /* Pods_OralStunts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OralStunts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -971,7 +971,7 @@
 				563F1A38213CBA78000F9DE3 /* iflyVoiceEnd.png */,
 				563F1A39213CBA79000F9DE3 /* iflyVoiceStart.png */,
 				56C6AB2F2138050E00F49274 /* back@2x.png */,
-				568FEBAC20D64DF20053D0BE /* LaunchImageI6.jpg */,
+				56FF7DA1216056A4007920FC /* LaunchImageI6.jpg */,
 				56FDB4B920AEB7780020A9DE /* search.png */,
 				563F1A40213CD685000F9DE3 /* notelike.png */,
 				563F1A3C213CD1AC000F9DE3 /* unlike.png */,
@@ -2204,7 +2204,6 @@
 				5685334220AD9AA600BDB451 /* Main.storyboard in Resources */,
 				563F1A3A213CBA79000F9DE3 /* iflyVoiceEnd.png in Resources */,
 				565281C62138E1EB00A9F226 /* AliyunEmasServices-Info.plist in Resources */,
-				568FEBAD20D64DF20053D0BE /* LaunchImageI6.jpg in Resources */,
 				56403FA520D34F8C00638E46 /* selected.png in Resources */,
 				569C38CD20C5118100332D12 /* tooth.png in Resources */,
 				56838DCD20B6BDDE0062C1FE /* Category@2x.png in Resources */,
@@ -2221,6 +2220,7 @@
 				56676DBF20AE7C5A00905CFD /* newDeselected@2x.png in Resources */,
 				56838DD120B6D7110062C1FE /* vedioPlay.png in Resources */,
 				56B4F5D320B697E500CF4A68 /* addRight.png in Resources */,
+				56FF7DA2216056A4007920FC /* LaunchImageI6.jpg in Resources */,
 				56A4C4B920B39E420094916E /* more.png in Resources */,
 				56676DB820AE774400905CFD /* mineDeselected@2x.png in Resources */,
 			);
