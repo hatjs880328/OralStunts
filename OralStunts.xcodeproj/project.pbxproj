@@ -15,6 +15,9 @@
 		56084F8E21609B0000C674B7 /* OTICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F8D21609B0000C674B7 /* OTICloud.swift */; };
 		56084F9021609BE300C674B7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56084F8F21609BE300C674B7 /* CloudKit.framework */; };
 		56084F9221609BFB00C674B7 /* OTICloudModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F9121609BFB00C674B7 /* OTICloudModelExample.swift */; };
+		56084F942160A7BF00C674B7 /* OTSqlite2CloudScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F932160A7BF00C674B7 /* OTSqlite2CloudScript.swift */; };
+		56084F962160A91600C674B7 /* OTNoteCloudDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F952160A91600C674B7 /* OTNoteCloudDAL.swift */; };
+		56084F982160ABD300C674B7 /* OTCloudFatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F972160ABD300C674B7 /* OTCloudFatherModel.swift */; };
 		5608A89D2154D94900F282B4 /* OTCloudComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A89C2154D94900F282B4 /* OTCloudComponent.swift */; };
 		560930A320D88C0C00FC7F58 /* ThirdLoginDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560930A220D88C0C00FC7F58 /* ThirdLoginDAL.swift */; };
 		560930A620D88C4400FC7F58 /* IIAPIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560930A520D88C4400FC7F58 /* IIAPIStruct.swift */; };
@@ -339,6 +342,9 @@
 		56084F8D21609B0000C674B7 /* OTICloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTICloud.swift; sourceTree = "<group>"; };
 		56084F8F21609BE300C674B7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		56084F9121609BFB00C674B7 /* OTICloudModelExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTICloudModelExample.swift; sourceTree = "<group>"; };
+		56084F932160A7BF00C674B7 /* OTSqlite2CloudScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTSqlite2CloudScript.swift; sourceTree = "<group>"; };
+		56084F952160A91600C674B7 /* OTNoteCloudDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTNoteCloudDAL.swift; sourceTree = "<group>"; };
+		56084F972160ABD300C674B7 /* OTCloudFatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTCloudFatherModel.swift; sourceTree = "<group>"; };
 		5608A89C2154D94900F282B4 /* OTCloudComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTCloudComponent.swift; sourceTree = "<group>"; };
 		560930A220D88C0C00FC7F58 /* ThirdLoginDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdLoginDAL.swift; sourceTree = "<group>"; };
 		560930A520D88C4400FC7F58 /* IIAPIStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIAPIStruct.swift; sourceTree = "<group>"; };
@@ -738,6 +744,8 @@
 			children = (
 				56084F8D21609B0000C674B7 /* OTICloud.swift */,
 				56084F9121609BFB00C674B7 /* OTICloudModelExample.swift */,
+				56084F932160A7BF00C674B7 /* OTSqlite2CloudScript.swift */,
+				56084F972160ABD300C674B7 /* OTCloudFatherModel.swift */,
 			);
 			path = OTICloud;
 			sourceTree = "<group>";
@@ -1722,6 +1730,7 @@
 			isa = PBXGroup;
 			children = (
 				5659EB0520B797220075A142 /* OTNoteDAL.swift */,
+				56084F952160A91600C674B7 /* OTNoteCloudDAL.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -2271,6 +2280,7 @@
 				"${BUILT_PRODUCTS_DIR}/EvernoteSDK/EvernoteSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/FFToast/FFToast.framework",
 				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -2293,6 +2303,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EvernoteSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -2408,6 +2419,7 @@
 				"${BUILT_PRODUCTS_DIR}/EvernoteSDK/EvernoteSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/FFToast/FFToast.framework",
 				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -2430,6 +2442,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EvernoteSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -2596,6 +2609,7 @@
 				56A4C4BD20B3A1EF0094916E /* VoiceBtnVw.swift in Sources */,
 				56FDB4B820AEB5D80020A9DE /* OTSearchVw.swift in Sources */,
 				56D3E98820C9436B00C8CE46 /* Timeline.swift in Sources */,
+				56084F962160A91600C674B7 /* OTNoteCloudDAL.swift in Sources */,
 				56D6458D20B3EF1900C61AA6 /* NoteContextCreateViewController.swift in Sources */,
 				56D3E98D20C9436B00C8CE46 /* Validation.swift in Sources */,
 				56D3E97920C9436B00C8CE46 /* FSMEngine.m in Sources */,
@@ -2623,6 +2637,7 @@
 				564D4FA3214F521100B47718 /* APPListEmptyVw.swift in Sources */,
 				5665482F20E233B6004DC07C /* IIPitchFilter.swift in Sources */,
 				568533DD20AD9BB800BDB451 /* FilterVw.swift in Sources */,
+				56084F982160ABD300C674B7 /* OTCloudFatherModel.swift in Sources */,
 				56B9163720B55CA2004F1A71 /* TTSBLL.m in Sources */,
 				5659EB0920B7AA5F0075A142 /* OTTablistVw.swift in Sources */,
 				569912DF20B2C551008417B6 /* TitleInsertVw.swift in Sources */,
@@ -2658,6 +2673,7 @@
 				56B9164820B58185004F1A71 /* FolderTabVM.swift in Sources */,
 				569C38E320C51F2F00332D12 /* APPNoteVw.swift in Sources */,
 				5685340420AD9BB800BDB451 /* IITaskModel.swift in Sources */,
+				56084F942160A7BF00C674B7 /* OTSqlite2CloudScript.swift in Sources */,
 				56676E8620AE8DD200905CFD /* FMDatabasePool.m in Sources */,
 				56D6459720B42C9C00C61AA6 /* NoteVedioPlayBLL.swift in Sources */,
 				56676E3020AE8C4800905CFD /* AOPSwiftExtension.swift in Sources */,

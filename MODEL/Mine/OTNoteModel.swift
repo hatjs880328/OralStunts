@@ -54,13 +54,30 @@ class OTNoteModel: NSObject,Codable {
     }
 }
 
-class CreateTabSql:NSObject,Codable {
+
+class CreateTabSql:OTCloudFatherModel,Codable,Equatable {
+    
     var id: String = ""
     var title:String = ""
     var txtstrInfo: String = ""
     var createTime: Date = Date()
     var modifyTime: Date = Date()
     var folderID:String = ""
+    
+    override func initWith(record: CKRecord)->CreateTabSql {
+        let ins = CreateTabSql()
+        ins.id = record.recordID.recordName
+        ins.title = record.value(forKey: "title") as! String
+        ins.folderID = record.value(forKey: "folderID") as! String
+        ins.txtstrInfo = record.value(forKey: "txtstrInfo") as! String
+        ins.createTime = record.value(forKey: "createTime") as! Date
+        ins.modifyTime = record.value(forKey: "title") as! Date
+        return ins
+    }
+    
+    static func ==(lhs: CreateTabSql, rhs: CreateTabSql) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 class SearchvcVmodel: NSObject {

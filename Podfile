@@ -50,6 +50,8 @@ def useFrameworks
     
     #pod 'AxcAE_TabBar'
     pod 'XRWaterfallLayout'
+    
+    pod 'HandyJSON', '~> 4.2.0'
 
     pod 'AliyunOSSiOS', '~> 2.10.7'
     

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "41A5E1876FCC95BC31FF14957EFD191D"
+               BlueprintIdentifier = "7B1D5A0E2171CABEADE1E2E4DF159712"
                BlueprintName = "SVGKit"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SVGKit.framework">

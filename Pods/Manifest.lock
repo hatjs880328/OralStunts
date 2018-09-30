@@ -21,6 +21,7 @@ PODS:
   - EvernoteSDK (3.0.0)
   - FFToast (1.2.0)
   - FlatUIKit (1.6.2)
+  - HandyJSON (4.2.0)
   - MJExtension (3.0.13)
   - mob_sharesdk (4.1.4):
     - mob_sharesdk/ShareSDK (= 4.1.4)
@@ -76,6 +77,7 @@ DEPENDENCIES:
   - EvernoteSDK (~> 3.0)
   - FFToast
   - FlatUIKit
+  - HandyJSON (~> 4.2.0)
   - MJExtension (~> 3.0.13)
   - mob_sharesdk
   - mob_sharesdk/ShareSDKConfigFile
@@ -112,6 +114,7 @@ SPEC REPOS:
     - EvernoteSDK
     - FFToast
     - FlatUIKit
+    - HandyJSON
     - MJExtension
     - mob_sharesdk
     - MOBFoundation
@@ -149,6 +152,7 @@ SPEC CHECKSUMS:
   EvernoteSDK: 7e9de762a9c281e714f3e6d0ae10657db3046792
   FFToast: 60e0f3c9fd8fc473205015055ee39cd200404e01
   FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
+  HandyJSON: 9dfc026c7d7adc1f0f8ba8b181495f0e0763b0f4
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   mob_sharesdk: 765cc2fd2fac0a6fd7c3e6c2b10d729ad006c608
   MOBFoundation: 7f1e157be332576e4d45809a03bc733292c6ad8d
@@ -163,6 +167,6 @@ SPEC CHECKSUMS:
   WHDebugTool: d6bda673faa04194b5de40baf682b95e7ef059f2
   XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
 
-PODFILE CHECKSUM: 6e916f2854cc5bf3bb70eae1a5cda2e49ef9083b
+PODFILE CHECKSUM: 3a282adf9ea9bd35cca8e084380738978dec44e8
 
 COCOAPODS: 1.5.3

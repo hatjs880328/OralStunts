@@ -9,7 +9,7 @@
 import Foundation
 
 
-private let recordType = "Cities"
+private let recordType = "OTNoteTab"
 
 final class CloudKitManager {
     
@@ -20,32 +20,34 @@ final class CloudKitManager {
     }
     
     //MARK: Retrieve existing records
-    static func fetchAllCities(_ completion: @escaping (_ records: [City]?, _ error: NSError?) -> Void) {
+    static func fetchAllCities(_ completion: @escaping (_ records: [OTCloudFatherModel]?, _ error: NSError?) -> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: recordType, predicate: predicate)
-        
         publicCloudDatabase.perform(query, inZoneWith: nil) { (records, error) in
-            let cities = records?.map(City.init)
+            var ins: [OTCloudFatherModel] = []
+            for eachItem in records! {
+                ins.append(OTCloudFatherModel().initWith(record: eachItem))
+            }
             DispatchQueue.main.async {
-                completion(cities, error as NSError?)
+                completion(ins, error as NSError?)
             }
         }
     }
     
     //MARK: add a new record
-    static func createRecord(_ recordData: [String: String], completion: @escaping (_ record: CKRecord?, _ error: NSError?) -> Void) {
-        let record = CKRecord(recordType: recordType)
-        
+    static func createRecord(_ primaryKey:String,_ recordData: [String: Any], completion: @escaping (_ record: CKRecord?, _ error: NSError?) -> Void) {
+        let recordId = CKRecord.ID.init(recordName: primaryKey)
+        let record = CKRecord(recordType: recordType, recordID: recordId)
         for (key, value) in recordData {
             if key == OTICloudModelExamplecityPicture {
-                if let path = Bundle.main.path(forResource: value, ofType: "jpg") {
-                    do {
-                        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                        record.setValue(data, forKey: key)
-                    } catch let error {
-                        print(error)
-                    }
-                }
+//                if let path = Bundle.main.path(forResource: value, ofType: "jpg") {
+//                    do {
+//                        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+//                        record.setValue(data, forKey: key)
+//                    } catch let error {
+//                        print(error)
+//                    }
+//                }
             } else {
                 record.setValue(value, forKey: key)
             }
