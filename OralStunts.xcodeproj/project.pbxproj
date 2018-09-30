@@ -12,8 +12,10 @@
 		56005B9020B2AD5E004390A1 /* SearchVCTabVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56005B8F20B2AD5E004390A1 /* SearchVCTabVM.swift */; };
 		56005B9220B2AE41004390A1 /* SearchVCTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56005B9120B2AE41004390A1 /* SearchVCTabCell.swift */; };
 		5604993020B800EE001DCD27 /* LstaedEditedInfoVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5604992F20B800EE001DCD27 /* LstaedEditedInfoVw.swift */; };
+		56084F8E21609B0000C674B7 /* OTICloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F8D21609B0000C674B7 /* OTICloud.swift */; };
+		56084F9021609BE300C674B7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56084F8F21609BE300C674B7 /* CloudKit.framework */; };
+		56084F9221609BFB00C674B7 /* OTICloudModelExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56084F9121609BFB00C674B7 /* OTICloudModelExample.swift */; };
 		5608A89D2154D94900F282B4 /* OTCloudComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608A89C2154D94900F282B4 /* OTCloudComponent.swift */; };
-		5608A89F2154D96600F282B4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5608A89E2154D96600F282B4 /* CloudKit.framework */; };
 		560930A320D88C0C00FC7F58 /* ThirdLoginDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560930A220D88C0C00FC7F58 /* ThirdLoginDAL.swift */; };
 		560930A620D88C4400FC7F58 /* IIAPIStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560930A520D88C4400FC7F58 /* IIAPIStruct.swift */; };
 		561120DC21533A8600E94D6A /* LongPressShowVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561120DB21533A8600E94D6A /* LongPressShowVw.swift */; };
@@ -334,8 +336,10 @@
 		56005B8F20B2AD5E004390A1 /* SearchVCTabVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCTabVM.swift; sourceTree = "<group>"; };
 		56005B9120B2AE41004390A1 /* SearchVCTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCTabCell.swift; sourceTree = "<group>"; };
 		5604992F20B800EE001DCD27 /* LstaedEditedInfoVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LstaedEditedInfoVw.swift; sourceTree = "<group>"; };
+		56084F8D21609B0000C674B7 /* OTICloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTICloud.swift; sourceTree = "<group>"; };
+		56084F8F21609BE300C674B7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		56084F9121609BFB00C674B7 /* OTICloudModelExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTICloudModelExample.swift; sourceTree = "<group>"; };
 		5608A89C2154D94900F282B4 /* OTCloudComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTCloudComponent.swift; sourceTree = "<group>"; };
-		5608A89E2154D96600F282B4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		560930A220D88C0C00FC7F58 /* ThirdLoginDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdLoginDAL.swift; sourceTree = "<group>"; };
 		560930A520D88C4400FC7F58 /* IIAPIStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IIAPIStruct.swift; sourceTree = "<group>"; };
 		561120DB21533A8600E94D6A /* LongPressShowVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressShowVw.swift; sourceTree = "<group>"; };
@@ -694,7 +698,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5608A89F2154D96600F282B4 /* CloudKit.framework in Frameworks */,
+				56084F9021609BE300C674B7 /* CloudKit.framework in Frameworks */,
 				56791584214FAD2B000881FA /* Photos.framework in Frameworks */,
 				56791582214FAD23000881FA /* libsqlite3.tbd in Frameworks */,
 				56791580214FAD16000881FA /* ImageIO.framework in Frameworks */,
@@ -729,6 +733,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56084F8C21609AEA00C674B7 /* OTICloud */ = {
+			isa = PBXGroup;
+			children = (
+				56084F8D21609B0000C674B7 /* OTICloud.swift */,
+				56084F9121609BFB00C674B7 /* OTICloudModelExample.swift */,
+			);
+			path = OTICloud;
+			sourceTree = "<group>";
+		};
 		5608A89B2154D92900F282B4 /* OTCloudComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1411,6 +1424,7 @@
 		568533A120AD9BB800BDB451 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				56084F8C21609AEA00C674B7 /* OTICloud */,
 				563017CD215F77340025A5F8 /* OTSiri */,
 				5608A89B2154D92900F282B4 /* OTCloudComponent */,
 				56791585214FAEA7000881FA /* OTShare */,
@@ -2061,7 +2075,7 @@
 		FD3070A46195053ED8BC0081 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5608A89E2154D96600F282B4 /* CloudKit.framework */,
+				56084F8F21609BE300C674B7 /* CloudKit.framework */,
 				56791583214FAD2B000881FA /* Photos.framework */,
 				56791581214FAD23000881FA /* libsqlite3.tbd */,
 				5679157F214FAD16000881FA /* ImageIO.framework */,
@@ -2144,7 +2158,13 @@
 					5685333820AD9AA600BDB451 = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -2552,6 +2572,7 @@
 				5685341020AD9BB800BDB451 /* DingtalkMeetingModel.swift in Sources */,
 				5671918E2150F0760019C3DA /* AxcAE_TabBarBadge.m in Sources */,
 				56676E3520AE8C4800905CFD /* AOPNotificationCenter.swift in Sources */,
+				56084F9221609BFB00C674B7 /* OTICloudModelExample.swift in Sources */,
 				5684C94720B4FB230021585D /* PcmPlayer.m in Sources */,
 				563F1A55213D2D34000F9DE3 /* YYCache.m in Sources */,
 				56D3E98420C9436B00C8CE46 /* IIHTTPNetWork.swift in Sources */,
@@ -2560,6 +2581,7 @@
 				56A4C4E020B3B6980094916E /* VoiceBtnVM.swift in Sources */,
 				56B9163C20B57BFE004F1A71 /* FolderViewController.swift in Sources */,
 				56D5D3EE20B664260076E69E /* MineViewController.swift in Sources */,
+				56084F8E21609B0000C674B7 /* OTICloud.swift in Sources */,
 				563F1A56213D2D34000F9DE3 /* YYKVStorage.m in Sources */,
 				568533CF20AD9BB800BDB451 /* DingtaskVModel.swift in Sources */,
 				56D3E99020C9436B00C8CE46 /* Alamofire.swift in Sources */,
