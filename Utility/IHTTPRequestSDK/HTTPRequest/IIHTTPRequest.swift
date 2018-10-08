@@ -1,4 +1,3 @@
-
 //
 //  AlamofireDatatool.swift
 //  DataPresistenceLayer
@@ -36,11 +35,10 @@ import Foundation
  5.其他统一处理提示[服务器异常]错误 .unknowError
  */
 
-
 open class IIHTTPRequest: NSObject {
-    
+
     override private init() { super.init() }
-    
+
     /// 静态网络请求-优先判断网络状态
     ///
     /// - Parameters:
@@ -49,38 +47,38 @@ open class IIHTTPRequest: NSObject {
     ///   - header: header
     ///   - successAction: success action <ResponseClass>
     ///   - errorAction: error action <ErrorInfo>
-    @objc open class func startRequest(method:IIHTTPMethod,url:String, params:[String:Any]?,header:[String : String]? = nil,successAction:@escaping (_ response:ResponseClass)->Void,errorAction:@escaping (_ errorType:ErrorInfo)->Void) {
+    @objc open class func startRequest(method: IIHTTPMethod, url: String, params: [String: Any]?, header: [String: String]? = nil, successAction:@escaping (_ response: ResponseClass) -> Void, errorAction:@escaping (_ errorType: ErrorInfo) -> Void) {
         if !IIHTTPRequestExtension.progressNoNetWork() {
             errorAction(ErrorInfo(type: ERRORMsgType.noConnection))
             return
         }
         let httpHeader = IIHTTPRequestExtension.analyzeHTTPHeader(header)
         let httpMethod = method.changeToAlaMethod()
-        let _ = request(url, method: httpMethod, parameters: params, encoding: URLEncoding(), headers: httpHeader).responseJSON { (response) in
+        _ = request(url, method: httpMethod, parameters: params, encoding: URLEncoding(), headers: httpHeader).responseJSON { (response) in
             let resultResponse = progressResponse(response: response)
             if resultResponse.errorValue == nil {
                 successAction(resultResponse)
-            }else{
+            } else {
                 IIHTTPRequestErrorProgress().errorMsgProgress(resultResponse.errorValue.errorType)
                 errorAction(resultResponse.errorValue)
             }
         }
     }
-    
+
     /// 处理返回数据<无需判断response.issuccess & fail 因为无论失败与否都需要判定code>
-    class private func progressResponse(response: DataResponse<Any>)->ResponseClass {
+    class private func progressResponse(response: DataResponse<Any>) -> ResponseClass {
         // time out & no connection & unknow
         if let errorInfo = response.result.error as NSError? {
             if errorInfo.code == -1001 || errorInfo.code == -1003 {
-                return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html,errorType: ERRORMsgType.timeOut)
+                return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html, errorType: ERRORMsgType.timeOut)
             }
             if errorInfo.code == -1009 {
-                return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html,errorType: ERRORMsgType.noConnection)
+                return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html, errorType: ERRORMsgType.noConnection)
             }
         }
         // unknow - 其他的失败都是unknow
         if response.response?.statusCode == nil {
-            return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html,errorType: ERRORMsgType.unknowError)
+            return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html, errorType: ERRORMsgType.unknowError)
         }
         // progress code
         let codeIns = HTTPRequestCodeFactory().getInstance(response: response)

@@ -10,27 +10,26 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+class LoginInVw: UIView, UITextFieldDelegate {
 
-class LoginInVw: UIView,UITextFieldDelegate {
-    
     let vm = LoginInVM()
-    
+
     let loginBtn = UIButton()
-    
+
     /// 印象笔记登陆按钮
     let evernoteLoginBtn = UIButton()
-    
+
     let nickName: UITextField = UITextField()
-    
+
     let sourceImg = SVGKImage(named: "语音.svg")
-    
+
     var layers: [CAShapeLayer] = []
-    
+
     var timer: Timer?
-    
+
     var img: SVGKFastImageView!
-    
-    init(frame: CGRect,fatherVw:UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         fatherVw.addSubview(self)
@@ -44,11 +43,11 @@ class LoginInVw: UIView,UITextFieldDelegate {
         self.createAni()
         self.progressRX()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.img = SVGKFastImageView(svgkImage: self.sourceImg)
         self.addSubview(img)
@@ -105,7 +104,7 @@ class LoginInVw: UIView,UITextFieldDelegate {
 //            self?.authEVER()
 //        }
     }
-    
+
     /// 更改动画在主线程，别搞事
     func createAni() {
         timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.changeCGColor), userInfo: nil, repeats: true)
@@ -115,45 +114,45 @@ class LoginInVw: UIView,UITextFieldDelegate {
             self.layers.append(eachItem as! CAShapeLayer)
         }
     }
-    
+
     func progressRX() {
-        let _ = nickName.rx.text.orEmpty.bind(to: self.vm.txtInput)
-        let _ = self.vm.txtOutput.subscribe { [weak self](events) in
+        _ = nickName.rx.text.orEmpty.bind(to: self.vm.txtInput)
+        _ = self.vm.txtOutput.subscribe { [weak self](events) in
             if events.element == nil { return }
             self?.loginBtn.isEnabled = events.element!.0
             self?.loginBtn.setTitleColor(events.element!.1, for: UIControlState.normal)
             self?.loginBtn.layer.borderColor = events.element!.1.cgColor
         }
-        
-        let _ = loginBtn.rx.tap
+
+        _ = loginBtn.rx.tap
         .throttle(0.8, scheduler: MainScheduler.instance)
         .bind(to: self.vm.didInput)
-        let _ = self.vm.didOutput.subscribe { (event) in
+        _ = self.vm.didOutput.subscribe { (_) in
             let tabbar = SaltedFishTabBarVC()
             //self.viewController()?.present(tabbar, animated: true, completion: nil)
             UIApplication.shared.keyWindow?.rootViewController = tabbar
         }
     }
-    
+
     /// 认证印象笔记
     func authEVER() {
         //ThirdLoginBLL().invokingNoteAuth(vc: self.ViewController()!)
         ThirdLoginBLL().getTemporaryToken()
     }
-    
+
     @objc func changeCGColor() {
         IIGCDUtility.async(lvl: IIGCDQos.high, action: {
             let color = MineAboutUsBLL().changeColor().cgColor
             for eachItem in self.layers {
                 eachItem.fillColor = color
             }
-            
+
         }) {
             self.img.setNeedsDisplay()
         }
-        
+
     }
-    
+
     func deinitTimer() {
         self.timer?.invalidate()
         self.timer = nil

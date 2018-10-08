@@ -9,21 +9,21 @@
 import Foundation
 
 class ALIFB: NSObject {
-    
+
     var kitIns = BCFeedbackKit(appKey: IIBizConfig.aliFbKEY, appSecret: IIBizConfig.aliFbSecret)
-    
+
     override init() {
         super.init()
     }
-    
+
     func initSDK() {
-        
+
     }
-    
-    func setUserNickName(username:String) {
+
+    func setUserNickName(username: String) {
         kitIns?.setUserNick(username)
     }
-    
+
     func openFbVc(nowVw: UIViewController) {
         let vi = IIBaseWaitAniVw(frame: CGRect.zero)
         UIApplication.shared.keyWindow?.addSubview(vi)
@@ -42,7 +42,7 @@ class ALIFB: NSObject {
                 nowVw.navigationController?.pushViewController(vcIns!, animated: true)
                 vi.stopAni()
                 vi.removeFromSuperview()
-            }else{
+            } else {
                 //失败
                 vi.stopAni()
                 vi.removeFromSuperview()

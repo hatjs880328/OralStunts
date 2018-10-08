@@ -13,11 +13,11 @@ class APPNoteVw: UIView {
         super.init(frame: frame)
         createVw()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         let note = UILabel()
         note.numberOfLines = 0
@@ -33,23 +33,23 @@ class APPNoteVw: UIView {
         note.layer.borderWidth = 0.5
         note.text = """
         Note|使用帮助
-        
+
         ---关于最新---
         当你创建一个便签时，它不会自动放到某一个文件夹下面
         ，可直接在列表中左滑、移动到某个文件夹下
-        
+
         ---关于新建便签---
         标题、详情都可以使用语音创建，在联网情况下可自动识
         别语音文字，如果没有网络则只会保存语音文件，但文本
         不可为空（可手动添加一些文字）
-        
+
         ---关于头像、动态、我喜欢功能---
         支持系统预制的头像图片；动态功能暂不开放
-        
+
         ---关于日历功能---
         日历集成了当天创建的便签的功能，方便用户按照日期查
         找、查看便签
-        
+
         ---最后---
         希望您能给我们改进的宝贵意见
         """

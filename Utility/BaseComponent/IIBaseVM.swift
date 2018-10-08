@@ -9,9 +9,9 @@
 import Foundation
 
 class IIBaseVM: NSObject {
-    
+
     override init() {
         super.init()
     }
-    
+
 }

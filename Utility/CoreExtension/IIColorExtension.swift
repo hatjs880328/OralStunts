@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIColor {
-    
+
     /// 根据RGB生成图片
     ///
     /// - Parameters:
@@ -17,7 +17,7 @@ extension UIColor {
     ///   - green: 绿
     ///   - blue: 蓝
     /// - Returns: 图片
-   class func toImage(colorLiteralRed: Float, green: Float, blue: Float,alpha: CGFloat) -> UIImage {
+   class func toImage(colorLiteralRed: Float, green: Float, blue: Float, alpha: CGFloat) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         // 在这个范围开启一个上下文
         UIGraphicsBeginImageContext(rect.size)
@@ -30,11 +30,11 @@ extension UIColor {
         UIGraphicsEndImageContext()
         return myImage!
     }
-    
+
     /// 生成图片
     ///
     /// - Returns: 图片
-    func toImage(width:CGFloat? = 1,height:CGFloat? = 1) -> UIImage {
+    func toImage(width: CGFloat? = 1, height: CGFloat? = 1) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         // 在这个范围开启一个上下文
         UIGraphicsBeginImageContext(rect.size)

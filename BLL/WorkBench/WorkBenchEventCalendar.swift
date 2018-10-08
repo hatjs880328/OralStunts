@@ -9,25 +9,25 @@
 import Foundation
 import EventKit
 
-class WorkBenchEventCalendar: NSObject,IWorkBenchEventCalendar {
-    
+class WorkBenchEventCalendar: NSObject, IWorkBenchEventCalendar {
+
     var dal = DingTalkGetEventCalender()
-    
+
     static let formatStr = "yyyy-MM-dd"
-    
+
     /// get evente from calendar
     ///
     /// - Parameters:
     ///   - from: date
     ///   - to: date
     ///   - mainThreadAction: eventAction[in main thread]
-    @objc func getEventsInGlobalQueue(from : Date,to: Date,mainThreadAction: @escaping (_ eventsArr: [EKEvent])->Void) {
+    @objc func getEventsInGlobalQueue(from: Date, to: Date, mainThreadAction: @escaping (_ eventsArr: [EKEvent]) -> Void) {
         let result = OTNoteDAL().getDataFollowDate(startDate: from, endDate: to)
         mainThreadAction(result)
     }
-    
+
     /// set event
-    func setEvent(with: DingTalkCEvent,successAction:@escaping ()->Void , failAction:@escaping ()->Void) {
+    func setEvent(with: DingTalkCEvent, successAction:@escaping () -> Void, failAction:@escaping () -> Void) {
         let event: EKEvent = EKEvent(eventStore: dal.eventDB)
         event.title = with.title
         event.startDate = with.realStartTime.toDate("yyyy-MM-dd HH:mm")

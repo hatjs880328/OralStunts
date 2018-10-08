@@ -8,25 +8,24 @@
 
 import Foundation
 
-
 class LoginDAL: NSObject {
-    
+
     let key = "useAppCount"
-    
+
     override init() {
         super.init()
     }
-    
+
     func setUseTime() {
         let oldValue = self.getUseTime()
         UserDefaults.standard.set(oldValue + 1, forKey: key)
     }
-    
-    func getUseTime()->Int {
+
+    func getUseTime() -> Int {
         if UserDefaults.standard.object(forKey: key) == nil {
             UserDefaults.standard.set(0, forKey: key)
             return 0
-        }else{
+        } else {
             return UserDefaults.standard.object(forKey: key) as! Int
         }
     }

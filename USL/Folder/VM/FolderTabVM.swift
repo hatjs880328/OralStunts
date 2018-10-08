@@ -10,45 +10,45 @@ import Foundation
 import RxSwift
 
 class FolderTabVM: IIBaseVM {
-    
+
     var cellInfos: [FolderCellVModel] = [] {
-        didSet{
+        didSet {
             if self.reloadAction == nil { return }
             //self.reloadAction()
         }
     }
-    
-    var reloadAction:(()->Void)!
-    
-    var selectCellInput = PublishSubject<(noteid:String,isAdd: Bool,index:IndexPath)>()
-    
-    var selectCelloutput: Observable<(index:IndexPath,isAdd:Bool)>!
-    
-    var selectedCellIDS: Dictionary<String,String> = [:]
-    
+
+    var reloadAction:(() -> Void)!
+
+    var selectCellInput = PublishSubject<(noteid: String, isAdd: Bool, index: IndexPath)>()
+
+    var selectCelloutput: Observable<(index: IndexPath, isAdd: Bool)>!
+
+    var selectedCellIDS: Dictionary<String, String> = [:]
+
     override init() {
         super.init()
-        self.selectCelloutput = self.selectCellInput.asObservable().map({ [weak self](folderNoteID,isAdd,index) -> (IndexPath,Bool) in
+        self.selectCelloutput = self.selectCellInput.asObservable().map({ [weak self](folderNoteID, isAdd, index) -> (IndexPath, Bool) in
             if isAdd {
                 self?.selectedCellIDS.removeAll()
                 self?.selectedCellIDS[folderNoteID] = ""
-            }else{
+            } else {
                 self?.selectedCellIDS.removeAll()
             }
-            return (index,isAdd)
+            return (index, isAdd)
         })
     }
-    
-    func getModel(with index: IndexPath)->FolderCellVModel {
+
+    func getModel(with index: IndexPath) -> FolderCellVModel {
         return self.cellInfos[index.row]
     }
-    
+
     func deleateOneFolder(with index: IndexPath) {
         let item = self.cellInfos[index.row]
         FolderBLL().deleteFolder(with: item.sourceNote.id)
         self.cellInfos.remove(at: index.row)
     }
-    
+
     func getData() {
         let cellModels = FolderBLL().getInfo()
         var result = [FolderCellVModel]()
@@ -59,23 +59,23 @@ class FolderTabVM: IIBaseVM {
         }
         self.cellInfos = result
     }
-    
+
 }
 
-class FolderCellVModel: NSObject,Codable {
-    
+class FolderCellVModel: NSObject, Codable {
+
     var title = ""
-    
+
     var createTime = ""
-    
+
     var count = ""
-    
+
     var sourceNote: OTFolderModel!
-    
+
     override init() {
         super.init()
     }
-    
+
     func createData(with model: OTFolderModel) {
         self.sourceNote = model
         self.title = model.title

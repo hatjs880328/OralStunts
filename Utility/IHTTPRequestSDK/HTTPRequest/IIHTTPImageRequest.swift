@@ -8,9 +8,8 @@
 
 import Foundation
 
+open class IIHTTPImageRequest: NSObject {
 
-open class IIHTTPImageRequest: NSObject  {
-    
     /// 上传图片
     ///
     /// - Parameters:
@@ -20,7 +19,7 @@ open class IIHTTPImageRequest: NSObject  {
     ///   - header:              HEADER
     ///   - successAction:       成功action
     ///   - errorAction:         失败action
-    open class func uploadImage(url:String, imageDataArr : [Data] ,imageNameArr : [String] ,header:[String : String]? = nil,successAction:@escaping (_ response:ResponseClass)->Void,errorAction:@escaping (_ errorType:ErrorInfo)->Void){
+    open class func uploadImage(url: String, imageDataArr: [Data], imageNameArr: [String], header: [String: String]? = nil, successAction:@escaping (_ response: ResponseClass) -> Void, errorAction:@escaping (_ errorType: ErrorInfo) -> Void) {
         if !IIHTTPRequestExtension.progressNoNetWork() {
             errorAction(ErrorInfo(type: ERRORMsgType.noConnection))
             return

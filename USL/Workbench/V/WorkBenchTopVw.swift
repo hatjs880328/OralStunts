@@ -8,26 +8,25 @@
 
 import Foundation
 
-
 class WorkBenchTopVw: UIView {
-    
+
     var titleLb: UILabel = UILabel()
-    
+
     var todayLb: UILabel = UILabel()
-    
+
     var todayTxt: String = ""
-    
+
     let todayStr = "今"
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createView(fatherView: UIView) {
         fatherView.addSubview(self)
         self.snp.makeConstraints { (make) in
@@ -71,11 +70,11 @@ class WorkBenchTopVw: UIView {
             self?.labTapAction()
         }
     }
-    
-    func setData(ifCalendar: Bool, titleTxt: String,isCalendarVw:Bool = true) {
+
+    func setData(ifCalendar: Bool, titleTxt: String, isCalendarVw: Bool = true) {
         if ifCalendar && titleTxt == self.todayTxt {
             self.todayLb.alpha = 0
-        }else{
+        } else {
             self.todayLb.alpha = 1
         }
         if !isCalendarVw {
@@ -90,9 +89,9 @@ class WorkBenchTopVw: UIView {
             make.height.equalTo(25 * APPDelStatic.sizeScale)
             make.width.equalTo(dateStrWidth)
         }
-        
+
     }
-    
+
     func labTapAction() {
         (self.viewController() as! WorkBenchViewControllerV2).changeToday()
     }

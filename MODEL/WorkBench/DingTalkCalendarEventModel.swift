@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 class DingTalkCalendarEventModel: NSObject {
-    
+
     /*
     title =         清明节;
     location =     ;
@@ -32,5 +31,5 @@ attendees =     (null);
 travelTime =     (null);
 startLocation =     (null);
  */
-    
+
 }

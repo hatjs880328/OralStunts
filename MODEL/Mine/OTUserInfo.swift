@@ -8,20 +8,19 @@
 
 import Foundation
 
+class OTUserInfo: NSObject, Codable {
 
-class OTUserInfo: NSObject,Codable {
-    
     /// primary key
-    var id:String = String()
+    var id: String = String()
     /// nick name
-    var nickName:String = String()
+    var nickName: String = String()
     /// create time
-    var createTime:String = Date().dateToString("yyyy-MM-dd HH:mm:ss")
+    var createTime: String = Date().dateToString("yyyy-MM-dd HH:mm:ss")
     /// noteInfo
-    var noteInfo:String = "快乐一签。"
+    var noteInfo: String = "快乐一签。"
     /// gender
     var gender: String = "boy"
     /// if alertHelpInfo-default is yes
     var alertHelpInfo = "true"
-    
+
 }

@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 class TaskContainerVw: UIView {
-    
+
     var filterVw: FilterVw!
-    
+
     var dataInfo: [String] = []
-    
-    var overVw:UIView!
-    
+
+    var overVw: UIView!
+
     var filterDetailVw: FilterDetailVw!
-    
-    init(frame: CGRect,fatherVw: UIView,topView:UIView) {
+
+    init(frame: CGRect, fatherVw: UIView, topView: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
@@ -31,14 +31,14 @@ class TaskContainerVw: UIView {
         initTheVw()
         actionsProgress()
     }
-    
+
     func initTheVw() {
         filterVw = FilterVw(frame: CGRect.zero, fatherVw: self)
         self.dataInfo = (self.viewController() as! WorkBenchViewControllerV2).taskVM.taskFilterModels()
         filterVw.setData(data: self.dataInfo)
-        let _ = TaskTabVw(frame: CGRect.zero, fatherVw: self, topView: filterVw)
+        _ = TaskTabVw(frame: CGRect.zero, fatherVw: self, topView: filterVw)
     }
-    
+
     /// top filter action
     func actionsProgress() {
         self.filterVw.tapActions = {[weak self]() in
@@ -49,15 +49,15 @@ class TaskContainerVw: UIView {
                 return
             }
             self!.addOverVw()
-            self?.filterDetailVw = FilterDetailVw(frame: CGRect.zero, topView: self!.filterVw, fatherView: self!, dataInfo: self!.dataInfo,selectedIndex: (self!.viewController() as! WorkBenchViewControllerV2).taskVM.taskFilterSelectedIndex)
+            self?.filterDetailVw = FilterDetailVw(frame: CGRect.zero, topView: self!.filterVw, fatherView: self!, dataInfo: self!.dataInfo, selectedIndex: (self!.viewController() as! WorkBenchViewControllerV2).taskVM.taskFilterSelectedIndex)
             self?.detailActionProgress()
             self?.filterVw.setImg(isUp: true)
         }
     }
-    
+
     /// detail filter action
     func detailActionProgress() {
-        self.filterDetailVw.tapActions = { [weak self](strInfo , index) in
+        self.filterDetailVw.tapActions = { [weak self](strInfo, index) in
             if self == nil { return }
             (self!.viewController() as! WorkBenchViewControllerV2).taskVM.taskFilterSelectedIndex = index
             self?.filterVw.titleLab.text = strInfo
@@ -65,7 +65,7 @@ class TaskContainerVw: UIView {
             self?.filterVw.setImg(isUp: false)
         }
     }
-    
+
     /// add hideVw
     private func addOverVw() {
         self.overVw = UIView()
@@ -84,7 +84,7 @@ class TaskContainerVw: UIView {
             self?.filterVw.setImg(isUp: false)
         }
     }
-    
+
     /// remove hideVw
     private func removeOverVw() {
         if self.overVw == nil { return }
@@ -94,15 +94,15 @@ class TaskContainerVw: UIView {
         self.filterDetailVw.removeFromSuperview()
         self.filterDetailVw = nil
     }
-    
+
     func hideSelf() {
         self.alpha = 0
     }
-    
+
     func showSelf() {
         self.alpha = 1
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -8,31 +8,30 @@
 
 import Foundation
 
-enum UseAppCount:String {
+enum UseAppCount: String {
     case login
     case noLogin
 }
 
 class LoginBll: NSObject {
-    
+
     override init() {
         super.init()
     }
-    
-    func analyzeUseAppCount()->UseAppCount {
+
+    func analyzeUseAppCount() -> UseAppCount {
         if LoginDAL().getUseTime() > 0 {
             return .login
         }
         return .noLogin
     }
-    
-    func loginSuccess(_ nickName:String) {
+
+    func loginSuccess(_ nickName: String) {
         let userInfo = OTUserInfo()
         userInfo.nickName = nickName
         userInfo.id = "oo1"
         MineBLL().insertUserInto(with: userInfo)
         LoginDAL().setUseTime()
     }
-    
-    
+
 }

@@ -8,44 +8,43 @@
 
 import Foundation
 
-
 class SmallDingTalkSingleLineCollectionVw: UIView {
-    
+
     let width = UIScreen.main.bounds.width
-    
+
     let normalDayLineHeight: CGFloat = 45 * APPDelStatic.sizeScale
-    
+
     let eachItemWidth: CGFloat =  (UIScreen.main.bounds.width) / 7.0
-    
+
     var topView: UIView!
-    
+
     var fatherVw: UIView!
-    
+
     let smallLeftCalendarVw: SmallDingTalkSingleLineChildVw = SmallDingTalkSingleLineChildVw(frame: CGRect.zero)
-    
+
     let smallRightCalendarVw: SmallDingTalkSingleLineChildVw = SmallDingTalkSingleLineChildVw(frame: CGRect.zero)
-    
+
     let smallMiddleCalendarVw: SmallDingTalkSingleLineChildVw = SmallDingTalkSingleLineChildVw(frame: CGRect.zero)
-    
+
     var smallMiddleLogicVw: SmallDingTalkSingleLineChildVw!
-    
+
     var smallLeftLogicVw: SmallDingTalkSingleLineChildVw!
-    
+
     var smallRightLogicVw: SmallDingTalkSingleLineChildVw!
-    
-    var smallCalendarCollectionSwipeHorEndAction: ((_ singleLineFirstDay: Date)->Void)!
-    
+
+    var smallCalendarCollectionSwipeHorEndAction: ((_ singleLineFirstDay: Date) -> Void)!
+
     let formatStr = "MM月dd日"
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func createView(fatherView: UIView,topView: UIView) {
+
+    func createView(fatherView: UIView, topView: UIView) {
         self.topView = topView
         self.fatherVw = fatherView
         fatherView.addSubview(self)
@@ -58,18 +57,18 @@ class SmallDingTalkSingleLineCollectionVw: UIView {
         createSmallCalendarVw()
         self.addGesture(to: self)
     }
-    
+
     /// small calendar vw
     func createSmallCalendarVw() {
         smallLeftCalendarVw.createView(fatherView: self, position: .left)
         smallRightCalendarVw.createView(fatherView: self, position: .right)
         smallMiddleCalendarVw.createView(fatherView: self, position: .middle)
-        
+
         self.smallMiddleLogicVw = self.smallMiddleCalendarVw
         self.smallLeftLogicVw = self.smallLeftCalendarVw
         self.smallRightLogicVw = self.smallRightCalendarVw
     }
-    
+
     func addGesture(to dateVw: UIView) {
         let leftGsture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftAction))
         leftGsture.direction = .left
@@ -81,8 +80,8 @@ class SmallDingTalkSingleLineCollectionVw: UIView {
         downGesture.direction = .down
         dateVw.addGestureRecognizer(downGesture)
     }
-    
-    func setDates(date: [DingTalkCalanderVModel],position: ModelPosition) {
+
+    func setDates(date: [DingTalkCalanderVModel], position: ModelPosition) {
         switch position {
         case .middle:
             self.smallMiddleLogicVw.setDate(models: date)
@@ -92,19 +91,18 @@ class SmallDingTalkSingleLineCollectionVw: UIView {
             self.smallRightLogicVw.setDate(models: date)
         }
     }
-    
-    
+
 }
 
 // MARK: - swipe actions
 extension SmallDingTalkSingleLineCollectionVw {
-    
+
     func whenSwipeTapFistItem() {
-        self.smallMiddleLogicVw.tapAction(index: 0,isReloadData: false)
-        self.smallRightLogicVw.tapAction(index: 0,isReloadData: false)
-        self.smallLeftLogicVw.tapAction(index: 0,isReloadData: false)
+        self.smallMiddleLogicVw.tapAction(index: 0, isReloadData: false)
+        self.smallRightLogicVw.tapAction(index: 0, isReloadData: false)
+        self.smallLeftLogicVw.tapAction(index: 0, isReloadData: false)
     }
-    
+
     /// swipe left - get new right dates
     @objc func swipeLeftAction() {
         // no animate
@@ -127,7 +125,7 @@ extension SmallDingTalkSingleLineCollectionVw {
             }
         }
     }
-    
+
     /// swipe right - get new left dates
     @objc func swipeRightAction() {
         // no animate
@@ -150,7 +148,7 @@ extension SmallDingTalkSingleLineCollectionVw {
             }
         }
     }
-    
+
     @objc func swipeDownAction() {
         self.alpha = 0
         (self.viewController() as! WorkBenchViewControllerV2).showMiddleCalcendarVw(animated: true)
@@ -159,7 +157,7 @@ extension SmallDingTalkSingleLineCollectionVw {
 }
 
 extension SmallDingTalkSingleLineCollectionVw {
-    
+
     //set events info with kcevent just in logicMiddlePic
     func setEvents(with: [DingTalkCalanderVModel]) {
         var resultArr = [Int: Bool]()
@@ -181,7 +179,7 @@ extension SmallDingTalkSingleLineCollectionVw {
 // MARK: - tb actions
 extension SmallDingTalkSingleLineCollectionVw {
     /// tb-[cell number]
-    func getCellModelsCount()->Int {
+    func getCellModelsCount() -> Int {
         let selectedIndex = self.smallMiddleLogicVw.selectedItemIndex
         let count = (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].fireDayInfo.count
         if count == 0 {
@@ -189,26 +187,26 @@ extension SmallDingTalkSingleLineCollectionVw {
         }
         return  count + 2
     }
-    
+
     /// tb-[select one calerdar item - use indexpath-row return dingtalkEvent]
-    func getCellModel(with indexRow:Int)->(eventModel: DingTalkCEvent?,dateInfo: String?) {
+    func getCellModel(with indexRow: Int)->(eventModel: DingTalkCEvent?, dateInfo: String?) {
         let selectedIndex = self.smallMiddleLogicVw.selectedItemIndex
         if indexRow == 0 {
             let realDateInfo = (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].dateInfo
             var dateInfo = ""
             if APPDelStatic.internationalProgress {
                 dateInfo = "\(realDateInfo!.getEuMonth(month: realDateInfo!.month)) \(realDateInfo!.days)"
-            }else{
+            } else {
                 dateInfo = realDateInfo!.dateToString(formatStr)
             }
-            
-            return (nil,dateInfo)
+
+            return (nil, dateInfo)
         }
         if (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].fireDayInfo.count >= indexRow {
             let eventmodel =  (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].fireDayInfo[indexRow - 1]
-            return (eventmodel,nil)
+            return (eventmodel, nil)
         }
-        
-        return (nil,nil)
+
+        return (nil, nil)
     }
 }

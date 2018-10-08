@@ -8,44 +8,43 @@
 
 import Foundation
 
-
 class DingTalkCalanderModel: NSObject {
-    
+
     var gregorionDay: Int = 0
-    
+
     var weekDay: Int = 0
-    
+
     var lunarDay: Int = 0
-    
+
     var isFireDay: Bool = false
-    
+
     var fireDayInfo: [String] = []
-    
+
     var isCurrentDay: Bool = false
-    
-    var isFirstDayCurrentMonth:Bool = false
-    
+
+    var isFirstDayCurrentMonth: Bool = false
+
     var isRestDay: DayType = .normal
-    
+
     var isCurrentMonthDay: Bool = false
-    
-    var dateInfo:Date! {
-        didSet{
+
+    var dateInfo: Date! {
+        didSet {
             //progress lunarDay
             if dateInfo != nil {
                 self.lunarDay = dateInfo.getLunarDayInfo()
             }
         }
     }
-    
+
     override init() {
         super.init()
     }
-    
-    func setParameters(gregorionDay:Int,weekDay:Int,
-                       lunarDay:Int,isCurrentDay:Bool,
-                       isFirstDayCurrentMonty:Bool,
-                       dateInfo:Date,isCurrentMonthDay:Bool) {
+
+    func setParameters(gregorionDay: Int, weekDay: Int,
+                       lunarDay: Int, isCurrentDay: Bool,
+                       isFirstDayCurrentMonty: Bool,
+                       dateInfo: Date, isCurrentMonthDay: Bool) {
         self.gregorionDay = gregorionDay
         self.lunarDay = lunarDay
         self.weekDay = weekDay
@@ -54,14 +53,11 @@ class DingTalkCalanderModel: NSObject {
         self.dateInfo = dateInfo
         self.isCurrentMonthDay  = isCurrentMonthDay
     }
-    
-    func setFireInfo(isFireDay:Bool,fireDayInfo:[String],isRestDay:DayType){
+
+    func setFireInfo(isFireDay: Bool, fireDayInfo: [String], isRestDay: DayType) {
         self.isFireDay = isFireDay
         self.fireDayInfo = fireDayInfo
         self.isRestDay = isRestDay
     }
-    
-    
-    
-    
+
 }

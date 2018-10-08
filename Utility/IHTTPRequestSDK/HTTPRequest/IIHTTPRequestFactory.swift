@@ -10,9 +10,9 @@ import Foundation
 
 /// 数据处理工厂类
 open class ResponseFactoary: NSObject {
-    func responseInstance(data:DataResponse<Any>,responseType: ResponseContentType,errorType: ERRORMsgType? = nil)->ResponseClass {
+    func responseInstance(data: DataResponse<Any>, responseType: ResponseContentType, errorType: ERRORMsgType? = nil) -> ResponseClass {
         if errorType != nil {
-            return ResponseERROR(data: data,errorType: errorType!)
+            return ResponseERROR(data: data, errorType: errorType!)
         }
         switch responseType {
         case .json:
@@ -26,50 +26,50 @@ open class ResponseFactoary: NSObject {
 }
 
 /// 返回数据类（基类）
-open class ResponseClass:NSObject {
-    
+open class ResponseClass: NSObject {
+
     /// 错误 可为nil
-    var errorValue:ErrorInfo!
-    
+    var errorValue: ErrorInfo!
+
     /// 结果dic 可为nil
     var dicValue: NSDictionary!
-    
+
     /// 结果arr 可为nil
     var arrValue: NSArray!
-    
+
     /// 结果string 可为nil
     var strValue: String!
-    
+
     /// alamofire-response，包含 [request & response]
     var response: DataResponse<Any>! {
-        didSet{
+        didSet {
             self.ocResponse = HTTPOCResponse(request: response.request, response: response.response)
         }
     }
-    
-    var ocResponse:HTTPOCResponse!
-    
-    func setData(_ data:DataResponse<Any>) {
+
+    var ocResponse: HTTPOCResponse!
+
+    func setData(_ data: DataResponse<Any>) {
         self.response = data
     }
-    
-    init(data: DataResponse<Any>,errorType: ERRORMsgType? = nil) {
+
+    init(data: DataResponse<Any>, errorType: ERRORMsgType? = nil) {
         super.init()
         if errorType != nil {
             self.errorValue = ErrorInfo(type: errorType!)
         }
         self.setData(data)
     }
-    
+
     /// 业务逻辑返回错误码+错误信息 true: 是 false: 没返回
-    func progressStupidErrmsg(_ data: NSDictionary)->Bool {
+    func progressStupidErrmsg(_ data: NSDictionary) -> Bool {
         if data["ErrorType"] != nil || data["errCode"] != nil || data["msg"] != nil {
             let emptyStr = ""
             let errMsg = "\(data["msg"] ?? emptyStr)\(data["Message"] ?? emptyStr)"
             self.errorValue = ErrorInfo(type: ERRORMsgType.businessErrorMsg, errorMsg: errMsg)
             self.errorValue.setLv2ErrorCode(with: "\(data["errCode"] ?? emptyStr)")
             return true
-        }else{
+        } else {
             return false
         }
     }
@@ -112,7 +112,7 @@ open class ResponseJSON: ResponseClass {
 
 /// 返回数据类-protobuf <Data>
 open class ResponseProtoBuf: ResponseClass {
-    
+
     override func setData(_ data: DataResponse<Any>) {
         super.setData(data)
     }

@@ -1,0 +1,11 @@
+# swift lint rules noah_shan 2018-10-8
+isabled_rules:
+  - trailing_whitespace
+  - line_length
+excluded: 
+  - Pods
+  - Carthage
+line_length:
+  warning: 110
+  ignores_function_declarations: true
+  ignores_comments: true

@@ -10,18 +10,18 @@ import Foundation
 
 /// 最近一次编辑的内容view-音频 + 时间
 class LstaedEditedInfoVw: UIView {
-    
+
     var vedioVw: OTVolumeVw!
-    
+
     var timeLB: UILabel = UILabel()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         initVw()
         setData()
     }
-    
+
     func initVw() {
         self.snp.makeConstraints { (make) in
             make.left.equalTo(18)
@@ -58,16 +58,16 @@ class LstaedEditedInfoVw: UIView {
         timeLB.font = APPDelStatic.uiFont(with: 11)
         timeLB.textColor = UIColor.gray
     }
-    
+
     func setData() {
         let realModel = NoteCreatingBLL.getInstance().showingNoteModel
-        let model = NoteTimelineVModel(model: realModel, txt: realModel.contentTxt.last!, modifyTime: realModel.modifyTime.last!,contentVolumeArr: realModel.videoNumberArr.last!)
+        let model = NoteTimelineVModel(model: realModel, txt: realModel.contentTxt.last!, modifyTime: realModel.modifyTime.last!, contentVolumeArr: realModel.videoNumberArr.last!)
         self.timeLB.text = "最近" + model.createTime
         for eachItem in model.contentVolumeArr {
             self.vedioVw.setValue(value: eachItem)
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("LstaedEditedInfoVw init fail..")
     }

@@ -12,19 +12,19 @@ class DingtalkGetTask: NSObject {
     override init() {
         super.init()
     }
-    
-    func getDataWithPage(page:Int)->[DingtalkTaskModel] {
+
+    func getDataWithPage(page: Int) -> [DingtalkTaskModel] {
         var result: [DingtalkTaskModel] = []
         for eachItem in 0 ... 9 {
             let item = DingtalkTaskModel()
             item.setData(startTime: Date(), endTime: Date(), title: "测试数据\(eachItem + 1)", toPerson: "", createTime: Date(), completedCount: 8, completeCount: 4)
             result.append(item)
         }
-        
+
         return result
     }
-    
+
     func setDataWithModel(model: DingtalkTaskModel) {
-        
+
     }
 }

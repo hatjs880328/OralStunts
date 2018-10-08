@@ -13,30 +13,30 @@ class NoteContextReCreateViewController: IIBaseViewController {
 
     var contextVw: ContextInsertVw!
     var voiceVw: VoiceBtnVw!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createBar()
         createVw()
     }
-    
+
     func createBar() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.postSignal))
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: APPDelStatic.themeColor]
     }
-    
+
     func createVw() {
         self.title = NoteCreatingBLL.getInstance().showingNoteModel.title
         self.navigationController?.isNavigationBarHidden = false
         let lastedVw = LstaedEditedInfoVw(frame: CGRect.zero, fatherVw: self.view)
-        self.contextVw = ContextInsertVw(frame: CGRect.zero, fatherVw: self.view,topVw: lastedVw)
-        self.voiceVw = VoiceBtnVw(frame: CGRect.zero, fatherVw: self.view,warningTxt:WhichStepCreatingNote.reContent.rawValue)
+        self.contextVw = ContextInsertVw(frame: CGRect.zero, fatherVw: self.view, topVw: lastedVw)
+        self.voiceVw = VoiceBtnVw(frame: CGRect.zero, fatherVw: self.view, warningTxt: WhichStepCreatingNote.reContent.rawValue)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     @objc func postSignal() {
         self.contextVw.postRecreateSignal()
     }

@@ -19,45 +19,44 @@
 import UIKit
 import Foundation
 
-
 /// progress userinfo tool
-class AOPNotificationCenterProgressCenter : NSObject {
-    
-    var userinfo : [AnyHashable: Any] = [: ]
-    
-    init(userinfo : [AnyHashable: Any]?) {
+class AOPNotificationCenterProgressCenter: NSObject {
+
+    var userinfo: [AnyHashable: Any] = [: ]
+
+    init(userinfo: [AnyHashable: Any]?) {
         super.init()
         if userinfo != nil {
             self.userinfo = userinfo!
         }
     }
-    
+
     func progressUserinfo() {}
-    
+
     func insertIntoMemCacheList(item: GodfatherEvent) {
         if AOPNBPCoreManagerCenter.getInstance().isHaveCacheFunctions {
             // insert cache.
             AOP1LvlMemCacheV20.getInstance().addOneItemFromNotificationCenter(item: item)
-        }else{
+        } else {
             // no cache - directly inert into mmap file sys
 //            print("start your show")
 //            print(Date().timeIntervalSince1970 * 1000)
-            AOPDiskIOProgress.getInstance().writeEventsToDisk(with: [NSUUID().uuidString:[item]])
+            AOPDiskIOProgress.getInstance().writeEventsToDisk(with: [NSUUID().uuidString: [item]])
 //            print(Date().timeIntervalSince1970 * 1000)
 //            AOPSQliteUtility.getInstance().insertSome(key: NSUUID().uuidString, value: item.description)
 //            print(Date().timeIntervalSince1970 * 1000)
         }
-        
+
     }
-    
+
     func alertInfo(realInfo: GodfatherEvent) {
         @discardableResult
-        func showAlert()->Bool {
+        func showAlert() -> Bool {
             let alert = UIAlertView(title: "AOPCore", message: realInfo.sourceName + realInfo.triggerDate!.description, delegate: nil, cancelButtonTitle: "OK")
             alert.show()
             return true
         }
-        
+
         //assert(showAlert())
     }
 }
@@ -87,8 +86,8 @@ class APPProgress: AOPNotificationCenterProgressCenter {
 }
 
 /// progress tool factory
-class AOPProgressCenterFactory : NSObject {
-    func concreateIns(userinfo: [AnyHashable: Any])->AOPNotificationCenterProgressCenter {
+class AOPProgressCenterFactory: NSObject {
+    func concreateIns(userinfo: [AnyHashable: Any]) -> AOPNotificationCenterProgressCenter {
         let eventType: String = "\(userinfo.first!.key)"
         switch eventType {
         case AOPEventType.tbselectedAction.rawValue:

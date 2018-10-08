@@ -16,11 +16,11 @@ class MianaddViewController: IIBaseViewController {
         self.view.backgroundColor = UIColor.white
         createVw()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         self.tabVw.leftVwloadData()
     }
@@ -28,7 +28,7 @@ class MianaddViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func createVw() {
         let topVw = TopHelloVw(frame: CGRect.zero, fatherVw: self.view)
         //let searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: topVw)

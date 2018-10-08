@@ -9,15 +9,15 @@ import UIKit
 import Foundation
 
 class Toast: UILabel {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("rush")
     }
-    
+
     func show(inSome: UIView) {
         self.alpha = 0.8
         inSome.addSubview(self)
@@ -32,11 +32,11 @@ class Toast: UILabel {
         self.textColor = UIColor.white
         self.textAlignment = .center
         self.font = APPDelStatic.uiFont(with: 15)
-        
+
         GCDUtils.delayProgress(delayTime: 1) {
             UIView.animate(withDuration: 2, animations: {
                 self.alpha = 0
-            }, completion: { (boolvalue) in
+            }, completion: { (_) in
                 self.removeFromSuperview()
             })
         }

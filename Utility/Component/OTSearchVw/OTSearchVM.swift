@@ -11,17 +11,17 @@ import RxSwift
 import RxCocoa
 
 class OTSearchVM: IIBaseVM {
-    
-    var didEditingPub:PublishSubject<Void> = PublishSubject<Void>()
-    
-    var didEditingOB:Observable<Void>!
-    
+
+    var didEditingPub: PublishSubject<Void> = PublishSubject<Void>()
+
+    var didEditingOB: Observable<Void>!
+
     var searchFdInput: PublishSubject<String> = PublishSubject<String>()
-    
-    var searchFdOutput:Observable<Void>!
-    
+
+    var searchFdOutput: Observable<Void>!
+
     weak var con: UIViewController!
-    
+
     override init() {
         super.init()
         self.didEditingOB = didEditingPub.asObservable().map({ () -> Void in
@@ -35,6 +35,5 @@ class OTSearchVM: IIBaseVM {
             }
         })
     }
-    
-    
+
 }

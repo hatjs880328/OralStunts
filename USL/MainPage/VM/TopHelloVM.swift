@@ -10,9 +10,9 @@ import Foundation
 import RxSwift
 
 class TopHelloVM: NSObject {
-    
+
     var outPut: Observable<String>!
-    
+
     override init() {
         super.init()
         self.outPut = Observable.create({ (observer) -> Disposable in
@@ -20,6 +20,5 @@ class TopHelloVM: NSObject {
             return Disposables.create()
         })
     }
-    
-    
+
 }

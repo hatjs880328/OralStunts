@@ -43,26 +43,26 @@ import Foundation
  */
 
 class IIModuleCore: NSObject {
-    
+
     /// 将模块持久在这里
     private var moduleIns: [ModuleGodFather] = []
-    
+
     /// 将模块和url持久化在这里，并建立对应关系
-    private var urlAndModuleDic: Dictionary<String,ModuleGodFather> = [:]
-    
+    private var urlAndModuleDic: Dictionary<String, ModuleGodFather> = [:]
+
     private override init() {
         super.init()
     }
-    
+
     private static var shareInstance: IIModuleCore!
-    
+
     public static func getInstance() -> IIModuleCore {
         if self.shareInstance == nil {
             shareInstance = IIModuleCore()
         }
         return shareInstance
     }
-    
+
     /// 注册服务
     func registerService(module: ModuleGodFather.Type) {
         let ins = module.init()
@@ -71,7 +71,7 @@ class IIModuleCore: NSObject {
             self.urlAndModuleDic[eachItem] = ins
         }
     }
-    
+
     /// 移除某个服务<移除之后，此模块下服务无法再被调用>
     func removeModule(moduleClass: AnyClass) {
         for eachKey in self.urlAndModuleDic.keys {
@@ -80,9 +80,9 @@ class IIModuleCore: NSObject {
             }
         }
     }
-    
+
     /// 获取某个模块下所有的ruls
-    func getUrls(with:AnyClass) ->[String]? {
+    func getUrls(with: AnyClass) -> [String]? {
         for eachKey in self.urlAndModuleDic.keys {
             if self.urlAndModuleDic[eachKey]!.isKind(of: with) {
                 return self.urlAndModuleDic[eachKey]?.urls
@@ -91,13 +91,13 @@ class IIModuleCore: NSObject {
         print("请问-你的类集成了ModuleGodFather否")
         return nil
     }
-    
+
     /// 根据URL调用某个方法[此方法无需返回值其他module处理结果放到callback中]
     /// 基本数据类型-int,double,float,bool,cgfloat不能作为返回值
     /// - Parameter url: 通知名字
     @discardableResult
-    public func invokingSomeFunciton(url:String,params:[String:Any]?,action:(@convention(block)(_ info:Any)->Void)?)->Any? {
-        var paraChange = [String:Any]()
+    public func invokingSomeFunciton(url: String, params: [String: Any]?, action:(@convention(block)(_ info: Any)->Void)?)->Any? {
+        var paraChange = [String: Any]()
         if params != nil {
             paraChange[IIModulefunctionParamsKey] = params
         }
@@ -111,14 +111,13 @@ class IIModuleCore: NSObject {
         }
         let obj = module!.exeOneFunction(notiName: url, params: paraChange)
         if obj == nil { return nil }
-        
+
         return obj!.takeUnretainedValue()
     }
-    
+
     /// 根据调用的路由，获取module,可能为空
-    private func getModule(with url: String)->ModuleGodFather? {
+    private func getModule(with url: String) -> ModuleGodFather? {
         return self.urlAndModuleDic[url]
     }
-    
-    
+
 }

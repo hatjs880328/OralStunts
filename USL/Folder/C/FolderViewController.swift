@@ -21,23 +21,23 @@ class FolderViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tabVw.getData()
     }
-    
+
     func createVw() {
         self.navigationController?.isNavigationBarHidden = true
         let topVw: TopLeftTitleVw = TopLeftTitleVw(frame: CGRect.zero, fatherVw: self.view, txt: "便签")
         // +号vw
-        let _ = AddRightVw(frame: CGRect.zero, fatherVw: self.view)
+        _ = AddRightVw(frame: CGRect.zero, fatherVw: self.view)
         // 搜索vw
         searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: topVw, jumpOrUse: true)
         // content tab vw
         tabVw = FolderTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: searchVw)
     }
-    
+
     func createAction() {
         self.tabVw.cellDidSelect = { [weak self]folderCellVModelInfo in
             let con = FolderContentsViewController()

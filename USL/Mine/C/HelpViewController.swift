@@ -17,7 +17,7 @@ class HelpViewController: IIBaseViewController {
         let vi = APPNoteVw(frame: self.view.frame)
         self.view.addSubview(vi)
         vi.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
     }
 

@@ -11,22 +11,22 @@ import UIKit
 
 /// bottom path
 class OTVoiceBLayer: CAShapeLayer {
-    
+
     override init() {
         super.init()
         self.lineWidth = 5
         self.strokeColor = APPDelStatic.themeColor.cgColor
         self.path = self.realPath.cgPath
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    var realPath:UIBezierPath {
+
+    var realPath: UIBezierPath {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: 0, y: 0))
         return path
     }
-    
+
 }

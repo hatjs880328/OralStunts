@@ -11,32 +11,32 @@ import RxCocoa
 import RxSwift
 
 class TitleInsertVw: UIView {
-    
+
     let titleTF = UITextField()
-    
+
     let vm = TtileInsertVM()
-    
+
     let arrow = UIImageView()
-    
-    var jumpPub = PublishSubject<(String,[Int32])>()
-    
+
+    var jumpPub = PublishSubject<(String, [Int32])>()
+
     var voiceAniVw: OTVolumeVw!
-    
+
     var aniVw = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-    
+
     var iflyVoiceAniPreVw: UIButton = UIButton()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         createVw()
         createRX()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.snp.makeConstraints { (make) in
             make.left.equalTo(0)
@@ -94,7 +94,7 @@ class TitleInsertVw: UIView {
         arrow.image = UIImage(named: "more.png")
         arrow.tapActionsGesture {[weak self]() in
             if self == nil { return }
-            self?.jumpPub.onNext((self!.titleTF.text!,self!.voiceAniVw.volumeList))
+            self?.jumpPub.onNext((self!.titleTF.text!, self!.voiceAniVw.volumeList))
         }
         // 底部提示语图片
         let warnPic = UIImageView()
@@ -119,32 +119,32 @@ class TitleInsertVw: UIView {
         warnTxt.textColor = UIColor.gray
         warnTxt.text = "点击向右的箭头进入正文编辑"
     }
-    
+
     func createRX() {
-        let _ = self.vm.titlePublisher.subscribe { [weak self](strValue) in
+        _ = self.vm.titlePublisher.subscribe { [weak self](strValue) in
             if strValue.element == nil { return }
             self?.titleTF.text = strValue.element!
             self?.progressIflyAniPreVw(aniStart: false)
             self?.aniVw.stopAnimating()
         }
-        
-        let _ = self.jumpPub.bind(to: self.vm.jumpInput)
-        
-        let _ = self.vm.outPut.asObservable().subscribe { [weak self](boolValue) in
+
+        _ = self.jumpPub.bind(to: self.vm.jumpInput)
+
+        _ = self.vm.outPut.asObservable().subscribe { [weak self](boolValue) in
             if boolValue.element == nil { return }
             self?.jumpNextVC(boolValue.element!)
         }
-        
-        let _ = self.vm.volumePublisher.subscribe { [weak self](intvalue) in
+
+        _ = self.vm.volumePublisher.subscribe { [weak self](intvalue) in
             if intvalue.element == nil || self == nil { return }
             self?.aniVw.startAnimating()
             self?.progressIflyAniPreVw(aniStart: true)
             self?.voiceAniVw.setValue(value: intvalue.element!)
         }
-        
+
     }
-    
-    func jumpNextVC(_ boolValue:Bool) {
+
+    func jumpNextVC(_ boolValue: Bool) {
         if !boolValue {
             OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "标题不能为空！")
             return
@@ -153,14 +153,14 @@ class TitleInsertVw: UIView {
         con.presentedVcHasNavigation = true
         self.viewController()?.navigationController?.pushViewController(con, animated: true)
     }
-    
+
     /// 菊花上面的预制图片变换规则
-    func progressIflyAniPreVw(aniStart:Bool) {
+    func progressIflyAniPreVw(aniStart: Bool) {
         //菊花动画开始
         if aniStart {
             self.iflyVoiceAniPreVw.alpha = 0
             self.iflyVoiceAniPreVw.isSelected = true
-        }else{
+        } else {
             //菊花动画结束
             self.iflyVoiceAniPreVw.alpha = 1
         }

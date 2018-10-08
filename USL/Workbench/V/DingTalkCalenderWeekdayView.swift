@@ -9,21 +9,20 @@
 import Foundation
 import UIKit
 
-
 class DingTalkCalenderWeekdayView: UIView {
-    
-    var weekArr = ["日","一","二","三","四","五","六"]
-    
+
+    var weekArr = ["日", "一", "二", "三", "四", "五", "六"]
+
     let eachItemWidth: CGFloat =  (UIScreen.main.bounds.width) / 7.0
-    
+
     let heightNormal: CGFloat = 45 * APPDelStatic.sizeScale
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
-    
-    func createView(added fatherView: UIView,topView: UIView) {
+
+    func createView(added fatherView: UIView, topView: UIView) {
         fatherView.addSubview(self)
         self.snp.makeConstraints { (make) in
             make.left.equalTo(0)
@@ -33,11 +32,11 @@ class DingTalkCalenderWeekdayView: UIView {
         }
         createView()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createView() {
         let font = APPDelStatic.uiFont(with: 10)
         let color = UIColor.gray
@@ -57,5 +56,5 @@ class DingTalkCalenderWeekdayView: UIView {
             }
         }
     }
-    
+
 }

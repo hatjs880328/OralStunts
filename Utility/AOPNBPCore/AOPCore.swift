@@ -27,27 +27,27 @@ import Aspects
  */
 
 class GodfatherSwizzingPostnotification: NSObject {
-    class func postNotification(notiName: Notification.Name,userInfo: [AnyHashable: Any]?) {
+    class func postNotification(notiName: Notification.Name, userInfo: [AnyHashable: Any]?) {
         NotificationCenter.default.post(name: notiName, object: nil, userInfo: userInfo)
     }
 }
 
 class GodfatherSwizzing: NSObject {
-    
+
     static let sourceJoinedCharacter: String = "-"
-    
+
     func aopFunction() {}
 }
 
 class TABLESwizzing: GodfatherSwizzing {
     /// tb-celldid-deselected
-    let tbDidselectedBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
+    let tbDidselectedBlock: @convention(block) (_ id: AspectInfo) -> Void = {aspectInfo in
         let event = AOPEventFilter.tbFilter(aspectInfo: aspectInfo)
-        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().tbDidSelectedAction, userInfo: [AOPEventType.tbselectedAction:event])
+        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().tbDidSelectedAction, userInfo: [AOPEventType.tbselectedAction: event])
     }
-    
+
     /// tb-reload[first remove anivw & addHelp note info]
-    let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
+    let tbBGBlock: @convention(block) (_ id: AspectInfo) -> Void = {aspectInfo in
         var tab = (aspectInfo.instance() as! UITableView)
         if !tab.tableReloadNumber {
             return
@@ -64,20 +64,20 @@ class TABLESwizzing: GodfatherSwizzing {
             if (boolStr as! String) == "true" {
                 if tab.numberOfRows(inSection: 0) != 0 {
                     tab.backgroundView = nil
-                }else{
-                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                } else {
+                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame": tab.frame], action: nil)
                     tab.backgroundView = resultVw as? UIView
                 }
-            }else {
+            } else {
                 tab.backgroundView = nil
                 return
             }
         })
-        
+
     }
-    
+
     /// tb-init[add anivw]
-    let tbInitBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
+    let tbInitBlock: @convention(block) (_ id: AspectInfo) -> Void = { aspectInfo in
         if (aspectInfo.instance() as? UITableView) == nil && (aspectInfo.instance() as? UICollectionView) == nil {
             return
         }
@@ -89,7 +89,7 @@ class TABLESwizzing: GodfatherSwizzing {
             make.centerX.equalTo(tab.snp.centerX)
         })
     }
-    
+
     /// tab-celldeselected
     override func aopFunction() {
         do {
@@ -102,13 +102,13 @@ class TABLESwizzing: GodfatherSwizzing {
             try UIScrollView.aspect_hook(#selector(UIScrollView.init(frame:)),
                                         with: .init(rawValue:0),
                                         usingBlock: tbInitBlock)
-        }catch {}
+        } catch {}
     }
 }
 
 class CollectionVWSwizzing: GodfatherSwizzing {
     /// tb-reload[first remove anivw & addHelp note info]
-    let tbBGBlock: @convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
+    let tbBGBlock: @convention(block) (_ id: AspectInfo) -> Void = {aspectInfo in
         var tab = (aspectInfo.instance() as! UICollectionView)
         if !tab.tableReloadNumber {
             return
@@ -125,40 +125,40 @@ class CollectionVWSwizzing: GodfatherSwizzing {
             if (boolStr as! String) == "true" {
                 if tab.numberOfItems(inSection: 0) != 0 {
                     tab.backgroundView = nil
-                }else{
-                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":tab.frame], action: nil)
+                } else {
+                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame": tab.frame], action: nil)
                     tab.backgroundView = resultVw as? UIView
                 }
-            }else {
+            } else {
                 tab.backgroundView = nil
                 return
             }
         })
     }
-    
+
     /// vc-viewdidappear & diddisappear
     override func aopFunction() {
         do {
             try UICollectionView.aspect_hook(#selector(UICollectionView.reloadSections(_:)),
                                         with: .init(rawValue:0),
                                         usingBlock: tbBGBlock)
-        }catch {}
+        } catch {}
     }
 }
 
 class VCSwizzing: GodfatherSwizzing {
     /// vc-viewdidappear
-    let viewdidAppearBlock: @convention(block) (_ id : AspectInfo)->Void = { aspectInfo in
+    let viewdidAppearBlock: @convention(block) (_ id: AspectInfo) -> Void = { aspectInfo in
         let event = AOPEventFilter.vcFilter(aspectInfo: aspectInfo, isAppear: true)
-        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().vceventAction, userInfo: [AOPEventType.vceventAction:event])
+        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().vceventAction, userInfo: [AOPEventType.vceventAction: event])
     }
-    
+
     /// vc-viewdiddisappear
-    let viewdidDisappearBlock:@convention(block) (_ id: AspectInfo)->Void = {aspectInfo in
+    let viewdidDisappearBlock:@convention(block) (_ id: AspectInfo) -> Void = {aspectInfo in
         let event = AOPEventFilter.vcFilter(aspectInfo: aspectInfo, isAppear: false)
-        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().vceventAction, userInfo: [AOPEventType.vceventAction:event])
+        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().vceventAction, userInfo: [AOPEventType.vceventAction: event])
     }
-    
+
     /// vc-viewdidappear & diddisappear
     override func aopFunction() {
         do {
@@ -168,52 +168,51 @@ class VCSwizzing: GodfatherSwizzing {
             try UIViewController.aspect_hook(#selector(UIViewController.viewDidDisappear(_:)),
                                              with: .init(rawValue:0),
                                              usingBlock: viewdidDisappearBlock)
-        }catch {}
+        } catch {}
     }
 }
 
 class ApplicitonSwizzing: GodfatherSwizzing {
     /// application-sendAction
-    let appSendActionBlock:@convention(block) (_ id: AspectInfo)-> Void = { aspectInfo in
+    let appSendActionBlock:@convention(block) (_ id: AspectInfo) -> Void = { aspectInfo in
         let event = AOPEventFilter.appFilter(aspectInfo: aspectInfo)
-        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().appSendActions, userInfo: [AOPEventType.applicationSendaction:event])
+        GodfatherSwizzingPostnotification.postNotification(notiName: Notification.Name.InspurNotifications().appSendActions, userInfo: [AOPEventType.applicationSendaction: event])
     }
-    
+
     /// navigation-pop(custom btn replace the sys navigationBar-backBtn)
-    let navigationPopBlock:@convention(block) (_ id: AspectInfo)-> Void = { aspectInfo in
+    let navigationPopBlock:@convention(block) (_ id: AspectInfo) -> Void = { aspectInfo in
     }
-    
+
     /// application sendaction
     override func aopFunction() {
-        do{
+        do {
             try UIControl.aspect_hook(#selector(UIControl.sendAction(_:to:for:)),
                                      with: .init(rawValue: 0),
                                      usingBlock: appSendActionBlock)
             try UINavigationController.aspect_hook(#selector(UINavigationController.popViewController(animated:)), with: .init(rawValue: 0), usingBlock: appSendActionBlock)
-        }catch {}
+        } catch {}
     }
 }
 
-
 /// aop core manager---start service here [iipitching ^ aopnbpcore]
 class AOPNBPCoreManagerCenter: NSObject {
-    
+
     private static var shareInstance: AOPNBPCoreManagerCenter!
-    
+
     /// aop-nbp-ut have cache ?
     public var isHaveCacheFunctions: Bool = false
-    
+
     private override init() {
         super.init()
     }
-    
-    static func getInstance()-> AOPNBPCoreManagerCenter {
+
+    static func getInstance() -> AOPNBPCoreManagerCenter {
         if shareInstance == nil {
             shareInstance = AOPNBPCoreManagerCenter()
         }
         return shareInstance
     }
-    
+
     /// AOP-NBP-monitor-service start  [withCache-if have cache functions]
     func startService(_ withCache: Bool = false) {
         self.createFolder()
@@ -225,18 +224,17 @@ class AOPNBPCoreManagerCenter: NSObject {
         CollectionVWSwizzing().aopFunction()
         UICollectionView.initializeMethod()
     }
-    
+
     /// before start service - create AOPNBP Folder - for mmap open file function
     private func createFolder() {
         let aopFileFolder = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent("AOPNBPUTFile")
         let filemanager = FileManager()
-        var isDir:ObjCBool = false
+        var isDir: ObjCBool = false
         let exist = filemanager.fileExists(atPath: aopFileFolder, isDirectory: &isDir)
         if !(isDir.boolValue && exist) {
             do {
                 try filemanager.createDirectory(atPath: aopFileFolder, withIntermediateDirectories: true, attributes: nil)
-            }catch {}
+            } catch {}
         }
     }
 }
-

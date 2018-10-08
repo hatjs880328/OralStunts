@@ -9,10 +9,9 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate { 
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // xml-ioc service start
@@ -33,20 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         if LoginBll().analyzeUseAppCount() == .noLogin {
             self.window?.rootViewController = LoginInViewController()
-        }else{
+        } else {
             self.window?.rootViewController = SaltedFishTabBarVC()
         }
         self.window?.makeKeyAndVisible()
-        
+
         return true
     }
-    
+
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if userActivity.activityType.contains("com.oralstunts.videoDing") {
             APPDelBLL().userActivityJumpToNoteCreateVC()
         }
         return true
     }
-    
-}
 
+}

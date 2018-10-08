@@ -8,25 +8,24 @@
 
 import Foundation
 
-
 class MinePersonalInfoVM: IIBaseVM {
-    
+
     override init() {
         super.init()
     }
-    
+
     /// 更改性别-返回图片的名称
-    func updateHeadImg()->String {
+    func updateHeadImg() -> String {
         if MineBLL().getUserInfo().gender == "boy" {
             MineBLL().updateGender(gender: "girl")
             return "girl.png"
-        }else{
+        } else {
             MineBLL().updateGender(gender: "boy")
             return "boy.png"
         }
     }
-    
-    func getHeadImg()->String {
+
+    func getHeadImg() -> String {
         if MineBLL().getUserInfo().gender == "boy" { return "boy.png" }
         return "girl.png"
     }

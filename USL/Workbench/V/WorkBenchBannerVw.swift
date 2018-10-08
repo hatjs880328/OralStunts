@@ -10,25 +10,25 @@ import Foundation
 import SnapKit
 
 class WorkBenchBannerVw: UIView {
-    
-    let txtArr = ["日程","任务","会议"]
-    
+
+    let txtArr = ["日程", "任务", "会议"]
+
     var txtVwArr = [UILabel]()
-    
+
     let scrollLine = UIView()
-    
-    var tapAction: ((_ index: Int,_ txt:String)->Void)!
-    
+
+    var tapAction: ((_ index: Int, _ txt: String) -> Void)!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func createVw(with fatherVw: UIView,top topVw: UIView) {
+
+    func createVw(with fatherVw: UIView, top topVw: UIView) {
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
             make.top.equalTo(topVw.snp.bottom)
@@ -79,7 +79,7 @@ class WorkBenchBannerVw: UIView {
         }
         botLine.backgroundColor = APPDelStatic.lightGray
     }
-    
+
     func eachItemTap(vi: UILabel) {
         for eachItem in self.txtVwArr {
             eachItem.textColor = UIColor.black
@@ -96,8 +96,8 @@ class WorkBenchBannerVw: UIView {
         }
         // action
         for eachItem in 0 ... self.txtVwArr.count - 1 {
-            if vi === self.txtVwArr[eachItem] && self.tapAction != nil  {
-                self.tapAction(eachItem,txtArr[eachItem])
+            if vi === self.txtVwArr[eachItem] && self.tapAction != nil {
+                self.tapAction(eachItem, txtArr[eachItem])
             }
         }
     }

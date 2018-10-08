@@ -45,5 +45,5 @@ class CloudMineTests: XCTestCase {
 //        let con = service.jumpToCloudMineVC()
 //        XCTAssert(con.isKind(of: CloudMineViewController.self), "跳转到的控制器是cloudminevc")
 //    }
-    
+
 }

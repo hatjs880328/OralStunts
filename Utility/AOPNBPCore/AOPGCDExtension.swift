@@ -22,13 +22,13 @@ import Foundation
 /// dispatch - once function
 extension DispatchQueue {
     static var onceDic: [String: String] = [:]
-    static func once(taskid:String,action:()->Void) {
+    static func once(taskid: String, action:() -> Void) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
         let taskID: String = taskid
         if onceDic[taskID] != nil {
             return
-        }else{
+        } else {
             onceDic[taskID] = "0"
         }
         action()
@@ -36,43 +36,43 @@ extension DispatchQueue {
 }
 
 class GCDUtils {
-    
+
     /**
      delay progress - success return main thread  [seconds]
      
      - parameter delayTime:   time-second
      - parameter yourFuncton: action
      */
-    class func delayProgress(delayTime:Int,yourFuncton:@escaping ()->()){
+    class func delayProgress(delayTime: Int, yourFuncton:@escaping () -> Void) {
         let delay = DispatchTime.now() + DispatchTimeInterval.seconds(delayTime)
         DispatchQueue.main.asyncAfter(deadline: delay) {
             yourFuncton()
         }
     }
-    
+
     /// delay progress - success return main thread  [milliseconds]
     ///
     /// - Parameters:
     ///   - milliseconds:  1s = 1000ms
     ///   - yourFunc: function
-    class func delayProgerssWithFloatSec(milliseconds:Int,yourFunc:@escaping ()->()) {
+    class func delayProgerssWithFloatSec(milliseconds: Int, yourFunc:@escaping () -> Void) {
         let delay = DispatchTime.now() + DispatchTimeInterval.milliseconds(milliseconds)
         DispatchQueue.main.asyncAfter(deadline: delay) {
             yourFunc()
         }
     }
-    
+
     /**
      goto main thread
      
      - parameter youraction: action
      */
-    class func toMianThreadProgressSome(youraction:@escaping ()->Void) {
+    class func toMianThreadProgressSome(youraction:@escaping () -> Void) {
         DispatchQueue.main.async {
             youraction()
         }
     }
-    
+
     /**
      first create [new thread] async progress func background & then return the main thread
      
@@ -80,15 +80,15 @@ class GCDUtils {
      - parameter asyncDispathchFunc:  action
      - parameter endMainDispatchFunc: defer in main thread do it.
      */
-    class func asyncProgress(dispatchLevel:Int,asyncDispathchFunc:@escaping ()->(),endMainDispatchFunc:@escaping ()->()){
-        var level:DispatchQoS.QoSClass?
-        if(dispatchLevel == 1){
+    class func asyncProgress(dispatchLevel: Int, asyncDispathchFunc:@escaping () -> Void, endMainDispatchFunc:@escaping () -> Void) {
+        var level: DispatchQoS.QoSClass?
+        if(dispatchLevel == 1) {
             level = DispatchQoS.QoSClass.userInteractive
-        }else if(dispatchLevel == 2){
+        } else if(dispatchLevel == 2) {
             level = DispatchQoS.QoSClass.userInitiated
-        }else if(dispatchLevel == 3){
+        } else if(dispatchLevel == 3) {
             level = DispatchQoS.QoSClass.utility
-        }else{
+        } else {
             level = DispatchQoS.QoSClass.background
         }
         DispatchQueue.global(qos: level!).async {
@@ -98,14 +98,14 @@ class GCDUtils {
             }
         }
     }
-    
+
     /**
      two non-main thread progress something async - then return the main thread do something
      
      - parameter endMainDispatchFunc: main thread do it last
      - parameter asyncDispicth:       thread
      */
-    class func asyncSomeProgressThenDeelInmainqueue(endMainDispatchFunc:@escaping ()->(),asyfuncOne:@escaping ()->(),asyfuncTwo:@escaping (_ actionone:()->Void)->Void){
+    class func asyncSomeProgressThenDeelInmainqueue(endMainDispatchFunc:@escaping () -> Void, asyfuncOne:@escaping () -> Void, asyfuncTwo:@escaping (_ actionone:()->Void)->Void) {
         var flagOne = 0
         var flagTwo = 0
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
@@ -126,7 +126,7 @@ class GCDUtils {
             })
         }
     }
-    
+
     /**
      threads sync progres [sync]
      some distinct thread-task put in one thread [main thread]
@@ -136,7 +136,7 @@ class GCDUtils {
      - parameter thirdDispatch:  three-task
      - parameter others:         others-task
      */
-    class func dispatchAsyncChuan(firstDispatch:@escaping ()->(),secondDispatch:@escaping ()->(),thirdDispatch:@escaping ()->(),others:()->()...){
+    class func dispatchAsyncChuan(firstDispatch:@escaping () -> Void, secondDispatch:@escaping () -> Void, thirdDispatch:@escaping () -> Void, others:() -> Void...) {
         let groupDispatch: DispatchGroup = DispatchGroup()
         let dispatchAsy = DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive)
         groupDispatch.enter()
@@ -156,7 +156,7 @@ class GCDUtils {
         }
         groupDispatch.leave()
     }
-    
+
     /**
      threads async progres [async]
      
@@ -165,8 +165,8 @@ class GCDUtils {
      - parameter thirdDispatch:  task
      - parameter others:         others
      */
-    class func dispatchAsyncBing(firstDispatch:@escaping ()->(),secondDispatch:@escaping ()->(),thirdDispatch:@escaping ()->(),others:()->()...){
-        let groupDispatch:DispatchGroup = DispatchGroup()
+    class func dispatchAsyncBing(firstDispatch:@escaping () -> Void, secondDispatch:@escaping () -> Void, thirdDispatch:@escaping () -> Void, others:() -> Void...) {
+        let groupDispatch: DispatchGroup = DispatchGroup()
         let dispatchAsy = DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive)
         groupDispatch.enter()
         dispatchAsy.async {
@@ -187,23 +187,23 @@ class GCDUtils {
             }
         }
     }
-    
+
     /// thread group - sync lock [one & two are all over then progress endAction]
     ///
     /// - Parameters:
     ///   - actionOne: one-task
     ///   - actionTwo: two-task
     ///   - endAction: endAction
-    class func someFuncitonEndTogether(actionOne:@escaping ()->Void,actionTwo:@escaping ()->Void,endAction:()->Void) {
+    class func someFuncitonEndTogether(actionOne:@escaping () -> Void, actionTwo:@escaping () -> Void, endAction:() -> Void) {
         let disGp = DispatchGroup()
         let disOne = DispatchQueue(label: "one")
         let itemOne = DispatchWorkItem(block: actionOne)
         disOne.async(group: disGp, execute: itemOne)
-        
+
         let disTwo = DispatchQueue(label: "two")
         let itemTwo = DispatchWorkItem(block: actionTwo)
         disTwo.async(group: disGp, execute: itemTwo)
-        
+
         disGp.wait()
         endAction()
     }

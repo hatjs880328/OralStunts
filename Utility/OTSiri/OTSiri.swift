@@ -13,14 +13,14 @@ import Intents
 import CoreSpotlight
 
 class OTSiri: NSObject {
-    
+
     override init() {
         super.init()
     }
-    
+
     @available(iOS 10.0, *)
-    class func videoDing(vi:UIView)->NSUserActivity {
-        let activity = NSUserActivity(activityType:"com.oralstunts.videoDing")
+    class func videoDing(vi: UIView) -> NSUserActivity {
+        let activity = NSUserActivity(activityType: "com.oralstunts.videoDing")
         INPreferences.requestSiriAuthorization { (status) in
             switch status {
             case .notDetermined:
@@ -34,20 +34,20 @@ class OTSiri: NSObject {
             }
         }
         activity.title="语音便捷打开此APP"
-        activity.userInfo = ["speech":"便捷创建"]
+        activity.userInfo = ["speech": "便捷创建"]
         activity.isEligibleForSearch=true
         if #available(iOS 12.0, *) {
             activity.isEligibleForPrediction = true
         } else {
         }
         let attribute = CSSearchableItemAttributeSet()
-        let icon = UIImage(named:"note_create_righticon")
+        let icon = UIImage(named: "note_create_righticon")
         attribute.thumbnailData = UIImagePNGRepresentation(icon!)
         attribute.contentDescription = "你可以说：创建新的便签"
         activity.contentAttributeSet = attribute
         vi.userActivity = activity
         activity.becomeCurrent()
-        
+
         return activity
     }
 }

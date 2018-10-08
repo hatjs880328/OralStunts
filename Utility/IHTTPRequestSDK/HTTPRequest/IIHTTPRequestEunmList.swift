@@ -9,7 +9,7 @@
 import Foundation
 
 /// response header content-type
-public enum ResponseContentType:String {
+public enum ResponseContentType: String {
     case json = "application/json;charset=utf-8"
     case html = "text/html"
     case protoBuf = "text/plain"
@@ -26,8 +26,8 @@ public enum ResponseContentType:String {
     case delete
     case trace
     case connect
-    
-    func changeToAlaMethod()->HTTPMethod {
+
+    func changeToAlaMethod() -> HTTPMethod {
         switch self {
         case .options:
             return HTTPMethod.options
@@ -60,7 +60,7 @@ public enum ResponseContentType:String {
  - businessErrorMsg:               返回了业务错误信息eg,["errCode":"-3","msg":"未将对象引用指向对象实例","errorLvl":"3"]
  - unknowError:                    nginx返回错误码不做处理
  */
-@objc public enum ERRORMsgType:Int {
+@objc public enum ERRORMsgType: Int {
     case noConnection
     case timeOut
     case businessErrorMsg

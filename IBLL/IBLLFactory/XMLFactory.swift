@@ -26,31 +26,29 @@ import Foundation
   Get it's instance when use ,then release . Don't retain it all over.
  */
 
-
 /// XMLParser - https://github.com/iturb/xmlhero
 /// XMLDictionary - https://github.com/nicklockwood/XMLDictionary
 class XMLHandler: NSObject {
-    
+
     private let xmlFileCollection = ["SourceBean"]
-    
+
     /// parse the xml file
-    private func getData(_ xmlFileName: String)->NSArray{
+    private func getData(_ xmlFileName: String) -> NSArray {
         let path = Bundle.main.path(forResource: xmlFileName, ofType: "xml")
         let dicDoc = NSDictionary(xmlFile: path!)
         return dicDoc!["bean"] as! NSArray
     }
-    
+
     /// Start - service
-    public func xmlFileStart()->NSArray {
+    public func xmlFileStart() -> NSArray {
         var resultArr: NSArray = NSArray()
         for eachXMLName in self.xmlFileCollection {
             resultArr = resultArr.addingObjects(from: getData(eachXMLName) as! [Any]) as NSArray
         }
         return resultArr
     }
-    
-    deinit{
+
+    deinit {
         DEBUGPrintLog("-- xmlHandler release --")
     }
 }
-

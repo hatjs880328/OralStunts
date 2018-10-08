@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 
 class FilterDetailVw: UIView {
-    
-    var eachItemHeight:Int = 40
-    
+
+    var eachItemHeight: Int = 40
+
     var dataInfo: [String]!
-    
+
     var topVw: UIView!
-    
+
     var txtVwArr: [UILabel] = []
-    
+
     var checkVwArr: [UIImageView] = []
-    
-    var tapActions: ((_ str: String,_ index: Int)->Void)!
-    
+
+    var tapActions: ((_ str: String, _ index: Int) -> Void)!
+
     var selectedIndex: Int = 0
-    
-    init(frame: CGRect,topView:UIView,fatherView: UIView,dataInfo: [String],selectedIndex: Int) {
+
+    init(frame: CGRect, topView: UIView, fatherView: UIView, dataInfo: [String], selectedIndex: Int) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         fatherView.addSubview(self)
@@ -34,7 +34,7 @@ class FilterDetailVw: UIView {
         self.selectedIndex = selectedIndex
         createView()
     }
-    
+
     func createView() {
         let height = eachItemHeight * self.dataInfo.count
         self.snp.makeConstraints { (make) in
@@ -86,7 +86,7 @@ class FilterDetailVw: UIView {
             }
         }
     }
-    
+
     func tapAction(vi: UILabel) {
         for eachItem in 0 ..< self.txtVwArr.count {
             if vi === self.txtVwArr[eachItem] {
@@ -95,11 +95,11 @@ class FilterDetailVw: UIView {
                 }
                 self.checkVwArr[eachItem].alpha = 1
                 if self.tapActions == nil { return }
-                self.tapActions(vi.text!,eachItem)
+                self.tapActions(vi.text!, eachItem)
             }
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

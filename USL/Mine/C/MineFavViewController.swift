@@ -9,23 +9,23 @@
 import UIKit
 
 class MineFavViewController: IIBaseViewController {
-    
+
     var tab: SearchVCTabVw!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "我喜欢的"
         self.navigationController?.isNavigationBarHidden = false
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         initVw()
         self.getData()
     }
-    
+
     func initVw() {
         if tab != nil { return }
         let emptyVw = UIView()
@@ -38,16 +38,16 @@ class MineFavViewController: IIBaseViewController {
         }
         tab = SearchVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: emptyVw)
     }
-    
+
     func getData() {
         GCDUtils.delayProgress(delayTime: 1) {
             self.tab.vm.loadFavData()
         }
     }
-    
+
     @objc func selectAllItem() {
         let showStr = self.tab.vm.selectAllOrNot()
         self.navigationItem.rightBarButtonItem?.title = showStr
     }
-    
+
 }

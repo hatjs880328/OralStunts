@@ -10,7 +10,6 @@
 //
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ** * * * *
 
-
 import Foundation
 
 // 对于中间件的作用说明：如果在产品进化过程中，yycache第三方需要替换或者更新，
@@ -18,44 +17,44 @@ import Foundation
 
 /// YYCache中间件
 class IICacheManager: NSObject {
-    
+
     private override init() {
         super.init()
     }
-    
+
     static private var shareInstance: IICacheManager!
-    
+
     @objc public static func getInstance() -> IICacheManager {
         if self.shareInstance == nil {
             self.shareInstance = IICacheManager()
         }
         return self.shareInstance
     }
-    
+
     /// 缓存对象
     private let yycache = YYCache(name: IICacheStorage().iiCacheStorageName)
-    
+
     /// 判定是否包含某个key
-    func isContains(key: String) ->Bool {
+    func isContains(key: String) -> Bool {
         if yycache == nil { return false }
-        return self.yycache!.containsObject(forKey:key)
+        return self.yycache!.containsObject(forKey: key)
     }
-    
+
     /// 存储一个对象，如果已经存在则覆盖
-    func saveObj(key: String,someThing : NSCoding) {
+    func saveObj(key: String, someThing: NSCoding) {
         self.yycache?.setObject(someThing, forKey: key)
     }
-    
+
     /// 获取缓存数据根据key
-    func getObj(with key: String)->NSCoding? {
-        return self.yycache?.object(forKey:key)
+    func getObj(with key: String) -> NSCoding? {
+        return self.yycache?.object(forKey: key)
     }
-    
+
     /// 根据key删除某一段缓存
     @objc func removeObj(with key: String) {
         self.yycache?.removeObject(forKey: key)
     }
-    
+
     /// 谨慎使用，移除所有缓存
     func removeAllCache() {
         self.yycache?.removeAllObjects()

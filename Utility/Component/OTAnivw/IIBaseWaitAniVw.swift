@@ -8,11 +8,10 @@
 
 import Foundation
 
+class IIBaseWaitAniVw: UIView, MONActivityIndicatorViewDelegate {
 
-class IIBaseWaitAniVw: UIView,MONActivityIndicatorViewDelegate {
-    
     let indic = MONActivityIndicatorView()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         indic.radius = 5
@@ -28,15 +27,15 @@ class IIBaseWaitAniVw: UIView,MONActivityIndicatorViewDelegate {
         }
         indic.startAnimating()
     }
-    
+
     func stopAni() {
         self.indic.stopAnimating()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// 等待动画回调
     func activityIndicatorView(_ activityIndicatorView: MONActivityIndicatorView!, circleBackgroundColorAt index: UInt) -> UIColor! {
         let red = Double((arc4random() % 256))/255.0

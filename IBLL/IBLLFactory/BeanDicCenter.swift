@@ -21,44 +21,44 @@ import Foundation
 /// Bean factory - progress xml file & get all bean
 /// (don't create bean's instance,just get xml str info)
 class BeanDicCenter: NSObject {
-    
+
     let keyStr = "_id"
-    
+
     let valueStr = "_class"
-    
+
     private static var shareInstance: BeanDicCenter!
-    
+
     var xmlHandler: XMLHandler! = XMLHandler()
-    
-    public var beanDic:Dictionary<String,String> = [:]
-    
+
+    public var beanDic: Dictionary<String, String> = [:]
+
     private override init() { super.init() }
-    
-    public static func getInstance()->BeanDicCenter {
+
+    public static func getInstance() -> BeanDicCenter {
         if shareInstance == nil {
             shareInstance = BeanDicCenter()
         }
         return shareInstance
     }
-    
+
     /// start - service [bean factory start service]
     public func startService() {
         let xmlBeanArr = self.xmlHandler.xmlFileStart()
         self.loopProgress(xmlArr: xmlBeanArr)
         self.xmlHandler = nil
     }
-    
+
     private func loopProgress(xmlArr info: NSArray) {
         for eachXmlBean in info {
             if let xmlDic = eachXmlBean as? NSDictionary {
                 self.analyzeEachBean(with: xmlDic)
-            }else{
+            } else {
                 DEBUGPrintLog("\(eachXmlBean)")
             }
         }
         DEBUGPrintLog("-- the xml file progress over --")
     }
-    
+
     private func analyzeEachBean(with dicInfo: NSDictionary) {
         self.beanDic[dicInfo[self.keyStr] as! String] = dicInfo[self.valueStr] as? String
     }

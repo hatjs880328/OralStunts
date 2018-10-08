@@ -21,7 +21,7 @@
 import Foundation
 
 /// event type (1 lvl)
-enum AOPEventType:String {
+enum AOPEventType: String {
     case tbselectedAction
     case vceventAction
     case applicationSendaction
@@ -53,5 +53,3 @@ extension Notification.Name {
         var appSendActions = Notification.Name(AOPEventType.applicationSendaction.rawValue)
     }
 }
-
-

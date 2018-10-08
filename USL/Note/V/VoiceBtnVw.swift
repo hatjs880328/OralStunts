@@ -9,18 +9,18 @@
 import Foundation
 
 class VoiceBtnVw: UIView {
-    
+
     var warningLb: UILabel = UILabel()
-    
+
     let picWeight = APPDelStatic.aWeight / 2
-    
+
     var vm: VoiceBtnVM!
-    
-    var warningTxt:String = ""
-    
+
+    var warningTxt: String = ""
+
     var listeningTxt: String = "正在听写..."
-    
-    init(frame: CGRect,fatherVw: UIView,warningTxt:String) {
+
+    init(frame: CGRect, fatherVw: UIView, warningTxt: String) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.vm = VoiceBtnVM(warningTxt)
@@ -28,11 +28,11 @@ class VoiceBtnVw: UIView {
         createVw()
         createVm()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
@@ -75,7 +75,7 @@ class VoiceBtnVw: UIView {
         }
         picVw.image = UIImage(named: "voice.png")
     }
-    
+
     func createVm() {
         self.vm.volumeAction = { int32Value in
             if let contextVC = self.viewController() as? NoteContextCreateViewController {
@@ -88,7 +88,7 @@ class VoiceBtnVw: UIView {
                 recontentVC.contextVw.vm.postVolume(int32Value)
             }
         }
-        
+
         self.vm.resultAction = { resultValue in
             if let createVC = self.viewController() as? NoteCreateViewController {
                 createVC.titleVw.vm.postTitle(resultValue)
@@ -100,16 +100,16 @@ class VoiceBtnVw: UIView {
                 recontentVC.contextVw.vm.postTitle(resultValue)
             }
         }
-        
+
         self.vm.warningTxtChangeAction = { txt in
             self.warningLb.text = txt
         }
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.vm.start()
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.vm.stop()
     }

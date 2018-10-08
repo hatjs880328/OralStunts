@@ -10,7 +10,7 @@ import UIKit
 
 class LoginInViewController: IIBaseViewController {
 
-    var vw:LoginInVw!
+    var vw: LoginInVw!
     override func viewDidLoad() {
         super.viewDidLoad()
         createVw()
@@ -19,15 +19,15 @@ class LoginInViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func createVw() {
         self.vw = LoginInVw(frame: .zero, fatherVw: self.view)
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
          self.vw.deinitTimer()
     }
-    
+
     deinit {
         //print("deinitloginvc")
     }

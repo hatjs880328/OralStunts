@@ -8,14 +8,13 @@
 
 import Foundation
 
-
 class ShelterVw: UIView {
-    var tapAction:(()->Void)!
-    init(frame: CGRect,fatherVw: UIView) {
+    var tapAction:(() -> Void)!
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
         self.backgroundColor = APPDelStatic.lightGray
         self.alpha = 0
@@ -24,19 +23,17 @@ class ShelterVw: UIView {
             self?.tapAction()
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func showSelf() {
         self.alpha = 0.6
     }
-    
+
     func hiddenSelf() {
         self.alpha = 0
     }
-    
-    
-    
+
 }

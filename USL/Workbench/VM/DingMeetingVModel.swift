@@ -15,12 +15,12 @@ class DingMeetingVModel: NSObject {
     var createPerson: String = ""
     var createTime: String = ""
     var completedInfo: String = ""
-    var cellHeight:CGFloat = 0
-    var state:String = "已关闭"
-    var picUrl:String = ""
-    var address:String = ""
-    var taskCount:String = ""
-    
+    var cellHeight: CGFloat = 0
+    var state: String = "已关闭"
+    var picUrl: String = ""
+    var address: String = ""
+    var taskCount: String = ""
+
     init(with: DingtalkMeetingModel) {
         super.init()
         self.title = with.title
@@ -38,11 +38,11 @@ class DingMeetingVModel: NSObject {
         let splitInfoEnd = formatDateStrEnd.split(" ")
         if with.startTime.days == with.endTime.days && with.startTime.year == with.endTime.year && with.startTime.month == with.endTime.month {
             self.durationTime = splitInfoStart[0] + " " + "周\(with.startTime.week)" + " " + splitInfoStart[1] + "~" + splitInfoEnd[1]
-        }else{
+        } else {
             let startStr = splitInfoStart[0] + " " + "周\(with.startTime.week)" + " " + splitInfoStart[1]
             let endStr = splitInfoEnd[0] + " " + "周\(with.endTime.week)" + " " + splitInfoEnd[1]
             self.durationTime =  startStr + "~" + endStr
         }
     }
-    
+
 }

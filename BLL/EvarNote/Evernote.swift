@@ -19,14 +19,14 @@ class Evernote: NSObject {
     override init() {
         super.init()
     }
-    
+
     /// 注册服务
     func setupKey() {
         ENSession.setSharedSessionConsumerKey(IIBizConfig.evernoteKey, consumerSecret: IIBizConfig.evernoteSecret, optionalHost: ENSessionHostSandbox)
     }
-    
+
     /// 身份认证
-    func authenticationSetup(delegate:UIViewController) {
+    func authenticationSetup(delegate: UIViewController) {
         ENSession.shared.authenticate(with: delegate, preferRegistration: false) { (errorInfo) in
             if errorInfo != nil {
                 //认证失败

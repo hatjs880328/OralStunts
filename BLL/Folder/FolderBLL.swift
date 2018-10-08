@@ -8,18 +8,17 @@
 
 import Foundation
 
-
 class FolderBLL: NSObject {
     let dal = FolderDAL()
     override init() {
         super.init()
     }
-    
+
     func insert(with model: OTFolderModel) {
         dal.insert(with: model)
     }
-    
-    func getInfo()->[OTFolderModel] {
+
+    func getInfo() -> [OTFolderModel] {
         let arrInfo = dal.getData()
         var result = [OTFolderModel]()
         for eachItem in arrInfo {
@@ -31,13 +30,13 @@ class FolderBLL: NSObject {
         }
         return result
     }
-    
-    func deleteFolder(with folderId:String) {
+
+    func deleteFolder(with folderId: String) {
         dal.deleteFolder(with: folderId)
         //delete note from notetab where inclode by this folder
         OTNoteDAL().deleteAllNote(inclodes: folderId)
     }
-    
+
     func deleteAllInfo() {
         dal.deleteAllInfo()
     }

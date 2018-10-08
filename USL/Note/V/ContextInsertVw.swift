@@ -11,35 +11,35 @@ import RxSwift
 import RxCocoa
 
 class ContextInsertVw: UIView {
-    
+
     let titleTF = UITextView()
-    
+
     let vm = ContextInsertVM()
-    
+
     var aniVw = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-    
+
     var voiceAniVw: OTVolumeVw!
-    
-    var donePub = PublishSubject<(String,[Int32])>()
-    
-    var reCreateDonePub = PublishSubject<(String,[Int32])>()
-    
+
+    var donePub = PublishSubject<(String, [Int32])>()
+
+    var reCreateDonePub = PublishSubject<(String, [Int32])>()
+
     var iflyVoiceAniPreVw = UIButton()
-    
+
     var topVw: UIView?
-    
-    init(frame: CGRect,fatherVw: UIView,topVw: UIView? = nil) {
+
+    init(frame: CGRect, fatherVw: UIView, topVw: UIView? = nil) {
         super.init(frame: frame)
         self.topVw = topVw
         fatherVw.addSubview(self)
         createVw()
         createRX()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         if self.topVw == nil {
             self.snp.makeConstraints { (make) in
@@ -48,7 +48,7 @@ class ContextInsertVw: UIView {
                 make.top.equalTo(0)
                 make.height.equalTo(260 * APPDelStatic.sizeScale)
             }
-        }else{
+        } else {
             self.snp.makeConstraints { (make) in
                 make.left.equalTo(0)
                 make.right.equalTo(0)
@@ -128,23 +128,23 @@ class ContextInsertVw: UIView {
         warnTxt.textColor = UIColor.gray
         warnTxt.text = "点击右上角的完成按钮编辑结束"
     }
-    
+
     func createRX() {
-        let _ = self.vm.titlePublisher.subscribe { [weak self](strValue) in
+        _ = self.vm.titlePublisher.subscribe { [weak self](strValue) in
             if strValue.element == nil { return }
             self?.titleTF.text = strValue.element!
             self?.progressIflyAniPreVw(aniStart: false)
             self?.aniVw.stopAnimating()
         }
-        let _ = self.vm.volumePublisher.subscribe { [weak self](intvalue) in
+        _ = self.vm.volumePublisher.subscribe { [weak self](intvalue) in
             if intvalue.element == nil { return }
             self?.progressIflyAniPreVw(aniStart: true)
             self?.aniVw.startAnimating()
             self?.voiceAniVw.setValue(value: intvalue.element!)
         }
         //创建时信号量
-        let _ = self.donePub.bind(to: self.vm.dongInput)
-        let _ = self.vm.outPutSignal.subscribe { [weak self](event) in
+        _ = self.donePub.bind(to: self.vm.dongInput)
+        _ = self.vm.outPutSignal.subscribe { [weak self](event) in
             if event.element == nil || event.element == false {
                 self?.showAlert()
                 return
@@ -154,8 +154,8 @@ class ContextInsertVw: UIView {
             }
         }
         //编辑、修改时信号量
-        let _ = self.reCreateDonePub.bind(to: self.vm.reCreateInput)
-        let _ = self.vm.reCreateOutput.subscribe { [weak self](event) in
+        _ = self.reCreateDonePub.bind(to: self.vm.reCreateInput)
+        _ = self.vm.reCreateOutput.subscribe { [weak self](event) in
             if event.element == nil || event.element == false {
                 self?.showAlert()
                 return
@@ -165,26 +165,26 @@ class ContextInsertVw: UIView {
             }
         }
     }
-    
+
     func showAlert() {
         OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "内容不可为空！")
     }
-    
+
     func postDoneSignal() {
-        self.donePub.onNext((self.titleTF.text!,self.voiceAniVw.volumeList))
+        self.donePub.onNext((self.titleTF.text!, self.voiceAniVw.volumeList))
     }
-    
+
     func postRecreateSignal() {
-        self.reCreateDonePub.onNext((self.titleTF.text!,self.voiceAniVw.volumeList))
+        self.reCreateDonePub.onNext((self.titleTF.text!, self.voiceAniVw.volumeList))
     }
-    
+
     /// 菊花上面的预制图片变换规则
-    func progressIflyAniPreVw(aniStart:Bool) {
+    func progressIflyAniPreVw(aniStart: Bool) {
         //菊花动画开始
         if aniStart {
             self.iflyVoiceAniPreVw.alpha = 0
             self.iflyVoiceAniPreVw.isSelected = true
-        }else{
+        } else {
             //菊花动画结束
             self.iflyVoiceAniPreVw.alpha = 1
         }

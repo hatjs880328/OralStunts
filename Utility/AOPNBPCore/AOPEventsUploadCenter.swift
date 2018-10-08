@@ -21,33 +21,33 @@ import Foundation
 import UIKit
 
 class AOPEventUploadCenter: NSObject {
-    
+
     private static let taskID = NSUUID().uuidString
-    
+
     private static var shareInstance: AOPEventUploadCenter!
-    
+
     var timer: Timer!
-    
-    @objc public var progressAction: ((_ strInfo: String,_ endAction:(_ result:Bool)->Void)->Void)?
-    
+
+    @objc public var progressAction: ((_ strInfo: String, _ endAction:(_ result: Bool)->Void)->Void)?
+
     private override init() {
         super.init()
     }
-    
-    public static func getInstance()->AOPEventUploadCenter {
+
+    public static func getInstance() -> AOPEventUploadCenter {
         if shareInstance == nil {
             shareInstance = AOPEventUploadCenter()
         }
         return shareInstance
     }
-    
+
     /// AOP-NBP-uploadCenter service start
     func startService() {
-        DispatchQueue.once(taskid:AOPEventUploadCenter.taskID) {
+        DispatchQueue.once(taskid: AOPEventUploadCenter.taskID) {
             timer = Timer.scheduledTimer(timeInterval: 40, target: self, selector: #selector(AOPEventUploadCenter.uploadEvents), userInfo: nil, repeats: true)
         }
     }
-    
+
     @objc func uploadEvents() {
         GCDUtils.asyncProgress(dispatchLevel: 3, asyncDispathchFunc: {
             let allFilepath = AOPDiskIOProgress.getInstance().getAllSavedFilepath()
@@ -67,9 +67,8 @@ class AOPEventUploadCenter: NSObject {
             }
         }) {}
     }
-    
-}
 
+}
 
 //class SecondProcess: UIView,URLSessionDelegate,URLSessionDownloadDelegate {
 //    var opq = OperationQueue()
@@ -108,4 +107,3 @@ class AOPEventUploadCenter: NSObject {
 //
 //
 //}
-

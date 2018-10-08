@@ -10,7 +10,7 @@ import Foundation
 import AudioToolbox
 
 /// 对语音进行播放-空文件不播放，靠近耳朵是听筒，远离是外放
-class AudioPlay: NSObject,AVAudioPlayerDelegate {
+class AudioPlay: NSObject, AVAudioPlayerDelegate {
     var player: AVAudioPlayer?
     init(with data: NSData) {
         super.init()
@@ -22,13 +22,13 @@ class AudioPlay: NSObject,AVAudioPlayerDelegate {
         player?.delegate = self
         player?.volume = 1.1
     }
-    
+
     func play() {
         let session = AVAudioSession.sharedInstance()
-        do{
+        do {
             try session.setCategory(AVAudioSessionCategoryPlayback)
             try session.setActive(true)
-        }catch{
+        } catch {
             print(error)
         }
         if player!.data!.count <= 44 {
@@ -36,34 +36,33 @@ class AudioPlay: NSObject,AVAudioPlayerDelegate {
         }
         self.player?.play()
     }
-    
+
     @objc func sensorStateChange(noti: Notification) {
-        do{
+        do {
             if UIDevice.current.proximityState {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
                 try AVAudioSession.sharedInstance().setActive(true)
-            }else{
+            } else {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
                 try AVAudioSession.sharedInstance().setActive(true)
             }
-        }catch{}
+        } catch {}
     }
-    
+
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         //播放结束的回调
         postNotification()
     }
-    
+
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         //错误回调
         postNotification()
     }
-    
+
     /// 发送结束通知 & 关闭红外感应
     func postNotification() {
         UIDevice.current.isProximityMonitoringEnabled = false
         NotificationCenter.default.post(name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil, userInfo: nil)
     }
-    
-    
+
 }

@@ -13,9 +13,9 @@ import RxDataSources
 
 class FolderCreateViewController: IIBaseViewController {
     var nameLb = UITextField()
-    
+
     var confirmBtn = UIButton()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initVw()
@@ -25,7 +25,7 @@ class FolderCreateViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func initVw() {
         self.title = "文件夹创建"
         self.navigationController?.isNavigationBarHidden = false
@@ -58,10 +58,10 @@ class FolderCreateViewController: IIBaseViewController {
         confirmBtn.setTitle("确定", for: UIControlState.normal)
         confirmBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
     }
-    
+
     func initRx() {
         self.confirmBtn.tapActionsGesture { [weak self] () in
-            if self?.nameLb.text == nil || self?.nameLb.text == "" || self == nil  {
+            if self?.nameLb.text == nil || self?.nameLb.text == "" || self == nil {
                 OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "文件夹名称不可为空。")
                 return
             }

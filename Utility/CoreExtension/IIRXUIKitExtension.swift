@@ -12,7 +12,7 @@ import RxSwift
 import RxDataSources
 
 extension Reactive where Base: UIView {
-    
+
     /// Reactive wrapper for `TouchUpInside` control event.
 //    public var tap: ControlEvent<Void> {
 //        return controlEvent(.touchUpInside)

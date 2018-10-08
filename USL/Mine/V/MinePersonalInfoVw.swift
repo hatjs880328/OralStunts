@@ -8,18 +8,17 @@
 
 import Foundation
 
-
 class MinePersonalInfoVw: UIView {
-    
+
     let nameLb: UILabel = UILabel()
-    
+
     let img: UIImageView = UIImageView()
-    
+
     let noteLb: UILabel = UILabel()
-    
+
     let vm = MinePersonalInfoVM()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
@@ -31,11 +30,11 @@ class MinePersonalInfoVw: UIView {
         initVw()
         setData()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func initVw() {
         //bgvw
         let bgVw = UIView()
@@ -106,13 +105,13 @@ class MinePersonalInfoVw: UIView {
         }
         noteLb.font = APPDelStatic.uiFont(with: 12)
     }
-    
+
     func setData() {
         self.nameLb.text = MineBLL().getUserInfo().nickName
         self.noteLb.text = MineBLL().getUserInfo().noteInfo
         self.img.image = UIImage(named: self.vm.getHeadImg())
     }
-    
+
     func changePic() {
         let imgName = self.vm.updateHeadImg()
         self.img.image = UIImage(named: imgName)

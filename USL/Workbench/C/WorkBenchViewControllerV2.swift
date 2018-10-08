@@ -21,23 +21,23 @@ import UIKit
 class WorkBenchViewControllerV2: IIBaseViewController {
 
     let topVw: WorkBenchTopVw = WorkBenchTopVw(frame: CGRect.zero)
-    
+
     let botVw: WorkBenchBotTbVw = WorkBenchBotTbVw(frame: CGRect.zero)
-    
+
     let weekDayVw: DingTalkCalenderWeekdayView = DingTalkCalenderWeekdayView(frame: CGRect.zero)
-    
+
     let calendarVw: BigDingTalkSingleLineCollectionVw = BigDingTalkSingleLineCollectionVw(frame: CGRect.zero)
-    
+
     let smallCalendarVw: SmallDingTalkSingleLineCollectionVw =  SmallDingTalkSingleLineCollectionVw(frame: CGRect.zero)
-    
+
     var taskContainerVw: TaskContainerVw?
-    
+
     var meetingContainerVw: MeetingContainerVw?
-    
+
     let vm = DingTalkCalanderVM()
-    
+
     let taskVM = DingtalkTaskVM()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = APPDelStatic.lightGray
@@ -53,11 +53,11 @@ class WorkBenchViewControllerV2: IIBaseViewController {
         hiddenMiddleCalendarVw()
         topTxtChange()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+
     deinit {
         print("workbenchV2VcDeinit")
     }
@@ -70,22 +70,22 @@ extension WorkBenchViewControllerV2 {
     func createTopView() {
         self.topVw.createView(fatherView: self.view!)
     }
-    
+
     /// weak day vw
     func createWeekDay() {
         weekDayVw.createView(added: self.view, topView: self.topVw)
     }
-    
+
     /// calendar vw
     func createCalendarVw() {
         calendarVw.createView(fatherView: self.view, topView: weekDayVw)
     }
-    
+
     /// small calendar vw
     func createSmallCalendarVw() {
         smallCalendarVw.createView(fatherView: self.view, topView: weekDayVw)
     }
-    
+
     /// create tb vw
     func createBotTBVw() {
         self.botVw.createVw(topView: weekDayVw, fatherView: self.view)
@@ -94,25 +94,25 @@ extension WorkBenchViewControllerV2 {
 
 // MARK: - ui actions
 extension WorkBenchViewControllerV2 {
-    
+
     /// hide middle vw [swipe up]
     func hiddenMiddleCalendarVw(animated: Bool = false) {
-        self.botVw.swipeUp(withAnimation:animated)
+        self.botVw.swipeUp(withAnimation: animated)
         getSmallCalendarDate()
         self.vm.uistate = .single
         self.getTodayEvents()
         self.smallCalendarVw.whenSwipeTapFistItem()
     }
-    
+
     /// show middle vw [swipe down][invoking big calendar vw create 2 others vw once]
     func showMiddleCalcendarVw(animated: Bool = false) {
         self.calendarVw.createOther2ChildVw()
-        self.botVw.swipeDown(withAnimation:animated)
+        self.botVw.swipeDown(withAnimation: animated)
         self.vm.uistate = .all
         self.getTodayEvents()
         self.calendarVw.whenSwipeTapFistItem()
     }
-    
+
     /// small calendar hor swipe - big calendar dates change
     func smallCalendarSwipeHor() {
         self.calendarVw.setDates(with: self.vm.getDingVModel(with: .middle).trupleVM!.dayArr, which: self.calendarVw.logicMiddleVw)
@@ -120,22 +120,22 @@ extension WorkBenchViewControllerV2 {
         self.calendarVw.setDates(with: self.vm.getDingVModel(with: .left).trupleVM!.dayArr, which: self.calendarVw.logicLeftVw)
         self.calendarVw.setDates(with: self.vm.getDingVModel(with: .right).trupleVM!.dayArr, which: self.calendarVw.logicRightVw)
     }
-    
+
     func topTxtChange() {
-        self.vm.swipeChangeTopTitleTxt = { [weak self]text,isCurrentMonth in
+        self.vm.swipeChangeTopTitleTxt = { [weak self]text, isCurrentMonth in
             self?.topVw.setData(ifCalendar: isCurrentMonth, titleTxt: text)
         }
     }
-    
-    private func changeUI(with index:Int,txt strInfo:String) {
+
+    private func changeUI(with index: Int, txt strInfo: String) {
         if index == 1 {
             self.meetingContainerVw?.hideSelf()
             if self.taskContainerVw == nil {
                 //self.taskContainerVwInit()
-            }else{
+            } else {
                 self.taskContainerVw?.showSelf()
             }
-            self.topVw.setData(ifCalendar: true, titleTxt: strInfo,isCalendarVw: false)
+            self.topVw.setData(ifCalendar: true, titleTxt: strInfo, isCalendarVw: false)
         }
         if index == 0 {
             self.taskContainerVw?.hideSelf()
@@ -146,13 +146,13 @@ extension WorkBenchViewControllerV2 {
             self.taskContainerVw?.hideSelf()
             if self.meetingContainerVw == nil {
                 //self.meetingContainerVwInit()
-            }else{
+            } else {
                 self.meetingContainerVw?.showSelf()
             }
-            self.topVw.setData(ifCalendar: true, titleTxt: strInfo,isCalendarVw: false)
+            self.topVw.setData(ifCalendar: true, titleTxt: strInfo, isCalendarVw: false)
         }
     }
-    
+
     /// ui change today - big cal & small cal & events & selected today [big]
     func changeToday() {
         self.getMiddleDate()
@@ -168,19 +168,19 @@ extension WorkBenchViewControllerV2 {
 
 // MARK: - calendar progress date
 extension WorkBenchViewControllerV2 {
-    
+
     /// big middle calendar date
     func getMiddleDate() {
         vm.getCurrentMonthDays(currentMonthDay: Date())
         let middleVM = self.vm.getDingVModel(with: .middle).trupleVM!
         self.calendarVw.setDates(with: middleVM.dayArr, which: calendarVw.logicMiddleVw)
     }
-    
+
     /// small left & right calendar date
     func getSmallCalendarDate() {
         if self.vm.uistate == .single {
             self.vm.getCurrentline7Days()
-        }else{
+        } else {
             self.vm.getCurrentline7Days(followDate: self.calendarVw.logicMiddleVw.vms[self.calendarVw.logicMiddleVw.beselectedItemIndex])
         }
         self.smallCalendarVw.setDates(date: self.vm.smallMiddleDate, position: .middle)
@@ -191,13 +191,13 @@ extension WorkBenchViewControllerV2 {
 
 // MARK: - eventProgress
 extension WorkBenchViewControllerV2 {
-    
+
     /// get events [global queue & async]
     func getTodayEvents() {
         self.vm.getEventsFromVmDate {[weak self]() in
             if self?.vm.uistate == .all {
                 self?.calendarVw.setEvents(with: self!.vm.middleVMDate.trupleVM.dayArr)
-            }else{
+            } else {
                 self?.smallCalendarVw.setEvents(with: self!.vm.smallMiddleDate)
             }
             self?.botVw.tabVw.reloadData()
@@ -207,11 +207,11 @@ extension WorkBenchViewControllerV2 {
 
 // MARK: - swipe - down & up actions
 extension WorkBenchViewControllerV2 {
-    
-    func swipeUpSelectedSamllCalendarItem(with index:Int) {
-        self.smallCalendarVw.smallMiddleLogicVw.tapAction(index: index,isReloadData: false)
+
+    func swipeUpSelectedSamllCalendarItem(with index: Int) {
+        self.smallCalendarVw.smallMiddleLogicVw.tapAction(index: index, isReloadData: false)
     }
-    
+
     func swipeDownSelectedBigCalendarItem(with date: Date) {
         let index = self.vm.getBigItemIndexWithSamllSelectedItemIndex(with: date)
         self.calendarVw.logicMiddleVw.tapAction(index: index)

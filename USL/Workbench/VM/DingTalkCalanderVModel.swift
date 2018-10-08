@@ -9,29 +9,29 @@
 import Foundation
 
 class DingTalkCalanderVModel: NSObject {
-    
+
     var gregorionDay: String = ""
-    
+
     var weekDay: String = ""
-    
+
     var lunarDay: String = ""
-    
+
     var isFireDay: Bool = false
-    
+
     var fireDayInfo: [DingTalkCEvent] = []
-    
+
     var isCurrentDay: Bool = false
-    
-    var isFirstDayCurrentMonth:Bool = false
-    
+
+    var isFirstDayCurrentMonth: Bool = false
+
     var isRestDay: String = ""
-    
+
     var isCurrentMonthDay: Bool = false
-    
-    var dateInfo:Date!
-    
-    var smallCalendarSingleFirstItem:Bool = false
-    
+
+    var dateInfo: Date!
+
+    var smallCalendarSingleFirstItem: Bool = false
+
     init(with dingModel: DingTalkCalanderModel) {
         super.init()
         self.gregorionDay = dingModel.gregorionDay.description
@@ -42,10 +42,10 @@ class DingTalkCalanderVModel: NSObject {
         self.isRestDay = getRestTypeStr(with: dingModel.isRestDay)
         self.isCurrentMonthDay = dingModel.isCurrentMonthDay
         self.dateInfo = dingModel.dateInfo
-        
+
     }
-    
-    func setEventDay(with event: DingTalkCEvent){
+
+    func setEventDay(with event: DingTalkCEvent) {
         var ifExist = false
         for eachItem in self.fireDayInfo {
             if eachItem == event { ifExist = true }
@@ -53,8 +53,8 @@ class DingTalkCalanderVModel: NSObject {
         if !ifExist { self.fireDayInfo.append(event) }
         self.isFireDay = true
     }
-    
-    func getRestTypeStr(with type: DayType)->String {
+
+    func getRestTypeStr(with type: DayType) -> String {
         switch type {
         case .normal:
             return ""
@@ -64,8 +64,8 @@ class DingTalkCalanderVModel: NSObject {
             return "班"
         }
     }
-    
-    func changeIntToLunarInfo(intValue: Int)->String{
+
+    func changeIntToLunarInfo(intValue: Int) -> String {
         if APPDelStatic.internationalProgress { return "" }
         switch intValue {
         case 1:
@@ -133,7 +133,7 @@ class DingTalkCalanderVModel: NSObject {
         default:
             return ""
         }
-        
+
     }
-    
+
 }

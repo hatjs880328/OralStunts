@@ -10,35 +10,34 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
 class FeedBackVw: UIView {
-    
+
     var feedTd = UITextView()
-    
+
     var countLb = UILabel()
-    
+
     var uploadBtn = UIButton()
-    
+
     var vm = FeedBackVM()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
         initVw()
         initRx()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func initVw() {
         self.addSubview(feedTd)
         self.addSubview(uploadBtn)
-        
+
         feedTd.snp.makeConstraints { (make) in
             make.left.equalTo(18)
             make.right.equalTo(-18)
@@ -61,7 +60,7 @@ class FeedBackVw: UIView {
         countLb.textAlignment = .right
         countLb.textColor = APPDelStatic.themeColor
         countLb.text = "0/80"
-        
+
         uploadBtn.snp.makeConstraints { (make) in
             make.left.equalTo(18)
             make.right.equalTo(-18)
@@ -77,20 +76,20 @@ class FeedBackVw: UIView {
         uploadBtn.isEnabled = false
         uploadBtn.setTitleColor(UIColor.gray, for: UIControlState.normal)
     }
-    
+
     func initRx() {
-        let _ = self.feedTd.rx.text.orEmpty.bind(to: self.vm.fieldInput)
-        
-        let _ = self.vm.fieldOutput.subscribe { [weak self](event) in
+        _ = self.feedTd.rx.text.orEmpty.bind(to: self.vm.fieldInput)
+
+        _ = self.vm.fieldOutput.subscribe { [weak self](event) in
             if event.element == nil { return }
             self?.feedTd.text = event.element!.0
             self?.countLb.text = event.element!.1
             self?.uploadBtn.isEnabled = true
             self?.uploadBtn.setTitleColor(APPDelStatic.themeColor, for: UIControlState.normal)
         }
-        
-        let _ = self.uploadBtn.rx.tap.bind(to: self.vm.btnInput)
-        let _ = self.vm.tapOutput.subscribe { [weak self](voidEvent) in
+
+        _ = self.uploadBtn.rx.tap.bind(to: self.vm.btnInput)
+        _ = self.vm.tapOutput.subscribe { [weak self](_) in
             (self?.viewController() as? FeedBackViewController)?.goBack()
         }
     }

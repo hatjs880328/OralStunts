@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableViewDataSource {
+class SettingViewController: IIBaseViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let dataSource = [("关闭空白提示",UIImage(named: "helpswitch")),("清除所有缓存",UIImage(named: "removedisk"))]
-    
+    let dataSource = [("关闭空白提示", UIImage(named: "helpswitch")), ("清除所有缓存", UIImage(named: "removedisk"))]
+
     let reuseID = "SETTINGVCCELLREUSEID"
-    
+
     var tab: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,65 +24,63 @@ class SettingViewController: IIBaseViewController,UITableViewDelegate,UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         createVw()
     }
-    
+
     func createVw() {
         if self.tab != nil { return }
         self.tab = UITableView()
         self.view.addSubview(tab)
         tab.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
         tab.delegate = self
         tab.dataSource = self
         tab.progressNodataAndLoadingBeforeReloaddata()
         tab.separatorStyle = .none
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let showSwt = indexPath.row == 0 ? true : false
-        let cell = SettingCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseID,showSwt:showSwt)
+        let cell = SettingCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseID, showSwt: showSwt)
         let cellModel = self.dataSource[indexPath.row]
         cell.setData(tupleInfo: cellModel)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 51 * APPDelStatic.sizeScale
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             //清除缓存
-            OTAlertVw().alertShowConfirm(title: "提示", message: "确定要删除所有缓存信息吗？",confirmStr: "删除") {
+            OTAlertVw().alertShowConfirm(title: "提示", message: "确定要删除所有缓存信息吗？", confirmStr: "删除") {
                 NoteLogicBLL().deleteAllInfo()
                 FolderBLL().deleteAllInfo()
             }
         }
     }
-    
-    
+
 }
 
-
 class SettingCell: UITableViewCell {
-    
+
     let closeSwit = UISwitch()
-    
+
     let titleLb = UILabel()
-    
+
     var showSwt: Bool = true
-    
+
     var headImg = UIImageView()
-    
-    init(style: UITableViewCellStyle, reuseIdentifier: String?,showSwt:Bool = true) {
+
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, showSwt: Bool = true) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.showSwt = showSwt
         self.selectionStyle = .none
@@ -91,11 +89,11 @@ class SettingCell: UITableViewCell {
             self.accessoryType = .disclosureIndicator
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.addSubview(headImg)
         self.addSubview(titleLb)
@@ -125,7 +123,7 @@ class SettingCell: UITableViewCell {
         closeSwit.addTarget(self, action: #selector(self.setOn), for: UIControlEvents.touchUpInside)
         if showSwt {
             closeSwit.alpha = 1
-        }else{
+        } else {
             closeSwit.alpha = 0
         }
         // bot line
@@ -139,18 +137,18 @@ class SettingCell: UITableViewCell {
         }
         line.backgroundColor = UIColor.gray
     }
-    
-    func setData(tupleInfo:(String,UIImage?)) {
+
+    func setData(tupleInfo: (String, UIImage?)) {
         self.titleLb.text = tupleInfo.0
         let onOrOff = MineBLL().getUserInfo().alertHelpInfo == "true" ? true : false
         self.closeSwit.setOn(onOrOff, animated: false)
         self.headImg.image = tupleInfo.1
     }
-    
+
     @objc func setOn() {
         if self.closeSwit.isOn {
             MineBLL().updateAlertInfo(alert: true)
-        }else{
+        } else {
             MineBLL().updateAlertInfo(alert: false)
         }
     }

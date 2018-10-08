@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class DingtaskVModel: NSObject {
     var formatStr = "MM月dd日 HH:mm"
     var startTime: String = ""
@@ -17,10 +16,10 @@ class DingtaskVModel: NSObject {
     var toPerson: String = ""
     var createTime: String = ""
     var completedInfo: String = ""
-    var cellHeight:CGFloat = 0
-    var state:String = "已关闭"
-    var picUrl:String = ""
-    
+    var cellHeight: CGFloat = 0
+    var state: String = "已关闭"
+    var picUrl: String = ""
+
     init(with: DingtalkTaskModel) {
         super.init()
         self.title = with.title
@@ -34,5 +33,5 @@ class DingtaskVModel: NSObject {
         self.cellHeight = self.picUrl == "" ? 95 : picWidth + 110
         self.createTime = with.createTime.dateToString(formatStr)
     }
-    
+
 }

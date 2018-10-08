@@ -10,40 +10,40 @@ import Foundation
 import UIKit
 
 class BigDingTalkSingleLineCollectionVw: UIView {
-    
+
     let width = UIScreen.main.bounds.width
-    
+
     let normalDayLineHeight: CGFloat = 45 * APPDelStatic.sizeScale
-    
+
     var middleChildVw =  BigDingTalkSingleLineChildVw(frame: CGRect.zero)
-    
+
     var leftChildVw: BigDingTalkSingleLineChildVw!
-    
+
     var rightChildVw: BigDingTalkSingleLineChildVw!
-    
+
     var logicMiddleVw: BigDingTalkSingleLineChildVw!
-    
+
     var logicLeftVw: BigDingTalkSingleLineChildVw!
-    
+
     var logicRightVw: BigDingTalkSingleLineChildVw!
-     
+
     var topVw: UIView!
-    
+
     var fatherVw: UIView!
-    
+
     var onceUUID = NSUUID().uuidString
-    
+
     let formatStr = "MM月dd日"
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func createView(fatherView: UIView,topView: UIView) {
+
+    func createView(fatherView: UIView, topView: UIView) {
         self.topVw = topView
         self.fatherVw = fatherView
         fatherView.addSubview(self)
@@ -56,53 +56,52 @@ class BigDingTalkSingleLineCollectionVw: UIView {
         self.addGesture(to: self)
         self.initMiddleVw()
     }
-    
+
     /// 2 other big child view
     public func createOther2ChildVw() {
         DispatchQueue.once(taskid: onceUUID) {
             self.leftChildVw = BigDingTalkSingleLineChildVw(frame: CGRect.zero)
             self.rightChildVw = BigDingTalkSingleLineChildVw(frame: CGRect.zero)
             self.leftChildVw.createView(fatherView: self, position: .left)
-            self.rightChildVw.createView(fatherView: self,position: .right)
-            
+            self.rightChildVw.createView(fatherView: self, position: .right)
+
             let vmLeftDates = (self.viewController() as! WorkBenchViewControllerV2).vm.getDingVModel(with: .left).trupleVM!
             let vmRightDates = (self.viewController() as! WorkBenchViewControllerV2).vm.getDingVModel(with: .right).trupleVM!
-            
+
             self.setDates(with: vmLeftDates.dayArr, which: self.leftChildVw)
             self.setDates(with: vmRightDates.dayArr, which: self.rightChildVw)
-            
+
             self.logicLeftVw = self.leftChildVw
             self.logicRightVw = self.rightChildVw
         }
     }
-    
+
     /// middle child vw init
     fileprivate func initMiddleVw() {
         self.middleChildVw.createView(fatherView: self)
         self.logicMiddleVw = self.middleChildVw
     }
-    
+
     /// hidden self use lineNumber
     func hideTopAndBotVw(with lineNumber: Int) {
-        
+
     }
-    
+
     /// DingTalkCalanderModel
-    func setDates(with dates: [DingTalkCalanderVModel],which vw: BigDingTalkSingleLineChildVw) {
+    func setDates(with dates: [DingTalkCalanderVModel], which vw: BigDingTalkSingleLineChildVw) {
         vw.setDates(with: dates)
     }
 }
 
-
 // MARK: - swipe actions
 extension BigDingTalkSingleLineCollectionVw {
-    
+
     func whenSwipeTapFistItem() {
         self.logicMiddleVw.tapAction(index: self.logicMiddleVw.firstDayItemIndex)
         self.logicLeftVw.tapAction(index: self.logicLeftVw.firstDayItemIndex)
         self.logicRightVw.tapAction(index: self.logicRightVw.firstDayItemIndex)
     }
-    
+
     func addGesture(to dateVw: UIView) {
         let leftGsture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftAction))
         leftGsture.direction = .left
@@ -114,7 +113,7 @@ extension BigDingTalkSingleLineCollectionVw {
         topGesture.direction = .up
         dateVw.addGestureRecognizer(topGesture)
     }
-    
+
     /// swipe left - get new right date
     @objc func swipeLeftAction() {
         // no animate
@@ -137,7 +136,7 @@ extension BigDingTalkSingleLineCollectionVw {
             }
         }
     }
-    
+
     /// swipe right - get new left date
     @objc func swipeRightAction() {
         // no animate
@@ -160,7 +159,7 @@ extension BigDingTalkSingleLineCollectionVw {
             }
         }
     }
-    
+
     @objc func swipeTopAction() {
         (self.viewController() as! WorkBenchViewControllerV2).hiddenMiddleCalendarVw(animated: true)
         (self.viewController() as! WorkBenchViewControllerV2).swipeUpSelectedSamllCalendarItem(with: self.logicMiddleVw.beselectedItemIndex%7)
@@ -169,7 +168,7 @@ extension BigDingTalkSingleLineCollectionVw {
 
 // MARK: - eventProgress
 extension BigDingTalkSingleLineCollectionVw {
-    
+
     //set events info with kcevent just in logicMiddlePic
     @objc func setEvents(with: [DingTalkCalanderVModel]) {
         var resultArr = [Int: Bool]()
@@ -194,7 +193,7 @@ extension BigDingTalkSingleLineCollectionVw {
 // MARK: - tb actions
 extension BigDingTalkSingleLineCollectionVw {
     /// tb-[cell number]
-    func getCellModelsCount()->Int {
+    func getCellModelsCount() -> Int {
         let selectedIndex = self.logicMiddleVw.beselectedItemIndex
         let count = (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].fireDayInfo.count
         if count == 0 {
@@ -202,25 +201,25 @@ extension BigDingTalkSingleLineCollectionVw {
         }
         return  count + 2
     }
-    
+
     /// tb-[select one calerdar item - use indexpath-row return dingtalkEvent]
-    func getCellModel(with indexRow:Int)->(eventModel: DingTalkCEvent?,dateInfo: String?) {
+    func getCellModel(with indexRow: Int)->(eventModel: DingTalkCEvent?, dateInfo: String?) {
         let selectedIndex = self.logicMiddleVw.beselectedItemIndex
         if indexRow == 0 {
             let realDateInfo = (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].dateInfo
             var dateInfo = ""
             if APPDelStatic.internationalProgress {
                 dateInfo = "\(realDateInfo!.getEuMonth(month: realDateInfo!.month)) \(realDateInfo!.days)"
-            }else{
+            } else {
                 dateInfo = realDateInfo!.dateToString(formatStr)
             }
-            return (nil,dateInfo)
+            return (nil, dateInfo)
         }
         if (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].fireDayInfo.count >= indexRow {
             let eventmodel =  (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].fireDayInfo[indexRow - 1]
-            return (eventmodel,nil)
+            return (eventmodel, nil)
         }
-        
-        return (nil,nil)
+
+        return (nil, nil)
     }
 }

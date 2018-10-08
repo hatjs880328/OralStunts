@@ -9,32 +9,31 @@
 import Foundation
 import UIKit
 
+class WorkBenchBotTbVw: UIView, UITableViewDelegate, UITableViewDataSource {
 
-class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
-    
     let tabVw: UITableView = UITableView(frame: CGRect.zero)
-    
+
     var topView: UIView!
-    
+
     var topLength: CGFloat = 10 * APPDelStatic.sizeScale
-    
+
     let normalDayLineHeight: CGFloat = 45 * APPDelStatic.sizeScale
-    
-    let tbReuseID:String = "workBenchReuseID"
-    
-    var numberOfRowInSection:Int = 0
-    
-    var endScrollToTop:Bool = true
-    
+
+    let tbReuseID: String = "workBenchReuseID"
+
+    var numberOfRowInSection: Int = 0
+
+    var endScrollToTop: Bool = true
+
     /// 当前vw距离顶部距离： 状态栏 + 顶部topvw高度 + weekday高度
     let distanceTop: CGFloat = (40 + APPDelStatic.noNaviTopDistance + 45) * APPDelStatic.sizeScale
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
-    
-    func createVw(topView:UIView,fatherView:UIView) {
+
+    func createVw(topView: UIView, fatherView: UIView) {
         self.topView = topView
         fatherView.addSubview(self)
         self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - distanceTop - normalDayLineHeight)
@@ -62,7 +61,7 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
         tabVw.isScrollEnabled = true
         self.addGesture(fatherVw: tabVw)
     }
-    
+
     func addGesture(fatherVw: UIView) {
         let gestureTop = UISwipeGestureRecognizer(target: self, action: #selector(innerSwipeUp))
         gestureTop.direction = .up
@@ -71,16 +70,16 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
         gestureDown.direction = .down
         fatherVw.addGestureRecognizer(gestureDown)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: tbReuseID)
-            
+
             let con = (self.viewController() as! WorkBenchViewControllerV2)
-            var resultDate: (eventModel: DingTalkCEvent?,dateInfo: String?)!
+            var resultDate: (eventModel: DingTalkCEvent?, dateInfo: String?)!
             if con.vm.uistate == .all {
                 resultDate = (self.viewController() as! WorkBenchViewControllerV2).calendarVw.getCellModel(with: indexPath.row)
-            }else{
+            } else {
                 resultDate = (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.getCellModel(with: indexPath.row)
             }
             cell.textLabel?.text = resultDate.dateInfo!
@@ -95,61 +94,61 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
             }
             cell.selectionStyle = .none
             botLine.backgroundColor = APPDelStatic.lightGray
-            
+
             return cell
-        }else if indexPath.row == self.numberOfRowInSection - 1 {
+        } else if indexPath.row == self.numberOfRowInSection - 1 {
             let cell = LastCell(style: UITableViewCellStyle.default, reuseIdentifier: tbReuseID)
             cell.setDate(txt: self.getTxtWithDate())
-            
+
             return cell
-        }else{
-            var cell:UITableViewCell!
+        } else {
+            var cell: UITableViewCell!
             let con = (self.viewController() as! WorkBenchViewControllerV2)
-            var resultDate: (eventModel: DingTalkCEvent?,dateInfo: String?)!
+            var resultDate: (eventModel: DingTalkCEvent?, dateInfo: String?)!
             if con.vm.uistate == .all {
                 resultDate = (self.viewController() as! WorkBenchViewControllerV2).calendarVw.getCellModel(with: indexPath.row)
-            }else{
+            } else {
                 resultDate = (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.getCellModel(with: indexPath.row)
             }
             if resultDate.eventModel != nil {
                 cell = WorkBenchTBCell(style: UITableViewCellStyle.default, reuseIdentifier: tbReuseID)
                 (cell as! WorkBenchTBCell).setDate(with: resultDate.eventModel!)
-            }else{
+            } else {
                 cell = WorkBenchNullCell(style: UITableViewCellStyle.default, reuseIdentifier: tbReuseID)
             }
-            
+
             return cell
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 30 * APPDelStatic.sizeScale
-        }else{
+        } else {
             return 60 * APPDelStatic.sizeScale
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let con = (self.viewController() as! WorkBenchViewControllerV2)
         var count = 0
         if con.vm.uistate == .all {
             count = con.calendarVw.getCellModelsCount()
-        }else{
+        } else {
             count = con.smallCalendarVw.getCellModelsCount()
         }
         self.numberOfRowInSection = count
-        
+
         return count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 && indexPath.row != self.numberOfRowInSection - 1 {
             let con = (self.viewController() as! WorkBenchViewControllerV2)
-            var resultDate: (eventModel: DingTalkCEvent?,dateInfo: String?)!
+            var resultDate: (eventModel: DingTalkCEvent?, dateInfo: String?)!
             if con.vm.uistate == .all {
                 resultDate = (self.viewController() as! WorkBenchViewControllerV2).calendarVw.getCellModel(with: indexPath.row)
-            }else{
+            } else {
                 resultDate = (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.getCellModel(with: indexPath.row)
             }
             if resultDate.eventModel == nil { return }
@@ -160,7 +159,7 @@ class WorkBenchBotTbVw: UIView,UITableViewDelegate,UITableViewDataSource {
             self.viewController()?.navigationController?.pushViewController(itemcon, animated: true)
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -176,13 +175,13 @@ extension WorkBenchBotTbVw {
                 (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.alpha = 1
                 self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
             }
-        }else{
+        } else {
             self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
             (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.alpha = 1
         }
-        couldScrollTab(isCould:true)
+        couldScrollTab(isCould: true)
     }
-    
+
     /// swipe down
     func swipeDown(withAnimation: Bool = false) {
         self.tabVw.contentOffset = CGPoint(x: 0, y: 0)
@@ -190,40 +189,40 @@ extension WorkBenchBotTbVw {
             UIView.animate(withDuration: 0.8) {
                 self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight * 6, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
             }
-        }else{
+        } else {
             self.frame = CGRect(x: 0, y: self.distanceTop + self.normalDayLineHeight * 6, width: APPDelStatic.aWeight, height: APPDelStatic.aHeight - self.distanceTop - self.normalDayLineHeight)
         }
-        couldScrollTab(isCould:false)
+        couldScrollTab(isCould: false)
     }
-    
+
     /// out side swipe change self.tab could scroll [swipe down tab couldn't scroll ; swipe up tab could scroll]
-    func couldScrollTab(isCould:Bool) {
+    func couldScrollTab(isCould: Bool) {
         self.tabVw.isScrollEnabled = isCould
     }
-    
+
     @objc func innerSwipeUp() {
         (self.viewController() as! WorkBenchViewControllerV2).calendarVw.swipeTopAction()
     }
-    
+
     @objc func innerSwipeDown() {
         (self.viewController() as! WorkBenchViewControllerV2).smallCalendarVw.swipeDownAction()
     }
-    
-    func getTxtWithDate()->String {
+
+    func getTxtWithDate() -> String {
         return (self.viewController() as! WorkBenchViewControllerV2).vm.getTxtFollowDate()
     }
-    
+
     /*
      use didscroll & didenddecelerating delegate funcs progress [hidden] state swipe down
     */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y == 0 {
             self.endScrollToTop = true
-        }else{
+        } else {
             self.endScrollToTop = false
         }
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !self.endScrollToTop { return }
         if scrollView.contentOffset.y < 0 {
@@ -235,15 +234,15 @@ extension WorkBenchBotTbVw {
 
 /// events indexpath > 1
 class WorkBenchTBCell: UITableViewCell {
-    
+
     let dateStart = UILabel()
-    
+
     let dateEnd = UILabel()
-    
+
     let titleLb = UILabel()
-    
+
     let imagePic = UIImageView()
-    
+
     let subTitleLb = UILabel()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -308,11 +307,11 @@ class WorkBenchTBCell: UITableViewCell {
         }
         botLine.backgroundColor = APPDelStatic.lightGray
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setDate(with model: DingTalkCEvent) {
         self.subTitleLb.text = model.subTitle
         self.titleLb.text = model.title
@@ -320,13 +319,13 @@ class WorkBenchTBCell: UITableViewCell {
         self.dateEnd.text = model.endTime
         self.imagePic.image = UIImage(named: "survey.png")
     }
-    
+
 }
 
 class LastCell: UITableViewCell {
-    
+
     let txtLb = UILabel()
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
@@ -334,7 +333,7 @@ class LastCell: UITableViewCell {
         self.addSubview(footerVw)
         footerVw.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40 * APPDelStatic.sizeScale)
         self.backgroundColor = APPDelStatic.lightGray
-        
+
         footerVw.addSubview(txtLb)
         txtLb.snp.makeConstraints { (make) in
             make.centerX.equalTo(footerVw.snp.centerX)
@@ -347,30 +346,30 @@ class LastCell: UITableViewCell {
         txtLb.font = APPDelStatic.uiFont(with: 13)
         txtLb.textColor = UIColor.gray
     }
-    
+
     func setDate(txt: String) {
         txtLb.text = txt
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
 
 /// no events indexpath = 1
 class WorkBenchNullCell: UITableViewCell {
-    
+
     let title = UILabel()
-    
+
     let subBtn = UIButton()
-    
+
     let imagePic = UIImageView()
-    
+
     let titleTxt = "且行且珍惜"
-    
+
     let btnTxt = "创建便签"
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
@@ -421,18 +420,16 @@ class WorkBenchNullCell: UITableViewCell {
         }
         botLine.backgroundColor = APPDelStatic.lightGray
     }
-    
+
     @objc func targetAction() {
         let con = NoteCreateViewController()
         con.hidesBottomBarWhenPushed = true
         con.presentedVcHasNavigation = false
         self.viewController()?.navigationController?.pushViewController(con, animated: true)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
-
-

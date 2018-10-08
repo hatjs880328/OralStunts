@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 class FilterVw: UIView {
-    
+
     let vwHeight: CGFloat = 35
-    
-    var tapActions:(()->Void)!
-    
+
+    var tapActions:(() -> Void)!
+
     private var filterInfo: [String] = [] {
-        didSet{
+        didSet {
             self.titleLab.text = self.filterInfo[1]
             let charWidth = IITextExtension.textLength(text: self.titleLab.text!, font: APPDelStatic.uiFont(with: 11))
             self.titleLab.snp.remakeConstraints { (make) in
@@ -27,14 +27,14 @@ class FilterVw: UIView {
             }
         }
     }
-    
-    var selectedItem:Int = 0
-    
+
+    var selectedItem: Int = 0
+
     let titleLab = UILabel()
-    
+
     let arrowImg = UIImageView()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         fatherVw.addSubview(self)
@@ -46,7 +46,7 @@ class FilterVw: UIView {
         }
         initTheVw()
     }
-    
+
     private func initTheVw() {
         titleLab.font = APPDelStatic.uiFont(with: 11)
         self.addSubview(titleLab)
@@ -60,7 +60,7 @@ class FilterVw: UIView {
         titleLab.tapActionsGesture { [weak self]() in
             self?.tapAction()
         }
-        
+
         self.addSubview(arrowImg)
         arrowImg.snp.makeConstraints { (make) in
             make.left.equalTo(titleLab.snp.right).offset(5)
@@ -69,7 +69,7 @@ class FilterVw: UIView {
             make.height.equalTo(12)
         }
         arrowImg.image = UIImage(named: "arrowDown.png")
-        
+
         let botLine = UIView()
         self.addSubview(botLine)
         botLine.snp.makeConstraints { (make) in
@@ -80,26 +80,26 @@ class FilterVw: UIView {
         }
         botLine.backgroundColor = APPDelStatic.lightGray
     }
-    
+
     /// 设置数据源
     public func setData(data: [String]) {
         self.filterInfo = data
     }
-    
+
     func tapAction() {
         if self.tapActions == nil { return }
         self.tapActions()
     }
-    
-    func setImg(isUp:Bool) {
+
+    func setImg(isUp: Bool) {
         if isUp {
             self.arrowImg.image = UIImage(named: "arrowUp.png")
-            
+
             return
         }
         self.arrowImg.image = UIImage(named: "arrowDown.png")
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -21,23 +21,23 @@ import Foundation
  */
 
 class AOPDiskIOProgress {
-    
+
     private init() {
         AOPDiskIOProgressUtility().createTheDir()
     }
-    
+
     private static var shareInstance: AOPDiskIOProgress!
-    
-    public static func getInstance()-> AOPDiskIOProgress {
+
+    public static func getInstance() -> AOPDiskIOProgress {
         if shareInstance == nil {
             shareInstance = AOPDiskIOProgress()
         }
         return shareInstance
     }
-    
+
     /// set
-    func writeEventsToDisk(with info:[String : [GodfatherEvent]]) {
-        for (eachKey,eachValue) in info {
+    func writeEventsToDisk(with info: [String: [GodfatherEvent]]) {
+        for (eachKey, eachValue) in info {
             var eventStr = ""
             for eachItem in eachValue {
                 eventStr += (eachItem.description)
@@ -45,26 +45,26 @@ class AOPDiskIOProgress {
             AOPMmapOCUtility.writeData(eachKey, fileContent: eventStr)
         }
     }
-    
+
     /// get all file-path
     func getAllSavedFilepath() -> [String] {
         let result = AOPDiskIOProgressUtility().loopGetDocumentsFileExceptNewestFile()
         return result
     }
-    
+
     /// get one file strInfo with file-name
-    func getOneFileDataWithFilePath(with path: String)->String? {
-        do{
+    func getOneFileDataWithFilePath(with path: String) -> String? {
+        do {
             let resultStr = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             return resultStr
-        }catch{
+        } catch {
             return nil
         }
     }
-    
+
     /// deleate file with filePath
     @discardableResult
-    func deleateFile(with filePath: String)->Bool {
+    func deleateFile(with filePath: String) -> Bool {
         return AOPDiskIOProgressUtility().deleateFile(with: filePath)
     }
 }

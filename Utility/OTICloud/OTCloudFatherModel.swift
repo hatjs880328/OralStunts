@@ -15,14 +15,14 @@ import HandyJSON
  
  
  */
-class OTCloudFatherModel:HandyJSON {
-    
+class OTCloudFatherModel: HandyJSON {
+
     required init() {}
-    
+
     /// 必须要重写的一个方法
-    func initWith(record: CKRecord)->OTCloudFatherModel {
+    func initWith(record: CKRecord) -> OTCloudFatherModel {
         let ins = OTCloudFatherModel()
         return ins
     }
-    
+
 }

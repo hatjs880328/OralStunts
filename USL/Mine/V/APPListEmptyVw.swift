@@ -9,27 +9,27 @@
 import Foundation
 
 class APPListEmptyVw: UIView {
-    
+
     let sourceImg = SVGKImage(named: "语音.svg")
-    
+
     var timer: Timer?
-    
+
     var layers: [CAShapeLayer] = []
-    
-    var img:SVGKFastImageView!
-    
+
+    var img: SVGKFastImageView!
+
     let createTxt = "在此新建"
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         createVw()
         createTimer()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         img = SVGKFastImageView(svgkImage: sourceImg)!
         self.addSubview(img)
@@ -75,7 +75,7 @@ class APPListEmptyVw: UIView {
         createBtn.titleLabel?.font = APPDelStatic.uiFont(with: 13)
         createBtn.cornerRadiu = 3
     }
-    
+
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.changeCGColor), userInfo: nil, repeats: true)
         self.layers.append((sourceImg?.layer(withIdentifier: "cureLine") as! CALayerWithChildHitTest).sublayers![0] as! CAShapeLayer)
@@ -84,7 +84,7 @@ class APPListEmptyVw: UIView {
             self.layers.append(eachItem as! CAShapeLayer)
         }
     }
-    
+
     @objc func changeCGColor() {
         let color = MineAboutUsBLL().changeColor().cgColor
         for eachItem in self.layers {

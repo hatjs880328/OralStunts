@@ -27,33 +27,33 @@ import Foundation
 
 /// have own life circle : init , deinit
 class AOPNotificaitonCenter: NSObject {
-    
+
     private static var shareInstance: AOPNotificaitonCenter!
-    
+
     private var notiNames: [String: Notification.Name] = [: ]
-    
+
     private var progressIns: AOPNotificationCenterProgressCenter!
-    
+
     /// private function 
     private override init() {
         super.init()
         addNotificationNames()
         monitorNotifications()
     }
-    
+
     /// single instance function  : )
     ///
     /// - Returns: return the aopnotification instance
     @discardableResult
-    open static func getInstance()->AOPNotificaitonCenter {
+    open static func getInstance() -> AOPNotificaitonCenter {
         if self.shareInstance != nil {
             return self.shareInstance
-        }else{
+        } else {
             self.shareInstance = AOPNotificaitonCenter()
             return self.shareInstance
         }
     }
-    
+
     /// add all notification to dic  step one
     private func addNotificationNames() {
         //tb-notification
@@ -61,27 +61,27 @@ class AOPNotificaitonCenter: NSObject {
         self.notiNames[AOPEventType.vceventAction.rawValue] = Notification.Name.InspurNotifications().vceventAction
         self.notiNames[AOPEventType.applicationSendaction.rawValue] = Notification.Name.InspurNotifications().appSendActions
     }
-    
+
     /// add all notification  step two
     private func monitorNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.progressCenter(noti:)), name: self.notiNames[AOPEventType.tbselectedAction.rawValue], object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.progressCenter(noti:)), name: self.notiNames[AOPEventType.vceventAction.rawValue], object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.progressCenter(noti:)), name: self.notiNames[AOPEventType.applicationSendaction.rawValue], object: nil)
     }
-    
+
     /// progress & analyze notification - post them to [AOP EVENT Collector: EventCollector]
     ///
     /// - Parameter noti: notification's info
     @objc func progressCenter(noti: Notification) {
         if noti.userInfo == nil || noti.userInfo!.first == nil { return }
-        
+
         self.progressIns = AOPProgressCenterFactory().concreateIns(userinfo: noti.userInfo!)
         self.progressIns.progressUserinfo()
     }
-    
+
     /// remove all notifications end life circle
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
 }

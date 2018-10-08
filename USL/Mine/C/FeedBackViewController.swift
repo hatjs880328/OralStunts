@@ -18,11 +18,11 @@ class FeedBackViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func initVw() {
         self.title = "意见反馈"
         self.navigationController?.isNavigationBarHidden = false
-        let _ = FeedBackVw(frame: CGRect.zero, fatherVw: self.view)
+        _ = FeedBackVw(frame: CGRect.zero, fatherVw: self.view)
     }
 
 }

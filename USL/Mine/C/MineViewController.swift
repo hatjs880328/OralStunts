@@ -18,14 +18,14 @@ import UIKit
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+
     func initVw() {
         let personInfoVw: MinePersonalInfoVw = MinePersonalInfoVw(frame: CGRect.zero, fatherVw: self.view)
-        let _ = MinePersionalTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: personInfoVw)
+        _ = MinePersionalTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: personInfoVw)
     }
 
 }

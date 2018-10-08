@@ -9,14 +9,14 @@
 import Foundation
 
 class TopHelloVw: UIView {
-    
+
     let helloLb = UILabel()
-    
+
     let vm = TopHelloVM()
-    
+
     let searchBtn = UIButton()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
@@ -28,11 +28,11 @@ class TopHelloVw: UIView {
         self.createVw()
         self.createRX()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.addSubview(searchBtn)
         searchBtn.snp.makeConstraints { (make) in
@@ -57,14 +57,14 @@ class TopHelloVw: UIView {
         helloLb.font = APPDelStatic.uiFont(with: 30)
         helloLb.textColor = APPDelStatic.themeColor
     }
-    
+
     func createRX() {
-        let _ = self.vm.outPut.subscribe { [weak self](event) in
+        _ = self.vm.outPut.subscribe { [weak self](event) in
             if event.element == nil { return }
             self?.helloLb.text = event.element!
         }
     }
-    
+
     func searchBtnDidSelectAction() {
         //之前被选中-右边的瀑布流显示-这一次要返回列表-隐藏toolbar&取消所有选中
         if self.searchBtn.isSelected {
@@ -73,6 +73,6 @@ class TopHelloVw: UIView {
         self.searchBtn.isSelected = !self.searchBtn.isSelected
         //发送通知
         NotificationCenter.default.post(name: NSNotification.Name.init("main_page_change_listAndWaterfall"), object: nil, userInfo: nil)
-        
+
     }
 }

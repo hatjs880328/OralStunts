@@ -8,25 +8,25 @@
 
 import Foundation
 
-class DingTalkCalendarTrupleVModel : NSObject {
-    
+class DingTalkCalendarTrupleVModel: NSObject {
+
     var trupleVM: dingTalkTrupleViewModel!
-    
+
     var beSelectedTag: Int = 0
-    
-    var firstDayTag:Int = 0
-    
+
+    var firstDayTag: Int = 0
+
     let formatStr = "yyyy-MM-dd"
-    
+
     init(with vm: dingTalkTrupleViewModel) {
         super.init()
         self.trupleVM = vm
         self.beSelectedTag = vm.headerCount
         self.firstDayTag = vm.headerCount
-        
+
         isCurrentDay()
     }
-    
+
     /// if today [true: firstSelected is today]
     func isCurrentDay() {
         let dateInfo = Date()
@@ -40,17 +40,17 @@ class DingTalkCalendarTrupleVModel : NSObject {
             }
         }
     }
-    
+
     func setValue(trupleVM: dingTalkTrupleViewModel) {
         self.trupleVM = trupleVM
     }
-    
+
     func setValue(selectedIndex: Int) {
         self.beSelectedTag = selectedIndex
     }
-    
+
     func setValue(firstDayIndex: Int ) {
         self.firstDayTag = firstDayIndex
     }
-    
+
 }

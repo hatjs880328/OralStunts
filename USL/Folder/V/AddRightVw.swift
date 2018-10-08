@@ -9,10 +9,10 @@
 import Foundation
 
 class AddRightVw: UIView {
-    
+
     let helloLb = UIImageView()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
@@ -23,11 +23,11 @@ class AddRightVw: UIView {
         }
         self.createVw()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.addSubview(helloLb)
         helloLb.snp.makeConstraints { (make) in

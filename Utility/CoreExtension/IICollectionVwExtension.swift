@@ -16,23 +16,23 @@ import UIKit
  
  */
 extension UICollectionView {
-    
-    public class func initializeMethod(){
+
+    public class func initializeMethod() {
         let originalSelector = #selector(UICollectionView.reloadData)
         let swizzledSelector = #selector(UICollectionView.swizzingReload)
-        
+
         let originalMethod = class_getInstanceMethod(self, originalSelector)
         let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-        
+
         let didAddMethod: Bool = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
-        
+
         if didAddMethod {
             class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
         } else {
             method_exchangeImplementations(originalMethod!, swizzledMethod!)
         }
     }
-    
+
     @objc func swizzingReload() {
         self.swizzingReload()
         if !self.isKind(of: UICollectionView.self) { return }
@@ -51,11 +51,11 @@ extension UICollectionView {
             if (boolStr as! String) == "true" {
                 if self.numberOfItems(inSection: 0) != 0 {
                     self.backgroundView = nil
-                }else{
-                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame":self.frame], action: nil)
+                } else {
+                    let resultVw = IIModuleCore.getInstance().invokingSomeFunciton(url: "MineServiceModule/getAlertVwWithParams:", params: ["frame": self.frame], action: nil)
                     self.backgroundView = resultVw as? UIView
                 }
-            }else {
+            } else {
                 self.backgroundView = nil
                 return
             }

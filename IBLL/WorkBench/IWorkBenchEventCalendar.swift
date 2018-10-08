@@ -10,16 +10,16 @@ import Foundation
 import EventKit
 
 protocol IWorkBenchEventCalendar {
-    
+
     /// get evente from calendar
     ///
     /// - Parameters:
     ///   - from: date
     ///   - to: date
     ///   - mainThreadAction: eventAction[in main thread]
-    func getEventsInGlobalQueue(from : Date,to: Date,mainThreadAction: @escaping (_ eventsArr: [EKEvent])->Void)
-    
+    func getEventsInGlobalQueue(from: Date, to: Date, mainThreadAction: @escaping (_ eventsArr: [EKEvent]) -> Void)
+
     /// set event
-    func setEvent(with: DingTalkCEvent,successAction:@escaping ()->Void , failAction:@escaping ()->Void)
-    
+    func setEvent(with: DingTalkCEvent, successAction:@escaping () -> Void, failAction:@escaping () -> Void)
+
 }

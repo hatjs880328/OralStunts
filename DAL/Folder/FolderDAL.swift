@@ -8,41 +8,40 @@
 
 import Foundation
 
-
 class FolderDAL: NSObject {
-    
+
     let tabName: String = "OTFolderTab"
-    
+
     override init() {
         super.init()
     }
-    
+
     func createTab() {
         let createSQL = Model2Sql.getInstance().model2SqlWithCtg(model: OTFolderModel(), tableName: tabName)
         FMDatabaseQueuePublicUtils.executeUpdate(sql: createSQL)
     }
-    
+
     func insert(with model: OTFolderModel) {
         let sql = Model2SqlInsert.getInstance().insertModelWithCtg(model: model, tableName: tabName)
         FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
     }
-    
-    func getData()->NSMutableArray {
+
+    func getData() -> NSMutableArray {
         let sql = "select * from \(tabName) order by modifyTime desc;"
         let result = FMDatabaseQueuePublicUtils.getResultWithSql(sql: sql)
         return result
     }
-    
+
     func changeModifyTime(with id: String) {
         let sql = "update \(tabName) set modifyTime = '\(Date().timeIntervalSince1970)' where id = '\(id)';"
         FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
     }
-    
-    func deleteFolder(with id:String) {
+
+    func deleteFolder(with id: String) {
         let sql = "delete from \(tabName) where id = '\(id)';"
         FMDatabaseQueuePublicUtils.executeUpdate(sql: sql)
     }
-    
+
     /// 清空表信息
     func deleteAllInfo() {
         let sql = "delete from \(tabName);"

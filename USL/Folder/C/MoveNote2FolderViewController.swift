@@ -12,40 +12,40 @@ import UIKit
 class MoveNote2FolderViewController: IIBaseViewController {
 
     var tabVw: FolderTabVw!
-    
+
     /// 必须参数
-    public var shouldMoveID:[String] = []
-    
+    public var shouldMoveID: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "选择文件夹"
         self.navigationController?.isNavigationBarHidden = false
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         createVw()
         self.tabVw.getData()
     }
-    
+
     func createVw() {
         if self.tabVw != nil { return }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.progressOver))
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: APPDelStatic.themeColor]
         // content tab vw
-        tabVw = FolderTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: nil,haveCheckBox:true)
+        tabVw = FolderTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: nil, haveCheckBox: true)
     }
-    
+
     @objc func progressOver() {
-        
-        NoteLogicBLL().moveNote2Folder(ids: shouldMoveID, folderID: self.tabVw.vm.selectedCellIDS.keys.first){ [weak self] (isFail) in
+
+        NoteLogicBLL().moveNote2Folder(ids: shouldMoveID, folderID: self.tabVw.vm.selectedCellIDS.keys.first) { [weak self] (isFail) in
             if isFail {
                 OTAlertVw().alertShowSingleTitle(titleInfo: "提醒", message: "请选择一个目标文件夹！")
-            }else{
+            } else {
                 self?.goBack()
             }
         }

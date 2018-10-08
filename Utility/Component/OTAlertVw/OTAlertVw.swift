@@ -10,13 +10,13 @@ import Foundation
 import SCLAlertView
 
 @objc class OTAlertVw: NSObject {
-    
+
     override init() {
         super.init()
     }
-    
+
     /// 单行文档提示
-    func alertShowSingleTitle(titleInfo:String,message:String) {
+    func alertShowSingleTitle(titleInfo: String, message: String) {
         let toast = FFToast(toastWithTitle: titleInfo, message: message, iconImage: UIImage(name: "fftoast_info"))
         toast?.toastPosition = .belowStatusBarWithFillet
         toast?.duration = 1.8
@@ -24,16 +24,16 @@ import SCLAlertView
         toast?.show()
     }
     /// 两个按钮的提示
-    func alertShowConfirm(title:String,message: String,confirmStr:String,confirmAction:@escaping ()->Void) {
-        
+    func alertShowConfirm(title: String, message: String, confirmStr: String, confirmAction:@escaping () -> Void) {
+
         let alertVw = SCLAlertView()
         alertVw.addButton(confirmStr) {
             confirmAction()
         }
         alertVw.showWarning(title, subTitle: message, closeButtonTitle: "取消", timeout: nil, colorStyle: 0xFFD110, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
-        
+
     }
-    
+
     @objc func alertShowCreateNoteAndFolderVw() {
         if let nowCon = ((UIApplication.shared.keyWindow!.rootViewController as! SaltedFishTabBarVC).selectedViewController as! UINavigationController).viewControllers.last {
             let alertVw = SCLAlertView()
@@ -51,6 +51,6 @@ import SCLAlertView
             }
             alertVw.showEdit("选择新建项目", subTitle: "", closeButtonTitle: "取消", timeout: nil, colorStyle: 0xFFD110, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
         }
-        
+
     }
 }

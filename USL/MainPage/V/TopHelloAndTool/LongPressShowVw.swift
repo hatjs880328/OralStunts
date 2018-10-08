@@ -8,21 +8,20 @@
 
 import Foundation
 
-
 /// 长按item显示出来的操作view
 class LongPressShowVw: OTBaseVw {
-    
+
     /// 操作按钮数据源-全选包含选中与非选中两个状态，所以有俩图片，其他的第二个图片为空
     var iconsData = [
-        ("收藏","water_fall_unlike_icon","water_fall_like_icon"),
-        ("移动","water_fall_move_icon",""),
-        ("删除","water_fall_delte_icon",""),
-        ("全选","water_fall_selectall_de_icon","water_fall_selectall_icon"),
-        ("取消","water_fall_cancel_icon","")]
-    
+        ("收藏", "water_fall_unlike_icon", "water_fall_like_icon"),
+        ("移动", "water_fall_move_icon", ""),
+        ("删除", "water_fall_delte_icon", ""),
+        ("全选", "water_fall_selectall_de_icon", "water_fall_selectall_icon"),
+        ("取消", "water_fall_cancel_icon", "")]
+
     var btnArr: [UIButton] = []
-    
-    init(frame: CGRect,topVw: UIView,fatherVw: UIView) {
+
+    init(frame: CGRect, topVw: UIView, fatherVw: UIView) {
         super.init(frame: frame)
         self.fatherVw = fatherVw
         self.topVw = topVw
@@ -31,11 +30,11 @@ class LongPressShowVw: OTBaseVw {
         self.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.changeLikeOrNotBySelectedItems), name: NSNotification.Name.init("Progress_tool_changeBySelectoneItem"), object: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.backgroundColor = UIColor.white
         fatherVw?.addSubview(self)
@@ -49,7 +48,7 @@ class LongPressShowVw: OTBaseVw {
         self.borderColor = APPDelStatic.lineGray
         self.borderWidth = 0.5
     }
-    
+
     /// 循环创建icon
     func loopCreateIcon() {
         let tupleInfo = self.calculateNumbers()
@@ -78,20 +77,20 @@ class LongPressShowVw: OTBaseVw {
             btnArr.append(iconBtn)
         }
     }
-    
+
     /// 计算距离等信息
-    func calculateNumbers()->(eachWeight:CGFloat,leftPadding:CGFloat,eachPadding:CGFloat) {
+    func calculateNumbers()->(eachWeight: CGFloat, leftPadding: CGFloat, eachPadding: CGFloat) {
         self.layoutIfNeeded()
         //每个item宽度
         let eachItemWeight = 30
         //第一个距离左边的距离
         let distanceLeft = 20
-        let usedDis:CGFloat = CGFloat(distanceLeft * 2 + eachItemWeight * self.iconsData.count)
+        let usedDis: CGFloat = CGFloat(distanceLeft * 2 + eachItemWeight * self.iconsData.count)
         let eachItemPadding = ( self.frame.size.width - usedDis ) / CGFloat(self.iconsData.count - 1)
-        
-        return (30,20,eachItemPadding)
+
+        return (30, 20, eachItemPadding)
     }
-    
+
     func hideSelf() {
         if let vw = (self.superview as? MainVCTabVw) {
             vw.vm?.toolBarShowOrNot = false
@@ -101,8 +100,8 @@ class LongPressShowVw: OTBaseVw {
             self.alpha = 0
         }
     }
-    
-    func showSelf(like:Bool = false) {
+
+    func showSelf(like: Bool = false) {
         if let vw = (self.superview as? MainVCTabVw) {
             vw.vm?.toolBarShowOrNot = true
         }
@@ -115,11 +114,10 @@ class LongPressShowVw: OTBaseVw {
     }
 }
 
-
 // MARK: - 按钮的事件
 extension LongPressShowVw {
-    
-    func innerTapActions(index:Int) {
+
+    func innerTapActions(index: Int) {
         switch index {
         case 0:
             likeOrNot()
@@ -132,10 +130,10 @@ extension LongPressShowVw {
         case 4:
             cancel()
         default:
-            break;
+            break
         }
     }
-    
+
     /// 取消事件
     func cancel() {
         self.hideSelf()
@@ -143,20 +141,20 @@ extension LongPressShowVw {
            vw.vm?.selectAllItems(selectOrDeselect: false)
         }
     }
-    
+
     /// 全选
     func selectAll() {
         if let vw = (self.superview as? MainVCTabVw) {
             if btnArr[3].isSelected {
                 vw.vm?.selectAllItems(selectOrDeselect: false)
                 btnArr[3].isSelected = false
-            }else{
+            } else {
                 vw.vm?.selectAllItems(selectOrDeselect: true)
                 btnArr[3].isSelected = true
             }
         }
     }
-    
+
     /// 删除
     func delete() {
         if let vw = (self.superview as? MainVCTabVw) {
@@ -164,7 +162,7 @@ extension LongPressShowVw {
         }
         self.hideSelf()
     }
-    
+
     /// 移动
     func move() {
         if let vw = (self.superview as? MainVCTabVw) {
@@ -174,7 +172,7 @@ extension LongPressShowVw {
         }
         self.hideSelf()
     }
-    
+
     /// 收藏与否[有一个必须换，图标就边暗]
     func likeOrNot() {
         if let vw = (self.superview as? MainVCTabVw) {
@@ -182,21 +180,21 @@ extension LongPressShowVw {
             self.btnArr.first!.isSelected = !self.btnArr.first!.isSelected
         }
     }
-    
+
     /// 处理  收藏按钮 的选中与否-通知处理
     @objc func changeLikeOrNotBySelectedItems() {
         if let vw = (self.superview as? MainVCTabVw) {
             let num = vw.vm?.calculateLikeCountInSelectedItems()
             // 处理收藏按钮
-            if num?.s == num?.sAndl && num?.sAndl != 0{
+            if num?.s == num?.sAndl && num?.sAndl != 0 {
                 self.btnArr.first!.isSelected = true
-            }else{
+            } else {
                 self.btnArr.first!.isSelected = false
             }
             // 处理全选按钮
             if num?.s == num?.dataCount {
                 self.btnArr[3].isSelected = true
-            }else{
+            } else {
                 self.btnArr[3].isSelected = false
             }
         }

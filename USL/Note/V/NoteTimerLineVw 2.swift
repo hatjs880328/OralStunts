@@ -8,29 +8,28 @@
 
 import Foundation
 
+class NoteTimerLineVw: UIView, UITableViewDataSource, UITableViewDelegate {
 
-class NoteTimerLineVw: UIView,UITableViewDataSource,UITableViewDelegate {
-    
     let tab: UITableView = UITableView()
-    
+
     let reuseID = "NotetimelineReuseid"
-    
+
     let vm = NoteTimeLineVM()
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(10 * APPDelStatic.sizeScale, 18, 0, 3))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10 * APPDelStatic.sizeScale, left: 18, bottom: 0, right: 3))
         }
         initVw()
         initVM()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func initVw() {
         self.addSubview(tab)
         tab.snp.makeConstraints { (make) in
@@ -43,28 +42,28 @@ class NoteTimerLineVw: UIView,UITableViewDataSource,UITableViewDelegate {
         tab.dataSource = self
         tab.separatorStyle = .none
     }
-    
+
     func initVM() {
         self.vm.reloadAction = {[weak self]() in
             self?.tab.reloadData()
         }
         self.vm.getData()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: reuseID) as? NoteTimeLineCell
         if cell == nil {
-            cell = NoteTimeLineCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseID,index:indexPath)
+            cell = NoteTimeLineCell(style: UITableViewCellStyle.default, reuseIdentifier: reuseID, index: indexPath)
         }
         let model = self.vm.getModel(with: indexPath)
         cell?.setData(model: model)
         return cell!
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.vm.cellInfo.count
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height =  self.vm.getModel(with: indexPath).cellHeight
         return height
@@ -72,40 +71,40 @@ class NoteTimerLineVw: UIView,UITableViewDataSource,UITableViewDelegate {
 }
 
 class NoteTimeLineCell: UITableViewCell {
-    
+
     let createTime = UILabel()
-    
+
     let picVw: UIView = UIView()
-    
+
     let txtLb: UILabel = UILabel()
-    
+
     let vedioImg = UIImageView()
-    
+
     var volumeVw: OTVolumeVw!
-    
+
     var vm = TimeLineTabCellVM()
-    
-    var index:IndexPath!
-    
-    init(style: UITableViewCellStyle, reuseIdentifier: String?,index:IndexPath) {
+
+    var index: IndexPath!
+
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, index: IndexPath) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         self.index = index
         initVw()
         createVm()
     }
-    
+
     /// create vm
     func createVm() {
         self.vm.setAction { [weak self]() in
             self?.vedioImg.image = UIImage(named: "noPlay.png")
         }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// 60 + height
     func initVw() {
         let line = UIView()
@@ -177,7 +176,7 @@ class NoteTimeLineCell: UITableViewCell {
         }
         txtLb.font = APPDelStatic.uiFont(with: 11)
     }
-    
+
     func setData(model: NoteTimelineVModel) {
         self.txtLb.text = model.txt
         self.createTime.text = model.createTime

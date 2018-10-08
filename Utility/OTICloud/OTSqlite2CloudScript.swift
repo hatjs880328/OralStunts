@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OTSqlite2CloudScript: NSObject  {
+class OTSqlite2CloudScript: NSObject {
     override init() {
         super.init()
     }

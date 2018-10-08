@@ -8,16 +8,15 @@
 
 import Foundation
 
+class OTTablistVw: UIView, UITableViewDelegate, UITableViewDataSource {
 
-class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
-    
-    var cellInfos = ["编辑","移动","删除","分享"]
-    
+    var cellInfos = ["编辑", "移动", "删除", "分享"]
+
     var tab = UITableView()
-    
-    var didSelectAction: [(()->Void)?] = []
-    
-    init(frame: CGRect,fatherVw: UIView) {
+
+    var didSelectAction: [(() -> Void)?] = []
+
+    init(frame: CGRect, fatherVw: UIView) {
         super.init(frame: frame)
         fatherVw.addSubview(self)
         self.snp.makeConstraints { (mk) in
@@ -29,7 +28,7 @@ class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
         self.alpha = 0
         initVw()
     }
-    
+
     func initVw() {
         // rect add
         let rectImg = UIImageView()
@@ -44,7 +43,7 @@ class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
         self.addSubview(tab)
         tab.separatorStyle = .none
         tab.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(14, 0, 0, 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0))
         }
         tab.delegate = self
         tab.dataSource = self
@@ -53,7 +52,7 @@ class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
         tab.layer.borderWidth = 0.5
         tab.layer.cornerRadius = 3
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "ottablistTabcellReuseid")
         cell.selectionStyle = .none
@@ -82,20 +81,20 @@ class OTTablistVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cellInfos.count
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50 * APPDelStatic.sizeScale
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.didSelectAction[indexPath.row] == nil { return }
         didSelectAction[indexPath.row]!()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

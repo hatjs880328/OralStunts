@@ -11,13 +11,13 @@ import UIKit
 class MineAboutUSViewController: IIBaseViewController {
 
     let sourceImg = SVGKImage(named: "语音.svg")
-    
+
     var layers: [CAShapeLayer] = []
-    
+
     var timer: Timer?
-    
+
     var img: SVGKFastImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initVw()
@@ -27,7 +27,7 @@ class MineAboutUSViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func initVw() {
         self.title = "关于我们"
         self.navigationController?.isNavigationBarHidden = false
@@ -67,7 +67,7 @@ class MineAboutUSViewController: IIBaseViewController {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
         ver.text = "Oral Ver \(version)"
     }
-    
+
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.changeCGColor), userInfo: nil, repeats: true)
         self.layers.append((sourceImg?.layer(withIdentifier: "cureLine") as! CALayerWithChildHitTest).sublayers![0] as! CAShapeLayer)
@@ -76,16 +76,16 @@ class MineAboutUSViewController: IIBaseViewController {
             self.layers.append(eachItem as! CAShapeLayer)
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         timer?.invalidate()
         timer = nil
     }
-    
+
     deinit {
         print("关于我们释放")
     }
-    
+
     @objc func changeCGColor() {
         let color = MineAboutUsBLL().changeColor().cgColor
         for eachItem in self.layers {
@@ -93,7 +93,7 @@ class MineAboutUSViewController: IIBaseViewController {
         }
         self.img.setNeedsDisplay()
     }
-    
+
     @objc func share() {
         OTShare.share(with: self.view, title: "OralTrunts", subTitle: "生活琐事随地、随时记录。", img: "voice.png", shareUrl: URL(string: "http://baidu.com")!)
     }

@@ -21,9 +21,9 @@ class SearchViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func createVw() {
-        searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: nil,jumpOrUse:false)
+        searchVw = OTSearchVw(frame: CGRect.zero, fatherVw: self.view, topVw: nil, jumpOrUse: false)
         searchVw.searFd.becomeFirstResponder()
         searchVw.remakeCon(right: 45 * APPDelStatic.sizeScale)
         let cancelBtn = UIButton()
@@ -43,11 +43,11 @@ class SearchViewController: IIBaseViewController {
         // tab
         tabVw = SearchVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: searchVw)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+
     deinit {
         print("搜索页面释放")
     }

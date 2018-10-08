@@ -8,18 +8,18 @@
 
 import Foundation
 
-class OTFolderModel: NSObject,Codable {
-    
+class OTFolderModel: NSObject, Codable {
+
     var id = NSUUID().uuidString
-    
+
     var title = ""
-    
+
     var createTime = Date()
-    
-    var contentCount:Int = 0
-    
+
+    var contentCount: Int = 0
+
     var modifyTime = Date()
-    
+
     override init() {
         super.init()
     }

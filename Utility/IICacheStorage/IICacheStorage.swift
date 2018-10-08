@@ -10,24 +10,23 @@
 //
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ** * * * *
 
-
 import Foundation
 
 /// 用来存储库名字，key名字
-class IICacheStorage : NSObject {
-    
+class IICacheStorage: NSObject {
+
     /// 缓存库名称
     @objc lazy var iiCacheStorageName = "impCloud+CacheStorage"
-    
+
     /// 个人中心-tablist数据源缓存key
     @objc lazy var cloudMinePersonCenterTabList = "cloudMinePersonCenterTabList"
-    
+
     /// 发现-卡包信息
     @objc lazy var discoveryCardsList = "discoveryCardsList"
-    
+
     /// 预制的note添加
     @objc lazy var preNoteInsert = "preNoteInsert"
-    
+
     override init() {
         super.init()
     }

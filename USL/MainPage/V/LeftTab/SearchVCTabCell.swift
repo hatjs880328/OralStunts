@@ -9,27 +9,27 @@
 import Foundation
 
 class SearchVCTabCell: UITableViewCell {
-    
-    var titleLB:UILabel = UILabel()
+
+    var titleLB: UILabel = UILabel()
     var abstractLB: UILabel = UILabel()
-    var modifyTimeLb:UILabel = UILabel()
+    var modifyTimeLb: UILabel = UILabel()
     /// 是否喜欢此记录
     var isLike: UIButton = UIButton()
     // refreshAction
-    var refreshAction: (()->Void)?
+    var refreshAction: (() -> Void)?
     // note id
-    var realNoteId:String = ""
-    
+    var realNoteId: String = ""
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         createVw()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         self.addSubview(titleLB)
         self.addSubview(abstractLB)
@@ -85,27 +85,27 @@ class SearchVCTabCell: UITableViewCell {
         }
         botLine.backgroundColor = APPDelStatic.lineGray
     }
-    
-    func setData(model: SearchvcVmodel,isSelectAll: Bool = false) {
+
+    func setData(model: SearchvcVmodel, isSelectAll: Bool = false) {
         self.titleLB.text = model.title
         self.abstractLB.text = model.abstract
         self.modifyTimeLb.text = model.modifyTime
         if isSelectAll {
             self.titleLB.textColor = APPDelStatic.themeColor
-        }else {
+        } else {
             self.titleLB.textColor = UIColor.black
         }
         self.isLike.isSelected = model.isLike
         realNoteId = model.noteID
     }
-    
+
     @objc func isLikeFunc() {
         //NoteCreatingBLL.getInstance().setShowingModel(with: self.realNoteId)
         if self.isLike.isSelected {
             //取消收藏
             self.isLike.isSelected = false
             NoteLogicBLL().likeOneModel(isLike: false, noteID: [self.realNoteId])
-        }else{
+        } else {
             //收藏
             self.isLike.isSelected = true
             NoteLogicBLL().likeOneModel(isLike: true, noteID: [self.realNoteId])

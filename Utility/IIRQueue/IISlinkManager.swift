@@ -28,7 +28,7 @@ import Foundation
  - VeryHighLevel: v-high
  */
 enum PriorityLevel {
-    case HighLevel,NormalLevel,LowLevel,VeryHighLevel
+    case HighLevel, NormalLevel, LowLevel, VeryHighLevel
 }
 
 ///  background progres tasks √
@@ -42,25 +42,25 @@ enum PriorityLevel {
 ///  set task lvl √
 
 class IISlinkManager {
-    
+
     /// if progress task now
     var ifprogressNow = false
-    
+
     /// recursive-lock
     let DG_LOCK = NSRecursiveLock()
-    
+
     /// task - arr
     var TASK_ARRAY: Array<IITaskModel> = []
-    
-    init(linkname:String) {
-        
+
+    init(linkname: String) {
+
     }
-    
+
     /**
      start - execute
      */
     private func exeAllfunction() {
-        GCDUtils.asyncProgress(dispatchLevel: 1, asyncDispathchFunc: { 
+        GCDUtils.asyncProgress(dispatchLevel: 1, asyncDispathchFunc: {
             while true {
                 self.DG_LOCK.lock()
                 if self.TASK_ARRAY.count != 0 {
@@ -69,7 +69,7 @@ class IISlinkManager {
                     self.removeOnetask(Index: 0)
                     self.DG_LOCK.unlock()
                     continue
-                }else{
+                } else {
                     self.DG_LOCK.unlock()
                     self.ifprogressNow = false
                     return
@@ -77,13 +77,13 @@ class IISlinkManager {
             }
         }) { }
     }
-    
+
     /**
      add one task - then [sort the tasks]
      
      - parameter task: task
      */
-    func addTask(task:IITaskModel) {
+    func addTask(task: IITaskModel) {
         self.DG_LOCK.lock()
         self.TASK_ARRAY.append(task)
         self.TASK_ARRAY = IIMergeSort.sort(array: self.TASK_ARRAY)
@@ -94,27 +94,27 @@ class IISlinkManager {
             exeAllfunction()
         }
     }
-    
+
     /**
      remove a task
      
      - parameter Index: task index in task - arr
      */
-    func removeOnetask(Index:Int){
+    func removeOnetask(Index: Int) {
         if Index == 0 {
             self.TASK_ARRAY.removeFirst()
         }
     }
-    
+
     /**
      set task lvl default is lvl 1
      
      - parameter level   : lvl
      - parameter taskName: task name (uuid)
      */
-    func setPriorityLevel(level:Int,taskName:String = "") {
+    func setPriorityLevel(level: Int, taskName: String = "") {
         self.DG_LOCK.lock()
-        for (item,_) in self.TASK_ARRAY.enumerated() {
+        for (item, _) in self.TASK_ARRAY.enumerated() {
             if TASK_ARRAY[item].taskname == taskName {
                 let task = TASK_ARRAY[item]
                 self.TASK_ARRAY.insert(task, at: 0)

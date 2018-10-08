@@ -9,25 +9,25 @@
 import Foundation
 
 class MineBLL: NSObject {
-    
-    func getUserInfo()->OTUserInfo {
+
+    func getUserInfo() -> OTUserInfo {
         return MineDAL().getUserInfo()
     }
-    
-    func insertUserInto(with : OTUserInfo) {
+
+    func insertUserInto(with: OTUserInfo) {
         MineDAL().insertOneInfo(with: with)
     }
-    
+
     func updateGender(gender: String) {
         MineDAL().updateGender(gender: gender)
     }
-    
-    func updateNote(note:String) {
+
+    func updateNote(note: String) {
         MineDAL().updateNote(note: note)
     }
 
-    func updateAlertInfo(alert:Bool) {
+    func updateAlertInfo(alert: Bool) {
         MineDAL().updateAlertInfo(note: alert)
     }
-    
+
 }

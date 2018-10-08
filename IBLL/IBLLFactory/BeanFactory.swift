@@ -17,7 +17,6 @@
 //
 //
 
- 
 import Foundation
 
 /*
@@ -32,21 +31,20 @@ import Foundation
  */
 
 class BeanFactory: NSObject {
-    
-    
+
     /// Use bean factory create real bll instance - type is ibll
     ///
     /// - Parameter instanceID: xml id - value
     /// - Returns: real bll instance <xml class - value>
     func create(with instanceID: String)->Any? {
         if let coName = BeanDicCenter.getInstance().beanDic[instanceID] {
-            return self.swiftClassFromString(strInfo:coName)
-        }else{
+            return self.swiftClassFromString(strInfo: coName)
+        } else {
             // no key - value
             return nil
         }
     }
-    
+
     /// run time create instance by str info 
     private func swiftClassFromString(strInfo: String)->Any? {
         let nameSpace =  Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String

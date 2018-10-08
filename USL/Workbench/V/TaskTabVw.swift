@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class TaskTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
-    
+class TaskTabVw: UIView, UITableViewDelegate, UITableViewDataSource {
+
     var tabVw: UITableView!
-    
-    var isMeetingTab:Bool = false
-    
-    init(frame: CGRect,fatherVw: UIView,topView: UIView,isMeetingTAB:Bool = false) {
+
+    var isMeetingTab: Bool = false
+
+    init(frame: CGRect, fatherVw: UIView, topView: UIView, isMeetingTAB: Bool = false) {
         super.init(frame: frame)
         self.isMeetingTab = isMeetingTAB
         fatherVw.addSubview(self)
@@ -27,7 +27,7 @@ class TaskTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         }
         initTheVw()
     }
-    
+
     func initTheVw() {
         self.tabVw = UITableView()
         self.addSubview(tabVw)
@@ -41,14 +41,14 @@ class TaskTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         tabVw.dataSource = self
         tabVw.progressNodataAndLoadingBeforeReloaddata()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isMeetingTab {
             return (self.superview as! MeetingContainerVw).vm.cellModels.count
         }
         return (self.viewController() as! WorkBenchViewControllerV2).taskVM.getVMCount()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isMeetingTab {
             let cell = MeetingTBCell(style: UITableViewCellStyle.default, reuseIdentifier: "meetingReuseID")
@@ -61,48 +61,47 @@ class TaskTabVw: UIView,UITableViewDelegate,UITableViewDataSource {
         cell.setData(with: cellModel)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isMeetingTab {
             return (self.superview as! MeetingContainerVw).vm.getCellWithIndexpathrow(pathRow: indexPath.row).cellHeight
         }
         return (self.viewController() as! WorkBenchViewControllerV2).taskVM.getVModelWithIndex(indexPathRow: indexPath.row).cellHeight
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-
 class TaskTBCell: UITableViewCell {
-    
+
     let checkBox = UIImageView()
-    
+
     let stateBtn = UILabel()
-    
+
     let titleLab = UILabel()
-    
+
     let endTime = UILabel()
-    
+
     let pic = UIImageView()
-    
+
     let toPerson = UILabel()
-    
+
     let createTime = UILabel()
-    
+
     let completedPersonCount = UILabel()
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         createVw()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         // state btn
         self.addSubview(stateBtn)
@@ -201,7 +200,7 @@ class TaskTBCell: UITableViewCell {
         completedPersonCount.font = APPDelStatic.uiFont(with: 11)
         completedPersonCount.textColor = UIColor.gray
     }
-    
+
     func setData(with: DingtaskVModel) {
         self.stateBtn.text = with.state
         self.titleLab.text = with.title
@@ -214,37 +213,37 @@ class TaskTBCell: UITableViewCell {
 }
 
 class MeetingTBCell: UITableViewCell {
-    
+
     let topImg = UIImageView()
-    
+
     let stateBtn = UILabel()
-    
+
     let titleLab = UILabel()
-    
+
     let durationTime = UILabel()
-    
+
     let addressLb = UILabel()
-    
+
     let pic = UIImageView()
-    
+
     let createPerson = UILabel()
-    
+
     let createTime = UILabel()
-    
+
     let completedPersonCount = UILabel()
-    
+
     let taskLb = UILabel()
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         createVw()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createVw() {
         // state btn
         self.addSubview(stateBtn)
@@ -311,7 +310,7 @@ class MeetingTBCell: UITableViewCell {
         pic.layer.cornerRadius = 3
         pic.layer.borderColor = UIColor.gray.cgColor
         pic.layer.borderWidth = 0.5
-        
+
         // toPerson
         let toPersonWidth = IITextExtension.textLength(text: "给自己的", font: APPDelStatic.uiFont(with: 11))
         self.addSubview(createPerson)
@@ -364,7 +363,7 @@ class MeetingTBCell: UITableViewCell {
         taskLb.font = APPDelStatic.uiFont(with: 11)
         taskLb.textColor = UIColor.gray
     }
-    
+
     func setData(with: DingMeetingVModel) {
         self.stateBtn.text = with.state
         self.titleLab.text = with.title
@@ -375,7 +374,7 @@ class MeetingTBCell: UITableViewCell {
         self.completedPersonCount.text = with.completedInfo
         self.taskLb.text = with.taskCount
         self.addressLb.text = with.address
-        
+
         let createPersonWidth = IITextExtension.textLength(text: with.createPerson, font: APPDelStatic.uiFont(with: 11))
         self.createPerson.snp.remakeConstraints { (make) in
             make.left.equalTo(titleLab.snp.left)

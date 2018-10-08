@@ -8,38 +8,36 @@
 
 import Foundation
 
-
 class NoteWaterFallFlowCell: UICollectionViewCell {
-    
+
     var titleLb: UILabel = UILabel()
-    
+
     var likeOrNotBtn = UIButton()
-    
+
     var createTimeLb: UILabel = UILabel()
-    
+
     var contentRealTxtLb: UILabel = UILabel()
-    
+
     var subTitleLb: [UILabel] = []
-    
+
     // note id
-    var realNoteId:String = ""
-    
-    var longpressAction:(()->Void)!
-    
+    var realNoteId: String = ""
+
+    var longpressAction:(() -> Void)!
+
     var index: IndexPath?
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         createVw()
         addLongPressGes()
     }
-    
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// 5 16 8 13 8 13 8 18 * each
     func createVw() {
         self.addSubview(titleLb)
@@ -89,8 +87,8 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
     }
-    
-    func setData(note: SearchvcVmodel,indexPath: IndexPath) {
+
+    func setData(note: SearchvcVmodel, indexPath: IndexPath) {
         self.index = indexPath
         self.titleLb.text = note.title
         self.createTimeLb.text = note.modifyTime
@@ -112,17 +110,17 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         }
         if note.isSelected {
             self.borderColor = APPDelStatic.themeColor
-        }else{
+        } else {
             self.borderColor = APPDelStatic.lineGray
         }
     }
-    
+
     func addLongPressGes() {
         let long = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(sender:)))
         long.minimumPressDuration = 0.6
         self.addGestureRecognizer(long)
     }
-    
+
     func removeSubTitle() {
         self.layer.borderColor = APPDelStatic.lineGray.cgColor
         for eachItem in self.subTitleLb {
@@ -130,9 +128,9 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
         }
         self.subTitleLb.removeAll()
     }
-    
+
     @objc func longPress(sender: UILongPressGestureRecognizer) {
-        if sender.state == .began{
+        if sender.state == .began {
             if self.longpressAction == nil { return }
             self.longpressAction!()
             AudioServicesPlaySystemSound(1520)

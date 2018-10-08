@@ -22,12 +22,12 @@ class FolderContentsViewController: IIBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         initVw()
         self.getData()
     }
-    
+
     func initVw() {
         if tab != nil { return }
         let emptyVw = UIView()
@@ -40,11 +40,11 @@ class FolderContentsViewController: IIBaseViewController {
         }
         tab = SearchVCTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: emptyVw)
     }
-    
+
     func getData() {
         self.tab.vm.loadData(with: NoteCreatingBLL.getInstance().showingFolderMoel.id)
     }
-    
+
     @objc func selectAllItem() {
         let showStr = self.tab.vm.selectAllOrNot()
         self.navigationItem.rightBarButtonItem?.title = showStr

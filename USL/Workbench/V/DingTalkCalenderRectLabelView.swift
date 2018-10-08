@@ -8,23 +8,22 @@
 
 import Foundation
 
-
 class DingTalkCalenderRectLabelView: UIView {
-    
+
     var uistate: UIState!
-    
-    var gregorionDayLb:UILabel = UILabel()
-    
+
+    var gregorionDayLb: UILabel = UILabel()
+
     var lunarDayLb: UILabel = UILabel()
-    
+
     var circlePointVw: UIView = UIView()
-    
+
     var restLb: UILabel = UILabel()
-    
+
     var dateInfo: DingTalkCalanderVModel!
-    
-    var tapAction: ((_ tag: Int,_ initFirst:Bool,_ superView:UIView)->Void)!
-    
+
+    var tapAction: ((_ tag: Int, _ initFirst: Bool, _ superView: UIView) -> Void)!
+
     init(fatherView: UIView) {
         super.init(frame: CGRect.zero)
         fatherView.addSubview(self)
@@ -32,11 +31,11 @@ class DingTalkCalenderRectLabelView: UIView {
         self.isUserInteractionEnabled = true
         createView()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     /// init the view
     func createView() {
         self.addSubview(gregorionDayLb)
@@ -76,9 +75,9 @@ class DingTalkCalenderRectLabelView: UIView {
         restLb.textAlignment = .right
         restLb.textColor = UIColor.orange
     }
-    
+
     /// setValue
-    public func setParameters(item: DingTalkCalanderVModel,bigCalendarOrSamll: UIState) {
+    public func setParameters(item: DingTalkCalanderVModel, bigCalendarOrSamll: UIState) {
         self.uistate = bigCalendarOrSamll
         self.circlePointVw.alpha = 0
         self.dateInfo = item
@@ -89,7 +88,7 @@ class DingTalkCalenderRectLabelView: UIView {
         self.gregorionDayLb.textColor = UIColor.gray
         self.lunarDayLb.textColor = UIColor.gray
         // current month day
-        if item.isCurrentMonthDay{
+        if item.isCurrentMonthDay {
             self.gregorionDayLb.textColor = UIColor.black
             self.lunarDayLb.textColor = UIColor.gray
         }
@@ -105,14 +104,14 @@ class DingTalkCalenderRectLabelView: UIView {
             if item.smallCalendarSingleFirstItem {
                 beSelectedItem()
             }
-        }else{
+        } else {
             // current month first day
             if item.isFirstDayCurrentMonth {
                 beSelectedItem()
             }
         }
     }
-    
+
     func beSelectedItem() {
         self.backgroundColor = APPDelStatic.dingtalkBlue
         self.gregorionDayLb.textColor = UIColor.white
@@ -120,7 +119,7 @@ class DingTalkCalenderRectLabelView: UIView {
         self.circlePointVw.backgroundColor = UIColor.white
         self.layer.cornerRadius = 2
     }
-    
+
     func deSelectedItem() {
         self.backgroundColor = UIColor.white
         self.gregorionDayLb.text = self.dateInfo.gregorionDay
@@ -130,7 +129,7 @@ class DingTalkCalenderRectLabelView: UIView {
         self.lunarDayLb.textColor = UIColor.gray
         self.circlePointVw.backgroundColor = APPDelStatic.dingtalkBlue
         // current month day
-        if self.dateInfo.isCurrentMonthDay{
+        if self.dateInfo.isCurrentMonthDay {
             self.gregorionDayLb.textColor = UIColor.black
             self.lunarDayLb.textColor = UIColor.gray
         }
@@ -141,16 +140,16 @@ class DingTalkCalenderRectLabelView: UIView {
             self.circlePointVw.backgroundColor = APPDelStatic.dingtalkBlue
         }
     }
-    
+
     /// if the day have story [kcevent] set alpha = 1
     func setEventDay() {
         //the day have a story
         self.circlePointVw.alpha = 1
     }
-    
+
     /// if the day have no story [kcevent] set alpha = 0
     func setNoEventDay() {
         self.circlePointVw.alpha = 0
     }
-    
+
 }

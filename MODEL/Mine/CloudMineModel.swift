@@ -10,18 +10,17 @@ import Foundation
 
 /// 用户信息model
 class CloudMineModel: NSObject {
-    
+
     var name = ""
-    
+
     var companyName = ""
-    
-    var imageUrl:String = ""
-    
+
+    var imageUrl: String = ""
+
     var imagePlaceHolder = ""
-    
+
     override init() {
         super.init()
     }
-    
-    
+
 }

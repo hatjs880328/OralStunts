@@ -11,28 +11,28 @@ import RxCocoa
 import RxSwift
 
 class FeedBackVM: IIBaseVM {
-    var fieldInput:PublishSubject<String> = PublishSubject<String>()
-    var fieldOutput: Observable<(String,String)>!
+    var fieldInput: PublishSubject<String> = PublishSubject<String>()
+    var fieldOutput: Observable<(String, String)>!
     var btnInput: PublishSubject<Void> = PublishSubject<Void>()
     var tapOutput: Observable<Void>!
-    
+
     var result = ""
     override init() {
         super.init()
-        
-        self.fieldOutput = fieldInput.asObservable().map({ [weak self](strValue) -> (String,String) in
+
+        self.fieldOutput = fieldInput.asObservable().map({ [weak self](strValue) -> (String, String) in
             if strValue.length > 80 {
                 self?.result = (strValue.substringToIndex(80))
-                return (strValue.substringToIndex(80),"80/80")
+                return (strValue.substringToIndex(80), "80/80")
             }
             self?.result = strValue
-            return (strValue,"\(strValue.length)/80")
+            return (strValue, "\(strValue.length)/80")
         })
-        
-        self.tapOutput = self.btnInput.asObservable().map({ [weak self](tapVoid) -> Void in
+
+        self.tapOutput = self.btnInput.asObservable().map({ [weak self](_) -> Void in
             if self == nil { return }
             APPDelBLL().reportCustomExp(info: [self!.result])
         })
     }
-    
+
 }

@@ -8,27 +8,25 @@
 
 import Foundation
 
-
-
 class SearchVCTabVM: NSObject {
-    
+
     var dataSource: [SearchvcVmodel] = [] {
         didSet {
             reloadTabAndWaterFall()
         }
     }
-    
+
     /// left数据源变更UI
-    var reloadAction: (()->Void)!
-    
+    var reloadAction: (() -> Void)!
+
     /// right数据变更UI
-    var addNewDataAction: (()->Void)?
-    
-    var cellHeight:CGFloat = 70 * APPDelStatic.sizeScale
-    
+    var addNewDataAction: (() -> Void)?
+
+    var cellHeight: CGFloat = 70 * APPDelStatic.sizeScale
+
     /// toolbar是否显示
-    var toolBarShowOrNot:Bool = false
-    
+    var toolBarShowOrNot: Bool = false
+
     /// 是否全选
     var isSelectAll: Bool = false {
         didSet {
@@ -36,12 +34,12 @@ class SearchVCTabVM: NSObject {
             self.reloadAction()
         }
     }
-    
+
     override init() {
         super.init()
     }
-    
-    func deleateOne(with index:IndexPath) {
+
+    func deleateOne(with index: IndexPath) {
         var result = [SearchvcVmodel]()
         for i in 0 ..< dataSource.count {
             if index.row != i {
@@ -51,39 +49,39 @@ class SearchVCTabVM: NSObject {
         }
         self.dataSource = result
     }
-    
+
     /// 分页获取数据
-    func loadData(page: Int,orderby: String,sort:String) {
+    func loadData(page: Int, orderby: String, sort: String) {
         self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getNoteInfo(page: page, order: orderby, sortType: sort))
     }
-    
+
     /// 获取没有分配文件夹的数据
     func loadNonFolderData() {
         self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getNonFolderData())
     }
-    
+
     /// 获取文件夹下面数据
     func loadData(with folderID: String) {
         self.dataSource = loopProgressModel2VModel(NoteLogicBLL().loadData(with: folderID))
     }
-    
+
     /// 获取所有收藏的数据
     func loadFavData() {
         self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getFavData())
     }
-    
+
     /// 根据查询条件获取数据
     func requestDataByWhereSql(sql: String) {
         self.dataSource = loopProgressModel2VModel(NoteLogicBLL().getNoteByWhereSQL(sqlStr: sql))
     }
-    
-    func getData(with index:IndexPath)->SearchvcVmodel {
+
+    func getData(with index: IndexPath) -> SearchvcVmodel {
         let model = self.dataSource[index.row]
         return model
     }
-    
+
     /// 批量转换
-    func loopProgressModel2VModel(_ models: [OTNoteModel])->[SearchvcVmodel] {
+    func loopProgressModel2VModel(_ models: [OTNoteModel]) -> [SearchvcVmodel] {
         var result = [SearchvcVmodel]()
         for eachItem in models {
             let model = SearchvcVmodel()
@@ -92,14 +90,14 @@ class SearchVCTabVM: NSObject {
         }
         return result
     }
-    
+
     /// 移动之前处理方法-将bll中展示model赋值
     func moveNoteProgressShowModel(index: IndexPath) {
         NoteCreatingBLL.getInstance().showingNoteModel = self.dataSource[index.row].sourceModel
     }
-    
+
     /// 点击事件处理
-    func didSelectActionReturnVC(indexPath:IndexPath)->IIBaseViewController {
+    func didSelectActionReturnVC(indexPath: IndexPath) -> IIBaseViewController {
         let model = self.getData(with: indexPath)
         let con = NoteTimeLineViewController()
         NoteCreatingBLL.getInstance().showingNoteModel = model.sourceModel
@@ -107,9 +105,9 @@ class SearchVCTabVM: NSObject {
         con.presentedVcHasNavigation = true
         return con
     }
-    
+
     /// 点击单个项目跳转到timeline页面
-    func didSelectedOneItemAction(indexPath: IndexPath)->UIViewController? {
+    func didSelectedOneItemAction(indexPath: IndexPath) -> UIViewController? {
         if longpressIsActive() {
             self.selectOneItem(with: indexPath)
             return nil
@@ -119,30 +117,30 @@ class SearchVCTabVM: NSObject {
         con.hidesBottomBarWhenPushed = true
         return con
     }
-    
+
     /// 选中某一个item[这一个选中其他的都取消选中 & 刷新瀑布流]
     func selectOneItem(with indexpath: IndexPath) {
         for eachItem in 0 ..< self.dataSource.count {
             if indexpath.row == eachItem {
                 self.dataSource[eachItem].isSelected = !self.dataSource[eachItem].isSelected
-            }else{
+            } else {
                 //self.dataSource[eachItem].isSelected = false
             }
         }
         reloadTabAndWaterFall()
         selectItemPostNoti()
     }
-    
+
     /// 选中所有的ITEM[刷新tableview][true: 全选，false:全部取消]
-    func selectAllItems(selectOrDeselect:Bool) {
+    func selectAllItems(selectOrDeselect: Bool) {
         for eachItem in 0 ..< self.dataSource.count {
             self.dataSource[eachItem].isSelected = selectOrDeselect
         }
         reloadTabAndWaterFall()
     }
-    
+
     /// 判定是否激活了长按选中
-    func longpressIsActive()->Bool {
+    func longpressIsActive() -> Bool {
         return toolBarShowOrNot
         var flag = false
         for eachItem in self.dataSource {
@@ -153,7 +151,7 @@ class SearchVCTabVM: NSObject {
         }
         return flag
     }
-    
+
     /// 根据选中的标识，删除items并刷新tab
     func deleteNotesBySelectedFlag() {
         var index = self.dataSource.count - 1
@@ -166,9 +164,9 @@ class SearchVCTabVM: NSObject {
         }
         self.reloadTabAndWaterFall()
     }
-    
+
     /// 根据选中的标识，移动item并刷新tab[返回自动刷新]
-    func moveNoteBySelectedFlag()->UIViewController{
+    func moveNoteBySelectedFlag() -> UIViewController {
         var ids: [String] = []
         for item in self.dataSource {
             if item.isSelected {
@@ -178,14 +176,14 @@ class SearchVCTabVM: NSObject {
         let con = MoveNote2FolderViewController()
         con.hidesBottomBarWhenPushed = true
         con.shouldMoveID = ids
-        
+
         return con
     }
-    
+
     /// 返回 (选中项目中已经收藏个数 : 选中项目数 : 数据源总个数）
-    func calculateLikeCountInSelectedItems()->(sAndl:Int,s:Int,dataCount: Int) {
-        var likeAndSelectedNum:Int = 0
-        var selectedNum:Int = 0
+    func calculateLikeCountInSelectedItems()->(sAndl: Int, s: Int, dataCount: Int) {
+        var likeAndSelectedNum: Int = 0
+        var selectedNum: Int = 0
         for eachItem in self.dataSource {
             if eachItem.isSelected && eachItem.isLike {
                 likeAndSelectedNum += 1
@@ -194,11 +192,11 @@ class SearchVCTabVM: NSObject {
                 selectedNum += 1
             }
         }
-        return (likeAndSelectedNum,selectedNum,self.dataSource.count)
+        return (likeAndSelectedNum, selectedNum, self.dataSource.count)
     }
-    
+
     /// 批量处理选中的项目-收藏与否
-    func progressLikeOrNot(likeOrNot:Bool) {
+    func progressLikeOrNot(likeOrNot: Bool) {
         for eachItem in self.dataSource {
             if eachItem.isSelected {
                 eachItem.isLike = likeOrNot
@@ -207,12 +205,12 @@ class SearchVCTabVM: NSObject {
         }
         reloadTabAndWaterFall()
     }
-    
+
     /// 选中一个项目时，发送推送信息
     func selectItemPostNoti() {
         NotificationCenter.default.post(name: NSNotification.Name.init("Progress_tool_changeBySelectoneItem"), object: nil, userInfo: nil)
     }
-    
+
     /// 刷新tableview & waterfall
     func reloadTabAndWaterFall() {
         if self.reloadAction == nil { return }
@@ -220,16 +218,16 @@ class SearchVCTabVM: NSObject {
         if self.addNewDataAction == nil { return }
         self.addNewDataAction!()
     }
-    
+
     /// 全选与取消
-    func selectAllOrNot()->String {
-        if self.isSelectAll  {
+    func selectAllOrNot() -> String {
+        if self.isSelectAll {
             self.isSelectAll = false
             return "全选"
-        }else{
+        } else {
             self.isSelectAll = true
             return "取消全选"
         }
     }
-    
+
 }

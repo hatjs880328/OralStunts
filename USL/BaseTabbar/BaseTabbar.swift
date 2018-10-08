@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class BaseTabbar: UITabBarController,UITabBarControllerDelegate {
+class BaseTabbar: UITabBarController, UITabBarControllerDelegate {
     //最新
     let newest = UINavigationController(rootViewController: WorkBenchViewControllerV2())
     //文件夹
@@ -18,9 +17,9 @@ class BaseTabbar: UITabBarController,UITabBarControllerDelegate {
     let addding = UINavigationController(rootViewController: MianaddViewController())
     //我的
     var myInfo = UINavigationController(rootViewController: MineViewController())
-    
-    var badgeView : UIView!
-    
+
+    var badgeView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //全局设置
@@ -71,20 +70,20 @@ class BaseTabbar: UITabBarController,UITabBarControllerDelegate {
         myInfo.navigationBar.setBackgroundImage(UIColor.white.toImage(), for: UIBarMetrics.default)
         myInfo.navigationBar.shadowImage = APPDelStatic.themeColor.toImage()
         // 全局设置
-        self.viewControllers = [addding,folder,newest,myInfo]
+        self.viewControllers = [addding, folder, newest, myInfo]
         self.delegate = self
         self.tabBarController?.tabBar.isTranslucent = false
-        dropShadow(offset: CGSize(width:0,height: -0.5), radius: 1, color: UIColor.black, opacity: 0.3)
+        dropShadow(offset: CGSize(width: 0, height: -0.5), radius: 1, color: UIColor.black, opacity: 0.3)
         let barButtonView = folder.tabBarItem.value(forKeyPath: "_view") as! UIView
         let swappableImageView = barButtonView.subviews.first!
-        let badgeWidth:CGFloat = 10
-        badgeView = UIView(frame: CGRect(x: swappableImageView.frame.size.width - badgeWidth / 2, y:  -badgeWidth / 2 , width: badgeWidth, height: badgeWidth))
-        badgeView.layer.masksToBounds = true;
-        badgeView.layer.cornerRadius = badgeWidth / 2;
+        let badgeWidth: CGFloat = 10
+        badgeView = UIView(frame: CGRect(x: swappableImageView.frame.size.width - badgeWidth / 2, y: -badgeWidth / 2, width: badgeWidth, height: badgeWidth))
+        badgeView.layer.masksToBounds = true
+        badgeView.layer.cornerRadius = badgeWidth / 2
         swappableImageView.addSubview(badgeView)
         badgeView.isHidden = true
     }
-    
+
     /**
      设置阴影
      
@@ -93,10 +92,10 @@ class BaseTabbar: UITabBarController,UITabBarControllerDelegate {
      - parameter color:   颜色
      - parameter opacity: 光栅化
      */
-    func dropShadow(offset:CGSize,radius:CGFloat,color:UIColor,opacity:Float){
+    func dropShadow(offset: CGSize, radius: CGFloat, color: UIColor, opacity: Float) {
         let path = CGMutablePath()
         path.addRect(self.tabBar.bounds)
-        self.tabBar.layer.shadowPath = path;
+        self.tabBar.layer.shadowPath = path
         path.closeSubpath()
         self.tabBar.layer.shadowColor = color.cgColor
         self.tabBar.layer.shadowOffset = offset
@@ -104,14 +103,13 @@ class BaseTabbar: UITabBarController,UITabBarControllerDelegate {
         self.tabBar.layer.shadowOpacity = opacity
         self.tabBar.clipsToBounds = false
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     deinit {
         print("tabar deinit")
     }
-    
-    
+
 }

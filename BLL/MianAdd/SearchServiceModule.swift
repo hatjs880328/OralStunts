@@ -10,11 +10,11 @@ import Foundation
 
 /// 搜索模块对外暴露的方法
 class SearchServiceModule: ModuleGodFather {
-    
+
     /*
         真正暴露的方法开始了-
     */
-    @objc func jumpToSearchVC(params: [AnyHashable:Any]) {
+    @objc func jumpToSearchVC(params: [AnyHashable: Any]) {
         if let fromVC = params["fromVC"] as? UIViewController {
             let con = SearchViewController()
             con.hidesBottomBarWhenPushed = true

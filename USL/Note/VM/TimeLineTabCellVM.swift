@@ -8,25 +8,23 @@
 
 import Foundation
 
-
 class TimeLineTabCellVM: IIBaseVM {
-    
+
     var playUtility: NoteVedioPlayBLL!
-    
+
     override init() {
         super.init()
         self.playUtility = NoteVedioPlayBLL()
     }
-    
-    func playVedio(with index:IndexPath) {
+
+    func playVedio(with index: IndexPath) {
         let name = NoteCreatingBLL.getInstance().showingNoteModel.videoUrl[index.row]
         self.playUtility.playVideo(with: name)
     }
-    
-    func setAction(action:@escaping ()->Void) {
+
+    func setAction(action:@escaping () -> Void) {
         //self.endAction = action
         self.playUtility.playEndAction = action
     }
-    
-    
+
 }

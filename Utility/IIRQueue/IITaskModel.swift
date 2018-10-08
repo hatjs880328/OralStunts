@@ -21,17 +21,17 @@ import UIKit
 import Foundation
 
 /// task-model
-class IITaskModel:Comparable {
-    
+class IITaskModel: Comparable {
+
     /// task-content
-    var taskContext:(()->Bool)?
-    
+    var taskContext:(() -> Bool)?
+
     /// task - name  use : nsuuid().stringuuid
-    var taskname:String?
-    
+    var taskname: String?
+
     /// task lvl [1high-5low]
-    var taskLevel:Int = 5
-    
+    var taskLevel: Int = 5
+
     /**
      alloc
      
@@ -41,12 +41,12 @@ class IITaskModel:Comparable {
      
      - returns: self
      */
-    init(taskinfo: @escaping ()->Bool,taskname:String,taskLevel:Int = 5) {
+    init(taskinfo: @escaping () -> Bool, taskname: String, taskLevel: Int = 5) {
         self.taskContext = taskinfo
         self.taskname = taskname
         self.taskLevel = taskLevel
     }
-    
+
     /**
      execute the tasks
      */
@@ -56,27 +56,27 @@ class IITaskModel:Comparable {
             DEBUGPrintLog("boom!")
         }
     }
-    
-    static func == (fis:IITaskModel,ses:IITaskModel)->Bool {
+
+    static func == (fis: IITaskModel, ses: IITaskModel) -> Bool {
         return fis.taskname == ses.taskname
     }
-    
+
     public static func <(lhs: IITaskModel, rhs: IITaskModel) -> Bool {
         return lhs.taskLevel < rhs.taskLevel
     }
-    
+
     public static func <=(lhs: IITaskModel, rhs: IITaskModel) -> Bool {
         return lhs.taskLevel <= rhs.taskLevel
     }
-    
+
     public static func >=(lhs: IITaskModel, rhs: IITaskModel) -> Bool {
         return lhs.taskLevel >= rhs.taskLevel
     }
-    
-    public static func >(lhs: IITaskModel, rhs: IITaskModel) -> Bool{
+
+    public static func >(lhs: IITaskModel, rhs: IITaskModel) -> Bool {
         return lhs.taskLevel > rhs.taskLevel
     }
-    
+
     deinit {
         //DEBUGPrintLog("dealloc-task")
     }
