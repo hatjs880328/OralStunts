@@ -107,7 +107,7 @@ class OTShare: NSObject {
             }
             actionSheet.addAction(actionwb)
         }) {
-            with.ViewController()!.present(actionSheet, animated: true, completion: nil)
+            with.viewController()!.present(actionSheet, animated: true, completion: nil)
             anivw.stopAni()
         }
     }

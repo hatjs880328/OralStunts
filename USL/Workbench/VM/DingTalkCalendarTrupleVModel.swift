@@ -10,7 +10,7 @@ import Foundation
 
 class DingTalkCalendarTrupleVModel: NSObject {
 
-    var trupleVM: dingTalkTrupleViewModel!
+    var trupleVM: DingTalkTrupleViewModel!
 
     var beSelectedTag: Int = 0
 
@@ -18,7 +18,7 @@ class DingTalkCalendarTrupleVModel: NSObject {
 
     let formatStr = "yyyy-MM-dd"
 
-    init(with vm: dingTalkTrupleViewModel) {
+    init(with vm: DingTalkTrupleViewModel) {
         super.init()
         self.trupleVM = vm
         self.beSelectedTag = vm.headerCount
@@ -41,7 +41,7 @@ class DingTalkCalendarTrupleVModel: NSObject {
         }
     }
 
-    func setValue(trupleVM: dingTalkTrupleViewModel) {
+    func setValue(trupleVM: DingTalkTrupleViewModel) {
         self.trupleVM = trupleVM
     }
 

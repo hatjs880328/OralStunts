@@ -111,10 +111,10 @@ open class SessionDelegate: NSObject {
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
     open var streamTaskReadClosed: ((URLSession, URLSessionStreamTask) -> Void)? {
         get {
-            return _streamTaskReadClosed as? (URLSession, URLSessionStreamTask) -> Void
+            return innerStreamTaskReadClosed as? (URLSession, URLSessionStreamTask) -> Void
         }
         set {
-            _streamTaskReadClosed = newValue
+            innerStreamTaskReadClosed = newValue
         }
     }
 
@@ -122,10 +122,10 @@ open class SessionDelegate: NSObject {
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
     open var streamTaskWriteClosed: ((URLSession, URLSessionStreamTask) -> Void)? {
         get {
-            return _streamTaskWriteClosed as? (URLSession, URLSessionStreamTask) -> Void
+            return innerStreamTaskWriteClosed as? (URLSession, URLSessionStreamTask) -> Void
         }
         set {
-            _streamTaskWriteClosed = newValue
+            innerStreamTaskWriteClosed = newValue
         }
     }
 
@@ -133,10 +133,10 @@ open class SessionDelegate: NSObject {
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
     open var streamTaskBetterRouteDiscovered: ((URLSession, URLSessionStreamTask) -> Void)? {
         get {
-            return _streamTaskBetterRouteDiscovered as? (URLSession, URLSessionStreamTask) -> Void
+            return innerStreamTaskBetterRouteDiscovered as? (URLSession, URLSessionStreamTask) -> Void
         }
         set {
-            _streamTaskBetterRouteDiscovered = newValue
+            innerStreamTaskBetterRouteDiscovered = newValue
         }
     }
 
@@ -144,17 +144,17 @@ open class SessionDelegate: NSObject {
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
     open var streamTaskDidBecomeInputAndOutputStreams: ((URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void)? {
         get {
-            return _streamTaskDidBecomeInputStream as? (URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void
+            return innerStreamTaskDidBecomeInputStream as? (URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void
         }
         set {
-            _streamTaskDidBecomeInputStream = newValue
+            innerStreamTaskDidBecomeInputStream = newValue
         }
     }
 
-    var _streamTaskReadClosed: Any?
-    var _streamTaskWriteClosed: Any?
-    var _streamTaskBetterRouteDiscovered: Any?
-    var _streamTaskDidBecomeInputStream: Any?
+    var innerStreamTaskReadClosed: Any?
+    var innerStreamTaskWriteClosed: Any?
+    var innerStreamTaskBetterRouteDiscovered: Any?
+    var innerStreamTaskDidBecomeInputStream: Any?
 
 #endif
 

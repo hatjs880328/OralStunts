@@ -11,12 +11,9 @@ import UIKit
 var blockActionDict: [String : ( () -> Void )] = [:]
 extension UIView {
 
-//    func layoutSublayers(of layer: CALayer) {
-//        
-//    }
     /// 返回所在控制器
     /// :returns: 所在控制器
-    func ViewController() -> UIViewController? {
+    func traceViewController() -> UIViewController? {
         var next = self.next
         while((next) != nil) {
             if(next!.isKind(of: UIViewController.self)) {

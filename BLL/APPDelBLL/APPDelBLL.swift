@@ -90,8 +90,8 @@ class APPDelBLL: NSObject {
         let con = NoteCreateViewController()
         con.hidesBottomBarWhenPushed = true
         con.presentedVcHasNavigation = false
-        ((UIApplication.shared.keyWindow?.rootViewController as! SaltedFishTabBarVC).selectedViewController as? UINavigationController)?.pushViewController(con, animated: true)
-        //OTAlertVw().alertShowSingleTitle(titleInfo: "\()", message: <#T##String#>)
+        guard let saltedVc = (UIApplication.shared.keyWindow?.rootViewController as? SaltedFishTabBarVC) else { return }
+        (saltedVc.selectedViewController as? UINavigationController)?.pushViewController(con, animated: true)
     }
 
 }

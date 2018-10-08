@@ -613,11 +613,11 @@ public extension String {
         return NSNumber(value: self.toInt as Int)
     }
 
-    var toNumber_32Bit: NSNumber {
+    var toNumber32Bit: NSNumber {
         return NSNumber(value: self.toInt32 as Int32)
     }
 
-    var toNumber_64Bit: NSNumber {
+    var toNumber64Bit: NSNumber {
         return NSNumber(value: self.toInt64 as Int64)
     }
 }

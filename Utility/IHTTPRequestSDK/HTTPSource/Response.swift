@@ -41,7 +41,7 @@ public struct DefaultDataResponse {
     /// The timeline of the complete lifecycle of the request.
     public let timeline: Timeline
 
-    var _metrics: AnyObject?
+    var innerMetrics: AnyObject?
 
     /// Creates a `DefaultDataResponse` instance from the specified parameters.
     ///
@@ -92,7 +92,7 @@ public struct DataResponse<Value> {
     /// Returns the associated error value if the result if it is a failure, `nil` otherwise.
     public var error: Error? { return result.error }
 
-    var _metrics: AnyObject?
+    var innerMetrics: AnyObject?
 
     /// Creates a `DataResponse` instance with the specified parameters derived from response serialization.
     ///
@@ -165,7 +165,7 @@ extension DataResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -193,7 +193,7 @@ extension DataResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -216,7 +216,7 @@ extension DataResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -242,7 +242,7 @@ extension DataResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -273,7 +273,7 @@ public struct DefaultDownloadResponse {
     /// The timeline of the complete lifecycle of the request.
     public let timeline: Timeline
 
-    var _metrics: AnyObject?
+    var innerMetrics: AnyObject?
 
     /// Creates a `DefaultDownloadResponse` instance from the specified parameters.
     ///
@@ -336,7 +336,7 @@ public struct DownloadResponse<Value> {
     /// Returns the associated error value if the result if it is a failure, `nil` otherwise.
     public var error: Error? { return result.error }
 
-    var _metrics: AnyObject?
+    var innerMetrics: AnyObject?
 
     /// Creates a `DownloadResponse` instance with the specified parameters derived from response serialization.
     ///
@@ -420,7 +420,7 @@ extension DownloadResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -450,7 +450,7 @@ extension DownloadResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -475,7 +475,7 @@ extension DownloadResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -503,7 +503,7 @@ extension DownloadResponse {
             timeline: timeline
         )
 
-        response._metrics = _metrics
+        response.innerMetrics = innerMetrics
 
         return response
     }
@@ -513,7 +513,7 @@ extension DownloadResponse {
 
 protocol Response {
     /// The task metrics containing the request / response statistics.
-    var _metrics: AnyObject? { get set }
+    var innerMetrics: AnyObject? { get set }
     mutating func add(_ metrics: AnyObject?)
 }
 
@@ -523,7 +523,7 @@ extension Response {
             guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) else { return }
             guard let metrics = metrics as? URLSessionTaskMetrics else { return }
 
-            _metrics = metrics
+            innerMetrics = metrics
         #endif
     }
 }
@@ -534,7 +534,7 @@ extension Response {
 extension DefaultDataResponse: Response {
 #if !os(watchOS)
     /// The task metrics containing the request / response statistics.
-    public var metrics: URLSessionTaskMetrics? { return _metrics as? URLSessionTaskMetrics }
+    public var metrics: URLSessionTaskMetrics? { return innerMetrics as? URLSessionTaskMetrics }
 #endif
 }
 
@@ -542,7 +542,7 @@ extension DefaultDataResponse: Response {
 extension DataResponse: Response {
 #if !os(watchOS)
     /// The task metrics containing the request / response statistics.
-    public var metrics: URLSessionTaskMetrics? { return _metrics as? URLSessionTaskMetrics }
+    public var metrics: URLSessionTaskMetrics? { return innerMetrics as? URLSessionTaskMetrics }
 #endif
 }
 
@@ -550,7 +550,7 @@ extension DataResponse: Response {
 extension DefaultDownloadResponse: Response {
 #if !os(watchOS)
     /// The task metrics containing the request / response statistics.
-    public var metrics: URLSessionTaskMetrics? { return _metrics as? URLSessionTaskMetrics }
+    public var metrics: URLSessionTaskMetrics? { return innerMetrics as? URLSessionTaskMetrics }
 #endif
 }
 
@@ -558,6 +558,6 @@ extension DefaultDownloadResponse: Response {
 extension DownloadResponse: Response {
 #if !os(watchOS)
     /// The task metrics containing the request / response statistics.
-    public var metrics: URLSessionTaskMetrics? { return _metrics as? URLSessionTaskMetrics }
+    public var metrics: URLSessionTaskMetrics? { return innerMetrics as? URLSessionTaskMetrics }
 #endif
 }

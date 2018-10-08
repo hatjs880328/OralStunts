@@ -16,7 +16,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
     static var dbname = "InspurInterAOPNBPManager.sqlite"
     static var dbIns: FMDatabase!
 
-    class func InitTheDb() -> Bool {
+    class func initTheDb() -> Bool {
         if queueDB != nil && dbIns != nil { return true}
         if(queueDB == nil || dbIns == nil) {
             do {
@@ -35,7 +35,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
 
     /// use safety thread QUEUE & progress sql with transcation  :) - if fail rollback
     class func executeUpdate(sql: String) {
-        if !InitTheDb() { return }
+        if !initTheDb() { return }
         queueDB.inTransaction { (db, rollback) in
             do {
                 for eachItem in sql.components(separatedBy: ";") {
@@ -49,7 +49,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
     }
 
     class func executeSingleSQL(sql: String) {
-        if !InitTheDb() { return }
+        if !initTheDb() { return }
         do {
             try dbIns.executeUpdate(sql, values: nil)
         } catch {
@@ -60,7 +60,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
     /// execute query  then return Array result like 'select * from xxx where ?'
     class func getResultWithSql(sql: String) -> NSMutableArray {
         let resultLast = NSMutableArray()
-        if !InitTheDb() { return resultLast }
+        if !initTheDb() { return resultLast }
 
         queueDB.inDatabase({ (db) in
             do {

@@ -1,30 +1,79 @@
 # swift lint rules noah_shan 2018-10-8
-isabled_rules:
+reporter: xcode
+opt_in_rules:
+  #- force_unwrapping
+  - vertical_whitespace
+  - closure_end_indentation
+  - closure_spacing
+  - explicit_init
+  - first_where
+  - nimble_operator
+  - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_nil_coalescing
+disabled_rules:
+  - xctfail_message
   - trailing_whitespace
-  - line_length
-force_case: warning
-force_try:
-  severity: warning
-line_length: 250
+  - cyclomatic_complexity
+  - force_unwrapping
+  - force_cast
+  - force_try
+  - todo
+excluded:
+  - Carthage
+  - Pods
+  - vendor
+  - OralStuntsTests
+cyclomatic_complexity:
+  warning: 50
+line_length: 500
+file_length: 900
+force_unwrapping: error
+function_parameter_count:
+  - 16
+  - 18
 function_body_length:
-  - 300
+  - 80
+  - 100
+type_body_length:
   - 400
-# file rule
-file_length:
-  warning: 500
-  error: 1200
-# character rule
+  - 500
 type_name:
-  min_length: 2
+  min_length:
+    warning: 2
   max_length:
     warning: 40
-    error: 50
-  excluded: iPhone
-reporter: "xcode"
-excluded: 
-  - Pods
-  - Carthage
-# line_length:
-#   warning: 110
-#   ignores_function_declarations: true
-#   ignores_comments: true
+    error: 60
+identifier_name:
+  min_length:
+    warning: 1
+  max_length:
+    warning: 40
+    error: 60
+identifier_name:
+  min_length:
+    warning: 1
+  max_length:
+    warning: 40
+    error: 60
+custom_rules:
+  disable:
+    name: "Disable Rule In Code"
+    regex: "(swiftlint:disable)"
+    message: "Please do not disable rule in code. "
+    severity: error
+    match_kinds: comment
+  outlet_collection:
+    name: "outlet_collection"
+    regex: "(@IBOutletCollection)"
+    message: "IBOutletCollection is not permitted. "
+    severity: error
+  comments_space:
+    name: "Add Space After Comment"
+    regex: "(^\\s*//\\w+)"
+    message: "There should be a space after //"
+    severity: warning
+    match_kinds: comment

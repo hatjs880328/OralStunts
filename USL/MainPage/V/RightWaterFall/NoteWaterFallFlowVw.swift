@@ -34,7 +34,8 @@ class NoteWaterFallFlowVw: UIView {
     }
 
     func createVM() {
-        self.vm = (self.superview as! MainVCTabVw).vm
+        guard let mainvcTab = (self.superview as? MainVCTabVw) else { return }
+        self.vm = mainvcTab.vm
         self.vm?.addNewDataAction = {[weak self] () in
             if self == nil { return }
             self?.tabVw?.progressNodataAndLoadingBeforeReloaddata()

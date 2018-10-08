@@ -28,7 +28,7 @@ import Foundation
  - VeryHighLevel: v-high
  */
 enum PriorityLevel {
-    case HighLevel, NormalLevel, LowLevel, VeryHighLevel
+    case highLevel, normalLevel, lowLevel, veryHighLevel
 }
 
 ///  background progres tasks √
@@ -47,10 +47,10 @@ class IISlinkManager {
     var ifprogressNow = false
 
     /// recursive-lock
-    let DG_LOCK = NSRecursiveLock()
+    let recurLock = NSRecursiveLock()
 
     /// task - arr
-    var TASK_ARRAY: Array<IITaskModel> = []
+    var tastArr: Array<IITaskModel> = []
 
     init(linkname: String) {
 
@@ -62,15 +62,15 @@ class IISlinkManager {
     private func exeAllfunction() {
         GCDUtils.asyncProgress(dispatchLevel: 1, asyncDispathchFunc: {
             while true {
-                self.DG_LOCK.lock()
-                if self.TASK_ARRAY.count != 0 {
+                self.recurLock.lock()
+                if self.tastArr.count != 0 {
                     //DEBUGPrintLog("\(self.TASK_ARRAY[0].taskname!)start-execute")
-                    self.TASK_ARRAY[0].exeFunc()
-                    self.removeOnetask(Index: 0)
-                    self.DG_LOCK.unlock()
+                    self.tastArr[0].exeFunc()
+                    self.removeOnetask(index: 0)
+                    self.recurLock.unlock()
                     continue
                 } else {
-                    self.DG_LOCK.unlock()
+                    self.recurLock.unlock()
                     self.ifprogressNow = false
                     return
                 }
@@ -84,11 +84,11 @@ class IISlinkManager {
      - parameter task: task
      */
     func addTask(task: IITaskModel) {
-        self.DG_LOCK.lock()
-        self.TASK_ARRAY.append(task)
-        self.TASK_ARRAY = IIMergeSort.sort(array: self.TASK_ARRAY)
+        self.recurLock.lock()
+        self.tastArr.append(task)
+        self.tastArr = IIMergeSort.sort(array: self.tastArr)
         //DEBUGPrintLog("\(task.taskname!)add over & sort over")
-        self.DG_LOCK.unlock()
+        self.recurLock.unlock()
         if !ifprogressNow {
             ifprogressNow = true
             exeAllfunction()
@@ -100,9 +100,9 @@ class IISlinkManager {
      
      - parameter Index: task index in task - arr
      */
-    func removeOnetask(Index: Int) {
-        if Index == 0 {
-            self.TASK_ARRAY.removeFirst()
+    func removeOnetask(index: Int) {
+        if index == 0 {
+            self.tastArr.removeFirst()
         }
     }
 
@@ -113,15 +113,15 @@ class IISlinkManager {
      - parameter taskName: task name (uuid)
      */
     func setPriorityLevel(level: Int, taskName: String = "") {
-        self.DG_LOCK.lock()
-        for (item, _) in self.TASK_ARRAY.enumerated() {
-            if TASK_ARRAY[item].taskname == taskName {
-                let task = TASK_ARRAY[item]
-                self.TASK_ARRAY.insert(task, at: 0)
-                self.TASK_ARRAY.remove(at: item + 1)
+        self.recurLock.lock()
+        for (item, _) in self.tastArr.enumerated() {
+            if tastArr[item].taskname == taskName {
+                let task = tastArr[item]
+                self.tastArr.insert(task, at: 0)
+                self.tastArr.remove(at: item + 1)
                 break
             }
         }
-        self.DG_LOCK.unlock()
+        self.recurLock.unlock()
     }
 }

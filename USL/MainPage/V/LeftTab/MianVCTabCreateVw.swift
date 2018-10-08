@@ -43,7 +43,8 @@ class MianVCTabCreateVw: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func initVm() {
-        self.vm = (self.superview as! MainVCTabVw).vm
+        guard let mainVcTab = (self.superview as? MainVCTabVw) else { return }
+        self.vm = mainVcTab.vm
         self.vm.reloadAction = {[weak self]() in
             self?.tab.progressNodataAndLoadingBeforeReloaddata()
             self?.tab.reloadData()

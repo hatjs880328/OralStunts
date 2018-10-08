@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-typealias dingTalkTrupleViewModel = (dayArr: [DingTalkCalanderVModel], headerCount: Int, footerCount: Int)
+typealias DingTalkTrupleViewModel = (dayArr: [DingTalkCalanderVModel], headerCount: Int, footerCount: Int)
 
 enum ModelPosition: String {
     case middle
@@ -86,7 +86,7 @@ class DingTalkCalanderVM: NSObject {
 
     // MARK: - get dates info
     @discardableResult
-    func changeDingModelToDingVM(left: DingTalkTrupleModel, middle: DingTalkTrupleModel, right: DingTalkTrupleModel)->(left: dingTalkTrupleViewModel, middle: dingTalkTrupleViewModel, right: dingTalkTrupleViewModel) {
+    func changeDingModelToDingVM(left: DingTalkTrupleModel, middle: DingTalkTrupleModel, right: DingTalkTrupleModel)->(left: DingTalkTrupleViewModel, middle: DingTalkTrupleViewModel, right: DingTalkTrupleViewModel) {
         let leftResult = changeTrupleModelToTrupleVModel(model: left)
         self.leftDate = left
         self.leftVMDate = DingTalkCalendarTrupleVModel(with: leftResult)
@@ -102,7 +102,7 @@ class DingTalkCalanderVM: NSObject {
 
     /// first get dateinfo
     @discardableResult
-    func getCurrentMonthDays(currentMonthDay: Date)->(left: dingTalkTrupleViewModel, middle: dingTalkTrupleViewModel, right: dingTalkTrupleViewModel) {
+    func getCurrentMonthDays(currentMonthDay: Date)->(left: DingTalkTrupleViewModel, middle: DingTalkTrupleViewModel, right: DingTalkTrupleViewModel) {
         //middle
         let currentMiddleInfo: DingTalkTrupleModel = self.workBench.getDate(position: .middle, middleDates: nil, middleFollowDate: currentMonthDay)
         let middleKey = workBench.getDicKey(with: currentMiddleInfo)
@@ -120,7 +120,7 @@ class DingTalkCalanderVM: NSObject {
     }
 
     /// change truple model - truple vmodel
-    private func changeTrupleModelToTrupleVModel(model: DingTalkTrupleModel) -> dingTalkTrupleViewModel {
+    private func changeTrupleModelToTrupleVModel(model: DingTalkTrupleModel) -> DingTalkTrupleViewModel {
         var resultDVMArr = [DingTalkCalanderVModel]()
         for eachItem in model.dayArr {
             let eachDingVM = DingTalkCalanderVModel(with: eachItem)
@@ -203,7 +203,7 @@ extension DingTalkCalanderVM {
     }
 
     /// swipe to left [vm progress date]
-    func swipeLeft() -> dingTalkTrupleViewModel {
+    func swipeLeft() -> DingTalkTrupleViewModel {
         //change date
         self.leftDate = self.middleDate
         self.middleDate = self.rightDate
@@ -224,7 +224,7 @@ extension DingTalkCalanderVM {
     }
 
     /// swipe to right [vm progress date]
-    func swipeRight() -> dingTalkTrupleViewModel {
+    func swipeRight() -> DingTalkTrupleViewModel {
         //change date
         self.rightDate = self.middleDate
         self.middleDate = self.leftDate

@@ -226,9 +226,10 @@ class FolderTabCell: UITableViewCell {
     }
 
     func initRx() {
-        _ = self.selectPush.bind(to: (self.fatherView as! FolderTabVw).vm.selectCellInput)
+        guard let folderVw = self.fatherView as? FolderTabVw else { return }
+        _ = self.selectPush.bind(to: folderVw.vm.selectCellInput)
 
-        _ = (self.fatherView as! FolderTabVw).vm.selectCelloutput.subscribe { [weak self](index) in
+        _ = folderVw.vm.selectCelloutput.subscribe { [weak self](index) in
             if index.element == nil { return }
             self?.changeView(index.element!.index, index.element!.isAdd)
         }

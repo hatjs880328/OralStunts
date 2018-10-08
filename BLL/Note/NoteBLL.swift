@@ -77,12 +77,16 @@ class NoteBLL: NSObject, IFlySpeechRecognizerDelegate {
         }
         for key in dic {
             do {
-                let data = ((key.key as! String) as NSString).data(using: String.Encoding.utf8.rawValue)
-                let changeData = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                let wsDics = changeData["ws"] as! NSArray
+                guard let data = ((key.key as? String) as NSString?)?.data(using: String.Encoding.utf8.rawValue) else {
+                    return
+                }
+                guard let changeData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary else { return }
+                guard let wsDics = changeData["ws"] as? NSArray else { return }
                 for wsDic in wsDics {
-                    let cwDic  = (wsDic as! NSDictionary)["cw"] as! NSArray
-                    let wDic = (cwDic[0] as! NSDictionary)["w"] as! String
+                    guard let realCWDic = (wsDic as? NSDictionary) else { return }
+                    guard let cwDic = realCWDic["cw"] as? NSArray else { return }
+                    guard let realCWDicZero = (cwDic[0] as? NSDictionary) else { return }
+                    guard let wDic = realCWDicZero["w"] as? String else { return }
                     resultTxt += wDic
                 }
             } catch {}

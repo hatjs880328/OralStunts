@@ -424,8 +424,8 @@ extension Foundation.Date {
         c.hour = hour
         c.minute = min
         c.second = sec
-       let IdentifierGregorian = Calendar.Identifier.gregorian
-        let gregorianC = Calendar(identifier: IdentifierGregorian)
+        let identifierGregorian = Calendar.Identifier.gregorian
+        let gregorianC = Calendar(identifier: identifierGregorian)
         return gregorianC.date(from: c)
     }
 
@@ -489,11 +489,11 @@ func -(date: Foundation.Date, timeInterval: Int) -> Foundation.Date {
 }
 
 func +=(date: inout Foundation.Date, timeInterval: Int) {
-    date = date + timeInterval
+    date += timeInterval
 }
 
 func -=(date: inout Foundation.Date, timeInterval: Int) {
-    date = date - timeInterval
+    date -= timeInterval
 }
 
 func +(date: Foundation.Date, timeInterval: Double) -> Foundation.Date {

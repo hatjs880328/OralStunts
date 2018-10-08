@@ -40,7 +40,7 @@ open class IIHTTPRequestErrorProgress: NSObject {
     }
 
     /// 用户没有权限的时候 跳转到没有权限的界面
-    func InsufficientPermissionsProcess() {
+    func insufficientPermissionsProcess() {
 
     }
 }
