@@ -13,7 +13,7 @@ class ModuleFactory: NSObject {
     /// 存储所有注册模型
     private var allRegisterModels: [String: RegisterModel] = [:]
 
-    private override init() {super.init()}
+    private override init() { super.init() }
 
     private static var instance: ModuleFactory!
 

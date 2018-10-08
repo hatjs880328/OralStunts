@@ -31,7 +31,7 @@ class IIMergeSort<T: Comparable> {
         var leftindex = 0
         var rightindex = 0
         var resultarray = [T]()
-        while leftindex <= arrayLeft.count - 1 ||  rightindex <= arrayRight.count - 1 {
+        while leftindex <= arrayLeft.count - 1 || rightindex <= arrayRight.count - 1 {
             if sortState == "desc" {
                 if arrayLeft[leftindex] >= arrayRight[rightindex] {
                     resultarray.append(arrayLeft[leftindex])

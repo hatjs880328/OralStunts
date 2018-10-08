@@ -36,7 +36,7 @@ class BeanFactory: NSObject {
     ///
     /// - Parameter instanceID: xml id - value
     /// - Returns: real bll instance <xml class - value>
-    func create(with instanceID: String)->Any? {
+    func create(with instanceID: String) -> Any? {
         if let coName = BeanDicCenter.getInstance().beanDic[instanceID] {
             return self.swiftClassFromString(strInfo: coName)
         } else {
@@ -46,8 +46,8 @@ class BeanFactory: NSObject {
     }
 
     /// run time create instance by str info 
-    private func swiftClassFromString(strInfo: String)->Any? {
-        let nameSpace =  Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+    private func swiftClassFromString(strInfo: String) -> Any? {
+        let nameSpace = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
         let cls = NSClassFromString("\(nameSpace).\(strInfo)") as? NSObject.Type
         if cls == nil { return nil }
         return cls?.init()

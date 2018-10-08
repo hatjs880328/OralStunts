@@ -93,7 +93,7 @@ class OTSearchVw: UIView {
                 .throttle(0.5, scheduler: MainScheduler.instance)
                 .bind(to: self.vm.searchFdInput)
 
-            _ = self.vm.searchFdOutput.subscribe { () in  }
+            _ = self.vm.searchFdOutput.subscribe { () in }
         }
     }
 }

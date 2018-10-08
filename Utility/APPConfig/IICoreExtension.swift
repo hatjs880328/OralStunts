@@ -10,12 +10,12 @@ import Foundation
 
 @objc class APPDelStatic: NSObject {
 
-    @objc static let lightGray = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+    @objc static let lightGray = UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1)
 
-    @objc static let lineGray = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+    @objc static let lineGray = UIColor(red: 200 / 255, green: 200 / 255, blue: 200 / 255, alpha: 1)
 
     /// rgb(0,150,246) 
-    @objc static let dingtalkBlue = UIColor(red: 0/255, green: 101/255, blue: 105/255, alpha: 1)
+    @objc static let dingtalkBlue = UIColor(red: 0 / 255, green: 101 / 255, blue: 105 / 255, alpha: 1)
 
     /// 缩放
    @objc  static let sizeScale = UIScreen.main.bounds.width / 375.0
@@ -49,10 +49,10 @@ import Foundation
     }
 
     /// themecolor 0,101,105 [0x006569]
-    @objc static let themeColor: UIColor = UIColor(red: 0/255, green: 101/255, blue: 105/255, alpha: 1)
+    @objc static let themeColor: UIColor = UIColor(red: 0 / 255, green: 101 / 255, blue: 105 / 255, alpha: 1)
 
     /// voice inside color 0,226,143
-    @objc static let voiceInsideColor: UIColor = UIColor(red: 0/255, green: 226/255, blue: 143/255, alpha: 1)
+    @objc static let voiceInsideColor: UIColor = UIColor(red: 0 / 255, green: 226 / 255, blue: 143 / 255, alpha: 1)
 
     /// screen height
     @objc static let aHeight: CGFloat = UIScreen.main.bounds.size.height

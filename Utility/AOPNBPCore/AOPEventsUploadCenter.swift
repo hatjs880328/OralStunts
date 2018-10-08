@@ -28,7 +28,7 @@ class AOPEventUploadCenter: NSObject {
 
     var timer: Timer!
 
-    @objc public var progressAction: ((_ strInfo: String, _ endAction:(_ result: Bool)->Void)->Void)?
+    @objc public var progressAction: ((_ strInfo: String, _ endAction:(_ result: Bool) -> Void) -> Void)?
 
     private override init() {
         super.init()
@@ -65,7 +65,8 @@ class AOPEventUploadCenter: NSObject {
                     AOPDiskIOProgress.getInstance().deleateFile(with: eachItem)
                 }
             }
-        }) {}
+        }) {
+        }
     }
 
 }

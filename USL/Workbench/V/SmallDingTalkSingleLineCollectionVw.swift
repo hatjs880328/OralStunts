@@ -14,7 +14,7 @@ class SmallDingTalkSingleLineCollectionVw: UIView {
 
     let normalDayLineHeight: CGFloat = 45 * APPDelStatic.sizeScale
 
-    let eachItemWidth: CGFloat =  (UIScreen.main.bounds.width) / 7.0
+    let eachItemWidth: CGFloat = (UIScreen.main.bounds.width) / 7.0
 
     var topView: UIView!
 
@@ -189,7 +189,7 @@ extension SmallDingTalkSingleLineCollectionVw {
     }
 
     /// tb-[select one calerdar item - use indexpath-row return dingtalkEvent]
-    func getCellModel(with indexRow: Int)->(eventModel: DingTalkCEvent?, dateInfo: String?) {
+    func getCellModel(with indexRow: Int) -> (eventModel: DingTalkCEvent?, dateInfo: String?) {
         let selectedIndex = self.smallMiddleLogicVw.selectedItemIndex
         if indexRow == 0 {
             let realDateInfo = (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].dateInfo
@@ -203,7 +203,7 @@ extension SmallDingTalkSingleLineCollectionVw {
             return (nil, dateInfo)
         }
         if (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].fireDayInfo.count >= indexRow {
-            let eventmodel =  (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].fireDayInfo[indexRow - 1]
+            let eventmodel = (self.viewController() as! WorkBenchViewControllerV2).vm.smallMiddleDate[selectedIndex].fireDayInfo[indexRow - 1]
             return (eventmodel, nil)
         }
 

@@ -28,7 +28,7 @@ class WorkBenchViewControllerV2: IIBaseViewController {
 
     let calendarVw: BigDingTalkSingleLineCollectionVw = BigDingTalkSingleLineCollectionVw(frame: CGRect.zero)
 
-    let smallCalendarVw: SmallDingTalkSingleLineCollectionVw =  SmallDingTalkSingleLineCollectionVw(frame: CGRect.zero)
+    let smallCalendarVw: SmallDingTalkSingleLineCollectionVw = SmallDingTalkSingleLineCollectionVw(frame: CGRect.zero)
 
     var taskContainerVw: TaskContainerVw?
 

@@ -96,7 +96,7 @@ class IIModuleCore: NSObject {
     /// 基本数据类型-int,double,float,bool,cgfloat不能作为返回值
     /// - Parameter url: 通知名字
     @discardableResult
-    public func invokingSomeFunciton(url: String, params: [String: Any]?, action:(@convention(block)(_ info: Any)->Void)?)->Any? {
+    public func invokingSomeFunciton(url: String, params: [String: Any]?, action:(@convention(block)(_ info: Any) -> Void)?) -> Any? {
         var paraChange = [String: Any]()
         if params != nil {
             paraChange[IIModulefunctionParamsKey] = params

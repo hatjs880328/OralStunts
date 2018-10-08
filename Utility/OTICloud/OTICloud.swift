@@ -35,7 +35,7 @@ final class CloudKitManager {
 
     // MARK: add a new record
     static func createRecord(_ primaryKey: String, _ recordData: [String: Any], completion: @escaping (_ record: CKRecord?, _ error: NSError?) -> Void) {
-        let recordId = CKRecord.ID.init(recordName: primaryKey)
+        let recordId = CKRecord.ID(recordName: primaryKey)
         let record = CKRecord(recordType: recordType, recordID: recordId)
         for (key, value) in recordData {
             if key == OTICloudModelExamplecityPicture {

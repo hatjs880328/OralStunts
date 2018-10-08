@@ -13,7 +13,7 @@ class DingTalkCalenderWeekdayView: UIView {
 
     var weekArr = ["日", "一", "二", "三", "四", "五", "六"]
 
-    let eachItemWidth: CGFloat =  (UIScreen.main.bounds.width) / 7.0
+    let eachItemWidth: CGFloat = (UIScreen.main.bounds.width) / 7.0
 
     let heightNormal: CGFloat = 45 * APPDelStatic.sizeScale
 

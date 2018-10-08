@@ -28,8 +28,8 @@ import Foundation
 /// linklist-item real content protocol
 protocol AOPMemCacheModelProtocol {
 
-    var realName: String {get set}
-    var realModel: GodfatherEvent! {get set}
+    var realName: String { get set }
+    var realModel: GodfatherEvent! { get set }
 }
 
 /// follow AOPMemCacheModelProtocol - linklist-item [real content]model
@@ -85,7 +85,7 @@ class AOPMemCacheList {
     var itemCount: Int = 2
 
     /// max count
-    let itemMaxCount: Int = 100000
+    let itemMaxCount: Int = 100_000
 
     /// headerItem
     var headerItem: AOPLinkListItem = AOPLinkListItem(content: AOPMemCacheModel(name: "header"))
@@ -141,7 +141,7 @@ class AOPMemCacheList {
     /// [for in] get all AOPItems
     ///
     /// - Returns: aopitem arr : Array<AOPLinkListItem>
-    func getALLItemsAndDeleateALL()->Array<AOPLinkListItem> {
+    func getALLItemsAndDeleateALL() -> Array<AOPLinkListItem> {
         var resultArr: Array<AOPLinkListItem> = Array()
         defer { deleateALLItems() }
         if self.itemCount == 2 {

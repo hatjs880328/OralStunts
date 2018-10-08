@@ -39,7 +39,7 @@ class WorkBench: NSObject, IWorkBench {
     let formatStr = "yyyy-MM-dd HH:mm:ss"
 
     /// get 42 days with currentMonth-one day[couldn't be current day]
-    private func getCurrent42Days(with dateInfo: Date)->(dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
+    private func getCurrent42Days(with dateInfo: Date) -> (dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
         let formatDate = dateInfo
         let trupleInfo = self.getFirstDayThisMonth(formatDate.month, formatDate.year)
         let headerDays = self.getHeaderDays(with: trupleInfo.monthFirstDay)
@@ -77,7 +77,7 @@ class WorkBench: NSObject, IWorkBench {
     ///   - month: month
     ///   - year: year
     /// - Returns: Returns: turple - monthFirstDay,monthCountDays,weedday(1 = sunday start from 1)
-    func getFirstDayThisMonth(_ month: Int, _ year: Int)->(monthFirstDay: Date, monthCountDays: Int, weekDay: Int) {
+    func getFirstDayThisMonth(_ month: Int, _ year: Int) -> (monthFirstDay: Date, monthCountDays: Int, weekDay: Int) {
         let currentDate = Date.from(year: year, month: month, day: 1)!
         let weedday: Int = currentDate.weekday
         let monthDaysCount = currentDate.numOfDayFormMouth()
@@ -174,19 +174,19 @@ extension WorkBench {
         return date.dayArr[date.headerCount].dateInfo.beforeDate(1)
     }
 
-    private func getLeftPicDate(with middleMonthFirstDay: Date)->(dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
+    private func getLeftPicDate(with middleMonthFirstDay: Date) -> (dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
         let leftMonthLastDay = middleMonthFirstDay.beforeDate(1)
 
         return self.getCurrent42Days(with: leftMonthLastDay)
     }
 
-    private func getRightDate(with middleMonthFirstDay: Date, middlemonthDaysCount: Int)->(dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
+    private func getRightDate(with middleMonthFirstDay: Date, middlemonthDaysCount: Int) -> (dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
         let rightMonthFirstDay = middleMonthFirstDay.nextDate(middlemonthDaysCount)
 
         return self.getCurrent42Days(with: rightMonthFirstDay)
     }
 
-    private func getMiddleDate(with: Date)->(dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
+    private func getMiddleDate(with: Date) -> (dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int) {
         return self.getCurrent42Days(with: with)
     }
 }

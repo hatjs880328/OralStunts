@@ -30,7 +30,7 @@ extension UIButton {
         var titleOffsetY: CGFloat! // vertical offset of title
 
         self.imageView?.snp.makeConstraints({ (make) -> Void in
-            make.centerY.equalTo(self.snp.centerY).offset(-(textHeight+imgTextDistance)/2)
+            make.centerY.equalTo(self.snp.centerY).offset(-(textHeight + imgTextDistance) / 2)
             make.centerX.equalTo(self.snp.centerX).offset(0)
             make.width.equalTo(imgWidth)
             make.height.equalTo(imgHeight)
@@ -63,7 +63,7 @@ extension UIButton {
         var titleOffsetY: CGFloat! // vertical offset of title
 
         self.imageView?.snp.makeConstraints({ (make) -> Void in
-            make.centerY.equalTo(self.snp.centerY).offset((textHeight+imgTextDistance)/2)
+            make.centerY.equalTo(self.snp.centerY).offset((textHeight + imgTextDistance) / 2)
             make.centerX.equalTo(self.snp.centerX).offset(0)
             make.width.equalTo(imgWidth)
             make.height.equalTo(imgHeight)
@@ -96,11 +96,11 @@ extension UIButton {
 
         self.imageView?.snp.makeConstraints({ (make) -> Void in
             make.centerY.equalTo(self.snp.centerY).offset(0)
-            make.centerX.equalTo(self.snp.centerX).offset((textWitdh + imgTextDistance)/2)
+            make.centerX.equalTo(self.snp.centerX).offset((textWitdh + imgTextDistance) / 2)
             make.width.equalTo(imgWidth)
             make.height.equalTo(imgHeight)
         })
-        interval = self.imageView!.frame.origin.x - imgTextDistance-textWitdh - imgWidth * 2
+        interval = self.imageView!.frame.origin.x - imgTextDistance - textWitdh - imgWidth * 2
         titleOffsetX = interval
         titleOffsetY = 0
         self.titleEdgeInsets = UIEdgeInsets(top: titleOffsetY, left: titleOffsetX, bottom: 0, right: 0)

@@ -60,7 +60,7 @@ class IIGCDUtility: NSObject {
 
     /// 延迟执行，在其他线程中执行
     static func delay(delayTime: Double, lvl: IIGCDQos, action:@escaping () -> Void, mainThreadAction: @escaping() -> Void) {
-        DispatchQueue.init(label: NSUUID().uuidString).after(delayTime) {
+        DispatchQueue(label: NSUUID().uuidString).after(delayTime) {
             action()
             DispatchQueue.main.async(execute: {
                 mainThreadAction()

@@ -51,7 +51,7 @@ class DingTalkCalanderModel: NSObject {
         self.isCurrentDay = isCurrentDay
         self.isFirstDayCurrentMonth = isFirstDayCurrentMonty
         self.dateInfo = dateInfo
-        self.isCurrentMonthDay  = isCurrentMonthDay
+        self.isCurrentMonthDay = isCurrentMonthDay
     }
 
     func setFireInfo(isFireDay: Bool, fireDayInfo: [String], isRestDay: DayType) {

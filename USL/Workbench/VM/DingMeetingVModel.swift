@@ -41,7 +41,7 @@ class DingMeetingVModel: NSObject {
         } else {
             let startStr = splitInfoStart[0] + " " + "周\(with.startTime.week)" + " " + splitInfoStart[1]
             let endStr = splitInfoEnd[0] + " " + "周\(with.endTime.week)" + " " + splitInfoEnd[1]
-            self.durationTime =  startStr + "~" + endStr
+            self.durationTime = startStr + "~" + endStr
         }
     }
 

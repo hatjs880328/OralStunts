@@ -35,20 +35,20 @@ extension Foundation.Date {
 
     }
     ///提前几天
-    func beforeDate(_ befor: Int)->Foundation.Date {
+    func beforeDate(_ befor: Int) -> Foundation.Date {
         let time = self.timeIntervalSince1970
-        let newDate = Foundation.Date(timeIntervalSince1970: time - Double(befor * 3600 * 24))
+        let newDate = Foundation.Date(timeIntervalSince1970: time - Double(befor * 3_600 * 24))
         return newDate
     }
     ///推迟几天
-    func nextDate(_ befor: Int)->Foundation.Date {
+    func nextDate(_ befor: Int) -> Foundation.Date {
         let time = self.timeIntervalSince1970
-        let newDate = Foundation.Date(timeIntervalSince1970: time + Double(befor * 3600 * 24))
+        let newDate = Foundation.Date(timeIntervalSince1970: time + Double(befor * 3_600 * 24))
         return newDate
     }
 
     ///设置格式
-    func dateFormateCare(_ formate: String)->Foundation.Date {
+    func dateFormateCare(_ formate: String) -> Foundation.Date {
         let formats = DateFormatter()
         formats.dateFormat = formate
         let str = formats.string(from: self)

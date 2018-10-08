@@ -94,7 +94,7 @@ extension NSString {
     }
 
     ///sub str to arr<string>
-    func subStrEachParameterCharacter(countPara: Int)->Array<String> {
+    func subStrEachParameterCharacter(countPara: Int) -> Array<String> {
         assert(countPara != 0, "coutld't be 0")
 
         var strArr: Array<String> = Array()

@@ -35,7 +35,7 @@ class OTSiri: NSObject {
         }
         activity.title="语音便捷打开此APP"
         activity.userInfo = ["speech": "便捷创建"]
-        activity.isEligibleForSearch=true
+        activity.isEligibleForSearch = true
         if #available(iOS 12.0, *) {
             activity.isEligibleForPrediction = true
         } else {

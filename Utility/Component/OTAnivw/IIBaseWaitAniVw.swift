@@ -38,9 +38,9 @@ class IIBaseWaitAniVw: UIView, MONActivityIndicatorViewDelegate {
 
     /// 等待动画回调
     func activityIndicatorView(_ activityIndicatorView: MONActivityIndicatorView!, circleBackgroundColorAt index: UInt) -> UIColor! {
-        let red = Double((arc4random() % 256))/255.0
-        let green = Double((arc4random() % 256))/255.0
-        let blue = Double((arc4random() % 256))/255.0
+        let red = Double((arc4random() % 256)) / 255.0
+        let green = Double((arc4random() % 256)) / 255.0
+        let blue = Double((arc4random() % 256)) / 255.0
         return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1)
     }
 }

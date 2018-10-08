@@ -86,7 +86,7 @@ class DingTalkCalanderVM: NSObject {
 
     // MARK: - get dates info
     @discardableResult
-    func changeDingModelToDingVM(left: DingTalkTrupleModel, middle: DingTalkTrupleModel, right: DingTalkTrupleModel)->(left: DingTalkTrupleViewModel, middle: DingTalkTrupleViewModel, right: DingTalkTrupleViewModel) {
+    func changeDingModelToDingVM(left: DingTalkTrupleModel, middle: DingTalkTrupleModel, right: DingTalkTrupleModel) -> (left: DingTalkTrupleViewModel, middle: DingTalkTrupleViewModel, right: DingTalkTrupleViewModel) {
         let leftResult = changeTrupleModelToTrupleVModel(model: left)
         self.leftDate = left
         self.leftVMDate = DingTalkCalendarTrupleVModel(with: leftResult)
@@ -102,7 +102,7 @@ class DingTalkCalanderVM: NSObject {
 
     /// first get dateinfo
     @discardableResult
-    func getCurrentMonthDays(currentMonthDay: Date)->(left: DingTalkTrupleViewModel, middle: DingTalkTrupleViewModel, right: DingTalkTrupleViewModel) {
+    func getCurrentMonthDays(currentMonthDay: Date) -> (left: DingTalkTrupleViewModel, middle: DingTalkTrupleViewModel, right: DingTalkTrupleViewModel) {
         //middle
         let currentMiddleInfo: DingTalkTrupleModel = self.workBench.getDate(position: .middle, middleDates: nil, middleFollowDate: currentMonthDay)
         let middleKey = workBench.getDicKey(with: currentMiddleInfo)
@@ -294,7 +294,7 @@ extension DingTalkCalanderVM {
 // MARK: - swipe left & right SMALL VW
 extension DingTalkCalanderVM {
 
-    private func getDistanceFirstDayIntValueByWeekDay(with strInfo: String)->(distanceFist: Int, distanceLast: Int) {
+    private func getDistanceFirstDayIntValueByWeekDay(with strInfo: String) -> (distanceFist: Int, distanceLast: Int) {
         if strInfo == "日" {
             return (0, 6)
         }
@@ -320,7 +320,7 @@ extension DingTalkCalanderVM {
     }
 
     /// get line firstday & lastday follow current-month selected day
-    private func getTheLineFirstDayAndLastDay(followDate: DingTalkCalanderVModel? = nil)->(lineFistDay: Date, lineLastDay: Date) {
+    private func getTheLineFirstDayAndLastDay(followDate: DingTalkCalanderVModel? = nil) -> (lineFistDay: Date, lineLastDay: Date) {
         var selectedDay: DingTalkCalanderVModel!
         if followDate == nil {
             selectedDay = self.middleVMDate.trupleVM.dayArr[self.middleVMDate.beSelectedTag]
@@ -341,7 +341,7 @@ extension DingTalkCalanderVM {
         let firstDay = trupleInfo.lineFistDay
         let lastDay = trupleInfo.lineLastDay
 
-        let models =  workBench.get7Days(with: firstDay.beforeDate(1), is: true)
+        let models = workBench.get7Days(with: firstDay.beforeDate(1), is: true)
         var results = [DingTalkCalanderVModel]()
         for eachItem in models {
             let ins = DingTalkCalanderVModel(with: eachItem)
@@ -373,7 +373,7 @@ extension DingTalkCalanderVM {
         self.smallMiddleDate = self.smallRightDate
 
         let lastDay = self.smallRightDate[6].dateInfo!
-        let models =  workBench.get7Days(with: lastDay, is: true)
+        let models = workBench.get7Days(with: lastDay, is: true)
         var results = [DingTalkCalanderVModel]()
         for eachItem in models {
             let ins = DingTalkCalanderVModel(with: eachItem)
@@ -394,7 +394,7 @@ extension DingTalkCalanderVM {
         self.smallMiddleDate = self.smallLeftDate
 
         let lastDay = self.smallLeftDate[0].dateInfo!
-        let models =  workBench.get7Days(with: lastDay, is: false)
+        let models = workBench.get7Days(with: lastDay, is: false)
         var results = [DingTalkCalanderVModel]()
         for eachItem in models {
             let ins = DingTalkCalanderVModel(with: eachItem)

@@ -21,7 +21,7 @@ class IITextExtension {
         let txts = text.split(separator: "\n")
         var heightResult: CGFloat = 0
         for eachTxt in txts {
-            let leftNameSize = (eachTxt as NSString).boundingRect(with: CGSize(width: 1000, height: 25), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [NSAttributedStringKey: Any], context: nil)
+            let leftNameSize = (eachTxt as NSString).boundingRect(with: CGSize(width: 1_000, height: 25), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [NSAttributedStringKey: Any], context: nil)
             if leftNameSize.width.truncatingRemainder(dividingBy: eachLineWeight) != 0 {
                 let lineNumber = ((leftNameSize.width + 5) / eachLineWeight + 1) * (font.pointSize + 2)
                 heightResult += lineNumber
@@ -41,7 +41,7 @@ class IITextExtension {
     /// - Returns: 宽度
     class func textLength(text: String, font: UIFont) -> CGFloat {
         let attributes = [kCTFontAttributeName: font]
-        let leftNameSize = (text as NSString).boundingRect(with: CGSize(width: 1000, height: 25), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [NSAttributedStringKey: Any], context: nil)
+        let leftNameSize = (text as NSString).boundingRect(with: CGSize(width: 1_000, height: 25), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [NSAttributedStringKey: Any], context: nil)
         return leftNameSize.width + 5
     }
 }

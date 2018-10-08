@@ -15,7 +15,7 @@ class BigDingTalkSingleLineCollectionVw: UIView {
 
     let normalDayLineHeight: CGFloat = 45 * APPDelStatic.sizeScale
 
-    var middleChildVw =  BigDingTalkSingleLineChildVw(frame: CGRect.zero)
+    var middleChildVw = BigDingTalkSingleLineChildVw(frame: CGRect.zero)
 
     var leftChildVw: BigDingTalkSingleLineChildVw!
 
@@ -162,7 +162,7 @@ extension BigDingTalkSingleLineCollectionVw {
 
     @objc func swipeTopAction() {
         (self.viewController() as! WorkBenchViewControllerV2).hiddenMiddleCalendarVw(animated: true)
-        (self.viewController() as! WorkBenchViewControllerV2).swipeUpSelectedSamllCalendarItem(with: self.logicMiddleVw.beselectedItemIndex%7)
+        (self.viewController() as! WorkBenchViewControllerV2).swipeUpSelectedSamllCalendarItem(with: self.logicMiddleVw.beselectedItemIndex % 7)
     }
 }
 
@@ -203,7 +203,7 @@ extension BigDingTalkSingleLineCollectionVw {
     }
 
     /// tb-[select one calerdar item - use indexpath-row return dingtalkEvent]
-    func getCellModel(with indexRow: Int)->(eventModel: DingTalkCEvent?, dateInfo: String?) {
+    func getCellModel(with indexRow: Int) -> (eventModel: DingTalkCEvent?, dateInfo: String?) {
         let selectedIndex = self.logicMiddleVw.beselectedItemIndex
         if indexRow == 0 {
             let realDateInfo = (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].dateInfo
@@ -216,7 +216,7 @@ extension BigDingTalkSingleLineCollectionVw {
             return (nil, dateInfo)
         }
         if (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].fireDayInfo.count >= indexRow {
-            let eventmodel =  (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].fireDayInfo[indexRow - 1]
+            let eventmodel = (self.viewController() as! WorkBenchViewControllerV2).vm.middleVMDate.trupleVM.dayArr[selectedIndex].fireDayInfo[indexRow - 1]
             return (eventmodel, nil)
         }
 

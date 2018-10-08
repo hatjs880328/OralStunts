@@ -16,7 +16,7 @@ extension ModuleGodFather {
     /// - Parameters:
     ///   - notiName: 通知名称
     ///   - params: 执行方法需要的参数 [这个字典包含俩参数，第一个是参数集合，第二个是callbackAction]
-    func exeOneFunction(notiName: String, params: [AnyHashable: Any])->Unmanaged<AnyObject>? {
+    func exeOneFunction(notiName: String, params: [AnyHashable: Any]) -> Unmanaged<AnyObject>? {
         let selector = (self.allFuncitons[notiName] as! RegisterModel).selectorInfo
         var functionParams: [AnyHashable: Any]!
         var functionCallback: (@convention(block)(_ info: Any) -> Void)!

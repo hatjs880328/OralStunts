@@ -53,7 +53,7 @@ class BaseTabbar: UITabBarController, UITabBarControllerDelegate {
         addding.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         addding.tabBarItem.title = "首页"
         addding.edgesForExtendedLayout = UIRectEdge.top
-        addding.navigationBar.tintColor =  APPDelStatic.themeColor
+        addding.navigationBar.tintColor = APPDelStatic.themeColor
         addding.tabBarItem.image = UIImage(named: "mianSelected")
         addding.navigationBar.isTranslucent = false
         addding.navigationBar.shadowImage = APPDelStatic.themeColor.toImage()

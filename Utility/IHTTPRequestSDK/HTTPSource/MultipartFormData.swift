@@ -119,7 +119,7 @@ open class MultipartFormData {
         ///   - https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Streams/Articles/ReadingInputStreams.html
         ///
 
-        self.streamBufferSize = 1024
+        self.streamBufferSize = 1_024
     }
 
     // MARK: - Body Parts

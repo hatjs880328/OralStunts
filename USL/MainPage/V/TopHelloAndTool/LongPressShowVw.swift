@@ -28,7 +28,7 @@ class LongPressShowVw: OTBaseVw {
         createVw()
         loopCreateIcon()
         self.alpha = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(self.changeLikeOrNotBySelectedItems), name: NSNotification.Name.init("Progress_tool_changeBySelectoneItem"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeLikeOrNotBySelectedItems), name: NSNotification.Name("Progress_tool_changeBySelectoneItem"), object: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -79,7 +79,7 @@ class LongPressShowVw: OTBaseVw {
     }
 
     /// 计算距离等信息
-    func calculateNumbers()->(eachWeight: CGFloat, leftPadding: CGFloat, eachPadding: CGFloat) {
+    func calculateNumbers() -> (eachWeight: CGFloat, leftPadding: CGFloat, eachPadding: CGFloat) {
         self.layoutIfNeeded()
         //每个item宽度
         let eachItemWeight = 30

@@ -105,7 +105,7 @@ class GCDUtils {
      - parameter endMainDispatchFunc: main thread do it last
      - parameter asyncDispicth:       thread
      */
-    class func asyncSomeProgressThenDeelInmainqueue(endMainDispatchFunc:@escaping () -> Void, asyfuncOne:@escaping () -> Void, asyfuncTwo:@escaping (_ actionone:()->Void)->Void) {
+    class func asyncSomeProgressThenDeelInmainqueue(endMainDispatchFunc:@escaping () -> Void, asyfuncOne:@escaping () -> Void, asyfuncTwo:@escaping (_ actionone:() -> Void) -> Void) {
         var flagOne = 0
         var flagTwo = 0
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {

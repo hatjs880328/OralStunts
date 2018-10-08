@@ -29,7 +29,7 @@ class LoginInVM: IIBaseVM {
         super.init()
         self.txtOutput = txtInput.asObservable().map({ [weak self](strValue) -> (Bool, UIColor) in
             self?.userNickName = strValue
-            if strValue.length >=  2 {
+            if strValue.length >= 2 {
                 return (true, UIColor.black)
             }
             return (false, APPDelStatic.lightGray)

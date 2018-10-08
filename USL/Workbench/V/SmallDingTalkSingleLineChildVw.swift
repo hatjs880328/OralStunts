@@ -14,7 +14,7 @@ class SmallDingTalkSingleLineChildVw: UIView {
 
     let normalDayLineHeight: CGFloat = 45 * APPDelStatic.sizeScale
 
-    let eachItemWidth: CGFloat =  (UIScreen.main.bounds.width) / 7.0
+    let eachItemWidth: CGFloat = (UIScreen.main.bounds.width) / 7.0
 
     var childsVwArr: [DingTalkCalenderRectLabelView] = []
 

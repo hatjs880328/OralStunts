@@ -20,9 +20,9 @@ import Foundation
 
 protocol IAOPMemCache: NSObjectProtocol {
 
-    var eventsArr: [GodfatherEvent]! {get set}
+    var eventsArr: [GodfatherEvent]! { get set }
 
-    var eventsDics: [String: [GodfatherEvent]]! {get set}
+    var eventsDics: [String: [GodfatherEvent]]! { get set }
 
     func each30SecsPostEventsFromArrs()
 

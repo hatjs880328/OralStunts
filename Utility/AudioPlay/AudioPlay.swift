@@ -62,7 +62,7 @@ class AudioPlay: NSObject, AVAudioPlayerDelegate {
     /// 发送结束通知 & 关闭红外感应
     func postNotification() {
         UIDevice.current.isProximityMonitoringEnabled = false
-        NotificationCenter.default.post(name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("oralTruntsPlayOverNotification"), object: nil, userInfo: nil)
     }
 
 }

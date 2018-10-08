@@ -65,7 +65,7 @@ class NoteTimerLineVw: UIView, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height =  self.vm.getModel(with: indexPath).cellHeight
+        let height = self.vm.getModel(with: indexPath).cellHeight
         return height
     }
 }

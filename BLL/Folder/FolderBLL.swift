@@ -25,7 +25,7 @@ class FolderBLL: NSObject {
             let jsonData = try! JSONSerialization.data(withJSONObject: eachItem, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonCoder = JSONDecoder()
             jsonCoder.dateDecodingStrategy = .secondsSince1970
-            let model  = try! jsonCoder.decode(OTFolderModel.self, from: jsonData)
+            let model = try! jsonCoder.decode(OTFolderModel.self, from: jsonData)
             result.append(model)
         }
         return result

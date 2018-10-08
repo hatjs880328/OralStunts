@@ -47,7 +47,7 @@ class MainVCTabVw: UIView {
             make.top.equalTo(topVw.snp.bottom).offset(5 * APPDelStatic.sizeScale)
         }
         self.setValues(value: ["最新", "新建"])
-        NotificationCenter.default.addObserver(self, selector: #selector(self.changeUI(noti:)), name: NSNotification.Name.init("main_page_change_listAndWaterfall"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeUI(noti:)), name: NSNotification.Name("main_page_change_listAndWaterfall"), object: nil)
         createVm()
         createVw()
     }

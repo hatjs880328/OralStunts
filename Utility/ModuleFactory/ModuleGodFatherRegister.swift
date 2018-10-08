@@ -23,7 +23,7 @@ extension ModuleGodFather {
     /// - Returns: turpleInfo
     func getClassType() -> (String, AnyClass) {
         let className = self.description.components(separatedBy: ":")[0].components(separatedBy: ".")[1]
-        let nameSpace =  Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+        let nameSpace = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
         let cls: AnyClass = NSClassFromString("\(nameSpace).\(className)")!
         return (className, cls)
     }

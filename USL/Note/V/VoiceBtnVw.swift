@@ -56,11 +56,11 @@ class VoiceBtnVw: UIView {
         self.addSubview(picVwcircle)
         picVwcircle.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.width.equalTo(picWeight  * APPDelStatic.sizeScale)
-            make.height.equalTo(picWeight  * APPDelStatic.sizeScale)
+            make.width.equalTo(picWeight * APPDelStatic.sizeScale)
+            make.height.equalTo(picWeight * APPDelStatic.sizeScale)
             make.top.equalTo(warningLb.snp.bottom).offset(10 * APPDelStatic.sizeScale)
         }
-        picVwcircle.layer.cornerRadius = picWeight  * APPDelStatic.sizeScale / 2
+        picVwcircle.layer.cornerRadius = picWeight * APPDelStatic.sizeScale / 2
         picVwcircle.layer.borderColor = APPDelStatic.lightGray.cgColor
         picVwcircle.layer.borderWidth = 1
         picVwcircle.layer.masksToBounds = true
@@ -69,8 +69,8 @@ class VoiceBtnVw: UIView {
         self.addSubview(picVw)
         picVw.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.width.equalTo((picWeight - 15)  * APPDelStatic.sizeScale)
-            make.height.equalTo((picWeight - 15)  * APPDelStatic.sizeScale)
+            make.width.equalTo((picWeight - 15) * APPDelStatic.sizeScale)
+            make.height.equalTo((picWeight - 15) * APPDelStatic.sizeScale)
             make.centerY.equalTo(picVwcircle.snp.centerY)
         }
         picVw.image = UIImage(named: "voice.png")

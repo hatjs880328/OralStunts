@@ -31,7 +31,7 @@ public extension String {
      - returns: base64
      */
     func toBase64String() -> String? {
-        let data =  self.data(using: String.Encoding.ascii)
+        let data = self.data(using: String.Encoding.ascii)
         return data?.base64EncodedString(options: NSData.Base64EncodingOptions.endLineWithLineFeed)
     }
 
@@ -74,8 +74,8 @@ public extension String {
             return false
         }
 
-        let versionArr =  version.components(separatedBy: ".")
-        let selfArr =  self.components(separatedBy: ".")
+        let versionArr = version.components(separatedBy: ".")
+        let selfArr = self.components(separatedBy: ".")
 
         //如果分隔符数量不足
         if selfArr.count != 3 || versionArr.count != 3 {
@@ -133,7 +133,7 @@ public extension String {
     /// :param format: yyyy-MM-dd HH:mm:ss / yyyy-MM-dd / yyyyMMddHHmmss / MMddHHmmss
     ///
     /// returns: 时间
-    func dateValue(_ format: String)->Foundation.Date? {
+    func dateValue(_ format: String) -> Foundation.Date? {
         let formats = DateFormatter()
         formats.dateFormat = format
         formats.timeZone = TimeZone(identifier: "UTC")
@@ -688,8 +688,8 @@ public extension String {
         let regextestcu = NSPredicate(format: "SELF MATCHES %@", CU)
         let regextestct = NSPredicate(format: "SELF MATCHES %@", CT)
         if ((regextestmobile.evaluate(with: self) == true)
-            || (regextestNewmobile.evaluate(with: self)  == true)
-            || (regextestcm.evaluate(with: self)  == true)
+            || (regextestNewmobile.evaluate(with: self) == true)
+            || (regextestcm.evaluate(with: self) == true)
             || (regextestct.evaluate(with: self) == true)
             || (regextestcu.evaluate(with: self) == true)) {
             return true
@@ -914,7 +914,7 @@ extension String {
         if(!otherUrl.contains("Time=")) { return false }
         if(!self.contains("Time=")) { return false }
         let otherArray = otherUrl.components(separatedBy: "Time=")
-        let array =  self.components(separatedBy: "Time=")
+        let array = self.components(separatedBy: "Time=")
         if(array[1] == otherArray[1]) { return true }
 
         return false

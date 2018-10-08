@@ -17,7 +17,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
     static var dbIns: FMDatabase!
 
     class func initTheDb() -> Bool {
-        if queueDB != nil && dbIns != nil { return true}
+        if queueDB != nil && dbIns != nil { return true }
         if(queueDB == nil || dbIns == nil) {
             do {
                 let pathNew = try FileManager.default.url(for: FileManager.SearchPathDirectory.applicationSupportDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(dbname)
@@ -39,7 +39,7 @@ class FMDatabaseQueuePublicUtils: NSObject {
         queueDB.inTransaction { (db, rollback) in
             do {
                 for eachItem in sql.components(separatedBy: ";") {
-                    if eachItem.isEmpty {continue}
+                    if eachItem.isEmpty { continue }
                     try db.executeUpdate(eachItem, values: nil)
                 }
             } catch {
@@ -67,8 +67,8 @@ class FMDatabaseQueuePublicUtils: NSObject {
                 let resultSet = try db.executeQuery(sql, values: nil)
                 let count = resultSet.columnCount
                 while (resultSet.next()) {
-                    let dic  = NSMutableDictionary()
-                    for i in 0  ..< Int(count) {
+                    let dic = NSMutableDictionary()
+                    for i in 0..<Int(count) {
                         var columnName: NSString!
                         columnName = resultSet.columnName(for: Int32(i))! as NSString
                         let obj: AnyObject! = resultSet.object(forColumn: columnName as String) as AnyObject?

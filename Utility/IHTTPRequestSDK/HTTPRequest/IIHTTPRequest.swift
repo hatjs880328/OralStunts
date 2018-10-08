@@ -69,10 +69,10 @@ open class IIHTTPRequest: NSObject {
     class private func progressResponse(response: DataResponse<Any>) -> ResponseClass {
         // time out & no connection & unknow
         if let errorInfo = response.result.error as NSError? {
-            if errorInfo.code == -1001 || errorInfo.code == -1003 {
+            if errorInfo.code == -1_001 || errorInfo.code == -1_003 {
                 return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html, errorType: ERRORMsgType.timeOut)
             }
-            if errorInfo.code == -1009 {
+            if errorInfo.code == -1_009 {
                 return ResponseFactoary().responseInstance(data: response, responseType: ResponseContentType.html, errorType: ERRORMsgType.noConnection)
             }
         }

@@ -181,7 +181,7 @@ class SearchVCTabVM: NSObject {
     }
 
     /// 返回 (选中项目中已经收藏个数 : 选中项目数 : 数据源总个数）
-    func calculateLikeCountInSelectedItems()->(sAndl: Int, s: Int, dataCount: Int) {
+    func calculateLikeCountInSelectedItems() -> (sAndl: Int, s: Int, dataCount: Int) {
         var likeAndSelectedNum: Int = 0
         var selectedNum: Int = 0
         for eachItem in self.dataSource {
@@ -208,7 +208,7 @@ class SearchVCTabVM: NSObject {
 
     /// 选中一个项目时，发送推送信息
     func selectItemPostNoti() {
-        NotificationCenter.default.post(name: NSNotification.Name.init("Progress_tool_changeBySelectoneItem"), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("Progress_tool_changeBySelectoneItem"), object: nil, userInfo: nil)
     }
 
     /// 刷新tableview & waterfall

@@ -25,13 +25,13 @@ class NoteVedioPlayBLL: NSObject {
     }
 
     func playVideo(with pcmName: String) {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onPlayCompleted(noti:)), name: NSNotification.Name.init("oralTruntsPlayOverNotification"), object: nil)
-        do{
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onPlayCompleted(noti:)), name: NSNotification.Name("oralTruntsPlayOverNotification"), object: nil)
+        do {
             pathNew = try FileManager.default.url(for: FileManager.SearchPathDirectory.cachesDirectory,
                                                   in: FileManager.SearchPathDomainMask.userDomainMask,
                                                   appropriateFor: nil, create: true).appendingPathComponent("\(pcmName).pcm")
-        }catch{}
-        audioPlayer = PcmPlayer(filePath: pathNew.absoluteString.substringFromIndex(7), sampleRate: 16000)
+        } catch {}
+        audioPlayer = PcmPlayer(filePath: pathNew.absoluteString.substringFromIndex(7), sampleRate: 16_000)
         realPlayer = AudioPlay(with: audioPlayer.realpcmData)
         realPlayer.play()
     }
