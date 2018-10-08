@@ -72,16 +72,18 @@ class NoteBLL: NSObject, IFlySpeechRecognizerDelegate {
     // 识别结果返回代理
     func onResults(_ results: [Any]!, isLast: Bool) {
         if results == nil { return }
-        let dic = results[0] as! NSDictionary
+        guard let dic = results[0] as? NSDictionary else {
+            return
+        }
         for key in dic {
             do {
                 let data = ((key.key as! String) as NSString).data(using: String.Encoding.utf8.rawValue)
                 let changeData = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                let ws = changeData["ws"] as! NSArray
-                for wsDic in ws {
-                    let cw  = (wsDic as! NSDictionary)["cw"] as! NSArray
-                    let w = (cw[0] as! NSDictionary)["w"] as! String
-                    resultTxt += w
+                let wsDics = changeData["ws"] as! NSArray
+                for wsDic in wsDics {
+                    let cwDic  = (wsDic as! NSDictionary)["cw"] as! NSArray
+                    let wDic = (cwDic[0] as! NSDictionary)["w"] as! String
+                    resultTxt += wDic
                 }
             } catch {}
         }

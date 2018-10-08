@@ -30,9 +30,9 @@ enum DayType {
     case work
 }
 
-typealias dingTalkTrupleModel = (dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int)
+typealias DingTalkTrupleModel = (dayArr: [DingTalkCalanderModel], headerCount: Int, footerCount: Int)
 
-typealias dingTalkTrupleKey = String
+typealias DingTalkTrupleKey = String
 
 class WorkBench: NSObject, IWorkBench {
 
@@ -128,7 +128,7 @@ extension WorkBench {
     ///   - middleDates: middleDates may be nil
     ///   - middleFollowDate: middleDates order to which day
     /// - Returns: trupleInfo
-    func getDate(position: DingTalkPosition, middleDates: dingTalkTrupleModel!, middleFollowDate: Date?) -> dingTalkTrupleModel {
+    func getDate(position: DingTalkPosition, middleDates: DingTalkTrupleModel!, middleFollowDate: Date?) -> DingTalkTrupleModel {
         switch position {
         case .middle:
             return self.getMiddleDate(with: middleFollowDate!)
@@ -143,7 +143,7 @@ extension WorkBench {
     ///
     /// - Parameter dateInfo: dingTalkTrupleModel
     /// - Returns: str-key
-    func getDicKey(with dingTalkTrupleInfo: dingTalkTrupleModel) -> dingTalkTrupleKey {
+    func getDicKey(with dingTalkTrupleInfo: DingTalkTrupleModel) -> DingTalkTrupleKey {
         let currentMonthDay = dingTalkTrupleInfo.dayArr[dingTalkTrupleInfo.headerCount + 1].dateInfo
         if currentMonthDay == nil { return "" }
         return getDicKey(with: currentMonthDay!)
@@ -153,7 +153,7 @@ extension WorkBench {
     ///
     /// - Parameter dateInfo: date info
     /// - Returns: str - key
-    func getDicKey(with dateInfo: Date) -> dingTalkTrupleKey {
+    func getDicKey(with dateInfo: Date) -> DingTalkTrupleKey {
         let realDateInfo = dateInfo
         return "\(realDateInfo.year)-\(realDateInfo.month)"
     }
@@ -162,7 +162,7 @@ extension WorkBench {
     ///
     /// - Parameter date: trupleinfo
     /// - Returns: date
-    func getAfterMonthFirstDay(with date: dingTalkTrupleModel) -> Date {
+    func getAfterMonthFirstDay(with date: DingTalkTrupleModel) -> Date {
         return date.dayArr[date.headerCount].dateInfo.nextDate(date.dayArr.count - date.headerCount - date.footerCount)
     }
 
@@ -170,7 +170,7 @@ extension WorkBench {
     ///
     /// - Parameter date: truple info
     /// - Returns: date
-    func getBeforeMonthLastDay(with date: dingTalkTrupleModel) -> Date {
+    func getBeforeMonthLastDay(with date: DingTalkTrupleModel) -> Date {
         return date.dayArr[date.headerCount].dateInfo.beforeDate(1)
     }
 

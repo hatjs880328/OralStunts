@@ -17,31 +17,31 @@ protocol IWorkBench {
     ///   - middleDates: middleDates may be nil
     ///   - middleFollowDate: middleDates order to which day
     /// - Returns: trupleInfo
-    func getDate(position: DingTalkPosition, middleDates: dingTalkTrupleModel!, middleFollowDate: Date?) -> dingTalkTrupleModel
+    func getDate(position: DingTalkPosition, middleDates: DingTalkTrupleModel!, middleFollowDate: Date?) -> DingTalkTrupleModel
 
     /// folow dingTalkTrupleModel create a key [string]
     ///
     /// - Parameter dateInfo: dingTalkTrupleModel
     /// - Returns: str-key
-    func getDicKey(with dateInfo: dingTalkTrupleModel) -> dingTalkTrupleKey
+    func getDicKey(with dateInfo: DingTalkTrupleModel) -> DingTalkTrupleKey
 
     /// get after month [next month] first day
     ///
     /// - Parameter date: trupleinfo
     /// - Returns: date
-    func getAfterMonthFirstDay(with date: dingTalkTrupleModel) -> Date
+    func getAfterMonthFirstDay(with date: DingTalkTrupleModel) -> Date
 
     /// get before month [] last day
     ///
     /// - Parameter date: truple info
     /// - Returns: date
-    func getBeforeMonthLastDay(with date: dingTalkTrupleModel) -> Date
+    func getBeforeMonthLastDay(with date: DingTalkTrupleModel) -> Date
 
     /// follow date create a key [string]
     ///
     /// - Parameter dateInfo: date info
     /// - Returns: str - key
-    func getDicKey(with dateInfo: Date) -> dingTalkTrupleKey
+    func getDicKey(with dateInfo: Date) -> DingTalkTrupleKey
 
     /// get 7 days [before or next]
     ///

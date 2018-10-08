@@ -2,10 +2,29 @@
 isabled_rules:
   - trailing_whitespace
   - line_length
+force_case: warning
+force_try:
+  severity: warning
+line_length: 250
+function_body_length:
+  - 300
+  - 400
+# file rule
+file_length:
+  warning: 500
+  error: 1200
+# character rule
+type_name:
+  min_length: 2
+  max_length:
+    warning: 40
+    error: 50
+  excluded: iPhone
+reporter: "xcode"
 excluded: 
   - Pods
   - Carthage
-line_length:
-  warning: 110
-  ignores_function_declarations: true
-  ignores_comments: true
+# line_length:
+#   warning: 110
+#   ignores_function_declarations: true
+#   ignores_comments: true
