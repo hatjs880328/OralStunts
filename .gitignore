@@ -602,6 +602,6 @@ _Pvt_Extensions
 ### VisualStudioCode ###
 .vscode
 accounts
-Pods
+Pods/
 Podfile.lock
 patch.diff
