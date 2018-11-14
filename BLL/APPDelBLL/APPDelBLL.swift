@@ -98,7 +98,8 @@ class APPDelBLL: NSObject {
 
     /// siri-useractivity-jumptovc
     func userActivityJumpToNoteCreateVC() {
-        let con = NoteCreateViewController()
+        let con = NoteContextCreateViewController()
+        NoteCreatingBLL.getInstance().progressModelTitle(title: NoteCreatingBLL.getInstance().creatingNoteModel.id, volumeList: [])
         con.hidesBottomBarWhenPushed = true
         con.presentedVcHasNavigation = false
         guard let saltedVc = (UIApplication.shared.keyWindow?.rootViewController as? SaltedFishTabBarVC) else { return }

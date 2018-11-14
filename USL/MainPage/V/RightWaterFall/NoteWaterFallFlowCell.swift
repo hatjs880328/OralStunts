@@ -90,7 +90,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
 
     func setData(note: SearchvcVmodel, indexPath: IndexPath) {
         self.index = indexPath
-        self.titleLb.text = note.title
+        self.titleLb.text = note.abstract
         self.createTimeLb.text = note.modifyTime
         self.realNoteId = note.noteID
         self.likeOrNotBtn.isSelected = note.isLike

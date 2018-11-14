@@ -18,7 +18,7 @@ class NoteTimeLineViewController: IIBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NoteCreatingBLL.getInstance().showingNoteModel.title
+        self.title = SearchvcVmodel().setData(model: NoteCreatingBLL.getInstance().showingNoteModel).abstract
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Category.png"), style: UIBarButtonItemStyle.done, target: self, action: #selector(self.showOrHiddenMenu))
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: APPDelStatic.themeColor]

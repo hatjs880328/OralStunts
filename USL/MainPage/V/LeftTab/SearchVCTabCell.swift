@@ -87,8 +87,8 @@ class SearchVCTabCell: UITableViewCell {
     }
 
     func setData(model: SearchvcVmodel, isSelectAll: Bool = false) {
-        self.titleLB.text = model.title
-        self.abstractLB.text = model.abstract
+        self.titleLB.text = model.abstract
+        self.abstractLB.text = model.sourceModel.contentTxt.first ?? ""
         self.modifyTimeLb.text = model.modifyTime
         if isSelectAll {
             self.titleLB.textColor = APPDelStatic.themeColor

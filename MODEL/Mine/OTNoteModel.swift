@@ -97,7 +97,8 @@ class SearchvcVmodel: NSObject {
         super.init()
     }
 
-    func setData(model: OTNoteModel) {
+    @discardableResult
+    func setData(model: OTNoteModel)->SearchvcVmodel {
         self.sourceModel = model
         self.noteID = model.id
         self.title = model.title
@@ -110,6 +111,7 @@ class SearchvcVmodel: NSObject {
             self.isLike = true
         }
         self.waterFallHeight = 72.0 + CGFloat(model.contentTxt.count * 18)
+        return self
     }
 
 }

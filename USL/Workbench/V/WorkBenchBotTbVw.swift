@@ -422,7 +422,8 @@ class WorkBenchNullCell: UITableViewCell {
     }
 
     @objc func targetAction() {
-        let con = NoteCreateViewController()
+        let con = NoteContextCreateViewController()
+        NoteCreatingBLL.getInstance().progressModelTitle(title: NoteCreatingBLL.getInstance().creatingNoteModel.id, volumeList: [])
         con.hidesBottomBarWhenPushed = true
         con.presentedVcHasNavigation = false
         self.viewController()?.navigationController?.pushViewController(con, animated: true)

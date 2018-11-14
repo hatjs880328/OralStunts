@@ -63,10 +63,6 @@ class APPListEmptyVw: UIView {
         }
         createBtn.setTitle(self.createTxt, for: UIControlState.normal)
         createBtn.tapActionsGesture {
-//            let con = NoteCreateViewController()
-//            con.hidesBottomBarWhenPushed = true
-//            con.presentedVcHasNavigation = false
-//            self.viewController()?.navigationController?.pushViewController(con, animated: true)
             OTAlertVw().alertShowCreateNoteAndFolderVw()
         }
         createBtn.borderWidth = 0.5

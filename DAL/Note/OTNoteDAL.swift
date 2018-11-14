@@ -97,7 +97,8 @@ class OTNoteDAL: NSObject {
 
     /// 搜搜
     func getInfos(with whereSql: String) -> [OTNoteModel] {
-        let sql = "select * from \(tabName) where title like '%\(whereSql)%'; "
+        //%contentTxt%a%],"id%
+        let sql = "select * from \(tabName) where txtstrInfo like '%contentTxt%\(whereSql)%],\"id%';"
         let arr = FMDatabaseQueuePublicUtils.getResultWithSql(sql: sql)
 
         return progressData(arr)

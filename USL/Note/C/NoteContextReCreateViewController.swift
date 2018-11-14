@@ -26,7 +26,7 @@ class NoteContextReCreateViewController: IIBaseViewController {
     }
 
     func createVw() {
-        self.title = NoteCreatingBLL.getInstance().showingNoteModel.title
+        self.title = SearchvcVmodel().setData(model: NoteCreatingBLL.getInstance().showingNoteModel).abstract
         self.navigationController?.isNavigationBarHidden = false
         let lastedVw = LstaedEditedInfoVw(frame: CGRect.zero, fatherVw: self.view)
         self.contextVw = ContextInsertVw(frame: CGRect.zero, fatherVw: self.view, topVw: lastedVw)

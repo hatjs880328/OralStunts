@@ -38,7 +38,8 @@ import SCLAlertView
         if let nowCon = ((UIApplication.shared.keyWindow!.rootViewController as! SaltedFishTabBarVC).selectedViewController as! UINavigationController).viewControllers.last {
             let alertVw = SCLAlertView()
             alertVw.addButton("便签") {
-                let con = NoteCreateViewController()
+                let con = NoteContextCreateViewController()
+                NoteCreatingBLL.getInstance().progressModelTitle(title: NoteCreatingBLL.getInstance().creatingNoteModel.id, volumeList: [])
                 con.hidesBottomBarWhenPushed = true
                 con.presentedVcHasNavigation = false
                 nowCon.navigationController?.pushViewController(con, animated: true)
