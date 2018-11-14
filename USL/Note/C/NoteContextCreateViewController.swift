@@ -36,7 +36,7 @@ class NoteContextCreateViewController: IIBaseViewController {
     }
 
     func goMainPage() {
-
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.popToRootViewController(animated: true)
     }
 
