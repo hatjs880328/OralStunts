@@ -88,8 +88,10 @@ class TitleInsertVw: UIView {
         arrow.snp.makeConstraints { (make) in
             make.right.equalTo(-10)
             make.width.equalTo(25 * APPDelStatic.sizeScale)
-            make.top.equalTo(10 * APPDelStatic.sizeScale)
-            make.bottom.equalTo(-10 * APPDelStatic.sizeScale)
+//            make.top.equalTo(10 * APPDelStatic.sizeScale)
+//            make.bottom.equalTo(-10 * APPDelStatic.sizeScale)
+            make.centerY.equalTo(contentVw.snp.centerY)
+            make.height.equalTo(35)
         }
         arrow.image = UIImage(named: "more.png")
         arrow.tapActionsGesture {[weak self]() in
@@ -164,5 +166,10 @@ class TitleInsertVw: UIView {
             //菊花动画结束
             self.iflyVoiceAniPreVw.alpha = 1
         }
+    }
+
+    @objc func injected() {
+        print("have injectssadfdfasdio546n123")
+        self.backgroundColor = UIColor.yellow
     }
 }
