@@ -10,6 +10,8 @@ import UIKit
 
 @objc class MineViewController: IIBaseViewController {
 
+    var mainTab:MinePersionalTabVw?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initVw()
@@ -25,7 +27,12 @@ import UIKit
 
     func initVw() {
         let personInfoVw: MinePersonalInfoVw = MinePersonalInfoVw(frame: CGRect.zero, fatherVw: self.view)
-        _ = MinePersionalTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: personInfoVw)
+        mainTab = MinePersionalTabVw(frame: CGRect.zero, fatherVw: self.view, topVw: personInfoVw)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.mainTab?.aliFBIns.vi?.stopAni()
     }
 
 }

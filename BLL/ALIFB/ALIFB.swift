@@ -12,6 +12,8 @@ class ALIFB: NSObject {
 
     var kitIns = BCFeedbackKit(appKey: IIBizConfig.aliFbKEY, appSecret: IIBizConfig.aliFbSecret)
 
+    var vi: IIBaseWaitAniVw?
+
     override init() {
         super.init()
     }
@@ -25,13 +27,13 @@ class ALIFB: NSObject {
     }
 
     func openFbVc(nowVw: UIViewController) {
-        let vi = IIBaseWaitAniVw(frame: CGRect.zero)
-        UIApplication.shared.keyWindow?.addSubview(vi)
-        vi.snp.makeConstraints { (make) in
+        vi = IIBaseWaitAniVw(frame: CGRect.zero)
+        UIApplication.shared.keyWindow?.addSubview(vi!)
+        vi!.snp.makeConstraints { (make) in
             make.centerX.equalTo(UIApplication.shared.keyWindow!.snp.centerX)
             make.centerY.equalTo(UIApplication.shared.keyWindow!.snp.centerY)
         }
-        kitIns?.makeFeedbackViewController(completionBlock: { (vcIns, error) in
+        kitIns?.makeFeedbackViewController(completionBlock: { [weak self](vcIns, error) in
             if error == nil && vcIns != nil {
                 nowVw.navigationController?.isNavigationBarHidden = false
                 vcIns?.hidesBottomBarWhenPushed = true
@@ -40,12 +42,12 @@ class ALIFB: NSObject {
                 }
                 vcIns?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: APPDelStatic.themeColor]
                 nowVw.navigationController?.pushViewController(vcIns!, animated: true)
-                vi.stopAni()
-                vi.removeFromSuperview()
+                self?.vi?.stopAni()
+                self?.vi?.removeFromSuperview()
             } else {
                 //失败
-                vi.stopAni()
-                vi.removeFromSuperview()
+                self?.vi?.stopAni()
+                self?.vi?.removeFromSuperview()
             }
         })
     }
