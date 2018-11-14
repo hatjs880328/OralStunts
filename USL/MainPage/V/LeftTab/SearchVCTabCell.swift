@@ -69,7 +69,7 @@ class SearchVCTabCell: UITableViewCell {
             make.width.equalTo(20)
             make.height.equalTo(20)
         }
-        isLike.setImage(UIImage(named: "unlike"), for: UIControlState.normal)
+        isLike.setImage(UIImage(named: ""), for: UIControlState.normal)
         isLike.setImage(UIImage(named: "notelike"), for: UIControlState.selected)
         isLike.tapActionsGesture {[weak self] () in
             self?.isLikeFunc()

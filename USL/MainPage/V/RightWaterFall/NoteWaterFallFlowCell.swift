@@ -51,7 +51,7 @@ class NoteWaterFallFlowCell: UICollectionViewCell {
             make.height.equalTo(15)
             make.width.equalTo(15)
         }
-        likeOrNotBtn.setImage(UIImage(named: "unlike"), for: UIControlState.normal)
+        likeOrNotBtn.setImage(UIImage(named: ""), for: UIControlState.normal)
         likeOrNotBtn.setImage(UIImage(named: "notelike"), for: UIControlState.selected)
         //title
         titleLb.snp.makeConstraints { (make) in
