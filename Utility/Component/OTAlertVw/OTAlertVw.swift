@@ -30,7 +30,7 @@ import SCLAlertView
         alertVw.addButton(confirmStr) {
             confirmAction()
         }
-        alertVw.showWarning(title, subTitle: message, closeButtonTitle: "取消", timeout: nil, colorStyle: 0xFFD110, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
+        alertVw.showWarning(title, subTitle: message, closeButtonTitle: "取消", timeout: nil, colorStyle: 0x006569, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
 
     }
 
@@ -49,7 +49,7 @@ import SCLAlertView
                 con.presentedVcHasNavigation = false
                 nowCon.navigationController?.pushViewController(con, animated: true)
             }
-            alertVw.showEdit("选择新建项目", subTitle: "", closeButtonTitle: "取消", timeout: nil, colorStyle: 0xFFD110, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
+            alertVw.showEdit("选择新建项目", subTitle: "", closeButtonTitle: "取消", timeout: nil, colorStyle: 0x006569, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
         }
 
     }
