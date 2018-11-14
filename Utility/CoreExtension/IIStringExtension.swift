@@ -25,6 +25,15 @@ public enum ObjectType {
 
 public extension String {
 
+    /// 处理sql中特殊字符
+    func progressSQLFormat()->String {
+        var realContent = self
+        realContent = realContent.replace(find: ";", replaceStr: "；")
+        realContent = realContent.replace(find: "'", replaceStr: "’")
+        realContent = realContent.replace(find: "\"", replaceStr: "”")
+        return realContent
+    }
+
     /**
      转化成base64
      

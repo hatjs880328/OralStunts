@@ -66,7 +66,8 @@ class NoteLogicBLL: NSObject {
     /// 编辑、修改时，插入新的content 、 modifytime、 volumeList
     func editNoteInfo(content: String, volumeList: [Int32]) {
         let newOTModel = NoteCreatingBLL.getInstance().showingNoteModel
-        newOTModel.setNewContents(modifyTime: Date(), content: content, volumnList: volumeList)
+        var realContent = content.progressSQLFormat()
+        newOTModel.setNewContents(modifyTime: Date(), content: realContent, volumnList: volumeList)
         newOTModel.videoUrl.append("\(newOTModel.id)~content\(newOTModel.videoUrl.count)")
         self.insertNoteInfo(with: newOTModel)
     }

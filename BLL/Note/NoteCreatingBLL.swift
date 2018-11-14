@@ -47,8 +47,9 @@ class NoteCreatingBLL: NSObject {
         self.revertModel()
     }
 
-    func progressModelContent(content: String, volumnList: [Int32]) {
-        self.creatingNoteModel.setContexts(createTime: Date(), content: content, volumnList: volumnList)
+    func progressModelContent( content: String, volumnList: [Int32]) {
+        var realContent = content.progressSQLFormat()
+        self.creatingNoteModel.setContexts(createTime: Date(), content: realContent, volumnList: volumnList)
         self.creatingNoteModel.videoUrl.append(self.creatingNoteModel.id + "~content0")
     }
 
