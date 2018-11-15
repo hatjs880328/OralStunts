@@ -64,8 +64,8 @@ class DingTalkCEvent: NSObject {
         self.id = kevent.location!
         self.startTime = kevent.startDate.dateToString(formatStrHM)
         self.endTime = "修改时间"
-        self.title = kevent.title
-        self.subTitle = "[摘要]" + kevent.notes!
+        self.title = "[摘要]" + kevent.title
+        self.subTitle = kevent.notes!
         realStartTime = kevent.startDate.dateToString(normalFormatStr)
         realEndTime = kevent.endDate.dateToString(normalFormatStr)
     }

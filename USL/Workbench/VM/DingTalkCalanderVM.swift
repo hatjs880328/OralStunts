@@ -68,8 +68,8 @@ class DingTalkCalanderVM: NSObject {
 
     override init() {
         super.init()
-        self.workBench = BeanFactory().create(with: "workBenchIns") as! IWorkBench
-        self.eventCalendarIns = BeanFactory().create(with: "workEventCalendarIns") as! IWorkBenchEventCalendar
+        self.workBench = BeanFactory().create(with: "workBenchIns") as? IWorkBench
+        self.eventCalendarIns = BeanFactory().create(with: "workEventCalendarIns") as? IWorkBenchEventCalendar
     }
 
     /// follow postition return dingVm

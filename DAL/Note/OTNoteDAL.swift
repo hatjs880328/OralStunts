@@ -140,10 +140,11 @@ class OTNoteDAL: NSObject {
         var realResult = [EKEvent]()
         for eachItem in otnoteModels {
             let realModel = EKEvent(eventStore: DingTalkGetEventCalender().eventDB)
-            realModel.title = eachItem.title
-            realModel.location = eachItem.id
+
             let length = eachItem.contentTxt.last!.length > 12 ? 12 : eachItem.contentTxt.last!.length
-            realModel.notes = eachItem.contentTxt.last!.substringToIndex(length)
+            realModel.title = eachItem.contentTxt.last!.substringToIndex(length)
+            realModel.location = eachItem.id
+            realModel.notes = eachItem.contentTxt.last!
             realModel.startDate = eachItem.modifyTime.last!
             realModel.endDate = eachItem.modifyTime.last!
             realModel.isAllDay = false
