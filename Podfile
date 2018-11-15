@@ -1,12 +1,14 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 platform :ios, '9.0'
-use_frameworks!
+#use_frameworks!
+use_modular_headers!
+inhibit_all_warnings!
 #第三方库导入需要谨慎---防止单元测试框架编译失败---
-
+#oc需添加:modular_headers => false指令
 def useFrameworks
     
-    pod 'Aspects', '~> 1.4.1'
+    pod 'Aspects', :modular_headers => false
     
     pod 'SnapKit', '~> 4.0.0'
     
@@ -16,44 +18,44 @@ def useFrameworks
     
     pod 'RxDataSources', '~> 3.0.2'
     
-    pod 'MJExtension', '~> 3.0.13'
+    pod 'MJExtension', :modular_headers => false
     
-    pod 'Bugly'
+    pod 'Bugly',:modular_headers => false
     
-    pod 'BeeHive', '~> 1.6.0'
+    pod 'BeeHive',:modular_headers => false
     
-    pod 'SDWebImage', '~> 4.4.0'
+    pod 'SDWebImage',:modular_headers => false
     
-    pod 'EvernoteSDK', '~> 3.0'
+    pod 'EvernoteSDK',:modular_headers => false
     
-    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x', :modular_headers => false
     
-    pod 'WHDebugTool', '~> 1.1'
+    pod 'WHDebugTool',:modular_headers => false
     
-    pod 'MONActivityIndicatorView'
+    pod 'MONActivityIndicatorView',:modular_headers => false
     
-    pod 'FlatUIKit'
+    pod 'FlatUIKit',:modular_headers => false
     
-    pod 'AlicloudFeedback'
+    pod 'AlicloudFeedback',:modular_headers => false
     
-    pod 'SCLAlertView', '~> 0.8'
+    pod 'SCLAlertView',:modular_headers => false
     
-    pod 'FFToast'
-    pod 'mob_sharesdk'
-    pod 'mob_sharesdk/ShareSDKUI'
-    pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
-    pod 'mob_sharesdk/ShareSDKPlatforms/SinaWeibo'
-    pod 'mob_sharesdk/ShareSDKPlatforms/WeChat'
-    pod 'mob_sharesdk/ShareSDKPlatforms/SMS'
-    pod 'mob_sharesdk/ShareSDKConfigFile'
-    pod 'mob_sharesdk/ShareSDKExtension'
+    pod 'FFToast',:modular_headers => false
+    pod 'mob_sharesdk',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKUI',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKPlatforms/QQ',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKPlatforms/SinaWeibo',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKPlatforms/WeChat',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKPlatforms/SMS',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKConfigFile',:modular_headers => false
+    pod 'mob_sharesdk/ShareSDKExtension',:modular_headers => false
     
     #pod 'AxcAE_TabBar'
-    pod 'XRWaterfallLayout'
+    pod 'XRWaterfallLayout',:modular_headers => false
     
     pod 'HandyJSON', '~> 4.2.0'
 
-    pod 'AliyunOSSiOS', '~> 2.10.7'
+    pod 'AliyunOSSiOS',:modular_headers => false
     
 end
 

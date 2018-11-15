@@ -1,4 +1,4 @@
-framework module Pods_OralStuntsTests {
+module Pods_OralStuntsTests {
   umbrella header "Pods-OralStuntsTests-umbrella.h"
 
   export *

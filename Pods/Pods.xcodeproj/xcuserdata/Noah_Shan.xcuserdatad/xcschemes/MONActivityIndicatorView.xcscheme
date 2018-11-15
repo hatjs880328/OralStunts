@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "259125114A985B7EF90CC2C06645AACC"
+               BlueprintIdentifier = "359EFD5CC952B445A305EE8610410EB0"
                BlueprintName = "MONActivityIndicatorView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "MONActivityIndicatorView.framework">
+               BuildableName = "libMONActivityIndicatorView.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

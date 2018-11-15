@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3A268456A83D28D9529F2FC965CB160E"
+               BlueprintIdentifier = "F95A2C8EE5B81E0FF48C99B9ACE46833"
                BlueprintName = "EvernoteSDK"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "EvernoteSDK.framework">
+               BuildableName = "libEvernoteSDK.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

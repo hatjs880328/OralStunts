@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A1195410E7E34E8E538CEF9 /* Pods_OralStuntsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CD4F3A0EEE75CC33306E09 /* Pods_OralStuntsTests.framework */; };
 		56005B8E20B2ABD1004390A1 /* SearchVCTabVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56005B8D20B2ABD1004390A1 /* SearchVCTabVw.swift */; };
 		56005B9020B2AD5E004390A1 /* SearchVCTabVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56005B8F20B2AD5E004390A1 /* SearchVCTabVM.swift */; };
 		56005B9220B2AE41004390A1 /* SearchVCTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56005B9120B2AE41004390A1 /* SearchVCTabCell.swift */; };
@@ -318,7 +317,8 @@
 		56FDB4BC20AEBA6D0020A9DE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB4BB20AEBA6D0020A9DE /* SearchViewController.swift */; };
 		56FDB4BE20AEBA9A0020A9DE /* OTSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDB4BD20AEBA9A0020A9DE /* OTSearchVM.swift */; };
 		56FF7DA2216056A4007920FC /* LaunchImageI6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 56FF7DA1216056A4007920FC /* LaunchImageI6.jpg */; };
-		A857FDFF90C6FD78F4B44836 /* Pods_OralStunts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9F4E7E77B92CEFE1C55268 /* Pods_OralStunts.framework */; };
+		7FFAC6BE07BD8D8351EF0CF2 /* libPods-OralStunts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D62F073B6024B6A696CA9A45 /* libPods-OralStunts.a */; };
+		DBFC2CA380891F38ECD23715 /* libPods-OralStuntsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8976204888DD125E89C0EB /* libPods-OralStuntsTests.a */; };
 		F992CF8D6ACC19CC27B76541 /* ThirdLoginBLL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F992CE8FBAE45188EF0060BE /* ThirdLoginBLL.swift */; };
 /* End PBXBuildFile section */
 
@@ -692,10 +692,10 @@
 		56FDB4BB20AEBA6D0020A9DE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		56FDB4BD20AEBA9A0020A9DE /* OTSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTSearchVM.swift; sourceTree = "<group>"; };
 		56FF7DA1216056A4007920FC /* LaunchImageI6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImageI6.jpg; sourceTree = "<group>"; };
-		62CD4F3A0EEE75CC33306E09 /* Pods_OralStuntsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OralStuntsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		808D63275C4BF10071F4018B /* Pods-OralStuntsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OralStuntsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OralStuntsTests/Pods-OralStuntsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BD9F4E7E77B92CEFE1C55268 /* Pods_OralStunts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OralStunts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8976204888DD125E89C0EB /* libPods-OralStuntsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OralStuntsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEC2D89F740FBD1C327799F /* Pods-OralStunts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OralStunts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OralStunts/Pods-OralStunts.debug.xcconfig"; sourceTree = "<group>"; };
+		D62F073B6024B6A696CA9A45 /* libPods-OralStunts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OralStunts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F992CE8FBAE45188EF0060BE /* ThirdLoginBLL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdLoginBLL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -704,6 +704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A4C4C420B3AE0B0094916E /* AVFoundation.framework in Frameworks */,
 				56084F9021609BE300C674B7 /* CloudKit.framework in Frameworks */,
 				56791584214FAD2B000881FA /* Photos.framework in Frameworks */,
 				56791582214FAD23000881FA /* libsqlite3.tbd in Frameworks */,
@@ -722,9 +723,8 @@
 				56A4C4CA20B3AE230094916E /* CoreTelephony.framework in Frameworks */,
 				56A4C4C820B3AE1D0094916E /* Foundation.framework in Frameworks */,
 				56A4C4C620B3AE140094916E /* SystemConfiguration.framework in Frameworks */,
-				56A4C4C420B3AE0B0094916E /* AVFoundation.framework in Frameworks */,
 				56A4C4C020B3ADB70094916E /* iflyMSC.framework in Frameworks */,
-				A857FDFF90C6FD78F4B44836 /* Pods_OralStunts.framework in Frameworks */,
+				7FFAC6BE07BD8D8351EF0CF2 /* libPods-OralStunts.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,7 +732,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A1195410E7E34E8E538CEF9 /* Pods_OralStuntsTests.framework in Frameworks */,
+				DBFC2CA380891F38ECD23715 /* libPods-OralStuntsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2103,8 +2103,8 @@
 				56A4C4C520B3AE140094916E /* SystemConfiguration.framework */,
 				56A4C4C320B3AE0B0094916E /* AVFoundation.framework */,
 				56A4C4C120B3AE030094916E /* libz.tbd */,
-				BD9F4E7E77B92CEFE1C55268 /* Pods_OralStunts.framework */,
-				62CD4F3A0EEE75CC33306E09 /* Pods_OralStuntsTests.framework */,
+				D62F073B6024B6A696CA9A45 /* libPods-OralStunts.a */,
+				AA8976204888DD125E89C0EB /* libPods-OralStuntsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2120,7 +2120,6 @@
 				5685333520AD9AA600BDB451 /* Sources */,
 				5685333620AD9AA600BDB451 /* Frameworks */,
 				5685333720AD9AA600BDB451 /* Resources */,
-				31020D0E66F382D22D232718 /* [CP] Embed Pods Frameworks */,
 				5645A13F20BBA85500EE7638 /* ShellScript */,
 				77B60B384B1BF0BB3A23DCA7 /* [CP] Copy Pods Resources */,
 				56F772A5216B2AFF00C3ECDB /* ShellScript */,
@@ -2142,7 +2141,6 @@
 				5685334920AD9AA700BDB451 /* Sources */,
 				5685334A20AD9AA700BDB451 /* Frameworks */,
 				5685334B20AD9AA700BDB451 /* Resources */,
-				C2CFE57565B56090E9B483DE /* [CP] Embed Pods Frameworks */,
 				4BDC786BF7F4BF368A84E723 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -2266,62 +2264,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31020D0E66F382D22D232718 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OralStunts/Pods-OralStunts-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework",
-				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
-				"${BUILT_PRODUCTS_DIR}/BeeHive/BeeHive.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/EvernoteSDK/EvernoteSDK.framework",
-				"${BUILT_PRODUCTS_DIR}/FFToast/FFToast.framework",
-				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/WHDebugTool/WHDebugTool.framework",
-				"${BUILT_PRODUCTS_DIR}/XRWaterfallLayout/XRWaterfallLayout.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunOSSiOS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BeeHive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EvernoteSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFToast.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WHDebugTool.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XRWaterfallLayout.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OralStunts/Pods-OralStunts-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		437B9982A12EF0ED10CBD6CD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2348,6 +2290,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OralStuntsTests/Pods-OralStuntsTests-resources.sh",
 				"${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle",
+				"${PODS_ROOT}/BeeHive/BeeHive/BeeHive.bundle",
+				"${PODS_ROOT}/EvernoteSDK/ENSDKResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FFToast/FFToast.bundle",
+				"${PODS_ROOT}/FlatUIKit/Resources/flat-ui-icons-regular.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Bold.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Italic.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Light.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Regular.ttf",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
@@ -2356,6 +2306,14 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YWFeedbackBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BeeHive.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ENSDKResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FFToast.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/flat-ui-icons-regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Bold.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Italic.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Light.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Regular.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKConfigFile.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
@@ -2404,6 +2362,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-OralStunts/Pods-OralStunts-resources.sh",
 				"${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle",
+				"${PODS_ROOT}/BeeHive/BeeHive/BeeHive.bundle",
+				"${PODS_ROOT}/EvernoteSDK/ENSDKResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FFToast/FFToast.bundle",
+				"${PODS_ROOT}/FlatUIKit/Resources/flat-ui-icons-regular.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Bold.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Italic.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Light.ttf",
+				"${PODS_ROOT}/FlatUIKit/Resources/Lato-Regular.ttf",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
@@ -2412,6 +2378,14 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YWFeedbackBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BeeHive.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ENSDKResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FFToast.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/flat-ui-icons-regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Bold.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Italic.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Light.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lato-Regular.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKConfigFile.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
@@ -2420,62 +2394,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OralStunts/Pods-OralStunts-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C2CFE57565B56090E9B483DE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OralStuntsTests/Pods-OralStuntsTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework",
-				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
-				"${BUILT_PRODUCTS_DIR}/BeeHive/BeeHive.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/EvernoteSDK/EvernoteSDK.framework",
-				"${BUILT_PRODUCTS_DIR}/FFToast/FFToast.framework",
-				"${BUILT_PRODUCTS_DIR}/FlatUIKit/FlatUIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/MONActivityIndicatorView/MONActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/WHDebugTool/WHDebugTool.framework",
-				"${BUILT_PRODUCTS_DIR}/XRWaterfallLayout/XRWaterfallLayout.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunOSSiOS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BeeHive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EvernoteSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFToast.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlatUIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MONActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WHDebugTool.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XRWaterfallLayout.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OralStuntsTests/Pods-OralStuntsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D44F4E31B43EA01FE7D923A5 /* [CP] Check Pods Manifest.lock */ = {

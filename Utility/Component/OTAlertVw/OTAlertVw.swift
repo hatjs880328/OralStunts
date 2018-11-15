@@ -17,7 +17,7 @@ import SCLAlertView
 
     /// 单行文档提示
     func alertShowSingleTitle(titleInfo: String, message: String) {
-        let toast = FFToast(toastWithTitle: titleInfo, message: message, iconImage: UIImage(name: "fftoast_info"))
+        let toast = FFToast(toastWithTitle: titleInfo, message: message, iconImage: UIImage(named: "fftoast_info"))
         toast?.toastPosition = .belowStatusBarWithFillet
         toast?.duration = 1.8
         toast?.toastBackgroundColor = APPDelStatic.themeColor

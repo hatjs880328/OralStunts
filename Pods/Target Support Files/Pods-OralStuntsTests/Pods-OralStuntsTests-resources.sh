@@ -3,10 +3,15 @@ set -e
 set -u
 set -o pipefail
 
+function on_error {
+  echo "$(realpath -mq "${0}"):$1: error: Unexpected failure"
+}
+trap 'on_error $LINENO' ERR
+
 if [ -z ${UNLOCALIZED_RESOURCES_FOLDER_PATH+x} ]; then
-    # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
-    # resources to, so exit 0 (signalling the script phase was successful).
-    exit 0
+  # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
+  # resources to, so exit 0 (signalling the script phase was successful).
+  exit 0
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
@@ -93,6 +98,14 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle"
+  install_resource "${PODS_ROOT}/BeeHive/BeeHive/BeeHive.bundle"
+  install_resource "${PODS_ROOT}/EvernoteSDK/ENSDKResources.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/FFToast/FFToast.bundle"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/flat-ui-icons-regular.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Bold.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Italic.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Light.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Regular.ttf"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle"
@@ -100,6 +113,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/AlicloudFeedback/feedback/YWFeedbackBundle.bundle"
+  install_resource "${PODS_ROOT}/BeeHive/BeeHive/BeeHive.bundle"
+  install_resource "${PODS_ROOT}/EvernoteSDK/ENSDKResources.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/FFToast/FFToast.bundle"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/flat-ui-icons-regular.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Bold.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Italic.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Light.ttf"
+  install_resource "${PODS_ROOT}/FlatUIKit/Resources/Lato-Regular.ttf"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle"

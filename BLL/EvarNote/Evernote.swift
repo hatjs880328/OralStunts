@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import EvernoteSDK
+//import EvernoteSDK
 
 /*
  印象笔记帮助类

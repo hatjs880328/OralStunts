@@ -19,7 +19,7 @@
 
 import UIKit
 import Foundation
-import Aspects
+//import Aspects
 
 /*
  non-buried point(NBP) SDK : AOP layer
