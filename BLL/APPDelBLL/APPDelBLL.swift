@@ -32,7 +32,7 @@ class APPDelBLL: NSObject {
         let note = OTNoteModel()
         note.id = NSUUID().uuidString
         note.setTitle("👏🏻👏🏻👏🏻开始使用OralStunts", [])
-        note.setContexts(createTime: Date(), content: "详情请查看个人中心得帮助", volumnList: [])
+        note.setContexts(createTime: Date(), content: "👏🏻👏🏻👏🏻开始使用OralStunts,详情请查看个人中心得帮助", volumnList: [])
         note.videoUrl.append("")
         NoteLogicBLL().insertNoteInfo(with: note)
 
