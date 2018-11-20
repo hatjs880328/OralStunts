@@ -32,6 +32,9 @@ class NoteBLL: NSObject, IFlySpeechRecognizerDelegate {
     /// 音频文件名字
     var videoDataName: String = ""
 
+    /// 处理内容|再次编辑时-只会创建一个ifly实例，这时为了保存多个语音文件，需要设置一个time次数属性
+    var contentOrRecontentTimes: Int = 0
+
     init(with videoName: String) {
         super.init()
         self.videoDataName = videoName
@@ -54,12 +57,14 @@ class NoteBLL: NSObject, IFlySpeechRecognizerDelegate {
 
     /// 启动服务
     func startService() {
+        self.reSetFSRIns(contentName: "\(self.videoDataName)~\(contentOrRecontentTimes)")
         self.flySpeechRec?.startListening()
     }
 
     /// 结束服务
     func stopService() {
         self.flySpeechRec?.stopListening()
+        self.contentOrRecontentTimes += 1
     }
 
     /// 取消此次识别服务
