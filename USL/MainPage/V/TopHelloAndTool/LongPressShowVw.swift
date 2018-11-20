@@ -157,10 +157,13 @@ extension LongPressShowVw {
 
     /// 删除
     func delete() {
-        if let vw = (self.superview as? MainVCTabVw) {
-            vw.vm?.deleteNotesBySelectedFlag()
+        //弹窗提示：
+        OTAlertVw().alertShowConfirm(title: "提醒", message: "确定要删除已选Note吗？", confirmStr: "确定") {
+            if let vw = (self.superview as? MainVCTabVw) {
+                vw.vm?.deleteNotesBySelectedFlag()
+            }
+            self.hideSelf()
         }
-        self.hideSelf()
     }
 
     /// 移动
