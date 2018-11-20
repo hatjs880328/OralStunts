@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // sqlite - init
         APPDelBLL().createTab()
         // 3-rd lib init
-        APPDelBLL().thridLibInit()
+        APPDelBLL().thridLibInit(del: self, options: launchOptions)
         // aop-nbp service[使用全局监控，这里无需注册]
         AOPNBPCoreManagerCenter.getInstance().startService()
         // moduleSearchService register service
@@ -46,5 +46,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+}
 
+extension AppDelegate: JPUSHRegisterDelegate {
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        JPUSHService.registerDeviceToken(deviceToken)
+    }
+
+    @available(iOS 12.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification?) {
+        if (notification?.request.trigger != nil) && notification!.request.trigger!.isKind(of: UNPushNotificationTrigger.self) {
+            //从通知界面直接进入应用
+        }else{
+            //从通知设置界面进入应用
+        }
+    }
+
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+        let userInfo = response.notification.request.content.userInfo
+        if response.notification.request.trigger != nil && response.notification.request.trigger!.isKind(of: UNPushNotificationTrigger.self) {
+            JPUSHService.handleRemoteNotification(userInfo)
+        }
+        completionHandler()
+    }
+
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
+        let userinfo = notification.request.content.userInfo
+        if notification.request.trigger != nil && notification.request.trigger!.isKind(of: UNPushNotificationTrigger.self) {
+            JPUSHService.handleRemoteNotification(userinfo)
+        }
+        completionHandler!(Int(UNNotificationPresentationOptions.alert.rawValue))
+    }
 }

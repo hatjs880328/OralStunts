@@ -29,9 +29,10 @@ class LoginBll: NSObject {
     func loginSuccess(_ nickName: String) {
         let userInfo = OTUserInfo()
         userInfo.nickName = nickName
-        userInfo.id = "oo1"
+        userInfo.id = NSUUID().uuidString
         MineBLL().insertUserInto(with: userInfo)
         LoginDAL().setUseTime()
+        IICacheManager.getInstance().saveObj(key: IICacheStorage().isloginApp, someThing: NSString(string: "1"))
     }
 
 }

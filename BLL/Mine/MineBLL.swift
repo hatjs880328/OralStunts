@@ -15,6 +15,7 @@ class MineBLL: NSObject {
     }
 
     func insertUserInto(with: OTUserInfo) {
+        print(with.id)
         MineDAL().insertOneInfo(with: with)
     }
 

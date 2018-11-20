@@ -38,7 +38,7 @@ class APPDelBLL: NSObject {
 
     }
 
-    func thridLibInit() {
+    func thridLibInit(del: AppDelegate,options: [UIApplicationLaunchOptionsKey: Any]?) {
         initTheFlyMSC()
         initTheBUGLY()
         initEvernote()
@@ -46,6 +46,25 @@ class APPDelBLL: NSObject {
         startCPURecognition()
         OTShare.registerShare()
         injection3Init()
+        JPushRegister(del: del, options: options)
+    }
+
+    /// 激光推送集成
+    func JPushRegister(del: AppDelegate,options: [UIApplicationLaunchOptionsKey: Any]?) {
+        JPUSHService.setLogOFF()
+        let entity = JPUSHRegisterEntity()
+        if #available(iOS 12.0, *) {
+            entity.types = Int(JPAuthorizationOptions.alert.rawValue | JPAuthorizationOptions.badge.rawValue | JPAuthorizationOptions.sound.rawValue | JPAuthorizationOptions.providesAppNotificationSettings.rawValue)
+        } else {
+            entity.types = Int(JPAuthorizationOptions.alert.rawValue | JPAuthorizationOptions.badge.rawValue | JPAuthorizationOptions.sound.rawValue)
+        }
+        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: del)
+        JPUSHService.setup(withOption: options, appKey: IIBizConfig.jpushKey, channel: "App Store", apsForProduction: true)
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        if IICacheManager.getInstance().isContains(key: IICacheStorage().isloginApp) {
+            JPUSHService.setAlias(MineBLL().getUserInfo().id.replace(find: "-", replaceStr: ""), completion: { (status, alis, flag) in
+            }, seq: 9)
+        }
     }
 
     func injection3Init() {

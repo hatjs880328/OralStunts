@@ -2166,6 +2166,9 @@
 					5685333820AD9AA600BDB451 = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -2830,7 +2833,7 @@
 				CODE_SIGN_ENTITLEMENTS = OralStunts/OralStunts.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P466F9M6G6;
+				DEVELOPMENT_TEAM = EJEV229UWS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2863,7 +2866,7 @@
 					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.iii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OralStunts/OralStunts-Bridging-Header.h";
@@ -2881,7 +2884,7 @@
 				CODE_SIGN_ENTITLEMENTS = OralStunts/OralStunts.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P466F9M6G6;
+				DEVELOPMENT_TEAM = EJEV229UWS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2914,7 +2917,7 @@
 					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Lib/IIShare/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.ii.OralStunts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Inspur.iii.OralStunts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OralStunts/OralStunts-Bridging-Header.h";

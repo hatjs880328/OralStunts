@@ -39,6 +39,8 @@ def useFrameworks
     pod 'AlicloudFeedback',:modular_headers => false
     
     pod 'SCLAlertView',:modular_headers => false
+
+    pod 'JPush',:modular_headers => false
     
     pod 'FFToast',:modular_headers => false
     pod 'mob_sharesdk',:modular_headers => false

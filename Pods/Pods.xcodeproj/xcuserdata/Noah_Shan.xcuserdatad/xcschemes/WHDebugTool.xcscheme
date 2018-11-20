@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E5D0DB11CB181385F42359A8DFFA62D0"
+               BlueprintIdentifier = "B5C5AECE5AF05775E0C8A5E25D70492B"
                BlueprintName = "WHDebugTool"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libWHDebugTool.a">

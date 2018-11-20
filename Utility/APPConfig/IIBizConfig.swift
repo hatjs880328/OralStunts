@@ -22,6 +22,10 @@ class IIBizConfig: NSObject {
 
     static let evernoteSecret: String = "2f221433eca9261b"
 
+    static let jpushKey: String = "2d0f56c4f57753144cd1d4c6"
+
+    static let jpushSecret: String = "7e6cae4ff3536bbc5654721e"
+
     /// 沙盒：https://sandbox.evernote.com/
     /// 生产：https://app.yinxiang.com/
     static var evernoteAPIHost: String {

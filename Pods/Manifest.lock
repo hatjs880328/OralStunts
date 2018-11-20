@@ -22,6 +22,9 @@ PODS:
   - FFToast (1.2.0)
   - FlatUIKit (1.6.2)
   - HandyJSON (4.2.0)
+  - JCore (1.2.5)
+  - JPush (3.1.1.1):
+    - JCore (~> 1.2.5)
   - MJExtension (3.0.15.1)
   - mob_sharesdk (4.2.0):
     - mob_sharesdk/ShareSDK (= 4.2.0)
@@ -78,6 +81,7 @@ DEPENDENCIES:
   - FFToast
   - FlatUIKit
   - HandyJSON (~> 4.2.0)
+  - JPush
   - MJExtension
   - mob_sharesdk
   - mob_sharesdk/ShareSDKConfigFile
@@ -115,6 +119,8 @@ SPEC REPOS:
     - FFToast
     - FlatUIKit
     - HandyJSON
+    - JCore
+    - JPush
     - MJExtension
     - mob_sharesdk
     - MOBFoundation
@@ -153,6 +159,8 @@ SPEC CHECKSUMS:
   FFToast: 60e0f3c9fd8fc473205015055ee39cd200404e01
   FlatUIKit: 1b41f0d4952ce8d970d8479ce79df54a960242c4
   HandyJSON: 9dfc026c7d7adc1f0f8ba8b181495f0e0763b0f4
+  JCore: 14706de2640b25fb77dbd02332696491407f37c9
+  JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   mob_sharesdk: fc8a9aab921c08e5e88a5b1f36229c6d406a2ff8
   MOBFoundation: ca11e6640e995875ff755faa56ea324eed260e70
@@ -167,6 +175,6 @@ SPEC CHECKSUMS:
   WHDebugTool: 8fab52ffc20037ccc8af5b638ca2f57f4a64bda1
   XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
 
-PODFILE CHECKSUM: b8706ea52029d27a6cd463f3d59a3875aa260d2f
+PODFILE CHECKSUM: 215a727480deb9bb79c913ba07e940196209dfc5
 
 COCOAPODS: 1.6.0.beta.2

@@ -80,3 +80,10 @@
 #import "CloudKit/CloudKit.h"
 
 //#import "IIImageUtilityOC.h"
+
+// jpush
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+#import "JPush/JPUSHService.h"

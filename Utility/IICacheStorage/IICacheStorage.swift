@@ -27,6 +27,9 @@ class IICacheStorage: NSObject {
     /// 预制的note添加
     @objc lazy var preNoteInsert = "preNoteInsert"
 
+    /// 是否登陆过APP
+    @objc lazy var isloginApp = "isloginApp"
+
     override init() {
         super.init()
     }
