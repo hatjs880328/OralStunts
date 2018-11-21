@@ -66,7 +66,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>en</string>
@@ -104,6 +104,8 @@
 	<string>为了意见反馈功能，我们需要获取您的相册权限</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>We need access to your calendar in order to help you track events.</string>
+	<key>NSSiriUsageDescription</key>
+	<string>允许使用Siri以便使用Shotcut来唤醒APP</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.oralstunts.videoDing</string>
