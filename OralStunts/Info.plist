@@ -89,7 +89,7 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>We need access to your calendar in order to help you track events.</string>
+	<string>允许OT访问日历，以便将日历信息添加到内部日历功能中</string>
 	<key>NSCameraUsageDescription</key>
 	<string>为了意见反馈功能，我们需要获取您的相机权限</string>
 	<key>NSContactsUsageDescription</key>
@@ -99,11 +99,11 @@
 	<key>NSLocationUsageDescription</key>
 	<string>我们需要接入地理位置信息，为了能更好的理解你所在地区的方言信息</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access the MicroPhone to understand your talks to mechine</string>
+	<string>语序访问麦克风，以便我们能使用语音录入功能</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>为了意见反馈功能，我们需要获取您的相册权限</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>We need access to your calendar in order to help you track events.</string>
+	<string>允许使用日历，为了能将便签添加到日历中</string>
 	<key>NSSiriUsageDescription</key>
 	<string>允许使用Siri以便使用Shotcut来唤醒APP</string>
 	<key>NSUserActivityTypes</key>
