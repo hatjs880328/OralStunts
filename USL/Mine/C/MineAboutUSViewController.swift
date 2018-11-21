@@ -95,7 +95,7 @@ class MineAboutUSViewController: IIBaseViewController {
     }
 
     @objc func share() {
-        OTShare.share(with: self.view, title: "OralStunts", subTitle: "生活琐事随地、随时记录。", img: "voice.png", shareUrl: URL(string: "http://baidu.com")!)
+        OTShare.share(with: self.view, title: "OralStunts", subTitle: "生活琐事随地、随时记录。", img: "voice.png", shareUrl: URL(string: "https://hatjs880328s.github.io")!)
     }
 
 }

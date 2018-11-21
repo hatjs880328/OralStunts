@@ -62,7 +62,7 @@ class NoteTimeLineViewController: IIBaseViewController {
         }
         let shareAction = { [weak self]() in
             if self == nil { return }
-            OTShare.share(with: self!.view, title: NoteCreatingBLL.getInstance().showingNoteModel.title, subTitle: NoteCreatingBLL.getInstance().showingNoteModel.contentTxt.last!, img: "voice.png", shareUrl: URL(string: "http://www.baidu.com")!)
+            OTShare.share(with: self!.view, title: NoteCreatingBLL.getInstance().showingNoteModel.title, subTitle: NoteCreatingBLL.getInstance().showingNoteModel.contentTxt.last!, img: "voice.png", shareUrl: URL(string: "https://hatjs880328s.github.io")!)
             self?.showOrHiddenMenu()
         }
         self.menuListVw.didSelectAction.append(actionEdit)
